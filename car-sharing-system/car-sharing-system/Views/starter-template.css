@@ -1,0 +1,36 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.btn-front-page-sign-register {
+  font-size: 18px;
+  width: 20%;
+}
+
+.btn-front-page-rent {
+  font-size: 24px;
+  width: 40%;
+}
+.cover-img {
+  background-image: url('off-road-cars-silhouettes.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  height:640px;
+  display:inline-block;
+  position:absolute;
+}
+
+.test {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#61ff73+0,61ff73+100&0+67,1+100 */
+  background: linear-gradient(to top, #fff, #fff, transparent, transparent, transparent), url('off-road-cars-silhouettes 2.jpg') no-repeat center;
+}
+
+.jumbotron {
+  background: rgb(200, 200, 200); /* This is for ie8 and below */
+  background: rgba(200, 200, 200, 0.9);
+}
