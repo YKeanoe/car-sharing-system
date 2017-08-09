@@ -102,17 +102,13 @@
     <Content Include="Bootstrap\js\npm.js" />
     <Content Include="Bootstrap\js\scrolling-nav.js" />
     <Content Include="Global.asax" />
-    <Content Include="Views\car1.jpeg" />
-    <Content Include="Views\car2.jpeg" />
-    <Content Include="Views\car3.jpeg" />
+    <Content Include="Views\Images\car-placeholder-1.jpeg" />
+    <Content Include="Views\Images\car-placeholder-2.jpeg" />
+    <Content Include="Views\Images\car-placeholder-3.jpeg" />
     <Content Include="Views\index.html" />
-    <Content Include="Views\newIndex.html" />
-    <Content Include="Views\off-road-cars-silhouettes 2.jpg" />
-    <Content Include="Views\off-road-cars-silhouettes.jpg" />
-    <Content Include="Views\pepe %281%29.jpg" />
-    <Content Include="Views\pepe %282%29.jpg" />
-    <Content Include="Views\pepe %283%29.jpg" />
-    <Content Include="Views\starter-template.css" />
+    <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
+    <Content Include="Views\Images\off-road-cars-silhouettes.jpg" />
+    <Content Include="Views\index.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
