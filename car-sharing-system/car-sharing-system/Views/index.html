@@ -68,7 +68,6 @@
             <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
             <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
           </p>
-          <a class="btn btn-primary btn-front-page-rent" href="#" role="button">Rent a Car!</a>
         </div>
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -108,17 +107,10 @@
   <!-- About Section -->
   <section id="cars" class="about-section">
     <div class="container">
-      <div class="starter-template">
-        <div class="container-fluid">
-
-        <div class="jumbotron">
-          <h1>Ace Rental</h1>
-          <h2>Rent a car anywhere at a touch of a button</h2>
-          <p>
-            <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
-            <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
-          </p>
-          <a class="btn btn-primary btn-front-page-rent" href="#" role="button">Rent a Car!</a>
+      <div class="jumbotron carPanel">
+        <div id="map"></div>
+        <div class="list">
+          List of cars near you
         </div>
       </div>
     </div>
@@ -153,5 +145,22 @@
   <!-- Scrolling Nav JavaScript -->
   <script src="../Bootstrap/js/jquery.easing.min.js"></script>
   <script src="../Bootstrap/js/scrolling-nav.js"></script>
-</body>
-</html>
+
+  <!-- Google Map script with API key-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&callback=initMap"></script>
+
+  <script>
+    function initMap() {
+      var uluru = { lat: -25.363, lng: 131.044 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+</body >
+</html >

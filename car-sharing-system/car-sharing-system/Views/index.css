@@ -40,6 +40,27 @@ body {
   background: linear-gradient(to top, #fff, #fff, transparent, transparent, transparent), url('off-road-cars-silhouettes 2.jpg') no-repeat center;
 }
 
+#map {
+  background: #fff;
+  font-size: 20px;
+  float: left;
+  height: 400px;
+  width: 50%;
+}
+
+.list {
+  background: #fff;
+  font-size: 20px;
+  float:right;
+  margin-left:5%;
+  width: 40%;
+  height: 100%;
+}
+
+.carPanel {
+  display:flex;
+}
+
 .jumbotron {
   background: rgb(200, 200, 200); /* This is for ie8 and below */
   background: rgba(200, 200, 200, 0.9);
