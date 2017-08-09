@@ -25,6 +25,16 @@ body {
   position:absolute;
 }
 
+.float-test {
+  position:absolute;
+  z-index:+1;
+  left:0;
+  right:0;
+  margin:50px auto;
+
+  width:60%;
+}
+
 .test {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#61ff73+0,61ff73+100&0+67,1+100 */
   background: linear-gradient(to top, #fff, #fff, transparent, transparent, transparent), url('off-road-cars-silhouettes 2.jpg') no-repeat center;
