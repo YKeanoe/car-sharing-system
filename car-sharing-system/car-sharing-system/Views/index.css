@@ -65,3 +65,8 @@ body {
   background: rgb(200, 200, 200); /* This is for ie8 and below */
   background: rgba(200, 200, 200, 0.9);
 }
+
+.logo {
+  max-height:100%;
+  max-width:100%;
+}
