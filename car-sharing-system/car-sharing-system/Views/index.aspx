@@ -1,16 +1,15 @@
-﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/Homepage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.WebForm1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/Homepage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.FrontPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="FrontPageHolder" runat="server">
   <section id="intro" class="intro-section">
     <div class="container">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="jumbotron float-test">
           <h1>Ace Rental</h1>
-          <h2>Rent a car anywhere at a touch of a button</h2>
+          <h2>Rent a car anywhere at a touch of a button</h2>          
           <p>
             <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
             <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
           </p>
-          <a class="btn btn-primary btn-front-page-rent" href="#" role="button">Rent a Car!</a>
         </div>
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -50,21 +49,17 @@
   <!-- About Section -->
   <section id="cars" class="about-section">
     <div class="container">
-      <div class="starter-template">
-        <div class="container-fluid">
+      <div class="jumbotron carPanel">
+        <div id="map"></div>
+        <div class="list">
+          List of cars near you 
+          <asp:PlaceHolder ID="carlist"  runat="server"/>
 
-        <div class="jumbotron">
-          <h1>Ace Rental</h1>
-          <h2>Rent a car anywhere at a touch of a button</h2>
-          <p>
-            <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
-            <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
-          </p>
-          <a class="btn btn-primary btn-front-page-rent" href="#" role="button">Rent a Car!</a>
         </div>
       </div>
     </div>
   </section>
+  
 
   <!-- Services Section -->
   <section id="book" class="services-section">
@@ -87,4 +82,8 @@
       </div>
     </div>
   </section>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&callback=initMap"></script>
+
+    <script src="index.js"></script>
+
 </asp:Content>

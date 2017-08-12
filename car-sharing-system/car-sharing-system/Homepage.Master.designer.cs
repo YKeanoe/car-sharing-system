@@ -13,12 +13,12 @@ namespace car_sharing_system {
     public partial class Homepage {
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// FrontPageHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder FrontPageHolder;
     }
 }
