@@ -28,7 +28,7 @@ namespace car_sharing_system
         };
       //      CarGridView.DataSource = collections;
       //    CarGridView.DataBind();
-
+      /*
       int i = 0;
       while (i < 3) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
@@ -37,7 +37,7 @@ namespace car_sharing_system
         carlist.Controls.Add(div1);
         i++;
       }
-
+      */
     }
     public void generateDummy() {
       cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, -37.816261, 144.970976));

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/Homepage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.FrontPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="FrontPageHolder" runat="server">
   <section id="intro" class="intro-section">
-    <div class="container">
+    <div class="container-fluid container-full">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="jumbotron float-test">
           <h1>Ace Rental</h1>
@@ -48,7 +48,7 @@
 
   <!-- About Section -->
   <section id="cars" class="about-section">
-    <div class="container">
+    <div class="container-fluid">
       <div class="jumbotron carPanel">
         <div id="map"></div>
         <div class="list">
