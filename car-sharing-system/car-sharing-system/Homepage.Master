@@ -9,6 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Ace Rental</title>
+  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+
   <!-- Bootstrap Core CSS -->
   <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom CSS -->
@@ -21,6 +23,7 @@
   <!-- Scrolling Nav JavaScript -->
   <script src="/Bootstrap/js/jquery.easing.min.js"></script>
   <script src="/Bootstrap/js/scrolling-nav.js"></script>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

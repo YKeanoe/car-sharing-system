@@ -1,47 +1,33 @@
 ﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/Homepage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.FrontPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="FrontPageHolder" runat="server">
+  <!-- Intro Section -->
   <section id="intro" class="intro-section">
-    <div class="container-fluid container-full">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <div class="jumbotron float-test">
-          <h1>Ace Rental</h1>
-          <h2>Rent a car anywhere at a touch of a button</h2>          
-          <p>
-            <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
-            <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
-          </p>
-        </div>
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+    <div class="container-full-width">
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+      <!-- Jumbotron Div -->
+      <div class="jumbotron float-jumbo">
+        <h1>Ace Rental</h1>
+        <h2>Rent a car anywhere at a touch of a button</h2>          
+        <p>
+          <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
+          <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
+        </p>
+      </div>
+
+      <!-- Carousel Div -->
+      <div id="carCarousel" class="carousel slide limit" data-ride="carousel">
+        <div class="carousel-inner carousel-limit">
           <div class="item active">
-            <img src="Images/car-placeholder-1.jpeg" alt="Los Angeles" style="width:100%;">
+            <img id="thumb" src="Images/test1.jpg" alt="Los Angeles">
+          </div>
+          <div class="item">
+            <img id="thumb" src="Images/test2.jpg" alt="Chicago">
           </div>
 
           <div class="item">
-            <img src="Images/car-placeholder-2.jpeg" alt="Chicago" style="width:100%;">
-          </div>
-
-          <div class="item">
-            <img src="Images/car-placeholder-3.jpeg" alt="New york" style="width:100%;">
+            <img id="thumb" src="Images/test3.jpg" alt="New york">
           </div>
         </div>
-                
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
     </div>
   </section>
