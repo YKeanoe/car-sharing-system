@@ -65,36 +65,11 @@
   height:100%;
 }
 
-.right.carousel-control, .left.carousel-control {
-    display: none;
-}
 
 .carousel-limit {
   height:100%;
 }
 
-#thumb {
-  width:100%;
-  max-width:1920px;
-  min-width:1920px;
-  height:100%;
-  background:no-repeat;
-  display:block;
-  margin:0 auto;
-}
-
-@media screen and (max-width: 768px) {
-  .carousel-limit {
-    height:100%;
-  }
-}
-
-
-@media screen and (max-width: 1000px) {
-  .carousel-limit {
-    height:100%;
-  }
-}
 
 .carousel-item {
     height: 100vh;
