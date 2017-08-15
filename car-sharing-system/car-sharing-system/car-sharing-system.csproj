@@ -98,7 +98,6 @@
     <Content Include="Admin_Theme\pages\icons.html" />
     <Content Include="Admin_Theme\pages\index.html" />
     <Content Include="Admin_Theme\pages\login.html" />
-    <Content Include="Admin_Theme\pages\morris.html" />
     <Content Include="Admin_Theme\pages\notifications.html" />
     <Content Include="Admin_Theme\pages\panels-wells.html" />
     <Content Include="Admin_Theme\pages\tables.html" />
