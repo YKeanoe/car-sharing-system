@@ -100,8 +100,6 @@
     <Content Include="Admin_Theme\pages\login.html" />
     <Content Include="Admin_Theme\pages\notifications.html" />
     <Content Include="Admin_Theme\pages\panels-wells.html" />
-    <Content Include="Admin_Theme\pages\tables.html" />
-    <Content Include="Admin_Theme\pages\typography.html" />
     <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.min.css" />

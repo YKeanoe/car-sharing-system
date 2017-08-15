@@ -55,7 +55,7 @@
 
         <div class="jumbotron">
           <h1>Ace Rental</h1>
-          <h2>Rent a car anywhere at a touch of a button</h2>
+          <h2>Rent a car anywhereeeee at a touch of a button</h2>
           <p>
             <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
             <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
