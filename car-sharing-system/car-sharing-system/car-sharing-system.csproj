@@ -92,14 +92,10 @@
     <Content Include="Admin_Theme\index.html" />
     <Content Include="Admin_Theme\pages\blank.html" />
     <Content Include="Admin_Theme\pages\buttons.html" />
-    <Content Include="Admin_Theme\pages\flot.html" />
-    <Content Include="Admin_Theme\pages\forms.html" />
     <Content Include="Admin_Theme\pages\grid.html" />
     <Content Include="Admin_Theme\pages\icons.html" />
     <Content Include="Admin_Theme\pages\index.html" />
-    <Content Include="Admin_Theme\pages\login.html" />
-    <Content Include="Admin_Theme\pages\notifications.html" />
-    <Content Include="Admin_Theme\pages\panels-wells.html" />
+    <Content Include="Admin_Theme\pages\profile.html" />
     <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.min.css" />
