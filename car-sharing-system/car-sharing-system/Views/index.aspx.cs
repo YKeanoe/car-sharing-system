@@ -19,7 +19,11 @@ namespace car_sharing_system
   public partial class FrontPage : System.Web.UI.Page {
     ArrayList cars = new ArrayList();
     protected void Page_Load(object sender, EventArgs e) {
-  //    generateDummy();
+
+    //  Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction()", true);
+
+
+      //    generateDummy();
       var collections = new List<User>
         {
             new User {Name = "Jon Doe", Email = "john@doe.com", Phone = "123-123-1234"},

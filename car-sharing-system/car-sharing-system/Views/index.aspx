@@ -3,7 +3,8 @@
   <!-- Intro Section -->
   <section id="intro" class="intro-section">
     <div class="container-full-width">
-
+      
+      
       <!-- Jumbotron Div -->
       <div class="jumbotron float-jumbo">
         <h1>Ace Rental</h1>
@@ -15,18 +16,29 @@
       </div>
 
       <!-- Carousel Div -->
-      <div id="carCarousel" class="carousel slide limit" data-ride="carousel">
-        <div class="carousel-inner carousel-limit">
-          <div class="item active">
-            <img id="thumb" src="Images/test1.jpg" alt="Los Angeles">
-          </div>
-          <div class="item">
-            <img id="thumb" src="Images/test2.jpg" alt="Chicago">
-          </div>
-
-          <div class="item">
-            <img id="thumb" src="Images/test3.jpg" alt="New york">
-          </div>
+      <div id="carCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('Images/test1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('Images/test2.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('Images/test3.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
         </div>
       </div>
     </div>
