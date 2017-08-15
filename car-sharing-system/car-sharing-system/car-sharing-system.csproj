@@ -96,7 +96,10 @@
     <Content Include="Admin_Theme\pages\icons.html" />
     <Content Include="Admin_Theme\pages\index.aspx" />
     <Content Include="Admin_Theme\pages\login.aspx" />
+    <Content Include="Admin_Theme\pages\logout.aspx" />
     <Content Include="Admin_Theme\pages\profile.aspx" />
+    <Content Include="Admin_Theme\pages\register.aspx" />
+    <Content Include="Admin_Theme\pages\successregister.aspx" />
     <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.min.css" />
@@ -225,12 +228,33 @@
     <Compile Include="Admin_Theme\pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Theme\pages\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Theme\pages\profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_Theme\pages\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\successregister.aspx.cs">
+      <DependentUpon>successregister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\successregister.aspx.designer.cs">
+      <DependentUpon>successregister.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">

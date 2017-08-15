@@ -21,26 +21,9 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="form-control" placeholder="Username" />
-                                    <br />
-
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Password" />
-                                    <br />
-
-                                    <a href="/Admin_Theme/pages/register.aspx" class="btn btn-info">
-                                        Register
-                                    </a>
-
-                                    <button class="btn btn-primary">
-                                        Login
-                                    </button>
-                                    
-                                </div>
-                            </form>
+                              <h2>You have successfully registered an account</h2>
+                              <p>You can now access the dash board.</p>
+                              <a href="/Admin_Theme/pages/index.aspx">Dashboard</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
