@@ -5,6 +5,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="fa fa-user fa-5x"></i>
@@ -113,17 +114,17 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
+                            <a href="/Admin_Theme/pages/confirm.aspx" class="btn btn-primary">
+                                        Confirm
+                                    </a>
+
                         <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                    <!-- /.panel-heading -->
-                    <!-- /.table-responsive -->
+                 
                 </div>
                 <!-- /.col-lg-4 (nested) -->
                 <div class="col-lg-8">
-                    <div id="morris-bar-chart"></div>
+                    
                 </div>
                 <!-- /.col-lg-8 (nested) -->
             </div>

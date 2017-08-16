@@ -92,6 +92,7 @@
     <Content Include="Admin_Theme\index.html" />
     <Content Include="Admin_Theme\pages\blank.html" />
     <Content Include="Admin_Theme\pages\buttons.html" />
+    <Content Include="Admin_Theme\pages\confirm.aspx" />
     <Content Include="Admin_Theme\pages\grid.html" />
     <Content Include="Admin_Theme\pages\icons.html" />
     <Content Include="Admin_Theme\pages\index.aspx" />
@@ -221,6 +222,13 @@
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_Theme\pages\confirm.aspx.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\confirm.aspx.designer.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Theme\pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
