@@ -9,6 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Ace Rental</title>
+  <link rel="shortcut icon" href="Views/Images/favicon.ico" type="image/x-icon">
   <!-- Bootstrap Core CSS -->
   <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom CSS -->

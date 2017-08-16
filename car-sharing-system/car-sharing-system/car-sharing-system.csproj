@@ -209,6 +209,7 @@
     <Content Include="Views\Images\car-placeholder-2.jpeg" />
     <Content Include="Views\Images\car-placeholder-3.jpeg" />
     <Content Include="Views\Images\favicon.ico" />
+    <Content Include="Views\Images\logo.png" />
     <Content Include="Views\testIndex.html" />
     <Content Include="Views\index.html" />
     <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
