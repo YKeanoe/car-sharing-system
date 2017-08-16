@@ -93,7 +93,6 @@
     <Content Include="Admin_Theme\pages\blank.html" />
     <Content Include="Admin_Theme\pages\buttons.html" />
     <Content Include="Admin_Theme\pages\grid.html" />
-    <Content Include="Admin_Theme\pages\head.html" />
     <Content Include="Admin_Theme\pages\icons.html" />
     <Content Include="Admin_Theme\pages\index.aspx" />
     <Content Include="Admin_Theme\pages\login.aspx" />
@@ -101,6 +100,9 @@
     <Content Include="Admin_Theme\pages\profile.aspx" />
     <Content Include="Admin_Theme\pages\register.aspx" />
     <Content Include="Admin_Theme\pages\successregister.aspx" />
+    <Content Include="Admin_Theme\pages\booking.aspx" />
+    <Content Include="Admin_Theme\pages\issue.aspx" />
+    <Content Include="Admin_Theme\pages\detail.aspx" />
     <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.min.css" />
@@ -256,6 +258,27 @@
     </Compile>
     <Compile Include="Admin_Theme\pages\successregister.aspx.designer.cs">
       <DependentUpon>successregister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\booking.aspx.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\booking.aspx.designer.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\issue.aspx.cs">
+      <DependentUpon>issue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\issue.aspx.designer.cs">
+      <DependentUpon>issue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">

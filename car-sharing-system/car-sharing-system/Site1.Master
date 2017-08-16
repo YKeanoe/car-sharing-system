@@ -82,10 +82,10 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-tasks fa-fw"></i> Booking history</a>
+                            <a href="booking.aspx"><i class="fa fa-tasks fa-fw"></i> Booking history</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-eye"></i> Current mileage</a>
+                            <a href="detail.aspx"><i class="fa fa-bar-chart-o"></i> Current kms</a>
                             </li>
                         <li>
                             <a href="logout.aspx"><i class="fa fa-edit fa-fw"></i> Log out</a>

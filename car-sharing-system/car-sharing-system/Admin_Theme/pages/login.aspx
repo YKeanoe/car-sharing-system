@@ -50,8 +50,7 @@
                 </div>
                 <!-- /.col-lg-4 (nested) -->
                 <div class="col-lg-8">
-                    <div id="morris-bar-chart"></div>
-                </div>
+                
                 <!-- /.col-lg-8 (nested) -->
             </div>
             <!-- /.row -->
