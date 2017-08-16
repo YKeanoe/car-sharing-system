@@ -16,7 +16,7 @@
       </div>
 
       <!-- Carousel Div -->
-      <div id="carCarousel" class="carousel slide" data-ride="carousel">
+      <div id="carCarousel" class="carousel slide" data-ride="carousel" data-interval="500">
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
