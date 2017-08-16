@@ -208,13 +208,15 @@
     <Content Include="Views\Images\car-placeholder-1.jpeg" />
     <Content Include="Views\Images\car-placeholder-2.jpeg" />
     <Content Include="Views\Images\car-placeholder-3.jpeg" />
-    <Content Include="Views\Images\favicon.png" />
+    <Content Include="Views\Images\favicon.ico" />
     <Content Include="Views\testIndex.html" />
     <Content Include="Views\index.html" />
     <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
     <Content Include="Views\Images\off-road-cars-silhouettes.jpg" />
     <Content Include="Views\index.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -309,7 +311,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="Bootstrap\css\bootstrap.css.map" />
