@@ -208,6 +208,7 @@
     <Content Include="Views\Images\car-placeholder-1.jpeg" />
     <Content Include="Views\Images\car-placeholder-2.jpeg" />
     <Content Include="Views\Images\car-placeholder-3.jpeg" />
+    <Content Include="Views\Images\favicon.png" />
     <Content Include="Views\testIndex.html" />
     <Content Include="Views\index.html" />
     <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
