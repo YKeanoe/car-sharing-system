@@ -38,7 +38,7 @@
                                     <button class="btn btn-primary">
                                         Login
                                     </button>
-                                    <asp:Literal runat="server" ID="FailureText" />
+                                    <asp:Literal runat="server" ID="MyData" />
                                     
                                 </div>
                             </form>

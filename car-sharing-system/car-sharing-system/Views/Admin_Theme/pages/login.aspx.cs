@@ -16,7 +16,9 @@ namespace car_sharing_system.Admin_Theme.pages
         {
             login_model data = new login_model();
             // Build your Connection
-            FailureText.Text = data.dataBase("admin@gmail.com","admin");
+            String myData = data.dataBase("admin@gmail.com", "admin");
+            if (myData != null)
+                MyData.Text = myData;
         }
     }
 }

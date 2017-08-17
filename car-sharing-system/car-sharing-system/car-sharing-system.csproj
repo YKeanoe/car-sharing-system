@@ -109,107 +109,108 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin_Theme\index.html" />
-    <Content Include="Admin_Theme\pages\blank.html" />
-    <Content Include="Admin_Theme\pages\buttons.html" />
-    <Content Include="Admin_Theme\pages\grid.html" />
-    <Content Include="Admin_Theme\pages\head.html" />
-    <Content Include="Admin_Theme\pages\icons.html" />
-    <Content Include="Admin_Theme\pages\index.aspx" />
-    <Content Include="Admin_Theme\pages\login.aspx" />
-    <Content Include="Admin_Theme\pages\logout.aspx" />
-    <Content Include="Admin_Theme\pages\profile.aspx" />
-    <Content Include="Admin_Theme\pages\register.aspx" />
-    <Content Include="Admin_Theme\pages\successregister.aspx" />
-    <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
-    <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
-    <Content Include="Admin_Theme\dist\css\sb-admin-2.min.css" />
-    <Content Include="Admin_Theme\js\sb-admin-2.js" />
-    <Content Include="Admin_Theme\dist\js\sb-admin-2.js" />
-    <Content Include="Admin_Theme\dist\js\sb-admin-2.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.bootstrap.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.bootstrap.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.bootstrap4.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.bootstrap4.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.foundation.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.foundation.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.jqueryui.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.jqueryui.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.material.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.material.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.semanticui.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.semanticui.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.uikit.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\dataTables.uikit.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\jquery.dataTables.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\jquery.dataTables.min.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\css\jquery.dataTables_themeroller.css" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\favicon.ico" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\sort_asc.png" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\sort_asc_disabled.png" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\sort_both.png" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\sort_desc.png" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\sort_desc_disabled.png" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.bootstrap.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.bootstrap.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.bootstrap4.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.bootstrap4.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.foundation.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.foundation.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.jqueryui.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.jqueryui.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.material.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.material.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.semanticui.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.semanticui.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.uikit.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\dataTables.uikit.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\jquery.dataTables.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\jquery.dataTables.min.js" />
-    <Content Include="Admin_Theme\vendor\databasetables\js\jquery.js" />
-    <Content Include="Admin_Theme\vendor\datatables-plugin\dataTables.bootstrap.css" />
-    <Content Include="Admin_Theme\vendor\datatables-plugin\dataTables.bootstrap.js" />
-    <Content Include="Admin_Theme\vendor\datatables-plugin\dataTables.bootstrap.min.js" />
-    <Content Include="Admin_Theme\vendor\datatables-plugin\index.html" />
-    <Content Include="Admin_Theme\vendor\datatables-responsive\dataTables.responsive.css" />
-    <Content Include="Admin_Theme\vendor\datatables-responsive\dataTables.responsive.js" />
-    <Content Include="Admin_Theme\vendor\float-tooltip\jquery.flot.tooltip.js" />
-    <Content Include="Admin_Theme\vendor\float-tooltip\jquery.flot.tooltip.min.js" />
-    <Content Include="Admin_Theme\vendor\float-tooltip\jquery.flot.tooltip.source.js" />
-    <Content Include="Admin_Theme\vendor\float\excanvas.js" />
-    <Content Include="Admin_Theme\vendor\float\excanvas.min.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.colorhelpers.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.canvas.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.categories.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.crosshair.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.errorbars.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.fillbetween.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.image.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.navigate.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.pie.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.resize.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.selection.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.stack.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.symbol.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.threshold.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.flot.time.js" />
-    <Content Include="Admin_Theme\vendor\float\jquery.js" />
-    <Content Include="Admin_Theme\vendor\font-awesome\css\font-awesome.css" />
-    <Content Include="Admin_Theme\vendor\font-awesome\css\font-awesome.min.css" />
-    <Content Include="Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Admin_Theme\gulpfile.js" />
-    <Content Include="Admin_Theme\vendor\jquery\jquery.js" />
-    <Content Include="Admin_Theme\vendor\jquery\jquery.min.js" />
-    <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.css" />
-    <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.js" />
-    <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.min.css" />
-    <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.min.js" />
-    <Content Include="Admin_Theme\vendor\morrisjs\morris.css" />
-    <Content Include="Admin_Theme\vendor\morrisjs\morris.js" />
-    <Content Include="Admin_Theme\vendor\morrisjs\morris.min.js" />
-    <Content Include="Admin_Theme\vendor\raphael\raphael.js" />
-    <Content Include="Admin_Theme\vendor\raphael\raphael.min.js" />
+    <Content Include="Views\Admin_Theme\pages\blank.html" />
+    <Content Include="Views\Admin_Theme\pages\buttons.html" />
+    <Content Include="Views\Admin_Theme\pages\grid.html" />
+    <Content Include="Views\Admin_Theme\pages\head.html" />
+    <Content Include="Views\Admin_Theme\pages\icons.html" />
+    <Content Include="Views\Admin_Theme\pages\index.aspx" />
+    <Content Include="Views\Admin_Theme\pages\login.aspx">
+      <BrowseToURL>~/login</BrowseToURL>
+    </Content>
+    <Content Include="Views\Admin_Theme\pages\logout.aspx" />
+    <Content Include="Views\Admin_Theme\pages\profile.aspx" />
+    <Content Include="Views\Admin_Theme\pages\register.aspx" />
+    <Content Include="Views\Admin_Theme\pages\successregister.aspx" />
+    <Content Include="Views\Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
+    <Content Include="Views\Admin_Theme\dist\css\sb-admin-2.css" />
+    <Content Include="Views\Admin_Theme\dist\css\sb-admin-2.min.css" />
+    <Content Include="Views\Admin_Theme\js\sb-admin-2.js" />
+    <Content Include="Views\Admin_Theme\dist\js\sb-admin-2.js" />
+    <Content Include="Views\Admin_Theme\dist\js\sb-admin-2.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.bootstrap.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.bootstrap4.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.foundation.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.foundation.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.jqueryui.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.material.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.material.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.semanticui.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.semanticui.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.uikit.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\dataTables.uikit.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\jquery.dataTables.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\jquery.dataTables.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\favicon.ico" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\sort_asc.png" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\sort_asc_disabled.png" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\sort_both.png" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\sort_desc.png" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\sort_desc_disabled.png" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.bootstrap.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.bootstrap.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.bootstrap4.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.foundation.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.foundation.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.jqueryui.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.jqueryui.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.material.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.material.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.semanticui.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.semanticui.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.uikit.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\dataTables.uikit.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\jquery.dataTables.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\jquery.dataTables.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\js\jquery.js" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-plugin\dataTables.bootstrap.css" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-plugin\dataTables.bootstrap.js" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-plugin\dataTables.bootstrap.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-plugin\index.html" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-responsive\dataTables.responsive.css" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-responsive\dataTables.responsive.js" />
+    <Content Include="Views\Admin_Theme\vendor\float-tooltip\jquery.flot.tooltip.js" />
+    <Content Include="Views\Admin_Theme\vendor\float-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\float-tooltip\jquery.flot.tooltip.source.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\excanvas.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\excanvas.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.colorhelpers.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.canvas.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.categories.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.crosshair.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.errorbars.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.fillbetween.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.image.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.navigate.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.pie.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.resize.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.selection.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.stack.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.symbol.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.threshold.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.flot.time.js" />
+    <Content Include="Views\Admin_Theme\vendor\float\jquery.js" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\Admin_Theme\gulpfile.js" />
+    <Content Include="Views\Admin_Theme\vendor\jquery\jquery.js" />
+    <Content Include="Views\Admin_Theme\vendor\jquery\jquery.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\metisMenu\metisMenu.css" />
+    <Content Include="Views\Admin_Theme\vendor\metisMenu\metisMenu.js" />
+    <Content Include="Views\Admin_Theme\vendor\metisMenu\metisMenu.min.css" />
+    <Content Include="Views\Admin_Theme\vendor\metisMenu\metisMenu.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\morrisjs\morris.css" />
+    <Content Include="Views\Admin_Theme\vendor\morrisjs\morris.js" />
+    <Content Include="Views\Admin_Theme\vendor\morrisjs\morris.min.js" />
+    <Content Include="Views\Admin_Theme\vendor\raphael\raphael.js" />
+    <Content Include="Views\Admin_Theme\vendor\raphael\raphael.min.js" />
     <Content Include="Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Bootstrap\css\bootstrap.css" />
@@ -235,7 +236,6 @@
     <Content Include="Views\Images\test3.JPG" />
     <Content Include="Views\index.js" />
     <Content Include="Views\testIndex.html" />
-    <Content Include="Views\index.html" />
     <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
     <Content Include="Views\Images\off-road-cars-silhouettes.jpg" />
     <Content Include="Views\index.css" />
@@ -243,47 +243,47 @@
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin_Theme\login\login_model.cs" />
-    <Compile Include="Admin_Theme\pages\index.aspx.cs">
+    <Compile Include="Views\Admin_Theme\login\login_model.cs" />
+    <Compile Include="Views\Admin_Theme\pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Theme\pages\index.aspx.designer.cs">
+    <Compile Include="Views\Admin_Theme\pages\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Theme\pages\login.aspx.cs">
+    <Compile Include="Views\Admin_Theme\pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Theme\pages\login.aspx.designer.cs">
+    <Compile Include="Views\Admin_Theme\pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Theme\pages\logout.aspx.cs">
+    <Compile Include="Views\Admin_Theme\pages\logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Theme\pages\logout.aspx.designer.cs">
+    <Compile Include="Views\Admin_Theme\pages\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Theme\pages\profile.aspx.cs">
+    <Compile Include="Views\Admin_Theme\pages\profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Theme\pages\profile.aspx.designer.cs">
+    <Compile Include="Views\Admin_Theme\pages\profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Theme\pages\register.aspx.cs">
+    <Compile Include="Views\Admin_Theme\pages\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Theme\pages\register.aspx.designer.cs">
+    <Compile Include="Views\Admin_Theme\pages\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Theme\pages\successregister.aspx.cs">
+    <Compile Include="Views\Admin_Theme\pages\successregister.aspx.cs">
       <DependentUpon>successregister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Theme\pages\successregister.aspx.designer.cs">
+    <Compile Include="Views\Admin_Theme\pages\successregister.aspx.designer.cs">
       <DependentUpon>successregister.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -323,55 +323,55 @@
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.less" />
-    <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.scss" />
-    <Content Include="Admin_Theme\less\mixins.less" />
-    <Content Include="Admin_Theme\less\sb-admin-2.less" />
-    <Content Include="Admin_Theme\less\variables.less" />
-    <Content Include="Admin_Theme\vendor\databasetables\images\Sorting icons.psd" />
-    <Content Include="Admin_Theme\vendor\datatables-responsive\dataTables.responsive.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\css\font-awesome.css.map" />
-    <Content Include="Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Admin_Theme\vendor\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\animated.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\bordered-pulled.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\core.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\extras.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\fixed-width.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\font-awesome.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\icons.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\larger.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\list.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\mixins.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\path.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\rotated-flipped.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\screen-reader.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\spinning.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\stacked.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\less\variables.less" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\font-awesome.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_animated.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_bordered-pulled.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_core.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_extras.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_fixed-width.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_icons.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_larger.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_list.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_mixins.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_path.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_rotated-flipped.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_screen-reader.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_spinning.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_stacked.scss" />
-    <Content Include="Admin_Theme\vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="Admin_Theme\bower.json" />
-    <Content Include="Admin_Theme\LICENSE" />
-    <Content Include="Admin_Theme\package.json" />
-    <Content Include="Admin_Theme\README.md" />
+    <Content Include="Views\Admin_Theme\vendor\Bootstrap-social\bootstrap-social.less" />
+    <Content Include="Views\Admin_Theme\vendor\Bootstrap-social\bootstrap-social.scss" />
+    <Content Include="Views\Admin_Theme\less\mixins.less" />
+    <Content Include="Views\Admin_Theme\less\sb-admin-2.less" />
+    <Content Include="Views\Admin_Theme\less\variables.less" />
+    <Content Include="Views\Admin_Theme\vendor\databasetables\images\Sorting icons.psd" />
+    <Content Include="Views\Admin_Theme\vendor\datatables-responsive\dataTables.responsive.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\animated.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\core.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\extras.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\icons.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\larger.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\list.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\path.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\spinning.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\less\variables.less" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_extras.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_spinning.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Views\Admin_Theme\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Admin_Theme\bower.json" />
+    <Content Include="Views\Admin_Theme\LICENSE" />
+    <Content Include="Views\Admin_Theme\package.json" />
+    <Content Include="Views\Admin_Theme\README.md" />
     <Content Include="Homepage.Master" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
