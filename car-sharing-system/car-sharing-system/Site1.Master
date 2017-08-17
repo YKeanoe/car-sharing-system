@@ -15,7 +15,7 @@
     
 
     <title>Ace rentals</title> 
-    <link rel="shortcut icon" href="Views/Images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Views/Images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
