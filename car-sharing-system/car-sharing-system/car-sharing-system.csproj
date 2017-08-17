@@ -243,6 +243,7 @@
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_Theme\login\login_model.cs" />
     <Compile Include="Admin_Theme\pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

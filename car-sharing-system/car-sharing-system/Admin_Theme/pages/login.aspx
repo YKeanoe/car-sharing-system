@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.login" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <!-- /.row -->
             <div class="row">
@@ -23,8 +23,8 @@
                         <div class="panel-body">
                             <form role="form">
                                 <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="form-control" placeholder="Username" />
+                                    <label>Email   </label>
+                                    <input class="form-control" placeholder="Email" />
                                     <br />
 
                                     <label>Password</label>
@@ -38,6 +38,7 @@
                                     <button class="btn btn-primary">
                                         Login
                                     </button>
+                                    <asp:Literal runat="server" ID="FailureText" />
                                     
                                 </div>
                             </form>
