@@ -6,7 +6,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Logout
+                            <i class="fa fa-user fa-fw"></i> Confirming booking
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -21,9 +21,9 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                              <h2>You have successfully logged out of your account</h2>
-                              
-                              <a href="/Admin_Theme/pages/index.aspx">Home page</a>
+                              <h2>Booking confirmation</h2>
+                              <br>
+                              <a href="/Admin_Theme/pages/index.aspx">#</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
