@@ -112,8 +112,8 @@
     <Content Include="Admin_Theme\index.html" />
     <Content Include="Admin_Theme\pages\blank.html" />
     <Content Include="Admin_Theme\pages\buttons.html" />
+    <Content Include="Admin_Theme\pages\confirm.aspx" />
     <Content Include="Admin_Theme\pages\grid.html" />
-    <Content Include="Admin_Theme\pages\head.html" />
     <Content Include="Admin_Theme\pages\icons.html" />
     <Content Include="Admin_Theme\pages\index.aspx" />
     <Content Include="Admin_Theme\pages\login.aspx" />
@@ -121,6 +121,9 @@
     <Content Include="Admin_Theme\pages\profile.aspx" />
     <Content Include="Admin_Theme\pages\register.aspx" />
     <Content Include="Admin_Theme\pages\successregister.aspx" />
+    <Content Include="Admin_Theme\pages\booking.aspx" />
+    <Content Include="Admin_Theme\pages\issue.aspx" />
+    <Content Include="Admin_Theme\pages\detail.aspx" />
     <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.min.css" />
@@ -239,10 +242,19 @@
     <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
     <Content Include="Views\Images\off-road-cars-silhouettes.jpg" />
     <Content Include="Views\index.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_Theme\pages\confirm.aspx.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\confirm.aspx.designer.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Theme\pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +297,27 @@
     <Compile Include="Admin_Theme\pages\successregister.aspx.designer.cs">
       <DependentUpon>successregister.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Theme\pages\booking.aspx.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\booking.aspx.designer.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\issue.aspx.cs">
+      <DependentUpon>issue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\issue.aspx.designer.cs">
+      <DependentUpon>issue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Theme\pages\detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -313,7 +346,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="Bootstrap\css\bootstrap.css.map" />

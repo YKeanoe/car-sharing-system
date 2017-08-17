@@ -6,7 +6,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Login
+                            <i class="fa fa-user fa-fw"></i> Confirming booking
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -21,26 +21,9 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="form-control" placeholder="Username" />
-                                    <br />
-
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Password" />
-                                    <br />
-
-                                    <a href="/Admin_Theme/pages/register.aspx" class="btn btn-info">
-                                        Register
-                                    </a>
-
-                                    <button class="btn btn-primary">
-                                        Login
-                                    </button>
-                                    
-                                </div>
-                            </form>
+                              <h2>Booking confirmation</h2>
+                              <br>
+                              <a href="/Admin_Theme/pages/index.aspx">#</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -50,7 +33,8 @@
                 </div>
                 <!-- /.col-lg-4 (nested) -->
                 <div class="col-lg-8">
-                
+                    <div id="morris-bar-chart"></div>
+                </div>
                 <!-- /.col-lg-8 (nested) -->
             </div>
             <!-- /.row -->
