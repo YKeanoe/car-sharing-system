@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using car_sharing_system.Models;
 
 namespace car_sharing_system.Admin_Theme.login
 {
-    public class login_model
+    public class UserModel
     {
-        public login_model() {
+        public UserModel() {
 
         }
 
-        public String dataBase(String email, String password)
+        public User dataBase(String email, String password)
         {
             using (MySqlConnection mySqlConnection = new MySqlConnection("Server=acerentalsdb.cvun1f5zcjao.ap-southeast-2.rds.amazonaws.com;Database=acerentalsdb;Uid=acerentals;Pwd=password123;"))
             {
@@ -37,7 +38,11 @@ namespace car_sharing_system.Admin_Theme.login
                     {
                         // Set your label to the first value available
                         //FailureText.Text = dbread[0].ToString();
-                        return dbread[0].ToString()+" - "+dbread[1].ToString()+" - "+dbread[2].ToString();
+                        User currUser = new User(Int32.Parse(dbread[0].ToString()), dbread[1].ToString(), dbread[2].ToString(), 
+                            Int32.Parse(dbread[3].ToString()),dbread[4].ToString(), dbread[5].ToString(), 
+                            dbread[6].ToString(),dbread[7].ToString(),dbread[8].ToString(), dbread[9].ToString());
+
+                        return currUser;
                     }
                     else
                     {

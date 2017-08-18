@@ -10,7 +10,7 @@ using System.Web.UI.HtmlControls;
 
 namespace car_sharing_system
 {
-  public class User
+  public class Users
   {
     public string Name { get; set; }
     public string Email { get; set; }
@@ -24,11 +24,11 @@ namespace car_sharing_system
 
 
       //    generateDummy();
-      var collections = new List<User>
+      var collections = new List<Users>
         {
-            new User {Name = "Jon Doe", Email = "john@doe.com", Phone = "123-123-1234"},
-            new User {Name = "Marry Doe", Email = "marry@doe.com", Phone = "456-456-4567"},
-            new User {Name = "Eric Newton", Email = "eric@newton.com", Phone = "789-789-7890"},
+            new Users {Name = "Jon Doe", Email = "john@doe.com", Phone = "123-123-1234"},
+            new Users {Name = "Marry Doe", Email = "marry@doe.com", Phone = "456-456-4567"},
+            new Users {Name = "Eric Newton", Email = "eric@newton.com", Phone = "789-789-7890"},
         };
       //      CarGridView.DataSource = collections;
       //    CarGridView.DataBind();

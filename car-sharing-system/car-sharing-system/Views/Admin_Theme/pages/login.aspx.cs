@@ -5,8 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using car_sharing_system.Models;
 using car_sharing_system.Admin_Theme.login;
-
 
 namespace car_sharing_system.Admin_Theme.pages
 {
@@ -14,11 +14,11 @@ namespace car_sharing_system.Admin_Theme.pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            login_model data = new login_model();
+            UserModel data = new UserModel();
             // Build your Connection
-            String myData = data.dataBase("admin@gmail.com", "admin");
+            User myData = data.dataBase("admin@gmail.com", "admin");
             if (myData != null)
-                MyData.Text = myData;
+                MyData.Text = myData.email+" - "+myData.password;
         }
     }
 }
