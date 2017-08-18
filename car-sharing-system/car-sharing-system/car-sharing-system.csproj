@@ -112,7 +112,6 @@
     <Content Include="Views\Admin_Theme\pages\blank.html" />
     <Content Include="Views\Admin_Theme\pages\buttons.html" />
     <Content Include="Views\Admin_Theme\pages\grid.html" />
-    <Content Include="Views\Admin_Theme\pages\head.html" />
     <Content Include="Views\Admin_Theme\pages\icons.html" />
     <Content Include="Views\Admin_Theme\pages\index.aspx" />
     <Content Include="Views\Admin_Theme\pages\login.aspx">

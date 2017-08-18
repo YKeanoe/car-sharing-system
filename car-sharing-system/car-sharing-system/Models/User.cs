@@ -31,5 +31,18 @@ namespace car_sharing_system.Models
             this.dob = dob;
             this.noPlate = noPlate;
         }
+
+        public String toString() {
+            return "ID: " + id + "<br />" +
+                "Email: " + email + "<br />" +
+                "First Name: " + fname + "<br />" +
+                "Last Name: " + lname + "<br />" +
+                "Password: " + password + "<br />" +
+                "Date Of Birth: " + dob + "<br />" +
+                "Permission: " + permission + "<br />" +
+                "Number Plate: " + noPlate + "<br />" +
+                "Longitude: " + longitude + "<br />" +
+                "Latitude: " + latitude + "<br />";
+        }
     }
 }

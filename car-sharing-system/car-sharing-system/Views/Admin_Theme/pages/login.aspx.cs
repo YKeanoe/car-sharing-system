@@ -18,7 +18,7 @@ namespace car_sharing_system.Admin_Theme.pages
             // Build your Connection
             User myData = data.dataBase("admin@gmail.com", "admin");
             if (myData != null)
-                MyData.Text = myData.email+" - "+myData.password;
+                MyData.Text = "<br />"+myData.toString();
         }
     }
 }
