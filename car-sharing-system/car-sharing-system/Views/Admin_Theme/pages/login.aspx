@@ -21,26 +21,30 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Email   </label>
-                                    <input class="form-control" placeholder="Email" />
-                                    <br />
-
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Password" />
-                                    <br />
-
-                                    <a href="/Admin_Theme/pages/register.aspx" class="btn btn-info">
-                                        Register
-                                    </a>
-
-                                    <button class="btn btn-primary">
-                                        Login
-                                    </button>
-                                    <asp:Literal runat="server" ID="MyData" />
-                                    
-                                </div>
+                            <form id="form1" runat="server">
+                                <asp:Login 
+                                    ID = "Login1" 
+                                    runat = "server" 
+                                    OnAuthenticate= "ValidateUser" 
+                                    DestinationPageUrl="~/dashboard.aspx">
+                                    <LayoutTemplate>
+                                        <div class="form-group">
+                                            <asp:TextBox class="form-control" placeholder="Email" id="UserName" runat="server"></asp:TextBox>
+                                            <asp:requiredfieldvalidator id="UserNameRequired" runat="server" ControlToValidate="UserName" Text="*"></asp:requiredfieldvalidator>
+                                            <br />
+                                            <asp:TextBox class="form-control" placeholder="Password" id="Password" runat="server" textMode="Password"></asp:TextBox>
+                                            <asp:requiredfieldvalidator id="PasswordRequired" runat="server" ControlToValidate="Password" Text="*"></asp:requiredfieldvalidator>
+                                            <br />
+                                            <asp:button id="Button1" class="btn btn-primary" CommandName="Login" runat="server" Text="Login"></asp:button>
+                                            <a href="/Admin_Theme/pages/register.aspx" class="btn btn-info">
+                                                Register
+                                            </a>
+                                            <asp:Checkbox id="RememberMe" runat="server" Text="Remember my login"></asp:Checkbox>
+                                            <br />
+                                            <asp:Literal id="FailureText" runat="server"></asp:Literal></td>
+                                        </div>
+                                    </LayoutTemplate>
+                                </asp:Login>
                             </form>
                         </div>
                         <!-- /.panel-body -->

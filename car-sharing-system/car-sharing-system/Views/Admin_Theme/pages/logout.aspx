@@ -1,15 +1,27 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
+<script runat="server">
+
+public void LoginLink_OnClick(object sender, EventArgs args)
+{
+  FormsAuthentication.SignOut();
+  FormsAuthentication.RedirectToLoginPage();
+}
+
+</script>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <!-- /.row -->
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Logout
+                            <i class="fa fa-user fa-fw"></i> Profile details
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
+                                    
 
 
                                 </div>
@@ -21,9 +33,11 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                              <h2>You have successfully logged out of your account</h2>
-                              
-                              <a href="/Admin_Theme/pages/index.aspx">Home page</a>
+                            ya sure you want to logout
+
+                            <form id="form1" runat="server">
+                                <asp:LinkButton class="btn btn-primary" Text="Log out" OnClick="LoginLink_OnClick" runat="server" />
+                            </form>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -41,4 +55,5 @@
         </div>
         <!-- /.panel-body -->
     </div>
+
 </asp:Content>

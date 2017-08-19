@@ -116,6 +116,7 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                            ID: <%=User.Identity.Name%><br>
                             First name: <br>
                             Last name: <br>
                             Address: <br>

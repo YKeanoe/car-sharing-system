@@ -13,7 +13,7 @@ namespace car_sharing_system.Admin_Theme.login
 
         }
 
-        public User dataBase(String email, String password)
+        public User loginAttempt(String email, String password)
         {
             using (MySqlConnection mySqlConnection = new MySqlConnection("Server=acerentalsdb.cvun1f5zcjao.ap-southeast-2.rds.amazonaws.com;Database=acerentalsdb;Uid=acerentals;Pwd=password123;"))
             {
