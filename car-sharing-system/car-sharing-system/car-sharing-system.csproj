@@ -244,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\DatabaseReader.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Views\Admin_Theme\pages\index.aspx.cs">
