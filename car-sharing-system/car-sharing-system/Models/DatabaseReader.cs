@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 
-namespace car_sharing_system.Models
-{
+namespace car_sharing_system.Models {
   public class DatabaseReader {
     static String id = "acerentals";
     static String db = "acerentalsdb";
