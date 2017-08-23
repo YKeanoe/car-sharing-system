@@ -15,8 +15,11 @@ namespace car_sharing_system.Admin_Theme.pages
 
             User newUser = DatabaseReader.userQuerySingle("accountID = " +  User.Identity.Name);
 
-            Label2.Text = newUser.fname;
-           
+            fn.Text += newUser.fname;
+            ln.Text += newUser.lname;
+            LicenceNo.Text += newUser.LicenceNo;
+            dob.Text += newUser.dob;
+
 
 
             if (!Request.IsAuthenticated)

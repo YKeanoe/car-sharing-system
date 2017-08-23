@@ -115,9 +115,11 @@
   <ItemGroup>
     <Content Include="Views\Admin_Theme\pages\blank.html" />
     <Content Include="Views\Admin_Theme\pages\buttons.html" />
+    <Content Include="Views\Admin_Theme\pages\detail.aspx" />
     <Content Include="Views\Admin_Theme\pages\grid.html" />
     <Content Include="Views\Admin_Theme\pages\icons.html" />
     <Content Include="Views\Admin_Theme\pages\index.aspx" />
+    <Content Include="Views\Admin_Theme\pages\issue.aspx" />
     <Content Include="Views\Admin_Theme\pages\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
@@ -251,12 +253,26 @@
     <Compile Include="Models\DatabaseReader.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Views\Admin_Theme\pages\detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin_Theme\pages\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Admin_Theme\pages\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\issue.aspx.cs">
+      <DependentUpon>issue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\issue.aspx.designer.cs">
+      <DependentUpon>issue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin_Theme\pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

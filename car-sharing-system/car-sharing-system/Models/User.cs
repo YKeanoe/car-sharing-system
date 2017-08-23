@@ -17,9 +17,9 @@ namespace car_sharing_system.Models
         public String fname { get; private set; }
         public String lname { get; private set; }
         public String dob { get; private set; }
-        public String noPlate { get; private set; }
+        public String LicenceNo { get; private set; }
 
-        public User(int id,String email,String password,int permission, String longitude, String latitude,String fname,String lname,String dob,String noPlate) {
+        public User(int id,String email,String password,int permission, String longitude, String latitude,String fname,String lname,String dob,String LicenceNo) {
             this.id = id;
             this.email = email;
             this.password = password;
@@ -29,7 +29,7 @@ namespace car_sharing_system.Models
             this.fname = fname;
             this.lname = lname;
             this.dob = dob;
-            this.noPlate = noPlate;
+            this.LicenceNo = LicenceNo;
         }
 
         public String toString() {
@@ -40,7 +40,7 @@ namespace car_sharing_system.Models
                 "Password: " + password + "<br />" +
                 "Date Of Birth: " + dob + "<br />" +
                 "Permission: " + permission + "<br />" +
-                "Number Plate: " + noPlate + "<br />" +
+                "LicenceNo: " + LicenceNo + "<br />" +
                 "Longitude: " + longitude + "<br />" +
                 "Latitude: " + latitude + "<br />";
         }
