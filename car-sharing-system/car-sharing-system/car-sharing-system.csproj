@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin_Theme\pages\blank.html" />
+    <Content Include="Views\Admin_Theme\pages\booking.aspx" />
     <Content Include="Views\Admin_Theme\pages\buttons.html" />
     <Content Include="Views\Admin_Theme\pages\detail.aspx" />
     <Content Include="Views\Admin_Theme\pages\grid.html" />
@@ -249,10 +250,18 @@
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\DatabaseReader.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Views\Admin_Theme\pages\booking.aspx.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\booking.aspx.designer.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin_Theme\pages\detail.aspx.cs">
       <DependentUpon>detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
