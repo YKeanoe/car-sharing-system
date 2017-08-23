@@ -113,25 +113,12 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <!-- /.panel-heading -->
-                    <!-- /.table-responsive -->
-                </div>
-                <!-- /.col-lg-4 (nested) -->
+                            
                 <div class="col-lg-8">
                     <div id="morris-bar-chart"></div>
                 </div>
                 <!-- /.col-lg-8 (nested) -->
-            </div>
-            <!-- /.row -->
-        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    
+            
                         
                             <!-- /.list-group -->
                             <a href="#" class="btn btn-default btn-block">View All Alerts</a>
