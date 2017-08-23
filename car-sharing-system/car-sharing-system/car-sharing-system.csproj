@@ -232,6 +232,7 @@
     <Content Include="Views\Images\car-placeholder-3.jpeg" />
     <Content Include="Views\Images\favicon.ico" />
     <Content Include="Views\Images\logo.png" />
+    <Content Include="Views\Images\logo2.png" />
     <Content Include="Views\Images\marker-circle-small.png" />
     <Content Include="Views\Images\marker-circle.png" />
     <Content Include="Views\Images\test1.JPG" />
