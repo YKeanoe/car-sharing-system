@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using car_sharing_system.Models;
 using System.Web.UI.HtmlControls;
+using MySql.Data.MySqlClient;
+using System.Text;
 
 namespace car_sharing_system
 {
@@ -17,33 +19,36 @@ namespace car_sharing_system
     public string Phone { get; set; }
   }
   public partial class FrontPage : System.Web.UI.Page {
-    ArrayList cars = new ArrayList();
     protected void Page_Load(object sender, EventArgs e) {
+      // Generate dummy car data
+      List<Car> cars = new List<Car>();
+      generateDummy(cars);
 
-    //  Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction()", true);
-
-
-      //    generateDummy();
-      var collections = new List<Users>
-        {
-            new Users {Name = "Jon Doe", Email = "john@doe.com", Phone = "123-123-1234"},
-            new Users {Name = "Marry Doe", Email = "marry@doe.com", Phone = "456-456-4567"},
-            new Users {Name = "Eric Newton", Email = "eric@newton.com", Phone = "789-789-7890"},
-        };
-      //      CarGridView.DataSource = collections;
-      //    CarGridView.DataBind();
-      /*
-      int i = 0;
-      while (i < 3) {
+      for(int i=0; i<cars.Count;i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
-        div1.ID = "div"+i;
-        div1.InnerHtml = "This is a dynamically created HTML server control " + i;
+        div1.Attributes.Add("class", "panel-default car-panel");
+        StringBuilder carPanelHTML = new StringBuilder();
+
+        // range placeholder
+        String range = i + "km away";
+        int dataToggleNum = i + 3;
+        String dataToggle = "collapse" + dataToggleNum;
+
+        carPanelHTML.AppendFormat("<div class=\"panel-heading\">"
+                          + "<a data-toggle=\"collapse\" href=\"#{0}\" class=\"car-panel-title\">"
+                          + "{1}<span style= \"float:right;\">{2}</span>"
+                          + "</a> </div>"
+                          + "<div id = \"{0}\" class=\"panel-collapse collapse\">"
+                          + "<div class=\"panel-body\">"
+                          + "asdasd asdasd"
+                          + "</div></div>",dataToggle, cars[i].model, range);
+
+        div1.InnerHtml = carPanelHTML.ToString();
         carlist.Controls.Add(div1);
-        i++;
       }
-      */
     }
-    public void generateDummy() {
+
+    public void generateDummy(List<Car> cars) {
       cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, -37.816261, 144.970976));
       cars.Add(new Car("V124", "Mercedes", "A Series", "Sedan", 5, 6.00, -37.815555, 144.970107));
       cars.Add(new Car("V125", "Mercedes", "S Series", "Sedan", 5, 6.30, -37.815539, 144.966278));

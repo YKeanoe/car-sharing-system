@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using car_sharing_system.Models;
 
-namespace car_sharing_system.Admin_Theme.login
+namespace car_sharing_system.Models
 {
     public class UserModel
     {
@@ -31,7 +30,7 @@ namespace car_sharing_system.Admin_Theme.login
                 mySqlCommand.Parameters.AddWithValue("@password", password);
 
                 // Execute your query
-                using (var dbread = mySqlCommand.ExecuteReader())
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
                 {
                     // If your reader can read
                     if (dbread.Read())

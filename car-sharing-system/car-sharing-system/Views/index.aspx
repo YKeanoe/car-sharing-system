@@ -4,14 +4,13 @@
   <section id="intro" class="intro-section">
     <div class="container-full-width">
       
-      
       <!-- Jumbotron Div -->
-      <div class="jumbotron float-jumbo">
-        <h1>Ace Rental</h1>
+      <div class=" float-jumbo">
+        <img src="Images/logo2.png" />
         <h2>Rent a car anywhere at a touch of a button</h2>          
         <p>
-          <a class="btn btn-warning btn-front-page-sign-register" href="#" role="button">Register</a>
-          <a class="btn btn-primary btn-front-page-sign-register" href="#" role="button">Login</a>
+          <a class="btn btn-warning btn-front-page-sign-register" href="Admin_Theme/pages/register.aspx" role="button">Register</a>
+          <a class="btn btn-primary btn-front-page-sign-register" href="Admin_Theme/pages/index.aspx" role="button">Login</a>
         </p>
       </div>
 
@@ -47,12 +46,46 @@
   <!-- About Section -->
   <section id="cars" class="about-section">
     <div class="container-fluid">
-      <div class="jumbotron carPanel">
-        <div id="map"></div>
-        <div class="list">
-          List of cars near you 
-          <asp:PlaceHolder ID="carlist"  runat="server"/>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>
+            List of cars near you
+          </h2>
+        </div>
+        <div class="panel-body">
+          <div id="map"></div>
+          <div class="list">
+            <!-- Panel default -->
+            <div class="panel-default car-panel">
+              <div class="panel-heading">
+                  <a data-toggle="collapse" href="#collapse1" class="car-panel-title">
+                      Suzuki x
+                    <span style="float:right;">10km away</span>
+                  </a>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  asdasd asdasd
+                </div>
+              </div>
+            </div>
 
+            <div class="panel-default car-panel">
+              <div class="panel-heading">
+                  <a data-toggle="collapse" href="#collapse2" class="car-panel-title">
+                      Suzuki x
+                    <span style="float:right;">10km away</span>
+                  </a>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                  asdasd asdasd
+                </div>
+              </div>
+            </div>
+          
+            <asp:PlaceHolder ID="carlist"  runat="server"/>
+          </div>
         </div>
       </div>
     </div>

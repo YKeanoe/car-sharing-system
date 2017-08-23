@@ -6,11 +6,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using car_sharing_system.Models;
-using car_sharing_system.Admin_Theme.login;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.Security.Cryptography;
+using Rework;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
@@ -23,16 +24,18 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void ValidateUser(object sender, EventArgs e)
         {
             UserModel data = new UserModel();
-            User myData = data.loginAttempt(Login1.UserName, Login1.Password);
+            String password = (Login1.Password+"CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            User myData = data.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {
                 FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);
             }
             else
             {
-                Login1.FailureText = "Username and/or password is incorrect.";
+                Login1.FailureText = password;
             }
         
         }
+
     }
 }

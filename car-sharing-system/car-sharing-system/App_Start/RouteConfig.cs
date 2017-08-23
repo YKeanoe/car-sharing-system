@@ -14,9 +14,9 @@ namespace car_sharing_system
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "Views/Admin_Theme/pages",
+                url: "dashboard/{action}",
+                defaults: new { controller = "Home", action = "Index" }
             );
         }
     }
