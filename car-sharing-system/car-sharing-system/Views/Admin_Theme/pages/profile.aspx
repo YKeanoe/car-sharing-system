@@ -116,14 +116,24 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <asp:Label ID="Label" runat="server" Text="ID"></asp:Label>
-                            ID: <%=User.Identity.Name%><br>
-                            <asp:Label ID="Label2" runat="server" Text="First name"></asp:Label>
-                            First name: <br>
-                            Last name: <br>
-                            Address: <br>
-                            Phone number: <br>
+                            <asp:Label ID="Label" runat="server" Text="ID: "></asp:Label>
+                            <%=User.Identity.Name%><br>
 
+                            First name: 
+                            <asp:Label ID="Label2" runat="server" Text="First name"></asp:Label>
+                            <br>
+
+                            Last name: 
+                            <asp:Label ID="Label3" runat="server" Text="Last name"></asp:Label>
+                            <br>
+
+                            Email:
+                            <asp:Label ID="Label4" runat="server" Text="Email"></asp:Label>
+                            <br>
+
+                            DOB: 
+                            <asp:Label ID="Label5" runat="server" Text="DOB"></asp:Label>
+                            <br>
                         </div>
                         <!-- /.panel-body -->
                     </div>
