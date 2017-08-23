@@ -5,15 +5,20 @@ using System.Web;
 
 namespace car_sharing_system.Models
 {
-  public class Car {
-    String numberPlate;
-    String brand;
-    String model;
-    String vehicleType;
-    int seats;
-    double rate;
-    double coorX;
-    double coorY;
+  public class Car
+  {
+    public String numberPlate { get; set; }
+    public String brand { get; set; }
+    public String model { get; set; }
+    public String vehicleType { get; set; }
+    public int seats { get; set; }
+    public double rate { get; set; }
+    public double coorX { get; set; }
+    public double coorY { get; set; }
+    public char transmission { get; set; }
+    public int tankSize { get; set; }
+    public double fuelConsumption { get; set; }
+    public int avgRange { get; set; }
 
     public Car(string numberPlate, string brand, string model, string vehicleType, int seats, double rate, double coorX, double coorY)
     {
@@ -26,77 +31,5 @@ namespace car_sharing_system.Models
       this.coorX = coorX;
       this.coorY = coorY;
     }
-
-    public string NumberPlate {
-      get {
-        return numberPlate;
-      }
-      set {
-        numberPlate = value;
-      }
-    }
-
-    public string Brand {
-      get {
-        return brand;
-      }
-      set {
-        brand = value;
-      }
-    }
-
-    public string Model {
-      get {
-        return model;
-      }
-      set {
-        model = value;
-      }
-    }
-
-    public string VehicleType {
-      get {
-        return vehicleType;
-      }
-      set {
-        vehicleType = value;
-      }
-    }
-
-    public int Seats {
-      get {
-        return seats;
-      }
-      set {
-        seats = value;
-      }
-    }
-    public double Rate {
-      get {
-        return rate;
-      }
-      set {
-        rate = value;
-      }
-    }
-
-    public double CoorX {
-      get {
-        return coorX;
-      }
-      set {
-        coorX = value;
-      }
-    }
-
-    public double CoorY {
-      get {
-        return coorY;
-      }
-      set {
-        coorY = value;
-      }
-    }
-    
   }
 }
