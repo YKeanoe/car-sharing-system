@@ -116,7 +116,9 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                            <asp:Label ID="Label" runat="server" Text="ID"></asp:Label>
                             ID: <%=User.Identity.Name%><br>
+                            <asp:Label ID="Label2" runat="server" Text="First name"></asp:Label>
                             First name: <br>
                             Last name: <br>
                             Address: <br>
