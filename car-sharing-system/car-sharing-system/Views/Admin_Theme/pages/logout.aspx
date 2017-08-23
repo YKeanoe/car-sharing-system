@@ -1,13 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
-<script runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="logout.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.logout" %>
 
-public void LoginLink_OnClick(object sender, EventArgs args)
-{
-  FormsAuthentication.SignOut();
-  FormsAuthentication.RedirectToLoginPage();
-}
-
-</script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- /.row -->
@@ -35,7 +27,7 @@ public void LoginLink_OnClick(object sender, EventArgs args)
                         <div class="panel-body">
                             ya sure you want to logout
 
-                            <form id="form1" runat="server">
+                            <form id="form2" runat="server">
                                 <asp:LinkButton class="btn btn-primary" Text="Log out" OnClick="LoginLink_OnClick" runat="server" />
                             </form>
                         </div>
@@ -54,6 +46,5 @@ public void LoginLink_OnClick(object sender, EventArgs args)
             <!-- /.row -->
         </div>
         <!-- /.panel-body -->
-    </div>
 
 </asp:Content>

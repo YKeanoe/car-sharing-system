@@ -136,7 +136,7 @@
                 <!-- /.col-lg-8 (nested) -->
             </div>
             <!-- /.row -->
-        </div>
+  
         <!-- /.panel-body -->
     </div>
 

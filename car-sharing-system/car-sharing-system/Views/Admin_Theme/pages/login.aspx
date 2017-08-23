@@ -61,5 +61,4 @@
             <!-- /.row -->
         </div>
         <!-- /.panel-body -->
-    </div>
 </asp:Content>
