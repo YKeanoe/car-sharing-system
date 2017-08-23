@@ -11,10 +11,10 @@ namespace car_sharing_system.Models
     static String db = "acerentalsdb";
     static String server = "acerentalsdb.cvun1f5zcjao.ap-southeast-2.rds.amazonaws.com";
     static String pass = "password123";
-
-    String sqlConnectionString = "Server=" + server + ";Database=" + db + ";Uid=" + id + ";Pwd=" + pass + ";";
+    static String sqlConnectionString = "Server=" + server + ";Database=" + db + ";Uid=" + id + ";Pwd=" + pass + ";";
     
-    public List<User> userQuery(String where) {
+    // userQuery returns a list of users from the query
+    public static List<User> userQuery(String where) {
       List<User> users = new List<User>();
       String query;
       if (String.IsNullOrEmpty(where)) {
@@ -39,7 +39,7 @@ namespace car_sharing_system.Models
       return users;
     }
 
-    public User userQuerySingle(String where)
+    public static User userQuerySingle(String where)
     {
       String query;
       if (String.IsNullOrEmpty(where)) {
