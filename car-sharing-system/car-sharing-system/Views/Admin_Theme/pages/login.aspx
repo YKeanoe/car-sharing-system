@@ -36,7 +36,7 @@
                                             <asp:requiredfieldvalidator id="PasswordRequired" runat="server" ControlToValidate="Password" Text="*"></asp:requiredfieldvalidator>
                                             <br />
                                             <asp:button id="Button1" class="btn btn-primary" CommandName="Login" runat="server" Text="Login"></asp:button>
-                                            <a href="/Admin_Theme/pages/register.aspx" class="btn btn-info">
+                                            <a href="/dashboard/register" class="btn btn-info">
                                                 Register
                                             </a>
                                             <asp:Checkbox id="RememberMe" runat="server" Text="Remember my login"></asp:Checkbox>
