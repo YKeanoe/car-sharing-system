@@ -69,6 +69,11 @@ namespace car_sharing_system
                "dashboard/detail",
                new CustomRouteHandler("~/Views/Admin_Theme/pages/detail.aspx")
             ));
-        }
+            routes.Add("index", new Route
+            (
+                "",
+                new CustomRouteHandler("~/Views/index.aspx")
+            ));
+    }
     }
 }

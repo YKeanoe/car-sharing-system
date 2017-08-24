@@ -9,13 +9,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Ace Rental</title>
-  <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/Views/Images/favicon.ico" type="image/x-icon">
 
   <!-- Bootstrap Core CSS -->
-  <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom CSS -->
-  <link href="../Bootstrap/css/scrolling-nav.css" rel="stylesheet" />
-  <link href="index.css" rel="stylesheet" />
+  <link href="/Bootstrap/css/scrolling-nav.css" rel="stylesheet" />
+  <link href="/Views/index.css" rel="stylesheet" />
     <!-- jQuery -->
   <script src="/Bootstrap/js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
