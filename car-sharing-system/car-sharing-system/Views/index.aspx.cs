@@ -49,9 +49,9 @@ namespace car_sharing_system
     }
 
     public void generateDummy(List<Car> cars) {
-      cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, -37.816261, 144.970976));
-      cars.Add(new Car("V124", "Mercedes", "A Series", "Sedan", 5, 6.00, -37.815555, 144.970107));
-      cars.Add(new Car("V125", "Mercedes", "S Series", "Sedan", 5, 6.30, -37.815539, 144.966278));
+      cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, -37.816261m, 144.970976m));
+      cars.Add(new Car("V124", "Mercedes", "A Series", "Sedan", 5, 6.00, -37.815555m, 144.970107m));
+      cars.Add(new Car("V125", "Mercedes", "S Series", "Sedan", 5, 6.30, -37.815539m, 144.966278m));
     }
   }
 }
