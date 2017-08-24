@@ -13,7 +13,7 @@ namespace car_sharing_system
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("Views/Admin_Theme/pages/");
+
             routes.MapRoute(
                 name: "Views/Admin_Theme/pages",
                 url: "{controller}/pages/",
