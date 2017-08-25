@@ -1,5 +1,5 @@
 language: csharp
-solution: car-sharing-system.sln
+solution: car-sharing-system/car-sharing-system.sln
 dist: trusty
 sudo: required
 mono: none
