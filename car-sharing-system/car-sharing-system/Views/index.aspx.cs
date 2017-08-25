@@ -24,6 +24,12 @@ namespace car_sharing_system
       List<Car> cars = new List<Car>();
       generateDummy(cars);
 
+      /*
+      List<Car> cars2 = DatabaseReader.carQuery(null);
+      foreach(Car car in cars2){
+        car.debug();
+      }
+      */
       for(int i=0; i<cars.Count;i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");

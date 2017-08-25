@@ -31,5 +31,9 @@ namespace car_sharing_system.Models
       this.coorX = coorX;
       this.coorY = coorY;
     }
+
+    public void debug() {
+      System.Diagnostics.Debug.WriteLine(numberPlate + " | " + brand + " | " + model + " | " + coorX.ToString() + "," + coorY.ToString());
+    }
   }
 }

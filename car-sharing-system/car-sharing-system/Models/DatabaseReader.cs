@@ -73,7 +73,7 @@ namespace car_sharing_system.Models {
     
     public static List<Car> carQuery(String where) {
       String query;
-      List<Car> cars = new List<Car>;
+      List<Car> cars = new List<Car>();
       if (!String.IsNullOrEmpty(where)) {
         query = "SELECT * FROM Car WHERE " + where;
       } else {
