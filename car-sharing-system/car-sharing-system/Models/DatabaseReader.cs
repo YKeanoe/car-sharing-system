@@ -71,7 +71,41 @@ namespace car_sharing_system.Models {
     }
 
     
-    public static Car carQuery(String where) {
+    public static List<Car> carQuery(String where) {
+      String query;
+      List<Car> cars = new List<Car>;
+      if (!String.IsNullOrEmpty(where)) {
+        query = "SELECT * FROM Car WHERE " + where;
+      } else {
+        query = "SELECT * FROM Car";
+      }
+
+      using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+        mySqlConnection.Open();
+        MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+
+        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+          while (dbread.Read()) {
+            Car newCar = new Car(dbread[0].ToString() /*ID / license plate*/,
+                             dbread[3].ToString() /*Brand*/,
+                             dbread[4].ToString() /*Model*/,
+                             dbread[5].ToString() /*Vehicle type*/,
+                             Int32.Parse(dbread[6].ToString()) /*Seats number*/,
+                             Convert.ToDouble(dbread[7].ToString()) /*Hourly rate*/,
+                             Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
+                             Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
+            cars.Add(newCar);
+          }
+        }
+      }
+      if (cars.Count() == 0) {
+        return null;
+      } else {
+        return cars;
+      }
+    }
+
+    public static Car carQuerySingle(String where) {
       String query;
       if (!String.IsNullOrEmpty(where)) {
         query = "SELECT * FROM Car WHERE " + where;
@@ -95,46 +129,6 @@ namespace car_sharing_system.Models {
                            Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
           }
           else {
-            return null;
-          }
-        }
-      }
-    }
-
-    public User loginAttempt(String email, String password)
-    {
-      using (MySqlConnection mySqlConnection = new MySqlConnection("Server=acerentalsdb.cvun1f5zcjao.ap-southeast-2.rds.amazonaws.com;Database=acerentalsdb;Uid=acerentals;Pwd=password123;"))
-      {
-        // Now that you have your connection, build your query
-        var sql = "SELECT * FROM User WHERE email = @email AND password= @password";
-
-        // Open your connection
-        mySqlConnection.Open();
-
-        // Build your command to execute
-        MySqlCommand mySqlCommand = new MySqlCommand(sql, mySqlConnection);
-
-        // Add your parameter
-        mySqlCommand.Parameters.AddWithValue("@email", email);
-        mySqlCommand.Parameters.AddWithValue("@password", password);
-
-        // Execute your query
-        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-        {
-          // If your reader can read
-          if (dbread.Read())
-          {
-            // Set your label to the first value available
-            //FailureText.Text = dbread[0].ToString();
-            User currUser = new User(Int32.Parse(dbread[0].ToString()), dbread[1].ToString(), dbread[2].ToString(),
-                Int32.Parse(dbread[3].ToString()), dbread[4].ToString(), dbread[5].ToString(),
-                dbread[6].ToString(), dbread[7].ToString(), dbread[8].ToString(), dbread[9].ToString());
-
-            return currUser;
-          }
-          else
-          {
-            // Otherwise return nothing
             return null;
           }
         }
