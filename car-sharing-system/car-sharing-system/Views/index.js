@@ -6,6 +6,9 @@ function initializeMap(position) {
   var car2 = { lat: -37.815555, lng: 144.970107 };
   var car3 = { lat: -37.815539, lng: 144.966278 };
 
+  var x = "<%= coor %>";
+
+
   // Get longitude and latitude from user's position
   var locLat = position.coords.latitude;
   var locLng = position.coords.longitude;

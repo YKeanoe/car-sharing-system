@@ -55,6 +55,7 @@
         <div class="panel-body">
           <div id="map"></div>
           <div class="list">
+            
             <!-- Panel default -->
             <div class="panel-default car-panel">
               <div class="panel-heading">
@@ -69,20 +70,7 @@
                 </div>
               </div>
             </div>
-
-            <div class="panel-default car-panel">
-              <div class="panel-heading">
-                  <a data-toggle="collapse" href="#collapse2" class="car-panel-title">
-                      Suzuki x
-                    <span style="float:right;">10km away</span>
-                  </a>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body">
-                  asdasd asdasd
-                </div>
-              </div>
-            </div>
+            
             <asp:PlaceHolder ID="carlist"  runat="server"/>
           </div>
         </div>

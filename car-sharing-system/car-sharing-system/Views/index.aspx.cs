@@ -19,17 +19,14 @@ namespace car_sharing_system
     public string Phone { get; set; }
   }
   public partial class FrontPage : System.Web.UI.Page {
+
+    protected String coor { get { return "123"} };
+
     protected void Page_Load(object sender, EventArgs e) {
       // Generate dummy car data
-      List<Car> cars = new List<Car>();
+      List<Car> cars = DatabaseReader.carQuery(null);
       generateDummy(cars);
-
-      /*
-      List<Car> cars2 = DatabaseReader.carQuery(null);
-      foreach(Car car in cars2){
-        car.debug();
-      }
-      */
+      
       for(int i=0; i<cars.Count;i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");
