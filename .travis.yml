@@ -3,3 +3,6 @@ solution: car-sharing-system/car-sharing-system.sln
 dist: trusty
 sudo: required
 mono: none
+script:
+  - dotnet restore
+  - dotnet build
