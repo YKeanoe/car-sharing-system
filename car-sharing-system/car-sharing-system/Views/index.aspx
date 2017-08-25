@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/Homepage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.FrontPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="FrontPageHolder" runat="server">
+
   <!-- Intro Section -->
   <section id="intro" class="intro-section">
     <div class="container-full-width">
@@ -48,7 +49,7 @@
     <div class="container-fluid">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2>
+          <h2 id="aa">
             List of cars near you
           </h2>
         </div>

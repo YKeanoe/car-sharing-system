@@ -20,14 +20,14 @@ namespace car_sharing_system
   }
   public partial class FrontPage : System.Web.UI.Page {
 
-    protected String coor { get { return "123"} };
-
+    protected String coor { get { return "asd"; } }
+   
     protected void Page_Load(object sender, EventArgs e) {
       // Generate dummy car data
       List<Car> cars = DatabaseReader.carQuery(null);
       generateDummy(cars);
-      
-      for(int i=0; i<cars.Count;i++) {
+
+      for (int i=0; i<cars.Count;i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");
         StringBuilder carPanelHTML = new StringBuilder();
@@ -50,6 +50,12 @@ namespace car_sharing_system
         carlist.Controls.Add(div1);
       }
     }
+
+    public static string SayHello(string name)
+    {
+      return "Hello " + name;
+    }
+
 
     public void generateDummy(List<Car> cars) {
       cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, -37.816261m, 144.970976m));
