@@ -3,7 +3,7 @@ solution: car-sharing-system.sln
 dist: trusty
 sudo: required
 mono: none
-dotnet: 1.0.4
+dotnet: 1.0.3
 os:
   -linux
 env:
