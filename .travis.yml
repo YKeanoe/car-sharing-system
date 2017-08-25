@@ -1,4 +1,2 @@
 language: csharp
 solution: ./car-sharing-system/car-sharing-system.sln
-script:
-  - xbuild /p:Configuration=Release car-sharing-system.sln
