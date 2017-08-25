@@ -1,7 +1,2 @@
 language: csharp
 solution: ./car-sharing-system/car-sharing-system.sln
-install:
-  - cd car-sharing-system
-  - curl -L -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  - ls
-  - mono nuget.exe restore car-sharing-system.sln -Verbosity Detailed -NonInteractive -ConfigFile nuget.config
