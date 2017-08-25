@@ -1,6 +1,11 @@
 language: csharp
 solution: car-sharing-system.sln
+dotnet: 1.0.1
+dist: trusty
+sudo: required
 branches:
   only:
     -dev
-mono: none
+script:
+  - dotnet restore
+  - dotnet build
