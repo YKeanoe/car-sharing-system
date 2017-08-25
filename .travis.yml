@@ -3,5 +3,3 @@ solution: car-sharing-system.sln
 dist: trusty
 sudo: required
 mono: none
-script:
-  - ./build.sh
