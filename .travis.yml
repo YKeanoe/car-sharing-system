@@ -3,9 +3,9 @@ solution: car-sharing-system.sln
 dotnet: 1.0.1
 dist: trusty
 sudo: required
+mono: none
 branches:
   only:
     -dev
 script:
-  - dotnet restore
-  - dotnet build
+  - ./build.sh
