@@ -100,7 +100,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Profile details
+                            <i class="fa fa-user fa-fw"></i> My Account Information
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -116,17 +116,48 @@
 
                         <!-- /.panel-heading -->
                       
-                      <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                      <asp:Label ID="Label1" runat="server" ></asp:Label>
 
                         <div class="panel-body">
-                            <asp:Label ID="Label" runat="server" Text="ID: "></asp:Label>
+                         
+
+                        
+
+                              <form id="fupdateform" runat="server">
+            
+                            
+                                        <div class="form-group">
+
+                                               <asp:Label ID="Label" runat="server" Text="ID: "></asp:Label>
                             <%=User.Identity.Name%><br>
                             <asp:Label ID="fn" runat="server" Text="First name: "></asp:Label><br />
                             <asp:Label ID="ln" runat="server" Text="Last name: "></asp:Label><br />
-                            <asp:Label ID="dob" runat="server" Text="Date of birth: "></asp:Label><br />
-                            <asp:Label ID="LicenceNo" runat="server" Text="Licence Number: "></asp:Label><br />
+                            <asp:Label ID="licenceNo" runat="server" Text="Licence Number: "></asp:Label><br />
+                            <asp:Label ID="birth" runat="server" Text="Date of birth: "></asp:Label><br />
+                            <asp:Label ID="gender" runat="server" Text="Gender: "></asp:Label><br />
+                            <asp:Label ID="phone" runat="server" Text="Phone: "></asp:Label><br />
+                            <asp:Label ID="street" runat="server" Text="Street: "></asp:Label><br />
+                            <asp:Label ID="suburb" runat="server" Text="Suburb: "></asp:Label><br />
+                            <asp:Label ID="postcode" runat="server" Text="Postcode: "></asp:Label><br />
+                            <asp:Label ID="territory" runat="server" Text="Territory: "></asp:Label><br />
+                            <asp:Label ID="city" runat="server" Text="City: "></asp:Label><br />
+                            <asp:Label ID="country" runat="server" Text="Country: "></asp:Label><br />
+                            <asp:Label ID="profileURL" runat="server" Text="ProfileURL: "></asp:Label><br />
 
+
+
+
+
+
+                                           <a href="/dashboard/update" class="btn btn-info">
+                                                Edit
+                                            </a>
+                                        </div>
                         </div>
+              
+                            </form>
+
+
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
