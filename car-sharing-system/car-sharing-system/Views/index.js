@@ -6,17 +6,6 @@ function initializeMap(position) {
   var car2 = { lat: -37.815555, lng: 144.970107 };
   var car3 = { lat: -37.815539, lng: 144.966278 };
 
-  $.ajax({
-    type: 'POST',
-    url: 'index.aspx/sayhello',
-    data: JSON.stringify({ name: 'John' }),
-    contentType: 'application/json; charset=utf-8',
-    dataType: 'json',
-    success: function (msg) {
-      // Notice that msg.d is used to retrieve the result object
-      alert(msg.d);
-    }
-  });
 
   // Get longitude and latitude from user's position
   var locLat = position.coords.latitude;
@@ -82,4 +71,4 @@ function getLocation() {
 }
 
 // Get location of user after load is successful
-window.onload = getLocation()
+window.onload = getLocation

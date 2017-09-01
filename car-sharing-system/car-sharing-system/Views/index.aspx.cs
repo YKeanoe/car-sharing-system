@@ -9,6 +9,7 @@ using car_sharing_system.Models;
 using System.Web.UI.HtmlControls;
 using MySql.Data.MySqlClient;
 using System.Text;
+using System.Web.Script.Serialization;
 
 namespace car_sharing_system
 {
@@ -20,17 +21,20 @@ namespace car_sharing_system
   }
   public partial class FrontPage : System.Web.UI.Page {
 
-    protected String coor { get { return "asd"; } }
-   
+    protected String coor { get { return "test"; } }
+    public String cars { get; set; }
+
     protected void Page_Load(object sender, EventArgs e) {
       // Generate dummy car data
-      List<Car> cars = DatabaseReader.carQuery(null);
+      //List<Car> cars = DatabaseReader.carQuery(null);
+      List<Car> cars = new List<Car>();
       generateDummy(cars);
-
+            
       for (int i=0; i<cars.Count;i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");
         StringBuilder carPanelHTML = new StringBuilder();
+
 
         // range placeholder
         String range = i + "km away";
@@ -49,6 +53,10 @@ namespace car_sharing_system
         div1.InnerHtml = carPanelHTML.ToString();
         carlist.Controls.Add(div1);
       }
+
+      JavaScriptSerializer oSerializer = new JavaScriptSerializer();
+      this.cars = oSerializer.Serialize(cars);
+
     }
 
     public static string SayHello(string name)
@@ -61,6 +69,10 @@ namespace car_sharing_system
       cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, -37.816261m, 144.970976m));
       cars.Add(new Car("V124", "Mercedes", "A Series", "Sedan", 5, 6.00, -37.815555m, 144.970107m));
       cars.Add(new Car("V125", "Mercedes", "S Series", "Sedan", 5, 6.30, -37.815539m, 144.966278m));
+    }
+
+    public String getData() {
+      return "data";
     }
   }
 }
