@@ -21,24 +21,25 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                             <form id="form1" runat="server">  
                             <div class="row">
-                                <form role="form">
+                                </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Username</label>
-                                            <input class="form-control" placeholder="Username" />
+                                             <asp:TextBox ID="Userbox" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Email</label>
-                                            <input class="form-control" placeholder="Email" />
+                                             <asp:TextBox ID="Emailbox" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>First Name</label>
-                                            <input class="form-control" placeholder="First Name" />
+                                             <asp:TextBox ID="Firstbox" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>License Number</label>
-                                            <input class="form-control" placeholder="License Number" />
+                                             <asp:TextBox ID="Licensebox" runat="server"></asp:TextBox> 
                                             <br />
                                     
                                         </div>
@@ -46,24 +47,24 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input class="form-control" placeholder="Password" />
+                                             <asp:TextBox ID="Passwordbox1" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Password Again</label>
-                                            <input class="form-control" placeholder="Password Again" />
+                                             <asp:TextBox ID="Passwordbox2" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Last Name</label>
-                                            <input class="form-control" placeholder="Last Name" />
+                                             <asp:TextBox ID="Lastnamebox" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Phone Number</label>
-                                            <input class="form-control" placeholder="Phone Number" />
+                                            <asp:TextBox ID="PhoneNobox" runat="server"></asp:TextBox> 
                                             <br />
 
-                                            <a href="/Admin_Theme/pages/successregister.aspx" class="btn btn-primary">
-                                                Register
-                                            </a>
+                                            <asp:Button ID="Button1" runat="server" Text="Register" ></asp:Button>
+                                                
+                                            
                                         </div>
                                     </div>
                                 </form>
@@ -81,8 +82,5 @@
                 </div>
                 <!-- /.col-lg-8 (nested) -->
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.panel-body -->
-    </div>
+      
 </asp:Content>
