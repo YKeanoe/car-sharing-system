@@ -13,9 +13,8 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            User newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
+            User newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
-            fne.Text = newUser.fname;
 
             fn.Text = newUser.fname;
             ln.Text += newUser.lname;

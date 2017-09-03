@@ -125,9 +125,9 @@
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
     <Content Include="Views\Admin_Theme\pages\logout.aspx" />
-    <Content Include="Views\Admin_Theme\pages\profile.aspx" />
     <Content Include="Views\Admin_Theme\pages\register.aspx" />
     <Content Include="Views\Admin_Theme\pages\successregister.aspx" />
+    <Content Include="Views\Admin_Theme\pages\profiledefault.aspx" />
     <Content Include="Views\Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Views\Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Views\Admin_Theme\dist\css\sb-admin-2.min.css" />
@@ -297,12 +297,12 @@
     <Compile Include="Views\Admin_Theme\pages\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin_Theme\pages\profile.aspx.cs">
-      <DependentUpon>profile.aspx</DependentUpon>
+    <Compile Include="Views\Admin_Theme\pages\profile.Master.cs">
+      <DependentUpon>profile.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin_Theme\pages\profile.aspx.designer.cs">
-      <DependentUpon>profile.aspx</DependentUpon>
+    <Compile Include="Views\Admin_Theme\pages\profile.Master.designer.cs">
+      <DependentUpon>profile.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin_Theme\pages\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -337,6 +337,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\profiledefault.aspx.cs">
+      <DependentUpon>profiledefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\profiledefault.aspx.designer.cs">
+      <DependentUpon>profiledefault.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -406,6 +413,7 @@
     <Content Include="Views\Admin_Theme\README.md" />
     <Content Include="Homepage.Master" />
     <Content Include="Site1.Master" />
+    <Content Include="Views\Admin_Theme\pages\profile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

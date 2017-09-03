@@ -7,37 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace car_sharing_system.Admin_Theme.pages {
+namespace car_sharing_system.Views.Admin_Theme.pages {
     
     
-    public partial class profile {
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// updateform control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
-        
-        /// <summary>
-        /// fne control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fne;
+    public partial class @default {
         
         /// <summary>
         /// fn control.
@@ -46,7 +19,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fn;
+        protected global::System.Web.UI.WebControls.TextBox fn;
         
         /// <summary>
         /// ln control.
@@ -55,7 +28,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ln;
+        protected global::System.Web.UI.WebControls.TextBox ln;
         
         /// <summary>
         /// licenceNo control.
@@ -64,7 +37,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label licenceNo;
+        protected global::System.Web.UI.WebControls.TextBox licenceNo;
         
         /// <summary>
         /// birth control.
@@ -73,7 +46,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label birth;
+        protected global::System.Web.UI.WebControls.TextBox birth;
         
         /// <summary>
         /// gender control.
@@ -82,7 +55,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label gender;
+        protected global::System.Web.UI.WebControls.TextBox gender;
         
         /// <summary>
         /// phone control.
@@ -91,7 +64,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label phone;
+        protected global::System.Web.UI.WebControls.TextBox phone;
         
         /// <summary>
         /// street control.
@@ -100,7 +73,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label street;
+        protected global::System.Web.UI.WebControls.TextBox street;
         
         /// <summary>
         /// suburb control.
@@ -109,7 +82,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label suburb;
+        protected global::System.Web.UI.WebControls.TextBox suburb;
         
         /// <summary>
         /// postcode control.
@@ -118,7 +91,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label postcode;
+        protected global::System.Web.UI.WebControls.TextBox postcode;
         
         /// <summary>
         /// territory control.
@@ -127,7 +100,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label territory;
+        protected global::System.Web.UI.WebControls.TextBox territory;
         
         /// <summary>
         /// city control.
@@ -136,7 +109,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label city;
+        protected global::System.Web.UI.WebControls.TextBox city;
         
         /// <summary>
         /// country control.
@@ -145,7 +118,7 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label country;
+        protected global::System.Web.UI.WebControls.TextBox country;
         
         /// <summary>
         /// profileURL control.
@@ -154,6 +127,6 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label profileURL;
+        protected global::System.Web.UI.WebControls.TextBox profileURL;
     }
 }
