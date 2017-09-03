@@ -10,7 +10,7 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class register : System.Web.UI.Page
     {
-        public object TextBox1 { get; private set; }
+        public object Email { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,10 +22,10 @@ namespace car_sharing_system.Admin_Theme.pages
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("insert into login values(@accountID,@email,@firstName,@licenseNo,@password,@phone)", con);
-                object Email = null;
-                cmd.Parameters.AddWithValue("email",Email);
+                
+                cmd.Parameters.AddWithValue("email",Email.Text);
 
-                Email = "";
+                Email.Text = "";
 
 
 
