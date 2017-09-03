@@ -22,22 +22,13 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// fupdateform control.
+        /// updateform control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm fupdateform;
-        
-        /// <summary>
-        /// Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label;
+        protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
         
         /// <summary>
         /// fn control.

@@ -123,13 +123,15 @@
 
                         
 
-                              <form id="fupdateform" runat="server">
+                              <form id="updateform" runat="server">
             
                             
                                         <div class="form-group">
 
-                                               <asp:Label ID="Label" runat="server" Text="ID: "></asp:Label>
-                            <%=User.Identity.Name%><br>
+                                               
+
+                            <asp:TextBox class="form-control" placeholder="FirstName" id="fn" value="fn"runat="server"></asp:TextBox>
+
                             <asp:Label ID="fn" runat="server" Text="First name: "></asp:Label><br />
                             <asp:Label ID="ln" runat="server" Text="Last name: "></asp:Label><br />
                             <asp:Label ID="licenceNo" runat="server" Text="Licence Number: "></asp:Label><br />
