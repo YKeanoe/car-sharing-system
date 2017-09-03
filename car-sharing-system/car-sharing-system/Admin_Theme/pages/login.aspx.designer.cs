@@ -22,76 +22,67 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Userbox control.
+        /// User control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Userbox;
+        protected global::System.Web.UI.WebControls.TextBox User;
         
         /// <summary>
-        /// Emailbox control.
+        /// Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Emailbox;
+        protected global::System.Web.UI.WebControls.TextBox Email;
         
         /// <summary>
-        /// Firstbox control.
+        /// First control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Firstbox;
+        protected global::System.Web.UI.WebControls.TextBox First;
         
         /// <summary>
-        /// Licensebox control.
+        /// License control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Licensebox;
+        protected global::System.Web.UI.WebControls.TextBox License;
         
         /// <summary>
-        /// Passwordbox1 control.
+        /// Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Passwordbox1;
+        protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
-        /// Passwordbox2 control.
+        /// Lastname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Passwordbox2;
+        protected global::System.Web.UI.WebControls.TextBox Lastname;
         
         /// <summary>
-        /// Lastnamebox control.
+        /// PhoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Lastnamebox;
-        
-        /// <summary>
-        /// PhoneNobox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PhoneNobox;
+        protected global::System.Web.UI.WebControls.TextBox PhoneNo;
         
         /// <summary>
         /// Button1 control.

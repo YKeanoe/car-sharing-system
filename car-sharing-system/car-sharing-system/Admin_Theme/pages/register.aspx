@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs"  Inherits="car_sharing_system.Admin_Theme.pages.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <!-- /.row -->
             <div class="row">
@@ -27,19 +27,19 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Username</label>
-                                             <asp:TextBox ID="Userbox" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="User" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Email</label>
-                                             <asp:TextBox ID="Emailbox" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="Email" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>First Name</label>
-                                             <asp:TextBox ID="Firstbox" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="First" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>License Number</label>
-                                             <asp:TextBox ID="Licensebox" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="License" runat="server"></asp:TextBox> 
                                             <br />
                                     
                                         </div>
@@ -47,19 +47,16 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Password</label>
-                                             <asp:TextBox ID="Passwordbox1" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="Password" runat="server"></asp:TextBox> 
                                             <br />
 
-                                            <label>Password Again</label>
-                                             <asp:TextBox ID="Passwordbox2" runat="server"></asp:TextBox> 
-                                            <br />
 
                                             <label>Last Name</label>
-                                             <asp:TextBox ID="Lastnamebox" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="Lastname" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Phone Number</label>
-                                            <asp:TextBox ID="PhoneNobox" runat="server"></asp:TextBox> 
+                                            <asp:TextBox ID="PhoneNo" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <asp:Button ID="Button1" runat="server" Text="Register" ></asp:Button>
