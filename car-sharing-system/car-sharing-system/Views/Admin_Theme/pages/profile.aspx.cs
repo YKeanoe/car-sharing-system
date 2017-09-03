@@ -15,7 +15,9 @@ namespace car_sharing_system.Admin_Theme.pages
 
             User newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
 
-            fn.Text += newUser.fname;
+            fne.Text = newUser.fname;
+
+            fn.Text = newUser.fname;
             ln.Text += newUser.lname;
             licenceNo.Text += newUser.licenceNo;
             birth.Text += newUser.birth;

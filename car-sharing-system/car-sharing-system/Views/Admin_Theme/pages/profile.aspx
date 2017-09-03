@@ -119,34 +119,29 @@
                       <asp:Label ID="Label1" runat="server" ></asp:Label>
 
                         <div class="panel-body">
-                         
-
-                        
-
-                              <form id="updateform" runat="server">
-            
+   
                             
                                         <div class="form-group">
-
+                            <form id="updateform" runat="server">
                                                
 
-                            <asp:TextBox class="form-control" placeholder="FirstName" id="fn" value="fn"runat="server"></asp:TextBox>
+                                <asp:TextBox class="form-control" ID="fne" placeholder="FirstName" runat="server"></asp:TextBox>
 
-                            <asp:Label ID="fn" runat="server" Text="First name: "></asp:Label><br />
-                            <asp:Label ID="ln" runat="server" Text="Last name: "></asp:Label><br />
-                            <asp:Label ID="licenceNo" runat="server" Text="Licence Number: "></asp:Label><br />
-                            <asp:Label ID="birth" runat="server" Text="Date of birth: "></asp:Label><br />
-                            <asp:Label ID="gender" runat="server" Text="Gender: "></asp:Label><br />
-                            <asp:Label ID="phone" runat="server" Text="Phone: "></asp:Label><br />
-                            <asp:Label ID="street" runat="server" Text="Street: "></asp:Label><br />
-                            <asp:Label ID="suburb" runat="server" Text="Suburb: "></asp:Label><br />
-                            <asp:Label ID="postcode" runat="server" Text="Postcode: "></asp:Label><br />
-                            <asp:Label ID="territory" runat="server" Text="Territory: "></asp:Label><br />
-                            <asp:Label ID="city" runat="server" Text="City: "></asp:Label><br />
-                            <asp:Label ID="country" runat="server" Text="Country: "></asp:Label><br />
-                            <asp:Label ID="profileURL" runat="server" Text="ProfileURL: "></asp:Label><br />
+                                <asp:Label ID="fn" runat="server" Text="First name: "></asp:Label><br />
+                                <asp:Label ID="ln" runat="server" Text="Last name: "></asp:Label><br />
+                                <asp:Label ID="licenceNo" runat="server" Text="Licence Number: "></asp:Label><br />
+                                <asp:Label ID="birth" runat="server" Text="Date of birth: "></asp:Label><br />
+                                <asp:Label ID="gender" runat="server" Text="Gender: "></asp:Label><br />
+                                <asp:Label ID="phone" runat="server" Text="Phone: "></asp:Label><br />
+                                <asp:Label ID="street" runat="server" Text="Street: "></asp:Label><br />
+                                <asp:Label ID="suburb" runat="server" Text="Suburb: "></asp:Label><br />
+                                <asp:Label ID="postcode" runat="server" Text="Postcode: "></asp:Label><br />
+                                <asp:Label ID="territory" runat="server" Text="Territory: "></asp:Label><br />
+                                <asp:Label ID="city" runat="server" Text="City: "></asp:Label><br />
+                                <asp:Label ID="country" runat="server" Text="Country: "></asp:Label><br />
+                                <asp:Label ID="profileURL" runat="server" Text="ProfileURL: "></asp:Label><br />
 
-
+                             </form>
 
 
 
@@ -156,8 +151,6 @@
                                             </a>
                                         </div>
                         </div>
-              
-                            </form>
 
 
                         <!-- /.panel-body -->
