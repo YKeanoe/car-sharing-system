@@ -90,16 +90,18 @@ namespace car_sharing_system.Models {
 
         using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
           while (dbread.Read()) {
-            Debug.WriteLine("aaa");
+            Location newLocation = new Location(
+                             Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
+                             Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
             Car newCar = new Car(dbread[0].ToString() /*ID / license plate*/,
                              dbread[4].ToString() /*Brand*/,
                              dbread[5].ToString() /*Model*/,
                              dbread[6].ToString() /*Vehicle type*/,
                              Int32.Parse(dbread[7].ToString()) /*Seats number*/,
                              Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
-                             Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
-                             Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
+                             newLocation);
             cars.Add(newCar);
+            newCar.debug();
           }
         }
         mySqlConnection.Close();
@@ -125,14 +127,16 @@ namespace car_sharing_system.Models {
 
         using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
           if (dbread.Read()) {
+            Location newLocation = new Location(
+                              Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
+                              Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
             return new Car(dbread[0].ToString() /*ID / license plate*/,
-                           dbread[3].ToString() /*Brand*/,
-                           dbread[4].ToString() /*Model*/,
-                           dbread[5].ToString() /*Vehicle type*/,
-                           Int32.Parse(dbread[6].ToString()) /*Seats number*/,
-                           Convert.ToDouble(dbread[7].ToString()) /*Hourly rate*/,
-                           Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
-                           Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
+                             dbread[4].ToString() /*Brand*/,
+                             dbread[5].ToString() /*Model*/,
+                             dbread[6].ToString() /*Vehicle type*/,
+                             Int32.Parse(dbread[7].ToString()) /*Seats number*/,
+                             Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
+                             newLocation);
           }
           else {
             return null;

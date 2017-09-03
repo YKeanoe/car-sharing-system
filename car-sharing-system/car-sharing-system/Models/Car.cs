@@ -13,14 +13,15 @@ namespace car_sharing_system.Models
     public String vehicleType { get; set; }
     public int seats { get; set; }
     public double rate { get; set; }
-    public decimal coorX { get; set; }
-    public decimal coorY { get; set; }
+    //public decimal coorX { get; set; }
+    //public decimal coorY { get; set; }
     public char transmission { get; set; }
     public int tankSize { get; set; }
     public double fuelConsumption { get; set; }
     public int avgRange { get; set; }
+    public Location latlong { get; set; }
 
-    public Car(string numberPlate, string brand, string model, string vehicleType, int seats, double rate, decimal coorX, decimal coorY)
+    public Car(string numberPlate, string brand, string model, string vehicleType, int seats, double rate, Location latlong)
     {
       this.numberPlate = numberPlate;
       this.brand = brand;
@@ -28,12 +29,15 @@ namespace car_sharing_system.Models
       this.vehicleType = vehicleType;
       this.seats = seats;
       this.rate = rate;
-      this.coorX = coorX;
-      this.coorY = coorY;
+      this.latlong = latlong;
+    }
+
+    public String getCarAsTitle() {
+      return brand + " " + model + " (" + numberPlate + ")";
     }
 
     public void debug() {
-      System.Diagnostics.Debug.WriteLine(numberPlate + " | " + brand + " | " + model + " | " + coorX.ToString() + "," + coorY.ToString());
+      System.Diagnostics.Debug.WriteLine(numberPlate + " | " + brand + " | " + model + " | " + latlong.ToString());
     }
   }
 }

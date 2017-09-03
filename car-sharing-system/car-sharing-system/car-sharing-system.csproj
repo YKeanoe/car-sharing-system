@@ -253,6 +253,7 @@
     <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\DatabaseReader.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Views\Admin_Theme\pages\booking.aspx.cs">
