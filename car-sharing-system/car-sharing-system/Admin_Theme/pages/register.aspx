@@ -39,11 +39,15 @@
                                             <label>First Name</label> 
                                             <br>
                                              <asp:TextBox ID="First" runat="server"></asp:TextBox> 
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"   
+                                                ControlToValidate="First" ErrorMessage="Please enter your first Name"   
+                                                ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                             <br />
 
                                             <label>Last Name</label>
                                             <br>
                                              <asp:TextBox ID="Lastname" runat="server"></asp:TextBox> 
+                                            
                                             <br />
 
                                             <label>License Number</label> 
@@ -68,7 +72,7 @@
                                             <asp:TextBox ID="PhoneNo" runat="server"></asp:TextBox> 
                                             <br />
                                               <br>
-                                            <asp:Button ID="Button1" runat="server" Text="Register" ></asp:Button>
+                                            <asp:Button ID="Button1" runat="server" Text="Register" class="btn btn-primary"></asp:Button>
                                                 <br/>
                                             
                                         </div>
