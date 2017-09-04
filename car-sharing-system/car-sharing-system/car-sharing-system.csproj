@@ -128,6 +128,7 @@
     <Content Include="Views\Admin_Theme\pages\register.aspx" />
     <Content Include="Views\Admin_Theme\pages\successregister.aspx" />
     <Content Include="Views\Admin_Theme\pages\Profileedit.aspx" />
+    <Content Include="Views\Admin_Theme\pages\Profiledefault.aspx" />
     <Content Include="Views\Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Views\Admin_Theme\dist\css\sb-admin-2.css" />
     <Content Include="Views\Admin_Theme\dist\css\sb-admin-2.min.css" />
@@ -344,6 +345,13 @@
     </Compile>
     <Compile Include="Views\Admin_Theme\pages\Profileedit.aspx.designer.cs">
       <DependentUpon>Profileedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\Profiledefault.aspx.cs">
+      <DependentUpon>Profiledefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\Profiledefault.aspx.designer.cs">
+      <DependentUpon>Profiledefault.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

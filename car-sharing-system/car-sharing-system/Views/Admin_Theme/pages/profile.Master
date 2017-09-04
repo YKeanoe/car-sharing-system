@@ -116,33 +116,17 @@
 
                         <!-- /.panel-heading -->
                       
-                      <asp:Label ID="Label1" runat="server" ></asp:Label>
-
-                        <div class="panel-body">
-   
-                            
-                                        <div class="form-group">
-                            <form id="updateform" runat="server">
+                     
                                                
 
                                         <asp:ContentPlaceHolder ID="Profile" runat="server">
         
-                                         
-        
+                                     
                                         </asp:ContentPlaceHolder>
 
 
 
-                             </form>
-
-
-
-
-                                           <a href="/dashboard/update" class="btn btn-info">
-                                                Edit
-                                            </a>
-                                        </div>
-                        </div>
+                            
 
 
                         <!-- /.panel-body -->
