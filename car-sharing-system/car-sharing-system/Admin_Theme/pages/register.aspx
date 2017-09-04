@@ -35,7 +35,10 @@
                                         <div class="form-group">
                                             <label>Username</label> 
                                             <br>
-                                             <asp:TextBox ID="User" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="user" runat="server"></asp:TextBox> 
+                                            <br>
+                                            <asp:RegularExpressionValidator runat="server" Display="Dynamic"
+                                             ControlToValidate="user" ForeColor="Red" ErrorMessage="Please enter username." />
                                             <br />
 
                                             <label>Email</label>
@@ -81,6 +84,7 @@
                                             <label>Password</label>
                                             <br>
                                              <asp:TextBox ID="password" runat="server"></asp:TextBox> 
+                                            <br>
                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                              ControlToValidate="license" ForeColor="Red" ErrorMessage="Enter password." />
                                             <br />
@@ -91,13 +95,14 @@
                                             <label>Phone Number</label>
                                             <br>
                                             <asp:TextBox ID="phoneNo" runat="server"></asp:TextBox> 
+                                            <br>
                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                                  ValidationExpression="^[0-9]"
                                              ControlToValidate="phoneNo" ForeColor="Red" ErrorMessage="Invalid phone number." />
-                                            <br />
+                                            
                                               <br>
                                             <asp:Button ID="Button1" runat="server" Text="Register" class="btn btn-primary"></asp:Button>
-                                                <br/>
+                                                
                                             
                                         </div>
                                     </div>
@@ -106,15 +111,12 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                    <!-- /.panel-heading -->
-                    <!-- /.table-responsive -->
+                   
                 </div>
-                <!-- /.col-lg-4 (nested) -->
+              
                 <div class="col-lg-8">
-                    <div id="morris-bar-chart"></div>
+                    
                 </div>
-                <!-- /.col-lg-8 (nested) -->
-            </div>
+               
       
 </asp:Content>
