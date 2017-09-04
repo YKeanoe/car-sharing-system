@@ -39,10 +39,11 @@ namespace car_sharing_system
     protected void Page_Load(object sender, EventArgs e) {
       // Generate dummy car data
       cars = DatabaseReader.carQuery(null);
-      //List<Car> cars = new List<Car>();
-      //generateDummy(cars);
-            
-      for (int i=0; i<cars.Count;i++) {
+      if (cars == null) {
+        cars = new List<Car>();
+        generateDummy(cars);
+      }
+      for (int i = 0; i < cars.Count; i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");
         StringBuilder carPanelHTML = new StringBuilder();
@@ -61,7 +62,7 @@ namespace car_sharing_system
                           + "<div id = \"{0}\" class=\"panel-collapse collapse\">"
                           + "<div class=\"panel-body\">"
                           + "asdasd asdasd"
-                          + "</div></div>",dataToggle, cars[i].brand, cars[i].model, range);
+                          + "</div></div>", dataToggle, cars[i].brand, cars[i].model, range);
 
         div1.InnerHtml = carPanelHTML.ToString();
         carlist.Controls.Add(div1);

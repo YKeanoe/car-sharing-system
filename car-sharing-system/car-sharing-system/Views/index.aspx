@@ -55,24 +55,45 @@
         </div>
         <div class="panel-body">
           <div id="map"></div>
-          <div class="list">
-            
-            <!-- Panel default
-            <div class="panel-default car-panel">
-              <div class="panel-heading">
-                  <a data-toggle="collapse" href="#collapse1" class="car-panel-title">
-                      Suzuki x
-                    <span style="float:right;">10km away</span>
-                  </a>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse">
-                <div class="panel-body">
-                  asdasd asdasd
-                </div>
+          <div class="list" >
+            <div class="panel">
+              <label>Refine Results</label>
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="brand-filter" type="button" data-toggle="dropdown">
+                  Brand
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="brand-filter-dropdown">
+                  <li>Audi<</li>
+                  <li>Ford</li>
+                  <li>Kia</li>
+                  <li>Mazda</li>
+                  <li>Mini</li>
+                  <li>Tesla</li>
+                  <li>Toyota</li>
+                  <li>Subaru</li>
+                  <li>Suzuki</li>
+                </ul>
               </div>
-            </div>-->
-            
-            <asp:PlaceHolder ID="carlist"  runat="server"/>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">drop</button>
+            </div>
+            <div class="collapse in" id="collapseExample">
+              <asp:PlaceHolder ID="carlist"  runat="server"/>
+              <!-- Panel default
+              <div class="panel-default car-panel">
+                <div class="panel-heading">
+                    <a data-toggle="collapse" href="#collapse1" class="car-panel-title">
+                        Suzuki x
+                      <span style="float:right;">10km away</span>
+                    </a>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    asdasd asdasd
+                  </div>
+                </div>
+              </div>-->
+            </div>
           </div>
         </div>
       </div>
@@ -148,7 +169,10 @@
 
         // Set markers for cars
         console.log(carLocs.length)
-        for (var i = 0; i < 20; i++) {
+        for (var i = 0; i < carLocs.length; i++) {
+          if (i == 8) {
+            break;
+          }
           var markerCar = new google.maps.Marker({
             position: carLocs[i].loc,
             title: carLocs[i].carName
@@ -175,8 +199,12 @@
         }
       }
 
-      // Get location of user after load is successful
-      //window.onload = getLocation
+      $('#brand-filter-dropdown li a  ').click(function () {
+        $('#brand-filter').html($(this).html() + " <span class=\"caret\"></span>");
+      })
+      
+        // Get location of user after load is successful
+        //window.onload = getLocation
     </script>
 
 </asp:Content>

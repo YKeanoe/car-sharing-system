@@ -241,7 +241,6 @@
     <Content Include="Views\Images\test1.JPG" />
     <Content Include="Views\Images\test2.jpg" />
     <Content Include="Views\Images\test3.JPG" />
-    <Content Include="Views\index.js" />
     <Content Include="Views\testIndex.html" />
     <Content Include="Views\Images\off-road-cars-silhouettes 2.jpg" />
     <Content Include="Views\Images\off-road-cars-silhouettes.jpg" />

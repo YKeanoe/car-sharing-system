@@ -60,13 +60,11 @@ namespace car_sharing_system.Models {
 
         using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
           if (dbread.Read()) {
-            mySqlConnection.Close();
             return new User(Int32.Parse(dbread[0].ToString()), dbread[1].ToString(), dbread[2].ToString(),
                 Int32.Parse(dbread[3].ToString()), dbread[4].ToString(), dbread[5].ToString(),
                 dbread[6].ToString(), dbread[7].ToString(), dbread[8].ToString(), dbread[9].ToString());
           }
           else {
-            mySqlConnection.Close();
             return null;
           }
         }
