@@ -31,15 +31,6 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
         
         /// <summary>
-        /// fne control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fne;
-        
-        /// <summary>
         /// fn control.
         /// </summary>
         /// <remarks>
