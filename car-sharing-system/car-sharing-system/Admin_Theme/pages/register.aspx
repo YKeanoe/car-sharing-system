@@ -26,7 +26,7 @@
                         <div class="panel-body">
                              <form id="form1" runat="server">  
 
-          
+          <asp:ScriptManager ID="sm" runat="server"></asp:ScriptManager>
 
 
                             <div class="row">
@@ -41,27 +41,37 @@
                                             <label>Email</label>
                                             <br>
                                              <asp:TextBox ID="Email" runat="server"></asp:TextBox> 
-                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                            <br>
+                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                                              ControlToValidate="Email" ForeColor="Red" ErrorMessage="Invalid email address." />
                                             <br />
 
                                             <label>First Name</label> 
                                             <br>
                                              <asp:TextBox ID="First" runat="server"></asp:TextBox> 
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"   
-                                                ControlToValidate="First" ErrorMessage="Please enter your first Name"   
+                                            <br>
+                                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="First"
+                                                 ErrorMessage="Please enter your first name"   
                                                 ForeColor="Red"></asp:RequiredFieldValidator>
                                             <br />
 
                                             <label>Last Name</label>
                                             <br>
-                                             <asp:TextBox ID="Lastname" runat="server"></asp:TextBox> 
-                                            
+                                             <asp:TextBox ID="lastName" runat="server"></asp:TextBox> 
+                                            <br>
+                                            <asp:RequiredFieldValidator ID="lastNameValidator" runat="server"   
+                                                ControlToValidate="lastName" ErrorMessage="Please enter your last name"   
+                                                ForeColor="Red"></asp:RequiredFieldValidator>
                                             <br />
 
                                             <label>License Number</label> 
                                             <br>
-                                             <asp:TextBox ID="License" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="license" runat="server"></asp:TextBox> 
+                                            <br>
+                                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                                                 ValidationExpression="^[0-9]"
+                                             ControlToValidate="license" ForeColor="Red" ErrorMessage="Invalid license number." />
                                             <br />
                                     
                                         </div>
@@ -70,7 +80,9 @@
                                         <div class="form-group">
                                             <label>Password</label>
                                             <br>
-                                             <asp:TextBox ID="Password" runat="server"></asp:TextBox> 
+                                             <asp:TextBox ID="password" runat="server"></asp:TextBox> 
+                                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                                             ControlToValidate="license" ForeColor="Red" ErrorMessage="Enter password." />
                                             <br />
 
 
@@ -78,7 +90,10 @@
 
                                             <label>Phone Number</label>
                                             <br>
-                                            <asp:TextBox ID="PhoneNo" runat="server"></asp:TextBox> 
+                                            <asp:TextBox ID="phoneNo" runat="server"></asp:TextBox> 
+                                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                                                 ValidationExpression="^[0-9]"
+                                             ControlToValidate="phoneNo" ForeColor="Red" ErrorMessage="Invalid phone number." />
                                             <br />
                                               <br>
                                             <asp:Button ID="Button1" runat="server" Text="Register" class="btn btn-primary"></asp:Button>

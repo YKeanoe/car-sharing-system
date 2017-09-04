@@ -22,6 +22,15 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// sm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager sm;
+        
+        /// <summary>
         /// User control.
         /// </summary>
         /// <remarks>
@@ -49,49 +58,49 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.TextBox First;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// lastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.TextBox lastName;
         
         /// <summary>
-        /// Lastname control.
+        /// lastNameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Lastname;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator lastNameValidator;
         
         /// <summary>
-        /// License control.
+        /// license control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox License;
+        protected global::System.Web.UI.WebControls.TextBox license;
         
         /// <summary>
-        /// Password control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox password;
         
         /// <summary>
-        /// PhoneNo control.
+        /// phoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PhoneNo;
+        protected global::System.Web.UI.WebControls.TextBox phoneNo;
         
         /// <summary>
         /// Button1 control.
