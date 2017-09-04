@@ -49,6 +49,15 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.TextBox First;
         
         /// <summary>
+        /// Lastname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Lastname;
+        
+        /// <summary>
         /// License control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Password;
-        
-        /// <summary>
-        /// Lastname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Lastname;
         
         /// <summary>
         /// PhoneNo control.

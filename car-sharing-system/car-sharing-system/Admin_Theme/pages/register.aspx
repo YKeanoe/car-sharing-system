@@ -26,19 +26,28 @@
                                 </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Username</label>
+                                            <label>Username</label> 
+                                            <br>
                                              <asp:TextBox ID="User" runat="server"></asp:TextBox> 
                                             <br />
 
                                             <label>Email</label>
+                                            <br>
                                              <asp:TextBox ID="Email" runat="server"></asp:TextBox> 
                                             <br />
 
-                                            <label>First Name</label>
+                                            <label>First Name</label> 
+                                            <br>
                                              <asp:TextBox ID="First" runat="server"></asp:TextBox> 
                                             <br />
 
-                                            <label>License Number</label>
+                                            <label>Last Name</label>
+                                            <br>
+                                             <asp:TextBox ID="Lastname" runat="server"></asp:TextBox> 
+                                            <br />
+
+                                            <label>License Number</label> 
+                                            <br>
                                              <asp:TextBox ID="License" runat="server"></asp:TextBox> 
                                             <br />
                                     
@@ -47,20 +56,20 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Password</label>
+                                            <br>
                                              <asp:TextBox ID="Password" runat="server"></asp:TextBox> 
                                             <br />
 
 
-                                            <label>Last Name</label>
-                                             <asp:TextBox ID="Lastname" runat="server"></asp:TextBox> 
-                                            <br />
+                                         
 
                                             <label>Phone Number</label>
+                                            <br>
                                             <asp:TextBox ID="PhoneNo" runat="server"></asp:TextBox> 
                                             <br />
-
+                                              <br>
                                             <asp:Button ID="Button1" runat="server" Text="Register" ></asp:Button>
-                                                
+                                                <br/>
                                             
                                         </div>
                                     </div>
