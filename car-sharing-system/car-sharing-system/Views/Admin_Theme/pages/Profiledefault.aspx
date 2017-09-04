@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin_Theme/pages/profile.Master" AutoEventWireup="true" CodeBehind="Profiledefault.aspx.cs" Inherits="car_sharing_system.Views.Admin_Theme.pages.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin_Theme/pages/Profile.master" AutoEventWireup="true" CodeBehind="profiledefault.aspx.cs" Inherits="car_sharing_system.Views.Admin_Theme.pages.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Profile" runat="server">
+
 
                      <asp:Label ID="Label1" runat="server" ></asp:Label>
 
@@ -39,4 +40,7 @@
 
 </asp:Content>
 
-</asp:Content>
+
+
+
+

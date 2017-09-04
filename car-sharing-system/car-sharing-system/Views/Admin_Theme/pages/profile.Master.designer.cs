@@ -10,7 +10,7 @@
 namespace car_sharing_system.Views.Admin_Theme.pages {
     
     
-    public partial class Site1 {
+    public partial class NestedMasterPage1 {
         
         /// <summary>
         /// Profile control.

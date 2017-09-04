@@ -10,7 +10,7 @@
 namespace car_sharing_system.Views.Admin_Theme.pages {
     
     
-    public partial class WebForm2 {
+    public partial class WebForm1 {
         
         /// <summary>
         /// Label1 control.

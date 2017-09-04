@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="profile.Master.cs" Inherits="car_sharing_system.Views.Admin_Theme.pages.Site1" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Profile.master.cs" Inherits="car_sharing_system.Views.Admin_Theme.pages.NestedMasterPage1" %>
+
 
  <!-- /.row -->
             <div class="row">
