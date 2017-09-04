@@ -31,21 +31,12 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
         
         /// <summary>
-        /// ProfileDefault control.
+        /// Profile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ProfileDefault;
-        
-        /// <summary>
-        /// ProfileEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ProfileEdit;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Profile;
     }
 }

@@ -1,9 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin_Theme/pages/profile.Master" AutoEventWireup="true" CodeBehind="profiledefault.aspx.cs" Inherits="car_sharing_system.Views.Admin_Theme.pages.default
-    " %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin_Theme/pages/profile.Master" AutoEventWireup="true" CodeBehind="Profileedit.aspx.cs" Inherits="car_sharing_system.Views.Admin_Theme.pages.WebForm1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Profile" runat="server">
 
+
+
+
+                      
+                      <asp:Label ID="Label1" runat="server" ></asp:Label>
+
+                        <div class="panel-body">
+   
+                            
+                                        <div class="form-group">
+                            <form id="updateform" runat="server">
                                                
 
-                                <asp:Content ID="Content1" ContentPlaceHolderID="ProfileDefault" runat="server">
+                                
 
                                 <asp:TextBox class="form-control" ID="fn" placeholder="FirstName" runat="server"></asp:TextBox>
                                 <asp:TextBox class="form-control" ID="ln" placeholder="LastName" runat="server"></asp:TextBox>
@@ -19,4 +30,15 @@
                                 <asp:TextBox class="form-control" ID="country" placeholder="FirstName" runat="server"></asp:TextBox>
                                 <asp:TextBox class="form-control" ID="profileURL" placeholder="FirstName" runat="server"></asp:TextBox>
 
-                           </asp:Content>
+                             </form>
+
+
+
+
+                                           <a href="/dashboard/update" class="btn btn-info">
+                                                Edit
+                                            </a>
+                                        </div>
+                        </div>
+
+</asp:Content>

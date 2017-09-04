@@ -125,10 +125,9 @@
                             <form id="updateform" runat="server">
                                                
 
-                                        <asp:ContentPlaceHolder ID="ProfileDefault" runat="server">
+                                        <asp:ContentPlaceHolder ID="Profile" runat="server">
         
-                                         </asp:ContentPlaceHolder>
-                                        <asp:ContentPlaceHolder ID="ProfileEdit" runat="server">
+                                         
         
                                         </asp:ContentPlaceHolder>
 
