@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs"  Inherits="car_sharing_system.Admin_Theme.pages.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
@@ -22,6 +25,10 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                              <form id="form1" runat="server">  
+
+          
+
+
                             <div class="row">
                                 </div>
                                     <div class="col-lg-6">
@@ -34,6 +41,8 @@
                                             <label>Email</label>
                                             <br>
                                              <asp:TextBox ID="Email" runat="server"></asp:TextBox> 
+                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                             ControlToValidate="Email" ForeColor="Red" ErrorMessage="Invalid email address." />
                                             <br />
 
                                             <label>First Name</label> 
@@ -41,7 +50,7 @@
                                              <asp:TextBox ID="First" runat="server"></asp:TextBox> 
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"   
                                                 ControlToValidate="First" ErrorMessage="Please enter your first Name"   
-                                                ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                                ForeColor="Red"></asp:RequiredFieldValidator>
                                             <br />
 
                                             <label>Last Name</label>
