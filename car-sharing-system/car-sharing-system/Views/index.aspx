@@ -131,7 +131,20 @@
     <script type="text/javascript">
       // Function to initialize google map and its marker
       function initializeMap(position) {
-
+        $.ajax({
+        type: "POST",
+        url: "index.aspx/getData",
+        data: "{}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+          alert(response.d)
+        },
+        failure: function(response) {
+            alert(response.d);
+        }
+        });
+      
         var data = '<%=carLocationsJSON%>';
         var carLocs = JSON.parse(data);
 
@@ -203,6 +216,11 @@
         $('#brand-filter').html($(this).html() + " <span class=\"caret\"></span>");
       })
       
+      setInterval(function(){
+        getLocation();
+      }, 3000);
+      
+
         // Get location of user after load is successful
         //window.onload = getLocation
     </script>

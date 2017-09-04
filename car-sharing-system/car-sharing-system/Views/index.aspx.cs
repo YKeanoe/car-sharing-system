@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Diagnostics;
+using System.Web.Script.Services;
 
 namespace car_sharing_system
 {
@@ -35,6 +36,8 @@ namespace car_sharing_system
     protected String coor { get { return "test"; } }
     public List<Car> cars { get; set; }
     public String carLocationsJSON { get { return passCarsForMap(); } }
+    public List<Car> randCars { get; set; }
+
 
     protected void Page_Load(object sender, EventArgs e) {
       // Generate dummy car data
@@ -43,7 +46,57 @@ namespace car_sharing_system
         cars = new List<Car>();
         generateDummy(cars);
       }
+      retreieveCarDataTest();
+    }
+
+    public void retreieveCarData() {
       for (int i = 0; i < cars.Count; i++) {
+        HtmlGenericControl div1 = new HtmlGenericControl("div");
+        div1.Attributes.Add("class", "panel-default car-panel");
+        StringBuilder carPanelHTML = new StringBuilder();
+
+        // TO DO
+        // range placeholder.
+        // Change when algorithm is finished
+        String range = i + "km away";
+        //int dataToggleNum = i;
+        String dataToggle = "collapse-" + i;
+
+        carPanelHTML.AppendFormat("<div class=\"panel-heading\">"
+                          + "<a data-toggle=\"collapse\" href=\"#{0}\" class=\"car-panel-title\">"
+                          + "{1} {2}<span style= \"float:right;\">{3}</span>"
+                          + "</a> </div>"
+                          + "<div id = \"{0}\" class=\"panel-collapse collapse\">"
+                          + "<div class=\"panel-body\">"
+                          + "asdasd asdasd"
+                          + "</div></div>", dataToggle, cars[i].brand, cars[i].model, range);
+
+        div1.InnerHtml = carPanelHTML.ToString();
+        carlist.Controls.Add(div1);
+      }
+    }
+
+    public void retreieveCarDataTest()
+    {
+      carlist.Controls.Clear();
+      // Testing for random car
+      randCars = new List<Car>();
+      Random rand = new Random();
+      int ran1 = rand.Next(1, 10);
+      int ran2 = rand.Next(11, 20);
+      int ran3 = rand.Next(21, 30);
+      int ran4 = rand.Next(31, 40);
+      int ran5 = rand.Next(51, 60);
+
+      int[] randomInt = { ran1, ran2, ran3, ran4, ran5 };
+      Debug.WriteLine("ran1 " + ran1);
+      Debug.WriteLine("ran1 " + ran2);
+      Debug.WriteLine("ran1 " + ran3);
+      Debug.WriteLine("ran1 " + ran4);
+      Debug.WriteLine("ran1 " + ran5);
+
+      foreach (int i in randomInt) {
+        randCars.Add(cars[i]);
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");
         StringBuilder carPanelHTML = new StringBuilder();
@@ -72,8 +125,12 @@ namespace car_sharing_system
     public string passCarsForMap() {
       JavaScriptSerializer oSerializer = new JavaScriptSerializer();
       List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
+      Debug.WriteLine("passcarformap");
 
-      foreach (Car car in cars) {
+      retreieveCarDataTest();
+
+
+      foreach (Car car in randCars) {
         carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong));
       }
 
@@ -93,7 +150,8 @@ namespace car_sharing_system
       cars.Add(new Car("V125", "Mercedes", "S Series", "Sedan", 5, 6.30, latlong3));
     }
 
-    public String getData() {
+    [System.Web.Services.WebMethod]
+    public static String getData() {
       return "data";
     }
   }
