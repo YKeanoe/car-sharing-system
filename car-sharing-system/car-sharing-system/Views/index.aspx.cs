@@ -32,24 +32,27 @@ namespace car_sharing_system
   }
 
   public partial class FrontPage : System.Web.UI.Page {
+    // Cars data
+    public static List<Car> cars { get; set; }
+    // Random cars data
+    public static List<Car> randCars { get; set; }
 
-    protected String coor { get { return "test"; } }
-    public List<Car> cars { get; set; }
-    public String carLocationsJSON { get { return passCarsForMap(); } }
-    public List<Car> randCars { get; set; }
-
+    public static PlaceHolder pageCarList { get; set; }
 
     protected void Page_Load(object sender, EventArgs e) {
-      // Generate dummy car data
+      pageCarList = carlist;
+
+      // Generate car data
       cars = DatabaseReader.carQuery(null);
+      // In case of database returns null use dummy data
       if (cars == null) {
         cars = new List<Car>();
         generateDummy(cars);
       }
-      retreieveCarDataTest();
+      fillCarListHTMLRandom();
     }
 
-    public void retreieveCarData() {
+    public void fillCarListHTML() {
       for (int i = 0; i < cars.Count; i++) {
         HtmlGenericControl div1 = new HtmlGenericControl("div");
         div1.Attributes.Add("class", "panel-default car-panel");
@@ -76,10 +79,11 @@ namespace car_sharing_system
       }
     }
 
-    public void retreieveCarDataTest()
-    {
-      carlist.Controls.Clear();
-      // Testing for random car
+    public static void fillCarListHTMLRandom() {
+
+      // Clear html car list
+      pageCarList.Controls.Clear();
+      // Grab random car from cars data
       randCars = new List<Car>();
       Random rand = new Random();
       int ran1 = rand.Next(1, 10);
@@ -90,10 +94,10 @@ namespace car_sharing_system
 
       int[] randomInt = { ran1, ran2, ran3, ran4, ran5 };
       Debug.WriteLine("ran1 " + ran1);
-      Debug.WriteLine("ran1 " + ran2);
-      Debug.WriteLine("ran1 " + ran3);
-      Debug.WriteLine("ran1 " + ran4);
-      Debug.WriteLine("ran1 " + ran5);
+      Debug.WriteLine("ran2 " + ran2);
+      Debug.WriteLine("ran3 " + ran3);
+      Debug.WriteLine("ran4 " + ran4);
+      Debug.WriteLine("ran5 " + ran5);
 
       foreach (int i in randomInt) {
         randCars.Add(cars[i]);
@@ -118,18 +122,16 @@ namespace car_sharing_system
                           + "</div></div>", dataToggle, cars[i].brand, cars[i].model, range);
 
         div1.InnerHtml = carPanelHTML.ToString();
-        carlist.Controls.Add(div1);
+        pageCarList.Controls.Add(div1);
       }
     }
 
-    public string passCarsForMap() {
+    [System.Web.Services.WebMethod]
+    public static string getCarsData() {
       JavaScriptSerializer oSerializer = new JavaScriptSerializer();
       List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
-      Debug.WriteLine("passcarformap");
-
-      retreieveCarDataTest();
-
-
+      fillCarListHTMLRandom();
+      // Change to bellow for which cars to use
       foreach (Car car in randCars) {
         carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong));
       }
@@ -140,7 +142,7 @@ namespace car_sharing_system
       return oSerializer.Serialize(carlocs);
     }
 
-
+    // Create dummy data in case database isn't working
     public void generateDummy(List<Car> cars) {
       Location latlong1 = new Location(-37.816261m, 144.970976m);
       Location latlong2 = new Location(-37.815555m, 144.970107m);
