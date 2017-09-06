@@ -124,7 +124,7 @@
                                         <div class="form-group">
                             <form id="updateform" runat="server">
                                                
-                                <div class="field1">
+                                 <div class="field1">
                                     <span>First Name: <%=fn%> </span ><br />
                                 </div>
 
