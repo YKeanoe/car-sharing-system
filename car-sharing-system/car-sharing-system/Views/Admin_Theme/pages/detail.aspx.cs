@@ -7,11 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
-    public partial class index : System.Web.UI.Page
+    public partial class detail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
+            }
         }
     }
 }

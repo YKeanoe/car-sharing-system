@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "car-sharing-system", "car-sharing-system\car-sharing-system.csproj", "{0F6F2514-C410-403E-AD65-391E10619B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "car-sharing-systemTests", "car-sharing-systemTests\car-sharing-systemTests.csproj", "{53163A04-ADAF-4198-905C-85710764404D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{0F6F2514-C410-403E-AD65-391E10619B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F6F2514-C410-403E-AD65-391E10619B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F6F2514-C410-403E-AD65-391E10619B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53163A04-ADAF-4198-905C-85710764404D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53163A04-ADAF-4198-905C-85710764404D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53163A04-ADAF-4198-905C-85710764404D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53163A04-ADAF-4198-905C-85710764404D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E633FD0-99D9-4EA1-A3E1-228E6CBE3775}
 	EndGlobalSection
 EndGlobal

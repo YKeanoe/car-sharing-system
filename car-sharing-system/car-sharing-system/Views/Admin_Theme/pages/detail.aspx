@@ -1,11 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.detail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
                 <!-- /.row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="fa fa-user fa-5x"></i>
@@ -17,7 +16,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="profile.aspx">
+                        <a href="profile">
                             <div class="panel-footer">
                                 <span class="pull-left">View profile details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -27,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -40,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="booking.aspx">
+                        <a href="booking">
                             <div class="panel-footer">
                                 <span class="pull-left">View booking history</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -63,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="detail.aspx">
+                        <a href="detail">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -86,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="issue.aspx">
+                        <a href="issue">
                             <div class="panel-footer">
                                 <span class="pull-left">Submit concerns</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -101,7 +100,7 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-tasks fa-fw"></i> Booking history
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Current booking
                             <div class="pull-right">
                                 <div class="btn-group">
                                         
@@ -114,25 +113,12 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <a href="/Admin_Theme/pages/confirm.aspx" class="btn btn-primary">
-                                        Confirm
-                                    </a>
-
-                        <!-- /.panel-body -->
-                    </div>
-                 
-                </div>
-                <!-- /.col-lg-4 (nested) -->
+                            
                 <div class="col-lg-8">
-                    
+                    <div id="morris-bar-chart"></div>
                 </div>
                 <!-- /.col-lg-8 (nested) -->
-            </div>
-            <!-- /.row -->
-        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    
+            
                         
                             <!-- /.list-group -->
                             <a href="#" class="btn btn-default btn-block">View All Alerts</a>

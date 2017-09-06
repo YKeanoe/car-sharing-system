@@ -10,12 +10,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Ace Rental</title>
-  <link rel="shortcut icon" href="Views/Images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/Views/Images/favicon.ico" type="image/x-icon">
+
   <!-- Bootstrap Core CSS -->
-  <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom CSS -->
-  <link href="../Bootstrap/css/scrolling-nav.css" rel="stylesheet" />
-  <link href="index.css" rel="stylesheet" />
+  <link href="/Bootstrap/css/scrolling-nav.css" rel="stylesheet" />
+  <link href="/Views/index.css" rel="stylesheet" />
     <!-- jQuery -->
   <script src="/Bootstrap/js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
@@ -23,6 +24,7 @@
   <!-- Scrolling Nav JavaScript -->
   <script src="/Bootstrap/js/jquery.easing.min.js"></script>
   <script src="/Bootstrap/js/scrolling-nav.js"></script>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -43,7 +45,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="#page-top">Ace Rental / Icon</a>
+        <a class="navbar-brand page-scroll navbar-logo" href="#page-top"><img src="Images/logo.png" width=81 height=40/></a>
+        
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -67,7 +70,7 @@
     </div>
     <!-- /.container -->
   </nav>
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="FrontPageHolder" runat="server">
         
     </asp:ContentPlaceHolder>
 </body>
