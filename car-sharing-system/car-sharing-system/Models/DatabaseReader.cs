@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Web;
 using MySql.Data.MySqlClient;
 using car_sharing_system.Models;
@@ -117,50 +118,46 @@ namespace car_sharing_system.Models
             }
         }
 
-
-        public static List<Car> carQuery(String where)
-        {
-            String query;
-            List<Car> cars = new List<Car>();
-            if (!String.IsNullOrEmpty(where))
-            {
-                query = "SELECT * FROM Car WHERE " + where;
-            }
-            else
-            {
-                query = "SELECT * FROM Car";
-            }
+    
+    public static List<Car> carQuery(String where) {
+      Debug.WriteLine("car query");
+      String query;
+      List<Car> cars = new List<Car>();
+      if (!String.IsNullOrEmpty(where)) {
+        query = "SELECT * FROM Car WHERE " + where;
+      } else {
+        query = "SELECT * FROM Car";
+      }
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 
-                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-                {
-                    while (dbread.Read())
-                    {
-                        Car newCar = new Car(dbread[0].ToString() /*ID / license plate*/,
-                                         dbread[3].ToString() /*Brand*/,
-                                         dbread[4].ToString() /*Model*/,
-                                         dbread[5].ToString() /*Vehicle type*/,
-                                         Int32.Parse(dbread[6].ToString()) /*Seats number*/,
-                                         Convert.ToDouble(dbread[7].ToString()) /*Hourly rate*/,
-                                         Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
-                                         Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
-                        cars.Add(newCar);
-                    }
-                }
-            }
-            if (cars.Count() == 0)
-            {
-                return null;
-            }
-            else
-            {
-                return cars;
-            }
+        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+          while (dbread.Read()) {
+            Location newLocation = new Location(
+                             Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
+                             Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
+            Car newCar = new Car(dbread[0].ToString() /*ID / license plate*/,
+                             dbread[4].ToString() /*Brand*/,
+                             dbread[5].ToString() /*Model*/,
+                             dbread[6].ToString() /*Vehicle type*/,
+                             Int32.Parse(dbread[7].ToString()) /*Seats number*/,
+                             Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
+                             newLocation);
+            cars.Add(newCar);
+            newCar.debug();
+          }
         }
+        mySqlConnection.Close();
+      }
+      if (cars.Count() == 0) {
+        return null;
+      } else {
+        return cars;
+      }
+    }
 
         public static Car carQuerySingle(String where)
         {
@@ -179,25 +176,24 @@ namespace car_sharing_system.Models
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 
-                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-                {
-                    if (dbread.Read())
-                    {
-                        return new Car(dbread[0].ToString() /*ID / license plate*/,
-                                       dbread[3].ToString() /*Brand*/,
-                                       dbread[4].ToString() /*Model*/,
-                                       dbread[5].ToString() /*Vehicle type*/,
-                                       Int32.Parse(dbread[6].ToString()) /*Seats number*/,
-                                       Convert.ToDouble(dbread[7].ToString()) /*Hourly rate*/,
-                                       Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
-                                       Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-            }
+        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+          if (dbread.Read()) {
+            Location newLocation = new Location(
+                              Convert.ToDecimal(dbread[1].ToString()) /*Latitude*/,
+                              Convert.ToDecimal(dbread[2].ToString()) /*Longitude*/);
+            return new Car(dbread[0].ToString() /*ID / license plate*/,
+                             dbread[4].ToString() /*Brand*/,
+                             dbread[5].ToString() /*Model*/,
+                             dbread[6].ToString() /*Vehicle type*/,
+                             Int32.Parse(dbread[7].ToString()) /*Seats number*/,
+                             Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
+                             newLocation);
+          }
+          else {
+            return null;
+          }
         }
+      }
     }
+  }
 }
