@@ -12,86 +12,37 @@ namespace car_sharing_system.Models
         public String email { get; private set; }
         public String password { get; private set; }
         public int permission { get; private set; }
-        public String licenceNo { get; private set; }
+        public String longitude { get; private set; }
+        public String latitude { get; private set; }
         public String fname { get; private set; }
         public String lname { get; private set; }
-        public String gender { get; private set; }
-        public String birth { get; private set; }
-        public String phone { get; private set; }
-        public String street { get; private set; }
-        public String suburb { get; private set; }
-        public String postcode { get; private set; }
-        public String territory { get; private set; }
-        public String city { get; private set; }
-        public String country { get; private set; }
-        public String profileURL { get; private set; }
+        public String dob { get; private set; }
+        public String LicenceNo { get; private set; }
 
-
-        public User(int id,
-            String email,
-            String password,
-            int permission,
-            String licenceNo,
-            String fname,
-            String lname,
-            String gender,
-            String birth,
-            String phone,
-            String street,
-            String suburb,
-            String postcode,
-            String territory,
-            String city,
-            String country,
-            String profileURL)
-        {
-
-
-
+        public User(int id,String email,String password,int permission, String longitude, String latitude,String fname,String lname,String dob,String LicenceNo) {
             this.id = id;
             this.email = email;
             this.password = password;
             this.permission = permission;
-            this.licenceNo = licenceNo;
+            this.longitude = longitude;
+            this.latitude = latitude;
             this.fname = fname;
             this.lname = lname;
-            this.gender = gender;
-            this.birth = birth;
-            this.phone = phone;
-            this.street = street;
-            this.suburb = suburb;
-            this.postcode = postcode;
-            this.territory = territory;
-            this.city = city;
-            this.country = country;
-            this.profileURL = profileURL;
-
-
-
-
+            this.dob = dob;
+            this.LicenceNo = LicenceNo;
         }
 
-        public String toString()
-        {
+        public String toString() {
             return "ID: " + id + "<br />" +
                 "Email: " + email + "<br />" +
-                "Password: " + password + "<br />" +
-                "Permission: " + permission + "<br />" +
-                "LicenceNo: " + licenceNo + "<br />" +
                 "First Name: " + fname + "<br />" +
                 "Last Name: " + lname + "<br />" +
-                "Gender: " + gender + "<br />" +
-                "Date Of Birth: " + birth + "<br />" +
-                "Phone: " + birth + "<br />" +
-                "Street: " + birth + "<br />" +
-                "Suburb: " + birth + "<br />" +
-                "Postcode: " + birth + "<br />" +
-                "Territory: " + birth + "<br />" +
-                "City: " + birth + "<br />" +
-                "Country: " + birth + "<br />" +
-                "ProfileURL: " + birth + "<br />";
-
-
+                "Password: " + password + "<br />" +
+                "Date Of Birth: " + dob + "<br />" +
+                "Permission: " + permission + "<br />" +
+                "LicenceNo: " + LicenceNo + "<br />" +
+                "Longitude: " + longitude + "<br />" +
+                "Latitude: " + latitude + "<br />";
         }
     }
 }
