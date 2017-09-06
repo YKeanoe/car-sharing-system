@@ -88,7 +88,7 @@ namespace car_sharing_system.Models
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 
-                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
+        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
                 {
                     if (dbread.Read())
                     {

@@ -5,6 +5,9 @@ var userPos = { lat: "", lng: "" };
 function initializeMap(data) {
   var carLocs = JSON.parse(data.d);
   console.log(carLocs)
+
+  refreshList(carLocs);
+
   var usericon = 'Images/marker-circle-small.png';
   var markers = [];
   var bounds = new google.maps.LatLngBounds();
@@ -114,16 +117,62 @@ $('#brand-filter-dropdown li a  ').click(function () {
   $('#brand-filter').html($(this).html() + " <span class=\"caret\"></span>");
 })
 
+$('#seat-filter-dropdown li a  ').click(function () {
+  $('#seat-filter').html($(this).html() + " <span class=\"caret\"></span>");
+})
+
+$('#sortby-filter-dropdown li a  ').click(function () {
+  $('#sortby-filter').html($(this).html() + " <span class=\"caret\"></span>");
+})
+
+$('#list-collapse-btn').click(function () {
+  $('#list-collapse').collapse()
+})
+
+
 // Set windows onload not ready as it need to load
 // googlemap apis before starting.
 $(window).load(function () {
   test();
   setMap();
-  
+  /*
   setInterval(function () {
     setMap();
-  }, 3000);
+  }, 10000);*/
 });
 
 // Get location of user after load is successful
 //window.onload = getLocation
+
+function refreshList(data) {
+  console.log("refreshing list");
+  $("#carlist").empty();
+
+  for (var i = 0; i < data.length; i++) {
+    var carName = data[i].carName;
+    var range = data[i].dist;
+    var html = '<div class="panel-default car-panel">\
+                  <div class="panel-heading">\
+                    <a data-toggle="collapse" href="#{0}" class="car-panel-title">\
+                      {1}\
+                      <span style="float:right;">{2}m away</span>\
+                    </a>\
+                  </div>\
+                  <div id="{0}" class="panel-collapse collapse">\
+                    <div class="panel-body">\
+                      asdasd asdasd\
+                    </div>\
+                  </div>\
+                </div>';
+    html = html.replace(/\{0\}/g, "collapse_" + i);
+    html = html.replace("{1}", carName);
+    html = html.replace("{2}", range);
+
+    $("#carlist").append(html);
+
+  }
+
+
+
+
+}

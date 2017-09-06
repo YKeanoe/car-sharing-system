@@ -57,28 +57,53 @@
           <div id="map"></div>
           <div class="list" >
             <div class="panel">
-              <label>Refine Results</label>
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" id="brand-filter" type="button" data-toggle="dropdown">
-                  Brand
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" id="brand-filter-dropdown">
-                  <li>Audi<</li>
-                  <li>Ford</li>
-                  <li>Kia</li>
-                  <li>Mazda</li>
-                  <li>Mini</li>
-                  <li>Tesla</li>
-                  <li>Toyota</li>
-                  <li>Subaru</li>
-                  <li>Suzuki</li>
-                </ul>
+              <label class="result-label">Refine Results</label>
+              <div class="filter">
+                <div class="dropdown filter-dropdown">
+                  <button class="btn btn-primary dropdown-toggle btn-filter" id="brand-filter" type="button" data-toggle="dropdown">
+                    Brand
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu filter-dropdown-menu" id="brand-filter-dropdown">
+                    <li><a href:"#">Audi</a></li>
+                    <li><a href:"#">Ford</a></li>
+                    <li><a href:"#">Kia</a></li>
+                    <li><a href:"#">Mazda</a></li>
+                    <li><a href:"#">Mini</a></li>
+                    <li><a href:"#">Tesla</a></li>
+                    <li><a href:"#">Toyota</a></li>
+                    <li><a href:"#">Subaru</a></li>
+                    <li><a href:"#">Suzuki</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown filter-dropdown">
+                  <button class="btn btn-primary dropdown-toggle btn-filter" id="seat-filter" type="button" data-toggle="dropdown">
+                    Seats
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu filter-dropdown-menu" id="seat-filter-dropdown">
+                    <li><a href:"#">2 Seats</a></li>
+                    <li><a href:"#">4 Seats</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown filter-dropdown">
+                  <button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="sortby-filter" type="button" data-toggle="dropdown">
+                    Sort by
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu filter-dropdown-menu-sortby" id="sortby-filter-dropdown">
+                    <li><a href:"#">Distance (Lowest)</a></li>
+                    <li><a href:"#">Distance (Highest)</a></li>
+                    <li><a href:"#">Rate (Lowest)</a></li>
+                    <li><a href:"#">Rate (Highest)</a></li>
+                  </ul>
+                </div>
               </div>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">drop</button>
+              <button class="btn btn-primary" id="list-collapse-btn" type="button">Filter</button>
             </div>
-            <div class="collapse in" id="collapseExample">
-              <asp:PlaceHolder ID="carlist"  runat="server"/>
+            <div class="collapse in" id="list-collapse">
+              <!--<asp:PlaceHolder ID="carlist"  runat="server"/>-->
+              <div id="carlist"></div>
               <!-- Panel default
               <div class="panel-default car-panel">
                 <div class="panel-heading">
