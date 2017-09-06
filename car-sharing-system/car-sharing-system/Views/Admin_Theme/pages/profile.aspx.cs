@@ -15,12 +15,21 @@ namespace car_sharing_system.Admin_Theme.pages
 
             User newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
 
-            fn.Text += newUser.fname;
+  
+
+            fn.Text = newUser.fname;
             ln.Text += newUser.lname;
-            LicenceNo.Text += newUser.LicenceNo;
-            dob.Text += newUser.dob;
-
-
+            licenceNo.Text += newUser.licenceNo;
+            birth.Text += newUser.birth;
+            gender.Text += newUser.gender;
+            phone.Text += newUser.phone;
+            street.Text += newUser.street;
+            suburb.Text += newUser.suburb;
+            postcode.Text += newUser.postcode;
+            territory.Text += newUser.territory;
+            city.Text += newUser.city;
+            country.Text += newUser.country;
+            profileURL.Text += newUser.profileURL;
 
             if (!Request.IsAuthenticated)
             {
