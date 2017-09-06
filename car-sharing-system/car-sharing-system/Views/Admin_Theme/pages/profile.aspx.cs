@@ -10,27 +10,28 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class profile : System.Web.UI.Page
     {
-        protected String fn;
+        protected User newUser;
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            User newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
+            newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
 
+<<<<<<< HEAD
+<<<<<<< HEAD
   
-
-            fn = newUser.fname;
+=======
+=======
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
+            fn.Text += newUser.fname;
             ln.Text += newUser.lname;
-            licenceNo.Text += newUser.licenceNo;
-            birth.Text += newUser.birth;
-            gender.Text += newUser.gender;
-            phone.Text += newUser.phone;
-            street.Text += newUser.street;
-            suburb.Text += newUser.suburb;
-            postcode.Text += newUser.postcode;
-            territory.Text += newUser.territory;
-            city.Text += newUser.city;
-            country.Text += newUser.country;
-            profileURL.Text += newUser.profileURL;
+            LicenceNo.Text += newUser.LicenceNo;
+            dob.Text += newUser.dob;
+
+
+<<<<<<< HEAD
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
+=======
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
 
             if (!Request.IsAuthenticated)
             {

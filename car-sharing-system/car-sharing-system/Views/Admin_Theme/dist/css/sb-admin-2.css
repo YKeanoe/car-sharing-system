@@ -4,25 +4,10 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-.field1{
-    padding:10px 10px 0px 20px;
-    
-}
+.field1 {
+    text-align: center;
+    font-weight: bold
 
-
-
-
- .field2, .field3, .field4, .field5, .field6, .field7, .field8, .field9, .field10, .field11, .field12 {
-    padding:20px 10px 0px 20px;
-
-}
-
-.field13{
-    padding:20px 10px 10px 20px;
-}
-
-.btn btn-info {
-    padding: 0px 0px 0px 5px;
 }
 
 
