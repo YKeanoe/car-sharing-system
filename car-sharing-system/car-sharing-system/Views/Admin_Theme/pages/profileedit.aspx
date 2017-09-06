@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profileedit.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profileedit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- /.row -->
             <div class="row">
@@ -122,7 +122,7 @@
    
                             
                                         <div class="form-group">
-                            <form id="updateform" runat="server">
+                             <form id="updateform" runat="server">
                                                
                                  <div class="field1">
                                     <span>First Name: <%=fn%> </span ><br />
@@ -182,7 +182,7 @@
 
 
                                            <a href="/dashboard/update" class="btn btn-info">
-                                                Edit
+                                                Submit
                                             </a>
                                         </div>
                         </div>
