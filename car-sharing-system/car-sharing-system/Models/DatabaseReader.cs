@@ -16,6 +16,8 @@ namespace car_sharing_system.Models
         static String pass = "password123";
         static String sqlConnectionString = "Server=" + server + ";Database=" + db + ";Uid=" + id + ";Pwd=" + pass + ";";
 
+     
+
         // userQuery returns a list of users from the query
         public static List<User> userQuery(String where)
         {
@@ -117,22 +119,43 @@ namespace car_sharing_system.Models
                 }
             }
         }
-        public static User userQueryInsert(String where)
+       /* public static User userQueryInsert()
         {
             String query = "INSERT TO User (accountID, email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl)";
             query += "VALUES (@userRego, @emailRego, @passwordRego, @permissionRego, @licenseNoRego, @firstRego, @lastRego, @genderRego, @birthRego, @phoneNoRego, @streetRego, @suburbRego, @postRego, @terrRego, @cityRego, @countryRego, @urlRego)";
-            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
-
-            using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
             {
-                mySqlConnection.Open();
 
-                mySqlCommand.Parameters.Add("accountID", userRego.Text);
+
+                using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+                {
+                    mySqlConnection.Open();
+
+                    mySqlCommand.Parameters.Add("userRego" .Text );
+                    mySqlCommand.Parameters.Add("emailRego" ,);
+                    mySqlCommand.Parameters.Add("passwordRego",);
+                    mySqlCommand.Parameters.Add("PermissionRego",);
+                    mySqlCommand.Parameters.Add("licenseRego",);
+                    mySqlCommand.Parameters.Add("firstRego",);
+                    mySqlCommand.Parameters.Add("lastRego",);
+                    mySqlCommand.Parameters.Add("lastRego",);
+                    mySqlCommand.Parameters.Add("genderRego",);
+                    mySqlCommand.Parameters.Add("birthRego",);
+                    mySqlCommand.Parameters.Add("phoneNoRego",);
+                    mySqlCommand.Parameters.Add("streetRego",);
+                    mySqlCommand.Parameters.Add("suburbRego",);
+                    mySqlCommand.Parameters.Add("postRego",);
+                    mySqlCommand.Parameters.Add("terrRego",);
+                    mySqlCommand.Parameters.Add("cityRego",);
+                    mySqlCommand.Parameters.Add("countryRego",);
+                    mySqlCommand.Parameters.Add("urlRego",);             
+                    mySqlCommand.ExecuteNonQuery();
+                }
             }
 
-
         }
-
+        */
 
 
         public static List<Car> carQuery(String where) {

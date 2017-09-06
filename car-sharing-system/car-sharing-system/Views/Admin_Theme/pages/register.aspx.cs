@@ -20,7 +20,7 @@ namespace car_sharing_system.Admin_Theme.pages
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            newUser = DatabaseReader.userQueryInsert("accountID = '" + User.Identity.Name + "';");
+            newUser = DatabaseReader.userQueryInsert("accountID = '" +  + "';");
 
            
         }
