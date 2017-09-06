@@ -125,55 +125,55 @@
                             <form id="updateform" runat="server">
                                                
                                 <div class="field1">
-                                    <span>First Name: <%=newUser.fname%> </span ><br />
+                                    <span>First Name: <%=fn%> </span ><br />
                                 </div>
 
                                 <div class="field2">
-                                    <span>Last Name: <%=newUser.lname%> </span ><br />
+                                    <span>Last Name: </span> <asp:Label ID="ln" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field3">
-                                    <span>Licence Number: <%=newUser.licenceNo%> </span ><br />
+                                    <span>Licence Number: </span> <asp:Label ID="licenceNo" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field4">
-                                    <span>Date of Birth: <%=newUser.birth%> </span ><br />
+                                    <span>Date of Birth: </span> <asp:Label ID="birth" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field5">
-                                    <span>Gender: <%=newUser.gender%> </span ><br />
+                                    <span>Gender: </span> <asp:Label ID="gender" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field6">
-                                    <span>Phone: <%=newUser.phone%> </span ><br />
+                                    <span>Phone: </span> <asp:Label ID="phone" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field7"> 
-                                    <span>Street: <%=newUser.street%> </span ><br />
+                                    <span>Street: </span> <asp:Label ID="street" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field8">
-                                    <span>Suburb: <%=newUser.suburb%> </span ><br />
+                                    <span>Suburb: </span> <asp:Label ID="suburb" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field9">
-                                     <span>Postcode: <%=newUser.postcode%> </span ><br />
+                                     <span>Postcode: </span> <asp:Label ID="postcode" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field10">
-                                    <span>Territory: <%=newUser.territory%> </span ><br />
+                                     <span>Territory: </span> <asp:Label ID="territory" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field11">
-                                    <span>City: <%=newUser.city%> </span ><br />
+                                     <span>City: </span> <asp:Label ID="city" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field12">
-                                    <span>Contry: <%=newUser.country%> </span ><br />
+                                     <span>Country: </span> <asp:Label ID="country" runat="server" ></asp:Label><br />
                                 </div>
 
                                 <div class="field13">
-                                    <span>Profile URL: <%=newUser.profileURL%> </span ><br />
+                                     <span>ProfileURL: </span> <asp:Label ID="profileURL" runat="server" ></asp:Label><br />
                                 </div>
 
                              </form>
