@@ -10,7 +10,6 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class profile : System.Web.UI.Page
     {
-        protected String fn;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,7 +17,7 @@ namespace car_sharing_system.Admin_Theme.pages
 
   
 
-            fn = newUser.fname;
+            fn.Text = newUser.fname;
             ln.Text += newUser.lname;
             licenceNo.Text += newUser.licenceNo;
             birth.Text += newUser.birth;
