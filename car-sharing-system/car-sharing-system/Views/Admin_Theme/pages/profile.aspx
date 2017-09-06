@@ -125,7 +125,7 @@
                             <form id="updateform" runat="server">
                                                
                                 <div class="field1">
-                                    <span>First Name: </span> <asp:Label ID="fn" runat="server"></asp:Label><br />
+                                    <span>First Name: <%=fn%> </span ><br />
                                 </div>
 
                                 <div class="field2">
