@@ -126,7 +126,34 @@ $('#sortby-filter-dropdown li a  ').click(function () {
 })
 
 $('#list-collapse-btn').click(function () {
-  $('#list-collapse').collapse()
+  var brand = $('#brand-filter').text();
+  var seat = $('#seat-filter').text();
+  var sortby = $('#sortby-filter').text();
+  console.log(brand + " | " + seat + " | " + sortby);
+  // Remove all spaces. Careful if the car's brand contain 2 words.
+  brand = brand.replace(/\s+/g, '');
+  // Remove spaces and 'seats'. returns only the number of seats.
+  seat = seat.charAt(0);
+  // Convert sortby options to interger.
+  if (sortby == "Sort by ") {
+    sortby = 0; // 0 represent default or sort by distance
+  } else if (sortby == "Distance (Lowest) ") {
+    sortby = 0;
+  } else if (sortby == "Distance (Highest) ") {
+    sortby = 1; // 1 represent sort by furthest distance
+  } else if (sortby == "Rate (Lowest) ") {
+    sortby = 2; // 2 represent sort by lowest rate
+  } else {
+    sortby = 3; // 3 represent sort by highest rate
+  }
+  console.log(brand + " | " + seat + " | " + sortby);
+  $('#list-collapse').collapse('hide');
+  setMap();
+  $(this).prop(disabled, true);
+  setTimeout(function () {
+    $('#list-collapse').collapse('show');
+    $(this).prop(disabled, false);
+  }, 2000);
 })
 
 
