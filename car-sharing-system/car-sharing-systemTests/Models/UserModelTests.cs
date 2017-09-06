@@ -61,7 +61,7 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Pass("No password check success");
+                Assert.Pass("Login fail");
             }
         }
         [Test()]
@@ -78,7 +78,41 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Pass("No user check success");
+                Assert.Pass("Login fail");
+            }
+        }
+        [Test()]
+        public void loginAttemptNoCredentials()
+        {
+            UserModel data = new UserModel();
+            String beforeHash = "";
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = "";
+            User myData = data.loginAttempt(userName, password);
+            if (myData != null)
+            {
+                Assert.Fail("No Credentials check failure");
+            }
+            else
+            {
+                Assert.Pass("No match found in database");
+            }
+        }
+        [Test()]
+        public void loginAttemptNull()
+        {
+            UserModel data = new UserModel();
+            String beforeHash = null;
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = null;
+            User myData = data.loginAttempt(userName, password);
+            if (myData != null)
+            {
+                Assert.Fail("No Credentials check failure");
+            }
+            else
+            {
+                Assert.Pass("No match found in database");
             }
         }
     }
