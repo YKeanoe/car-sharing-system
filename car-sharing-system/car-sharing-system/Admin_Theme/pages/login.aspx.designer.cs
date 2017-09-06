@@ -31,40 +31,40 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.ScriptManager sm;
         
         /// <summary>
-        /// user control.
+        /// userRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox user;
+        protected global::System.Web.UI.WebControls.TextBox userRego;
         
         /// <summary>
-        /// Email control.
+        /// emailRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.TextBox emailRego;
         
         /// <summary>
-        /// First control.
+        /// firstRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox First;
+        protected global::System.Web.UI.WebControls.TextBox firstRego;
         
         /// <summary>
-        /// lastName control.
+        /// lastNameRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastName;
+        protected global::System.Web.UI.WebControls.TextBox lastNameRego;
         
         /// <summary>
         /// lastNameValidator control.
@@ -76,31 +76,31 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator lastNameValidator;
         
         /// <summary>
-        /// license control.
+        /// licenseRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox license;
+        protected global::System.Web.UI.WebControls.TextBox licenseRego;
         
         /// <summary>
-        /// password control.
+        /// passwordRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.TextBox passwordRego;
         
         /// <summary>
-        /// phoneNo control.
+        /// phoneNoRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneNo;
+        protected global::System.Web.UI.WebControls.TextBox phoneNoRego;
         
         /// <summary>
         /// Button1 control.
