@@ -124,20 +124,57 @@
                                         <div class="form-group">
                             <form id="updateform" runat="server">
                                                
+                                <div class="field1">
+                                    <span>First Name: </span> <asp:Label ID="fn" runat="server"></asp:Label><br />
+                                </div>
 
-                                <div class="field1"><asp:Label ID="fn" runat="server" Text="First name: "></asp:Label><br /></div>
-                                <div id="field2"><asp:Label ID="ln" runat="server" Text="Last name: "></asp:Label><br /></div>
-                                <div id="field3"><asp:Label ID="licenceNo" runat="server" Text="Licence Number: "></asp:Label><br /></div>
-                                <div id="field4"><asp:Label ID="birth" runat="server" Text="Date of birth: "></asp:Label><br /></div>
-                                <div id="field5"><asp:Label ID="gender" runat="server" Text="Gender: "></asp:Label><br /></div>
-                                <div id="field6"><asp:Label ID="phone" runat="server" Text="Phone: "></asp:Label><br /></div>
-                                <div id="field7"> <asp:Label ID="street" runat="server" Text="Street: "></asp:Label><br /></div>
-                                <div id="field8"><asp:Label ID="suburb" runat="server" Text="Suburb: "></asp:Label><br /></div>
-                                <div id="field9"> <asp:Label ID="postcode" runat="server" Text="Postcode: "></asp:Label><br /></div>
-                                <div id="field10"> <asp:Label ID="territory" runat="server" Text="Territory: "></asp:Label><br /></div>
-                                <div id="field11"> <asp:Label ID="city" runat="server" Text="City: "></asp:Label><br /></div>
-                                <div id="field12"> <asp:Label ID="country" runat="server" Text="Country: "></asp:Label><br /></div>
-                                <div id="field13"> <asp:Label ID="profileURL" runat="server" Text="ProfileURL: "></asp:Label><br /></div>
+                                <div class="field2">
+                                    <span>Last Name: </span> <asp:Label ID="ln" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field3">
+                                    <span>Licence Number: </span> <asp:Label ID="licenceNo" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field4">
+                                    <span>Date of Birth: </span> <asp:Label ID="birth" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field5">
+                                    <span>Gender: </span> <asp:Label ID="gender" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field6">
+                                    <span>Phone: </span> <asp:Label ID="phone" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field7"> 
+                                    <span>Street: </span> <asp:Label ID="street" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field8">
+                                    <span>Suburb: </span> <asp:Label ID="suburb" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field9">
+                                     <span>Postcode: </span> <asp:Label ID="postcode" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field10">
+                                     <span>Territory: </span> <asp:Label ID="territory" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field11">
+                                     <span>City: </span> <asp:Label ID="city" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field12">
+                                     <span>Country: </span> <asp:Label ID="country" runat="server" ></asp:Label><br />
+                                </div>
+
+                                <div class="field13">
+                                     <span>ProfileURL: </span> <asp:Label ID="profileURL" runat="server" ></asp:Label><br />
+                                </div>
 
                              </form>
 
@@ -165,6 +202,6 @@
             <!-- /.row -->
         </div>
         <!-- /.panel-body -->
-   \
+   
 
 </asp:Content>
