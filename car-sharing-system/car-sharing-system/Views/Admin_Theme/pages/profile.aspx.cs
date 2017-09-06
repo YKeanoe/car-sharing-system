@@ -16,22 +16,7 @@ namespace car_sharing_system.Admin_Theme.pages
 
             newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   
-=======
-=======
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
-            fn.Text += newUser.fname;
-            ln.Text += newUser.lname;
-            LicenceNo.Text += newUser.LicenceNo;
-            dob.Text += newUser.dob;
-
-
-<<<<<<< HEAD
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
-=======
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
 
             if (!Request.IsAuthenticated)
             {

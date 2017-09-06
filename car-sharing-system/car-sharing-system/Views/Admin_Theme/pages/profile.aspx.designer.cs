@@ -13,65 +13,21 @@ namespace car_sharing_system.Admin_Theme.pages {
     public partial class profile {
         
         /// <summary>
-        /// Label control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// updateform control.
-=======
-=======
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
-        protected global::System.Web.UI.WebControls.Label Label;
-        
-        /// <summary>
-        /// fn control.
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
-=======
-        protected global::System.Web.UI.WebControls.Label fn;
-        
-        /// <summary>
-        /// ln control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ln;
-        
-        /// <summary>
-        /// dob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dob;
-        
-        /// <summary>
-        /// LicenceNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LicenceNo;
-<<<<<<< HEAD
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
-=======
->>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
     }
 }
