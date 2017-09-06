@@ -1,51 +1,138 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+                <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"></div> 
+                                    <br>
+                                    <div>Profile!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="profile">
+                            <div class="panel-footer">
+                                <span class="pull-left">View profile details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"></div>
+                                    <br>
+                                    <div>Booking history!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="booking">
+                            <div class="panel-footer">
+                                <span class="pull-left">View booking history</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-bar-chart-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"></div>
+                                    <br>
+                                    <div>View current kms!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="detail">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-envelope-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"></div> 
+                                    <br>
+                                    <div>Having issues?</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="issue">
+                            <div class="panel-footer">
+                                <span class="pull-left">Submit concerns</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
                     <div class="panel panel-default">
-                        
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Login
+                            <i class="fa fa-envelope-o fa-fw"></i> Submit concerns
                             <div class="pull-right">
-                                
                                 <div class="btn-group">
-
-
+                                        
+                                    
+                                  
                                 </div>
-                               
                             </div>
-                            
                         </div>
 
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form id="form1" runat="server">
-                                <asp:Login 
-                                    ID = "Login1" 
-                                    runat = "server" 
-                                    OnAuthenticate= "ValidateUser" 
-                                    DestinationPageUrl="~/dashboard.aspx">
-                                    <LayoutTemplate>
-                                        <div class="form-group">
-                                            <asp:TextBox class="form-control" placeholder="Email" id="UserName" runat="server"></asp:TextBox>
-                                            <asp:requiredfieldvalidator id="UserNameRequired" runat="server" ControlToValidate="UserName" Text="*"></asp:requiredfieldvalidator>
-                                            <br />
-                                            <asp:TextBox class="form-control" placeholder="Password" id="Password" runat="server" textMode="Password"></asp:TextBox>
-                                            <asp:requiredfieldvalidator id="PasswordRequired" runat="server" ControlToValidate="Password" Text="*"></asp:requiredfieldvalidator>
-                                            <br />
-                                            <asp:button id="Button1" class="btn btn-primary" CommandName="Login" runat="server" Text="Login"></asp:button>
-                                            <a href="/dashboard/register" class="btn btn-info">
-                                                Register
-                                            </a>
-                                            <asp:Checkbox id="RememberMe" runat="server" Text="Remember my login"></asp:Checkbox>
-                                            <br />
-                                            <asp:Literal id="FailureText" runat="server"></asp:Literal></td>
-                                        </div>
-                                    </LayoutTemplate>
-                                </asp:Login>
+                            <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Report issue</label>
+                                    <input class="form-control" placeholder="Title" />
+                                    <br />
+
+                                    <textarea rows="4" cols="74" placeholder="Enter your concerns here"></textarea>
+                                    <br />
+
+                                    <button class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                    
+                                </div>
                             </form>
+                        </div>
+
+
+
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -55,10 +142,17 @@
                 </div>
                 <!-- /.col-lg-4 (nested) -->
                 <div class="col-lg-8">
-                
+                    <div id="morris-bar-chart"></div>
+                </div>
                 <!-- /.col-lg-8 (nested) -->
             </div>
             <!-- /.row -->
         </div>
-        <!-- /.panel-body -->
+                        <!-- /.panel-body -->
+                    </div>
+                    
+                        
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+
 </asp:Content>
