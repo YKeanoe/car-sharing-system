@@ -120,6 +120,7 @@
 
                         <div class="panel-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
    
                             
                                         <div class="form-group">
@@ -186,6 +187,15 @@
                                                 Edit
                                             </a>
                                         </div>
+=======
+                            <asp:Label ID="Label" runat="server" Text="ID: "></asp:Label>
+                            <%=User.Identity.Name%><br>
+                            <asp:Label ID="fn" runat="server" Text="First name: "></asp:Label><br />
+                            <asp:Label ID="ln" runat="server" Text="Last name: "></asp:Label><br />
+                            <asp:Label ID="dob" runat="server" Text="Date of birth: "></asp:Label><br />
+                            <asp:Label ID="LicenceNo" runat="server" Text="Licence Number: "></asp:Label><br />
+
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
 =======
                             <asp:Label ID="Label" runat="server" Text="ID: "></asp:Label>
                             <%=User.Identity.Name%><br>

@@ -60,6 +60,7 @@ namespace car_sharing_system.Models {
         using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
           if (dbread.Read()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return new User(Int32.Parse(dbread[0].ToString()), //accountID
                             dbread[1].ToString(),  //email
                             dbread[2].ToString(), //password
@@ -79,10 +80,15 @@ namespace car_sharing_system.Models {
                             dbread[16].ToString()); //profileurl
                     }
 =======
+=======
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
             return new User(Int32.Parse(dbread[0].ToString()), dbread[1].ToString(), dbread[2].ToString(),
                 Int32.Parse(dbread[3].ToString()), dbread[4].ToString(), dbread[5].ToString(),
                 dbread[6].ToString(), dbread[7].ToString(), dbread[8].ToString(), dbread[9].ToString());
           }
+<<<<<<< HEAD
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
+=======
 >>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
           else {
             return null;

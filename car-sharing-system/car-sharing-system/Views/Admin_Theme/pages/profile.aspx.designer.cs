@@ -20,11 +20,14 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
 <<<<<<< HEAD
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// updateform control.
 =======
+=======
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
         protected global::System.Web.UI.WebControls.Label Label;
         
         /// <summary>
@@ -66,6 +69,9 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LicenceNo;
+<<<<<<< HEAD
+>>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
+=======
 >>>>>>> parent of 3478442... Merge branch 'dev' of https://github.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.git
     }
 }
