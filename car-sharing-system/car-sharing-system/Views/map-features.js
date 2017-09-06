@@ -87,7 +87,6 @@ function test() {
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (response) {
-      alert(response);
       console.log(response);
     },
     failure: function () {
