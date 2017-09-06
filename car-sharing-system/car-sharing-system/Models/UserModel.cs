@@ -9,7 +9,7 @@ namespace car_sharing_system.Models
     public class UserModel
     {
         public UserModel() {
-
+            // EMPTY METHOD HERE!!!
         }
 
         public User loginAttempt(String email, String password)
