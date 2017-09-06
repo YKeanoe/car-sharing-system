@@ -124,8 +124,8 @@
                                         <div class="form-group">
                             <form id="updateform" runat="server">
                                                
-                                <div class="field1">
-                                    <span>First Name: </span> <asp:Label ID="fn" runat="server"></asp:Label><br />
+                                 <div class="field1">
+                                    <span>First Name: <%=fn%> </span ><br />
                                 </div>
 
                                 <div class="field2">
