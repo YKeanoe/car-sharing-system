@@ -117,9 +117,25 @@ namespace car_sharing_system.Models
                 }
             }
         }
+        public static User userQueryInsert(String where)
+        {
+            String query = "INSERT TO User (accountID, email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl)";
+            query += "VALUES (@userRego, @emailRego, @passwordRego, @permissionRego, @licenseNoRego, @firstRego, @lastRego, @genderRego, @birthRego, @phoneNoRego, @streetRego, @suburbRego, @postRego, @terrRego, @cityRego, @countryRego, @urlRego)";
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
 
-    
-    public static List<Car> carQuery(String where) {
+            using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+            {
+                mySqlConnection.Open();
+
+                mySqlCommand.Parameters.Add("accountID", userRego.Text);
+            }
+
+
+        }
+
+
+
+        public static List<Car> carQuery(String where) {
       Debug.WriteLine("car query");
       String query;
       List<Car> cars = new List<Car>();
