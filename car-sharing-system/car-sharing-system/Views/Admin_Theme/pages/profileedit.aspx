@@ -125,55 +125,56 @@
                              <form id="updateform" runat="server">
                                                
                                  <div class="field1">
-                                    <span>First Name: <%=fn%> </span ><br />
+                                     
+                                    <span>First Name: <input type="text" name="firstname" value="<%=fn %>"></span ><br />
                                 </div>
 
                                 <div class="field2">
-                                    <span>Last Name:  <%=ln%></span><br />
+                                    <span>Last Name: <input type="text" name="lastname" value="<%=ln %>"></span><br />
                                 </div>
 
                                 <div class="field3">
-                                    <span>Licence Number: <%=licenceNo%> </span> <br />
+                                    <span>Licence Number: <input type="text" name="licenceNo" value="<%=licenceNo %>"> </span> <br />
                                 </div>
 
                                 <div class="field4">
-                                    <span>Date of Birth: <%=birth%></span> <br />
+                                    <span>Date of Birth: <input type="text" name="birth" value="<%=birth %>"> </span> <br />
                                 </div>
 
                                 <div class="field5">
-                                    <span>Gender: <%=gender%></span> <br />
+                                    <span>Gender: <input type="text" name="gender" value="<%=gender %>"></span> <br />
                                 </div>
 
                                 <div class="field6">
-                                    <span>Phone: <%=phone%></span> <br />
+                                    <span>Phone: <input type="text" name="phone" value="<%=phone %>"></span> <br />
                                 </div>
 
                                 <div class="field7"> 
-                                    <span>Street: <%=street%></span> <br />
+                                    <span>Street: <input type="text" name="street" value="<%=street %>"></span> <br />
                                 </div>
 
                                 <div class="field8">
-                                    <span>Suburb: <%=suburb%></span> <br />
+                                    <span>Suburb: <input type="text" name="suburb" value="<%=suburb %>"></span> <br />
                                 </div>
 
                                 <div class="field9">
-                                     <span>Postcode: <%=postcode%></span> <br />
+                                     <span>Postcode: <input type="text" name="postcode" value="<%=postcode %>"></span> <br />
                                 </div>
 
                                 <div class="field10">
-                                     <span>Territory: <%=territory%></span> <br />
+                                     <span>Territory: <input type="text" name="territory" value="<%=territory %>"></span> <br />
                                 </div>
 
                                 <div class="field11">
-                                     <span>City: <%=city%></span> <br />
+                                     <span>City: <input type="text" name="city" value="<%=city %>"></span> <br />
                                 </div>
 
                                 <div class="field12">
-                                     <span>Country: <%=country%></span> <br />
+                                     <span>Country: <input type="text" name="country" value="<%=country %>"></span> <br />
                                 </div>
 
                                 <div class="field13">
-                                     <span>ProfileURL: <%=profileURL%></span> <br />
+                                     <span>ProfileURL: <input type="text" name="profileURL" value="<%=profileURL %>"></span> <br />
                                 </div>
 
                              </form>
