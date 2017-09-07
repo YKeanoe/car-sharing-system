@@ -131,9 +131,15 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
-        public void registrationTest()
+        [Test()]
+        public void registrationTest() // Test the registration function to see if it adds user to database with valid infomration
         {
             // Enter test code here (Placeholder)
+            // newUser = DatabaseReader.userQueryInsert("accountID = '" + +"';");
+            // Registration fields to be filled out are the following:
+            // Username, Email, Password, License Number, First Name, Last Name, Gender
+            // Date of Birth, Phone Number, Street Address, Suburb, Postcode, Territory
+            // City, Country 
         }
 
         [Test()]
@@ -157,6 +163,7 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("Password hash mismatch");
             }
         }
+
         [Test()]
         public void loginAttemptWithHash() // 
         {
