@@ -49,6 +49,24 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.TextBox emailRego;
         
         /// <summary>
+        /// passwordRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox passwordRego;
+        
+        /// <summary>
+        /// licenseRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox licenseRego;
+        
+        /// <summary>
         /// firstRego control.
         /// </summary>
         /// <remarks>
@@ -76,22 +94,22 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator lastNameValidator;
         
         /// <summary>
-        /// licenseRego control.
+        /// RadioButtonList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox licenseRego;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
         
         /// <summary>
-        /// passwordRego control.
+        /// birthRego control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordRego;
+        protected global::System.Web.UI.WebControls.TextBox birthRego;
         
         /// <summary>
         /// phoneNoRego control.
@@ -101,6 +119,69 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox phoneNoRego;
+        
+        /// <summary>
+        /// streetRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox streetRego;
+        
+        /// <summary>
+        /// suburbRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox suburbRego;
+        
+        /// <summary>
+        /// postRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox postRego;
+        
+        /// <summary>
+        /// terrRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox terrRego;
+        
+        /// <summary>
+        /// cityRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cityRego;
+        
+        /// <summary>
+        /// countryRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox countryRego;
+        
+        /// <summary>
+        /// urlRego control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox urlRego;
         
         /// <summary>
         /// Button1 control.

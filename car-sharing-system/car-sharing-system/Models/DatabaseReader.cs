@@ -16,6 +16,7 @@ namespace car_sharing_system.Models
         static String pass = "password123";
         static String sqlConnectionString = "Server=" + server + ";Database=" + db + ";Uid=" + id + ";Pwd=" + pass + ";";
 
+
      
 
         // userQuery returns a list of users from the query
@@ -119,43 +120,47 @@ namespace car_sharing_system.Models
                 }
             }
         }
-       /* public static User userQueryInsert()
+
+        public void Registeration(User newUser)
         {
-            String query = "INSERT TO User (accountID, email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl)";
-            query += "VALUES (@userRego, @emailRego, @passwordRego, @permissionRego, @licenseNoRego, @firstRego, @lastRego, @genderRego, @birthRego, @phoneNoRego, @streetRego, @suburbRego, @postRego, @terrRego, @cityRego, @countryRego, @urlRego)";
+
+            String query = "INSERT TO User (email, password, permission, licenseNo, fName, lname, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl)";
+            query += "VALUES (@email, @password, @permission, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl)";
+
             {
 
-
-                using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
-
-                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query))
                 {
-                    mySqlConnection.Open();
 
-                    mySqlCommand.Parameters.Add("userRego" .Text );
-                    mySqlCommand.Parameters.Add("emailRego" ,);
-                    mySqlCommand.Parameters.Add("passwordRego",);
-                    mySqlCommand.Parameters.Add("PermissionRego",);
-                    mySqlCommand.Parameters.Add("licenseRego",);
-                    mySqlCommand.Parameters.Add("firstRego",);
-                    mySqlCommand.Parameters.Add("lastRego",);
-                    mySqlCommand.Parameters.Add("lastRego",);
-                    mySqlCommand.Parameters.Add("genderRego",);
-                    mySqlCommand.Parameters.Add("birthRego",);
-                    mySqlCommand.Parameters.Add("phoneNoRego",);
-                    mySqlCommand.Parameters.Add("streetRego",);
-                    mySqlCommand.Parameters.Add("suburbRego",);
-                    mySqlCommand.Parameters.Add("postRego",);
-                    mySqlCommand.Parameters.Add("terrRego",);
-                    mySqlCommand.Parameters.Add("cityRego",);
-                    mySqlCommand.Parameters.Add("countryRego",);
-                    mySqlCommand.Parameters.Add("urlRego",);             
+                    mySqlCommand.Parameters.AddWithValue("email", newUser.email);
+                    mySqlCommand.Parameters.AddWithValue("password", newUser.password);
+                    mySqlCommand.Parameters.AddWithValue("license", newUser.licenceNo);
+                    mySqlCommand.Parameters.AddWithValue("firstName", newUser.fname);
+                    mySqlCommand.Parameters.AddWithValue("lastName", newUser.lname);
+                    mySqlCommand.Parameters.AddWithValue("gender", newUser.gender);
+                    mySqlCommand.Parameters.AddWithValue("birth", newUser.birth);
+                    mySqlCommand.Parameters.AddWithValue("phoneNo", newUser.phone);
+                    mySqlCommand.Parameters.AddWithValue("street", newUser.street);
+                    mySqlCommand.Parameters.AddWithValue("suburb", newUser.suburb);
+                    mySqlCommand.Parameters.AddWithValue("postcode", newUser.postcode);
+                    mySqlCommand.Parameters.AddWithValue("territory", newUser.territory);
+                    mySqlCommand.Parameters.AddWithValue("city", newUser.city);
+                    mySqlCommand.Parameters.AddWithValue("country", newUser.country);
+                    mySqlCommand.Parameters.AddWithValue("profileurl", newUser.profileURL);
                     mySqlCommand.ExecuteNonQuery();
+
                 }
+
             }
 
+
+
+
+
+
         }
-        */
+
+
 
 
         public static List<Car> carQuery(String where) {

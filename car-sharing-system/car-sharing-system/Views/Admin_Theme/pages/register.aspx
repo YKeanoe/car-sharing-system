@@ -43,19 +43,20 @@
 
                                             <label>Email</label>
                                             <br>
-                                             <asp:TextBox ID=emailRego runat="server"></asp:TextBox> 
+                                             <asp:TextBox Type="email" ID=emailRego runat="server" ></asp:TextBox> 
                                             <br>
                                              <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                                  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                                              ControlToValidate="emailRego" ForeColor="Red" ErrorMessage="Invalid email address." />
                                             <br />
 
-                                            <label>Password</label>
+                                            <label>Password</label> 
                                             <br>
                                              <asp:TextBox ID="passwordRego" runat="server"></asp:TextBox> 
                                             <br>
-                                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                             ControlToValidate="passwordRego" ForeColor="Red" ErrorMessage="Enter password." />
+                                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="passwordRego"
+                                                 ErrorMessage="Please enter password"   
+                                                ForeColor="Red"></asp:RequiredFieldValidator>
                                             <br />
 
                                               <label>License Number</label> 
@@ -97,11 +98,11 @@
                                     
                                        <label>Birth</label> 
                                             <br>
-                                             <asp:TextBox ID="BirthRego" runat="server" placeholder="dd/mm/yy"></asp:TextBox> 
+                                             <asp:TextBox ID="birthRego" runat="server" placeholder="dd/mm/yy"></asp:TextBox> 
                                             <br>
                                             <asp:RegularExpressionValidator ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"
                                                 runat="server" Display="Dynamic" 
-                                             ControlToValidate="BirthRego" ForeColor="Red" ErrorMessage="Enter birth." />
+                                             ControlToValidate="birthRego" ForeColor="Red" ErrorMessage="Enter birth." />
                                             <br />
                                          
 
@@ -118,11 +119,11 @@
 
                                              <label>Street address</label>
                                             <br>
-                                            <asp:TextBox ID="StreetRego" runat="server"></asp:TextBox> 
+                                            <asp:TextBox ID="streetRego" runat="server"></asp:TextBox> 
                                             <br>
                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                                  
-                                             ControlToValidate="StreetRego" ForeColor="Red" ErrorMessage="Enter street address." />
+                                             ControlToValidate="streetRego" ForeColor="Red" ErrorMessage="Enter street address." />
                                             
                                               <br>
 
@@ -162,6 +163,15 @@
                                             <br>
                                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                              ControlToValidate="cityRego" ForeColor="Red" ErrorMessage="Enter city." />
+                                            
+                                              <br>
+
+                                            <label>Country</label>
+                                            <br>
+                                            <asp:TextBox ID="countryRego" runat="server"></asp:TextBox> 
+                                            <br>
+                                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                                             ControlToValidate="countryRego" ForeColor="Red" ErrorMessage="Enter country." />
                                             
                                               <br>
 
