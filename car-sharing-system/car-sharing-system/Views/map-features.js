@@ -4,7 +4,11 @@ var userPos = { lat: "", lng: "" };
 // Function to initialize google map and its marker
 function initializeMap(data) {
   var carLocs = JSON.parse(data.d);
+  console.log("initializing map with data");
   console.log(carLocs)
+
+  refreshList(carLocs);
+
   var usericon = 'Images/marker-circle-small.png';
   var markers = [];
   var bounds = new google.maps.LatLngBounds();
@@ -36,67 +40,64 @@ function initializeMap(data) {
     markers.push(markerCar);
     markerCar.setMap(map);
   }
-  console.log(markers.length);
-
   // Set boundary so that the map can fit all markers
   for (var i = 0; i < markers.length; i++) {
     bounds.extend(markers[i].getPosition());
   }
   bounds.extend(userPos);
   map.fitBounds(bounds);
+  console.log("map initialized and done");
 }
 
 // Function to get user's location
 function getLocation() {
-  return new Promise(function (resolve, reject) {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        setUserPosition(position);
-        resolve();
-      }, function () {
-        reject();
-      });
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-      reject();
-    }
-  })
+  var dfd = $.Deferred();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setUserPosition(position);
+      dfd.resolve();
+    }, function () {
+      dfd.reject();
+    });
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+    reject();
+  }
+  console.log("getlocation done");
+  return dfd.promise();
 }
 
 function sendRequestForCars() {
-    $.ajax({
-      type: "POST",
-      url: "index.aspx/getCarsData",
-      data: "{}",
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function (response) {
-        initializeMap(response);
-      },
-      failure: function () {
-        console.error("Car JSON error");
-      }
-    });
-}
-
-function test() {
+  var dfd = $.Deferred();
   $.ajax({
     type: "POST",
-    url: "/Controllers/FrontPageServices.asmx/HelloWorld",
+    url: "index.aspx/getCarsData",
     data: "{}",
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (response) {
-      console.log(response);
+      initializeMap(response);
+      dfd.resolve();
     },
     failure: function () {
       console.error("Car JSON error");
+      dfd.reject();
     }
   });
+  return dfd.promise();
 }
 
 function setMap() {
-  getLocation().then(sendRequestForCars);
+  console.log("setting map");
+  var dfd = $.Deferred();
+  var getLocationStatus = getLocation();
+  getLocationStatus.then(sendRequestForCars).done(function () {
+    dfd.resolve();
+    console.log("setmap done");
+  })
+  return dfd.promise();
+
+  //getLocation().then(sendRequestForCars);
 }
 
 function refreshMap() {
@@ -114,16 +115,99 @@ $('#brand-filter-dropdown li a  ').click(function () {
   $('#brand-filter').html($(this).html() + " <span class=\"caret\"></span>");
 })
 
+$('#seat-filter-dropdown li a  ').click(function () {
+  $('#seat-filter').html($(this).html() + " <span class=\"caret\"></span>");
+})
+
+$('#sortby-filter-dropdown li a  ').click(function () {
+  $('#sortby-filter').html($(this).html() + " <span class=\"caret\"></span>");
+})
+
+$('#list-collapse-btn').click(function () {
+  var promise = sendFilterRequest();
+  promise.then(setMap).done(function () {
+    console.log("filter done");
+    $('#list-collapse').collapse('toggle');
+    $('#list-collapse-btn').prop("disabled", false);
+
+  })
+})
+
+
+function sendFilterRequest() {
+  var dfd = $.Deferred();
+  var brand = $('#brand-filter').text();
+  var seat = $('#seat-filter').text();
+  var sortby = $('#sortby-filter').text();
+  // Remove all spaces. Careful if the car's brand contain 2 words.
+  brand = brand.replace(/\s+/g, '');
+  // Remove spaces and 'seats'. returns only the number of seats.
+  seat = seat.charAt(0);
+  // Convert sortby options to interger.
+  if (sortby == "Sort by ") {
+    sortby = 0; // 0 represent default or sort by distance
+  } else if (sortby == "Distance (Lowest) ") {
+    sortby = 0;
+  } else if (sortby == "Distance (Highest) ") {
+    sortby = 1; // 1 represent sort by furthest distance
+  } else if (sortby == "Rate (Lowest) ") {
+    sortby = 2; // 2 represent sort by lowest rate
+  } else {
+    sortby = 3; // 3 represent sort by highest rate
+  }
+  console.log(brand + " | " + seat + " | " + sortby);
+  $('#list-collapse-btn').prop("disabled", true);
+  $('#list-collapse').collapse('toggle');
+  $('#list-collapse').on('hidden.bs.collapse', function () {
+    dfd.resolve('done');
+
+  })
+
+  console.log("sendfilter done");
+  return dfd.promise();
+}
+
 // Set windows onload not ready as it need to load
 // googlemap apis before starting.
 $(window).load(function () {
-  test();
   setMap();
-  
+
+  /*
   setInterval(function () {
     setMap();
-  }, 3000);
+  }, 5000);
+  */
 });
 
 // Get location of user after load is successful
 //window.onload = getLocation
+
+function refreshList(data) {
+  console.log("refreshing list");
+  $("#carlist").empty();
+
+  for (var i = 0; i < data.length; i++) {
+    var carName = data[i].carName;
+    var range = data[i].dist;
+    var html = '<div class="panel-default car-panel">\
+                  <div class="panel-heading">\
+                    <a data-toggle="collapse" href="#{0}" class="car-panel-title">\
+                      {1}\
+                      <span style="float:right;">{2}m away</span>\
+                    </a>\
+                  </div>\
+                  <div id="{0}" class="panel-collapse collapse">\
+                    <div class="panel-body">\
+                      <a class="btn" href="Admin_Theme/pages/bookingconfirmation.aspx" role="button">Register</a>\
+                      asdasd asdasd\
+                    </div>\
+                  </div>\
+                </div>';
+    html = html.replace(/\{0\}/g, "collapse_" + i);
+    html = html.replace("{1}", carName);
+    html = html.replace("{2}", range);
+
+    $("#carlist").append(html);
+  }
+  console.log("list refreshed");
+}

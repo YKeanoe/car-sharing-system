@@ -119,3 +119,36 @@
 a.car-panel-title {
   text-decoration:none;
 }
+
+.result-label {
+  width:100%;
+}
+
+.filter-dropdown {
+  width:25%;
+  float:left;
+}
+
+.filter-dropdown-menu {
+  width:70%;
+  min-width:70%;
+}
+
+.filter-dropdown-menu-sortby {
+  width:100%;
+  min-width:100%;
+}
+
+.filter-dropdown-menu > li > a, .filter-dropdown-menu-sortby > li > a {
+    padding-top: 3px;
+}
+
+.btn-filter {
+  width:70%;
+  float:left;
+}
+
+.btn-filter-sortby {
+  width:100%;
+  float:left;
+}
