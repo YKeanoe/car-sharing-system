@@ -20,7 +20,7 @@ namespace car_sharing_system.Admin_Theme.pages
 
             if (!Request.IsAuthenticated)
             {
-                Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
+                Response.Redirect("~/dashboard/login");
             }
         }
     }

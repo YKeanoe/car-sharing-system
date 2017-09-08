@@ -169,7 +169,7 @@ function sendFilterRequest() {
 
 // Set windows onload not ready as it need to load
 // googlemap apis before starting.
-$(window).load(function () {
+$(window).on('load', function () {
   setMap();
 
   /*

@@ -10,7 +10,7 @@
 namespace car_sharing_system.Admin_Theme.pages {
     
     
-    public partial class profile {
+    public partial class logout {
         
         /// <summary>
         /// form2 control.

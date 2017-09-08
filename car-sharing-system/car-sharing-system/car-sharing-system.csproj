@@ -207,8 +207,8 @@
     <Content Include="Admin_Theme\vendor\font-awesome\css\font-awesome.min.css" />
     <Content Include="Admin_Theme\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Admin_Theme\gulpfile.js" />
-    <Content Include="Admin_Theme\vendor\jquery\jquery.js" />
-    <Content Include="Admin_Theme\vendor\jquery\jquery.min.js" />
+    <Content Include="Bootstrap\js\jquery.js" />
+    <Content Include="Bootstrap\js\jquery.min.js" />
     <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.css" />
     <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.js" />
     <Content Include="Admin_Theme\vendor\metisMenu\metisMenu.min.css" />
@@ -227,7 +227,6 @@
     <Content Include="Bootstrap\js\bootstrap.js" />
     <Content Include="Bootstrap\js\bootstrap.min.js" />
     <Content Include="Bootstrap\js\jquery.easing.min.js" />
-    <Content Include="Bootstrap\js\jquery.js" />
     <Content Include="Bootstrap\js\npm.js" />
     <Content Include="Bootstrap\js\scrolling-nav.js" />
     <Content Include="Global.asax" />
