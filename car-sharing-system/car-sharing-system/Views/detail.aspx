@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.detail" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-                <!-- /.row -->
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="detail.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.detail" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
+
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">

@@ -9,7 +9,7 @@ function initializeMap(data) {
 
   refreshList(carLocs);
 
-  var usericon = 'Images/marker-circle-small.png';
+  var usericon = '/Theme/Images/marker-circle-small.png';
   var markers = [];
   var bounds = new google.maps.LatLngBounds();
 
@@ -71,7 +71,7 @@ function sendRequestForCars() {
   var dfd = $.Deferred();
   $.ajax({
     type: "POST",
-    url: "index.aspx/getCarsData",
+    url: "/Views/index.aspx/getCarsData",
     data: "{}",
     contentType: "application/json; charset=utf-8",
     dataType: "json",
@@ -198,7 +198,7 @@ function refreshList(data) {
                   </div>\
                   <div id="{0}" class="panel-collapse collapse">\
                     <div class="panel-body">\
-                      <a class="btn" href="Admin_Theme/pages/bookingconfirmation.aspx" role="button">Register</a>\
+                      <a class="btn" href="/dashboard/confirmation" role="button">Register</a>\
                       asdasd asdasd\
                     </div>\
                   </div>\

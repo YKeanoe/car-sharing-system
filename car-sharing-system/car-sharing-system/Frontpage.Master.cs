@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace car_sharing_system
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class Frontpage : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

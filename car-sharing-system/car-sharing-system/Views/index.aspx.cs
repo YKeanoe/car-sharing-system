@@ -74,14 +74,14 @@ namespace car_sharing_system
                           + "</div></div>", dataToggle, cars[i].brand, cars[i].model, range);
 
         div1.InnerHtml = carPanelHTML.ToString();
-        carlist.Controls.Add(div1);
+        //carlist.Controls.Add(div1);
       }
     }
 
     public void fillCarListHTMLRandom() {
 
       // Clear html car list
-      carlist.Controls.Clear();
+      //carlist.Controls.Clear();
       // Grab random car from cars data
       randCars = new List<Car>();
       Random rand = new Random();
@@ -121,7 +121,7 @@ namespace car_sharing_system
                           + "</div></div>", dataToggle, cars[i].brand, cars[i].model, range);
 
         div1.InnerHtml = carPanelHTML.ToString();
-        carlist.Controls.Add(div1);
+        //carlist.Controls.Add(div1);
       }
     }
 

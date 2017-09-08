@@ -1,22 +1,21 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Homepage.master.cs" Inherits="car_sharing_system.Homepage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Frontpage.Master.cs" Inherits="car_sharing_system.Frontpage" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    a
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Ace Rental</title>
-  <link rel="shortcut icon" href="/Views/Images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/Theme/Images/favicon.ico" type="image/x-icon">
 
   <!-- Bootstrap Core CSS -->
   <link href="/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom CSS -->
   <link href="/Bootstrap/css/scrolling-nav.css" rel="stylesheet" />
-  <link href="/Views/index.css" rel="stylesheet" />
+  <link href="/Theme/css/index.css" rel="stylesheet" />
     <!-- jQuery -->
   <script src="/Bootstrap/js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
@@ -45,7 +44,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll navbar-logo" href="#page-top"><img src="Images/logo.png" width=81 height=40/></a>
+        <a class="navbar-brand page-scroll navbar-logo" href="#page-top"><img src="/Theme/Images/logo.png" width=81 height=40/></a>
         
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->

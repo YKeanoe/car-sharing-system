@@ -10,6 +10,6 @@
 namespace car_sharing_system.Admin_Theme.pages {
     
     
-    public partial class index {
+    public partial class dashboard {
     }
 }

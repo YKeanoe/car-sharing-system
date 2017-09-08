@@ -5,13 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace car_sharing_system
+namespace car_sharing_system.Admin_Theme.pages
 {
-    public partial class Homepage : System.Web.UI.MasterPage
+    public partial class dashboard : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/dashboard/login");
+            }
         }
     }
 }
