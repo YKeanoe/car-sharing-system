@@ -198,6 +198,7 @@ function refreshList(data) {
                   </div>\
                   <div id="{0}" class="panel-collapse collapse">\
                     <div class="panel-body">\
+                      <a class="btn" href="Admin_Theme/pages/bookingconfirmation.aspx" role="button">Register</a>\
                       asdasd asdasd\
                     </div>\
                   </div>\
