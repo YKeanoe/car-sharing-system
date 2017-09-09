@@ -15,64 +15,69 @@ namespace car_sharing_system
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Views/Admin_Theme/pages",
-                url: "{controller}/pages/",
+                name: "Views/",
+                url: "{controller}/Views/",
                 defaults: new { controller = "Dashboard" }
             );
             routes.Add("Dashboard", new Route
             (
                "dashboard/",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/index.aspx")
-            ));
-            routes.Add("Dashboardindex2", new Route
-            (
-               "dashboard/index",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/index.aspx")
+               new CustomRouteHandler("~/Views/dashboard.aspx")
             ));
             routes.Add("DashboardLogin", new Route
             (
                "dashboard/login",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/login.aspx")
+               new CustomRouteHandler("~/Views/login.aspx")
             ));
             routes.Add("DashboardProfile", new Route
             (
                "dashboard/profile",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/profile.aspx")
+               new CustomRouteHandler("~/Views/profile.aspx")
             ));
             routes.Add("DashboardBooking", new Route
             (
                "dashboard/booking",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/booking.aspx")
+               new CustomRouteHandler("~/Views/booking.aspx")
             ));
             routes.Add("DashboardIssue", new Route
            (
               "dashboard/issue",
-              new CustomRouteHandler("~/Views/Admin_Theme/pages/issue.aspx")
+              new CustomRouteHandler("~/Views/issue.aspx")
            ));
             routes.Add("Dashboardlogout", new Route
             (
                "dashboard/logout",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/logout.aspx")
+               new CustomRouteHandler("~/Views/logout.aspx")
             ));
             routes.Add("DashboardSuccessReg", new Route
             (
                "dashboard/congratz",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/successregister.aspx")
+               new CustomRouteHandler("~/Views/successregister.aspx")
             ));
             routes.Add("Dashboardreg", new Route
             (
                "dashboard/register",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/register.aspx")
+               new CustomRouteHandler("~/Views/register.aspx")
             ));
             routes.Add("DashboardDetail", new Route
             (
                "dashboard/detail",
-               new CustomRouteHandler("~/Views/Admin_Theme/pages/detail.aspx")
+               new CustomRouteHandler("~/Views/detail.aspx")
             ));
             routes.Add("index", new Route
             (
                 "",
                 new CustomRouteHandler("~/Views/index.aspx")
+            ));
+            routes.Add("DashboardConfirmBook", new Route
+            (
+                "dashboard/confirmation",
+                new CustomRouteHandler("~/Views/bookingconfirmation.aspx")
+            ));
+            routes.Add("DashboardConfirmUser", new Route
+            (
+                "dashboard/successregistration",
+                new CustomRouteHandler("~/Views/successregister.aspx")
             ));
     }
     }
