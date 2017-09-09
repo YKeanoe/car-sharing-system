@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace car_sharing_system.Admin_Theme.pages {
+namespace car_sharing_system.Views.Admin_Theme.pages {
     
     
-    public partial class index {
+    public partial class bookingconfirmation {
     }
 }

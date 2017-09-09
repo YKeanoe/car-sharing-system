@@ -5,35 +5,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using Rework;
 
 namespace car_sharing_system.Models.Tests
 {
     [TestFixture()]
-    public class UserModelTests 
+    public class UserModelTests
     {
         [Test()]
-        public void loginAttemptTestWithAdmin()
+        // Attempt login with admin credentials.
+        public void loginAttemptTestWithAdmin() 
         {
             UserModel data = new UserModel();
-            String password = "B59908A396DDEB8456000D031051DA8C786A5DD134901F6644E2727A63965086F904C2E15B7D4736ADF199EF07525D0841628F468518B8CEE565BAC68DCEE2BC";
-            String UserName = "admin@gmail.com";
+
+            // Plaintext password
+            String beforeHash = "admin"; 
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+
+            // Admin email
+            String UserName = "admin@gmail.com"; 
             User myData = data.loginAttempt(UserName, password);
-            if (myData != null)
+
+            // If database returns data from a matching entry
+            if (myData != null) 
             {
                 Assert.Pass("Valid User in database");
             }
+
+            // If database does not find a matching entry
             else
             {
                 Assert.Fail("Invalid user in database");
             }
         }
+
         [Test()]
-        public void loginAttemptTestWithUser()
+        // Attempt login with user credentials
+        public void loginAttemptTestWithUser() 
         {
             UserModel data = new UserModel();
-            String password = "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553";
-            String UserName = "rhoncus.Nullam@egestasSed.org";
-            User myData = data.loginAttempt(UserName, password);
+            string beforeHash = "ZyiXDnElJ";
+            string password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            string userName = "rhoncus.Nullam@egestasSed.org";
+            User myData = data.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database");
@@ -43,36 +58,131 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("Invalid user in database");
             }
         }
+
         [Test()]
         public void loginAttemptNoPassTest()
         {
             UserModel data = new UserModel();
-            String password = "";
-            String UserName = "rhoncus.Nullam@egestasSed.org";
-            User myData = data.loginAttempt(UserName, password);
+            String beforeHash = "";
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = "rhoncus.Nullam@egestasSed.org";
+            User myData = data.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No password check failure"); ;
             }
             else
             {
-                Assert.Pass("No password check success");
+                Assert.Pass("Login fail");
             }
         }
+
         [Test()]
         public void loginAttemptNoUserTest()
         {
             UserModel data = new UserModel();
-            String password = "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553";
-            String UserName = "";
-            User myData = data.loginAttempt(UserName, password);
+            String beforeHash = "ZyiXDnElJ";
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = "";
+            User myData = data.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No user check failure"); ;
             }
             else
             {
-                Assert.Pass("No user check success");
+                Assert.Pass("Login fail");
+            }
+        }
+
+        [Test()]
+        public void loginAttemptNoCredentials()
+        {
+            UserModel data = new UserModel();
+            String beforeHash = "";
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = "";
+            User myData = data.loginAttempt(userName, password);
+            if (myData != null)
+            {
+                Assert.Fail("No Credentials check failure");
+            }
+            else
+            {
+                Assert.Pass("No match found in database");
+            }
+        }
+
+        [Test()]
+        public void loginAttemptNull()
+        {
+            UserModel data = new UserModel();
+            String beforeHash = null;
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = null;
+            User myData = data.loginAttempt(userName, password);
+            if (myData != null)
+            {
+                Assert.Fail("No Credentials check failure");
+            }
+            else
+            {
+                Assert.Pass("No match found in database");
+            }
+        }
+
+        [Test()]
+        public void registrationTest() // Test the registration function to see if it adds user to database with valid infomration
+        {
+            // Enter test code here (Placeholder)
+            // newUser = DatabaseReader.userQueryInsert("accountID = '" + +"';");
+            // Registration fields to be filled out are the following:
+            // Username, Email, Password, License Number, First Name, Last Name, Gender
+            // Date of Birth, Phone Number, Street Address, Suburb, Postcode, Territory
+            // City, Country 
+        }
+
+        [Test()]
+        public void HashFunctionTest() // 
+        {
+            // Plaintext password
+            String beforeHash = "ZyiXDnElJ"; 
+
+            // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); 
+
+            // Expected Hash Result
+            if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
+            {
+                Assert.Pass("Password hash match");
+            }
+
+            // If Hash result does not match
+            else
+            {
+                Assert.Fail("Password hash mismatch");
+            }
+        }
+
+        [Test()]
+        public void loginAttemptWithHash() // 
+        {
+            // Plaintext password
+            String beforeHash = "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553";
+
+            // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+
+            // Expected Hash Result
+            if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
+            {
+                Assert.Fail("Password match");
+            }
+
+            // If Hash result does not match
+            else
+            {
+                Assert.Pass("Password mismatch");
             }
         }
     }
