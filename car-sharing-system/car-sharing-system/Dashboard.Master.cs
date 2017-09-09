@@ -15,6 +15,10 @@ namespace car_sharing_system {
         if (!Request.IsAuthenticated) {
           Response.Redirect("~/dashboard/login");
         }
+      } else {
+        if (Request.IsAuthenticated) {
+          Response.Redirect("~/dashboard");
+        }
       }
     }
   }
