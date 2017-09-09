@@ -31,8 +31,21 @@ namespace car_sharing_system.Admin_Theme.pages
 
             newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
 
+            fn = newUser.fname;
+            ln = newUser.lname;
+            licenceNo = newUser.licenceNo;
+            birth = newUser.birth;
+            gender = newUser.gender;
+            phone = newUser.phone;
+            street = newUser.street;
+            suburb = newUser.suburb;
+            postcode = newUser.postcode;
+            territory = newUser.territory;
+            city = newUser.city;
+            country = newUser.country;
+            profileURL = newUser.profileURL;
 
-            if (!Request.IsAuthenticated)
+      if (!Request.IsAuthenticated)
             {
                 Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
             }
