@@ -11,7 +11,7 @@ namespace car_sharing_system {
       protected void Page_Load(object sender, EventArgs e) {
       string path = HttpContext.Current.Request.Url.AbsolutePath;
       Debug.WriteLine(path);
-      if (path.Equals("/dashboard/login")) {
+      if (!path.Equals("/dashboard/login")) {
         if (!Request.IsAuthenticated) {
           Response.Redirect("~/dashboard/login");
         }

@@ -293,6 +293,10 @@
     <Compile Include="Views\profileedit.aspx.designer.cs">
       <DependentUpon>profileedit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>

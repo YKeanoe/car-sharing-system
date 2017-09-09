@@ -21,7 +21,7 @@ namespace car_sharing_system.Models
       System.Diagnostics.Debug.WriteLine(lat.ToString() + "," + lng.ToString());
     }
 
-    public String ToString() {
+    public override String ToString() {
       return lat.ToString() + "," + lng.ToString();
     }
 
