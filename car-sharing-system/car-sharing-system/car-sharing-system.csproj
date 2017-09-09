@@ -126,6 +126,7 @@
     <Content Include="Views\Admin_Theme\pages\icons.html" />
     <Content Include="Views\Admin_Theme\pages\index.aspx" />
     <Content Include="Views\Admin_Theme\pages\issue.aspx" />
+    <Content Include="Views\Admin_Theme\pages\profileedit.aspx" />
     <Content Include="Views\Admin_Theme\pages\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
@@ -294,6 +295,13 @@
     </Compile>
     <Compile Include="Views\Admin_Theme\pages\issue.aspx.designer.cs">
       <DependentUpon>issue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\profileedit.aspx.cs">
+      <DependentUpon>profileedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\profileedit.aspx.designer.cs">
+      <DependentUpon>profileedit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin_Theme\pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

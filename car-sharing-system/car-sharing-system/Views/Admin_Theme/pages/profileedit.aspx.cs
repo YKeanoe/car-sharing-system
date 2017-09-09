@@ -8,9 +8,8 @@ using car_sharing_system.Models;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
-    public partial class profile : System.Web.UI.Page
+    public partial class profileedit : System.Web.UI.Page
     {
-        protected User newUser;
         protected String fn;
         protected String ln;
         protected String licenceNo;
@@ -25,12 +24,10 @@ namespace car_sharing_system.Admin_Theme.pages
         protected String country;
         protected String profileURL;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            newUser = DatabaseReader.userQuerySingle("accountID = '" +  User.Identity.Name + "';");
-
+            User newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
             if (!Request.IsAuthenticated)
             {

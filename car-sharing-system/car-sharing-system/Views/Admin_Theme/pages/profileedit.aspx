@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profileedit.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profileedit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- /.row -->
             <div class="row">
@@ -100,7 +100,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Profile details
+                            <i class="fa fa-user fa-fw"></i> My Account Information
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -116,64 +116,65 @@
 
                         <!-- /.panel-heading -->
                       
-                      <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                      <asp:Label ID="Label1" runat="server" ></asp:Label>
 
                         <div class="panel-body">
    
                             
                                         <div class="form-group">
-                            <form id="updateform" runat="server">
+                             <form id="updateform" runat="server">
                                                
-                                <div class="field1">
-                                    <span>First Name: <%=newUser.fname%> </span ><br />
+                                 <div class="field1">
+                                     
+                                    <span>First Name: <input type="text" name="firstname" value="<%=fn %>"></span ><br />
                                 </div>
 
                                 <div class="field2">
-                                    <span>Last Name:  <%=ln%></span><br />
+                                    <span>Last Name: <input type="text" name="lastname" value="<%=ln %>"></span><br />
                                 </div>
 
                                 <div class="field3">
-                                    <span>Licence Number: <%=licenceNo%> </span> <br />
+                                    <span>Licence Number: <input type="text" name="licenceNo" value="<%=licenceNo %>"> </span> <br />
                                 </div>
 
                                 <div class="field4">
-                                    <span>Date of Birth: <%=birth%></span> <br />
+                                    <span>Date of Birth: <input type="text" name="birth" value="<%=birth %>"> </span> <br />
                                 </div>
 
                                 <div class="field5">
-                                    <span>Gender: <%=gender%></span> <br />
+                                    <span>Gender: <input type="text" name="gender" value="<%=gender %>"></span> <br />
                                 </div>
 
                                 <div class="field6">
-                                    <span>Phone: <%=phone%></span> <br />
+                                    <span>Phone: <input type="text" name="phone" value="<%=phone %>"></span> <br />
                                 </div>
 
                                 <div class="field7"> 
-                                    <span>Street: <%=street%></span> <br />
+                                    <span>Street: <input type="text" name="street" value="<%=street %>"></span> <br />
                                 </div>
 
                                 <div class="field8">
-                                    <span>Suburb: <%=suburb%></span> <br />
+                                    <span>Suburb: <input type="text" name="suburb" value="<%=suburb %>"></span> <br />
                                 </div>
 
                                 <div class="field9">
-                                     <span>Postcode: <%=postcode%></span> <br />
+                                     <span>Postcode: <input type="text" name="postcode" value="<%=postcode %>"></span> <br />
                                 </div>
 
                                 <div class="field10">
-                                     <span>Territory: <%=territory%></span> <br />
+                                     <span>Territory: <input type="text" name="territory" value="<%=territory %>"></span> <br />
                                 </div>
 
                                 <div class="field11">
-                                     <span>City: <%=city%></span> <br />
+                                     <span>City: <input type="text" name="city" value="<%=city %>"></span> <br />
                                 </div>
 
                                 <div class="field12">
-                                     <span>Country: <%=country%></span> <br />
+                                     <span>Country: <input type="text" name="country" value="<%=country %>"></span> <br />
                                 </div>
 
                                 <div class="field13">
-                                     <span>ProfileURL: <%=profileURL%></span> <br />
+                                     <span>ProfileURL: <input type="text" name="profileURL" value="<%=profileURL %>"></span> <br />
                                 </div>
 
                              </form>
@@ -182,11 +183,12 @@
 
 
                                            <a href="/dashboard/update" class="btn btn-info">
-                                                Edit
+                                                Submit
                                             </a>
                                         </div>
-
                         </div>
+
+
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
@@ -201,6 +203,6 @@
             <!-- /.row -->
         </div>
         <!-- /.panel-body -->
-    </div>
+   
 
 </asp:Content>
