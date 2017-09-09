@@ -285,7 +285,14 @@
     <Compile Include="Views\issue.aspx.designer.cs">
       <DependentUpon>issue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\login.aspx.cs">
+    <Compile Include="Views\Admin_Theme\pages\profileedit.aspx.cs">
+      <DependentUpon>profileedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\profileedit.aspx.designer.cs">
+      <DependentUpon>profileedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_Theme\pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

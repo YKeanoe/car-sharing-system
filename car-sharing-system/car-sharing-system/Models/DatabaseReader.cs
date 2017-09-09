@@ -45,8 +45,8 @@ namespace car_sharing_system.Models
                         User currUser = new User(Int32.Parse(dbread[0].ToString()), //accountID
                             dbread[1].ToString(),  //email
                             dbread[2].ToString(), //password
-                            Int32.Parse(dbread[4].ToString()), //permission
-                            dbread[3].ToString(), //licenseNo
+                            Int32.Parse(dbread[3].ToString()), //permission
+                            dbread[4].ToString(), //licenseNo
                             dbread[5].ToString(), //firstName
                             dbread[6].ToString(), //lastName
                             dbread[7].ToString(), //gender
@@ -91,27 +91,25 @@ namespace car_sharing_system.Models
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 
-        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-                {
-                    if (dbread.Read())
-                    {
-                        return new User(Int32.Parse(dbread[0].ToString()), //accountID
-                                        dbread[1].ToString(),  //email
-                                        dbread[2].ToString(), //password
-                                        Int32.Parse(dbread[3].ToString()), //permission
-                                        dbread[4].ToString(), //licenseNo
-                                        dbread[5].ToString(), //firstName
-                                        dbread[6].ToString(), //lastName
-                                        dbread[7].ToString(), //gender
-                                        dbread[8].ToString(), //birth
-                                        dbread[9].ToString(), //phone
-                                        dbread[10].ToString(), //street
-                                        dbread[11].ToString(), //suburb
-                                        dbread[12].ToString(), //postcode
-                                        dbread[13].ToString(), //territory
-                                        dbread[14].ToString(), //city
-                                        dbread[15].ToString(), //country
-                                        dbread[16].ToString()); //profileurl
+        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+          if (dbread.Read()) {
+            return new User(Int32.Parse(dbread[0].ToString()), //accountID
+                            dbread[1].ToString(),  //email
+                            dbread[2].ToString(), //password
+                            Int32.Parse(dbread[4].ToString()), //permission
+                            dbread[3].ToString(), //licenseNo
+                            dbread[5].ToString(), //firstName
+                            dbread[6].ToString(), //lastName
+                            dbread[7].ToString(), //gender
+                            dbread[8].ToString(), //birth
+                            dbread[9].ToString(), //phone
+                            dbread[10].ToString(), //street
+                            dbread[11].ToString(), //suburb
+                            dbread[12].ToString(), //postcode
+                            dbread[13].ToString(), //territory
+                            dbread[14].ToString(), //city
+                            dbread[15].ToString(), //country
+                            dbread[16].ToString()); //profileurl
                     }
                     else
                     {
