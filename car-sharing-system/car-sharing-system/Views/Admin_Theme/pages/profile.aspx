@@ -125,55 +125,55 @@
                             <form id="updateform" runat="server">
                                                
                                  <div class="field1">
-                                    <span>First Name: <%=fn%> </span ><br />
+                                    <label>First Name: <%=fn%> </label><br />
                                 </div>
 
                                 <div class="field2">
-                                    <span>Last Name:  <%=ln%></span><br />
+                                    <label>Last Name:  <%=ln%></label><br />
                                 </div>
 
                                 <div class="field3">
-                                    <span>Licence Number: <%=licenceNo%> </span> <br />
+                                    <label>Licence Number: <%=licenceNo%> </label> <br />
                                 </div>
 
                                 <div class="field4">
-                                    <span>Date of Birth: <%=birth%></span> <br />
+                                    <label>Date of Birth: <%=birth%></label> <br />
                                 </div>
 
                                 <div class="field5">
-                                    <span>Gender: <%=gender%></span> <br />
+                                    <label>Gender: <%=gender%></label> <br />
                                 </div>
 
                                 <div class="field6">
-                                    <span>Phone: <%=phone%></span> <br />
+                                    <label>Phone: <%=phone%></label> <br />
                                 </div>
 
                                 <div class="field7"> 
-                                    <span>Street: <%=street%></span> <br />
+                                    <label>Street: <%=street%></label> <br />
                                 </div>
 
                                 <div class="field8">
-                                    <span>Suburb: <%=suburb%></span> <br />
+                                    <label>Suburb: <%=suburb%></label> <br />
                                 </div>
 
                                 <div class="field9">
-                                     <span>Postcode: <%=postcode%></span> <br />
+                                     <label>Postcode: <%=postcode%></label> <br />
                                 </div>
 
                                 <div class="field10">
-                                     <span>Territory: <%=territory%></span> <br />
+                                     <label>Territory: <%=territory%></label> <br />
                                 </div>
 
                                 <div class="field11">
-                                     <span>City: <%=city%></span> <br />
+                                     <label>City: <%=city%></label> <br />
                                 </div>
 
                                 <div class="field12">
-                                     <span>Country: <%=country%></span> <br />
+                                     <label>Country: <%=country%></label> <br />
                                 </div>
 
                                 <div class="field13">
-                                     <span>ProfileURL: <%=profileURL%></span> <br />
+                                     <label>ProfileURL: <%=profileURL%></label> <br />
                                 </div>
 
                              </form>

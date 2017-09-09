@@ -124,57 +124,56 @@
                                         <div class="form-group">
                              <form id="updateform" runat="server">
                                                
-                                 <div class="field1">
-                                     
-                                    <span>First Name: <input type="text" name="firstname" value="<%=fn %>"></span ><br />
+                                <div class="field1">
+                                    <label id="labelBox">First Name: </label><input type="text" id="labelFormatter" name="firstname" value="<%=fn %>">
                                 </div>
 
                                 <div class="field2">
-                                    <span>Last Name: <input type="text" name="lastname" value="<%=ln %>"></span><br />
+                                    <label id="labelBox">Last Name: </label><input type="text" id="labelFormatter" name="lastname" value="<%=ln %>">
                                 </div>
 
                                 <div class="field3">
-                                    <span>Licence Number: <input type="text" name="licenceNo" value="<%=licenceNo %>"> </span> <br />
+                                    <label id="labelBox">Licence Number: </label><input type="text" id="labelFormatter" name="licenceNo" value="<%=licenceNo %>">
                                 </div>
 
                                 <div class="field4">
-                                    <span>Date of Birth: <input type="text" name="birth" value="<%=birth %>"> </span> <br />
+                                    <label id="labelBox">Date of Birth: </label><input type="text" id="labelFormatter" name="birth" value="<%=birth %>">
                                 </div>
 
                                 <div class="field5">
-                                    <span>Gender: <input type="text" name="gender" value="<%=gender %>"></span> <br />
+                                    <label id="labelBox">Gender: </label><input type="text" id="labelFormatter" name="gender" value="<%=gender %>">
                                 </div>
 
                                 <div class="field6">
-                                    <span>Phone: <input type="text" name="phone" value="<%=phone %>"></span> <br />
+                                    <label id="labelBox">Phone: </label><input type="text" id="labelFormatter" name="phone" value="<%=phone %>">
                                 </div>
 
                                 <div class="field7"> 
-                                    <span>Street: <input type="text" name="street" value="<%=street %>"></span> <br />
+                                    <label id="labelBox">Street: </label><input type="text" id="labelFormatter" name="street" value="<%=street %>">
                                 </div>
 
                                 <div class="field8">
-                                    <span>Suburb: <input type="text" name="suburb" value="<%=suburb %>"></span> <br />
+                                    <label id="labelBox">Suburb: </label><input type="text" id="labelFormatter" name="suburb" value="<%=suburb %>">
                                 </div>
 
                                 <div class="field9">
-                                     <span>Postcode: <input type="text" name="postcode" value="<%=postcode %>"></span> <br />
+                                     <label id="labelBox">Postcode: </label><input type="text" id="labelFormatter" name="postcode" value="<%=postcode %>">
                                 </div>
 
                                 <div class="field10">
-                                     <span>Territory: <input type="text" name="territory" value="<%=territory %>"></span> <br />
+                                     <label id="labelBox">Territory: </label><input type="text" id="labelFormatter" name="territory" value="<%=territory %>">
                                 </div>
 
                                 <div class="field11">
-                                     <span>City: <input type="text" name="city" value="<%=city %>"></span> <br />
+                                     <label id="labelBox">City: </label><input type="text" id="labelFormatter" name="city" value="<%=city %>">
                                 </div>
 
                                 <div class="field12">
-                                     <span>Country: <input type="text" name="country" value="<%=country %>"></span> <br />
+                                     <label id="labelBox">Country: </label><input type="text" id="labelFormatter" name="country" value="<%=country %>">
                                 </div>
 
                                 <div class="field13">
-                                     <span>ProfileURL: <input type="text" name="profileURL" value="<%=profileURL %>"></span> <br />
+                                     <label id="labelBox">ProfileURL: </label><input type="text" id="labelFormatter" name="profileURL" value="<%=profileURL %>">
                                 </div>
 
                              </form>
