@@ -198,14 +198,14 @@ function refreshList(data) {
                   </div>\
                   <div id="{0}" class="panel-collapse collapse">\
                     <div class="panel-body">\
-                      <a class="btn" href="/dashboard/confirmation" role="button">Register</a>\
+                      <a class="btn" href="/dashboard/confirmation?id=aaaaa" role="button">Register</a>\
                       asdasd asdasd\
                     </div>\
                   </div>\
                 </div>';
     html = html.replace(/\{0\}/g, "collapse_" + i);
-    html = html.replace("{1}", carName);
-    html = html.replace("{2}", range);
+    html = html.replace(/\{1\}/g, carName);
+    html = html.replace(/\{2\}/g, range);
 
     $("#carlist").append(html);
   }

@@ -12,13 +12,21 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Security.Cryptography;
 using Rework;
+using System.Diagnostics;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class login : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        protected void Page_Load(object sender, EventArgs e) {
+            String path = HttpContext.Current.Request.Url.AbsolutePath;
+            String pathBefore = Request.UrlReferrer.ToString();
+
+            Debug.WriteLine("cpath " + path);
+            if (pathBefore != null) {
+              Debug.WriteLine("bpath " + pathBefore);
+            }
+
             Login1.DestinationPageUrl = "~/Views/Admin_Theme/dashboard.aspx";
         }
         protected void ValidateUser(object sender, EventArgs e)
