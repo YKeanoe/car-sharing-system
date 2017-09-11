@@ -187,6 +187,7 @@ namespace car_sharing_system.Models.Tests
             }
         }
         // This test is not implemented yet
+        [Test()]
         public void registerUserTest() // To register an user and add to database
         {
             DatabaseReader dr = new DatabaseReader();
@@ -217,7 +218,8 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(emailRego, password);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database, user info: \n"
+                Assert.Pass("Valid User in database");    
+                System.Diagnostics.Debug.WriteLine("user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
