@@ -30,13 +30,13 @@ namespace car_sharing_system.Models.Tests
             // If database returns data from a matching entry
             if (myData != null) 
             {
-                Assert.Pass("Valid User in database");
+                Assert.Pass("Valid User in database with matching email: " + myData.email);
             }
 
             // If database does not find a matching entry
             else
             {
-                Assert.Fail("Invalid user in database");
+                Assert.Fail("Invalid user in database, invalid email: " + myData.email);
             }
         }
 
@@ -50,8 +50,8 @@ namespace car_sharing_system.Models.Tests
             string userName = "rhoncus.Nullam@egestasSed.org";
             User myData = data.loginAttempt(userName, password);
             if (myData != null)
-            {
-                Assert.Pass("Valid User in database");
+            {   
+                Assert.Pass("Valid User in database, email: " + myData.email);
             }
             else
             {
@@ -131,7 +131,6 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
-        [Test()]
         public void registrationTest() // Test the registration function to see if it adds user to database with valid infomration
         {
             // Enter test code here (Placeholder)
@@ -140,6 +139,7 @@ namespace car_sharing_system.Models.Tests
             // Username, Email, Password, License Number, First Name, Last Name, Gender
             // Date of Birth, Phone Number, Street Address, Suburb, Postcode, Territory
             // City, Country 
+            // Assert.Fail("Test not completed yet");
         }
 
         [Test()]
@@ -160,12 +160,12 @@ namespace car_sharing_system.Models.Tests
             // If Hash result does not match
             else
             {
-                Assert.Fail("Password hash mismatch");
+                Assert.Fail("Password hash mismatch, hashed value: " + password);
             }
         }
 
         [Test()]
-        public void loginAttemptWithHash() // 
+        public void loginAttemptWithHash() // This test should result with password mismatch
         {
             // Plaintext password
             String beforeHash = "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553";
@@ -182,7 +182,7 @@ namespace car_sharing_system.Models.Tests
             // If Hash result does not match
             else
             {
-                Assert.Pass("Password mismatch");
+                Assert.Pass("Password mismatch, hashed value: " + password);
             }
         }
     }
