@@ -10,7 +10,7 @@
 namespace car_sharing_system.Admin_Theme.pages {
     
     
-    public partial class profile {
+    public partial class adminissue {
         
         /// <summary>
         /// Label1 control.
@@ -20,5 +20,14 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// updateform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
     }
 }

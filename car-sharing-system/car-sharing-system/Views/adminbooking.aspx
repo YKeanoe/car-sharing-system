@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="profileedit.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profileedit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
-     <!-- /.row -->
+
+ <!-- /.row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
@@ -122,67 +123,14 @@
    
                             
                                         <div class="form-group">
-                             <form id="updateform" runat="server">
-                                               
-                                <div class="field1">
-                                    <label id="labelBox">First Name: </label><input type="text" id="labelFormatter" name="firstname" value="<%=fn %>">
-                                </div>
-
-                                <div class="field2">
-                                    <label id="labelBox">Last Name: </label><input type="text" id="labelFormatter" name="lastname" value="<%=ln %>">
-                                </div>
-
-                                <div class="field3">
-                                    <label id="labelBox">Licence Number: </label><input type="text" id="labelFormatter" name="licenceNo" value="<%=licenceNo %>">
-                                </div>
-
-                                <div class="field4">
-                                    <label id="labelBox">Date of Birth: </label><input type="text" id="labelFormatter" name="birth" value="<%=birth %>">
-                                </div>
-
-                                <div class="field5">
-                                    <label id="labelBox">Gender: </label><input type="text" id="labelFormatter" name="gender" value="<%=gender %>">
-                                </div>
-
-                                <div class="field6">
-                                    <label id="labelBox">Phone: </label><input type="text" id="labelFormatter" name="phone" value="<%=phone %>">
-                                </div>
-
-                                <div class="field7"> 
-                                    <label id="labelBox">Street: </label><input type="text" id="labelFormatter" name="street" value="<%=street %>">
-                                </div>
-
-                                <div class="field8">
-                                    <label id="labelBox">Suburb: </label><input type="text" id="labelFormatter" name="suburb" value="<%=suburb %>">
-                                </div>
-
-                                <div class="field9">
-                                     <label id="labelBox">Postcode: </label><input type="text" id="labelFormatter" name="postcode" value="<%=postcode %>">
-                                </div>
-
-                                <div class="field10">
-                                     <label id="labelBox">Territory: </label><input type="text" id="labelFormatter" name="territory" value="<%=territory %>">
-                                </div>
-
-                                <div class="field11">
-                                     <label id="labelBox">City: </label><input type="text" id="labelFormatter" name="city" value="<%=city %>">
-                                </div>
-
-                                <div class="field12">
-                                     <label id="labelBox">Country: </label><input type="text" id="labelFormatter" name="country" value="<%=country %>">
-                                </div>
-
-                                <div class="field13">
-                                     <label id="labelBox">ProfileURL: </label><input type="text" id="labelFormatter" name="profileURL" value="<%=profileURL %>">
-                                </div>
-
-                             </form>
+                            <form id="updateform" runat="server">
+                           </form>
 
 
 
 
-                                           <a href="/dashboard/update" class="btn btn-info">
-                                                Submit
+                                           <a href="/dashboard/profileedit.aspx" class="btn btn-info">
+                                                Edit
                                             </a>
                                         </div>
                         </div>

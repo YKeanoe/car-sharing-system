@@ -182,7 +182,7 @@
 
 
 
-                                           <a href="profileedit.aspx" class="btn btn-info">
+                                           <a href="/dashboard/profileedit.aspx" class="btn btn-info">
                                                 Edit
                                             </a>
                                         </div>

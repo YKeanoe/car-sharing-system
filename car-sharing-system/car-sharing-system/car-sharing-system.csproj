@@ -117,11 +117,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\adminbooking.aspx" />
+    <Content Include="Views\adminissue.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
+    <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\profileedit.aspx" />
     <Content Include="Views\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
@@ -241,6 +244,7 @@
     <Content Include="Theme\Images\test3.JPG" />
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
+    <Content Include="Views\admin.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
   </ItemGroup>
@@ -251,6 +255,20 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Views\adminbooking.aspx.cs">
+      <DependentUpon>adminbooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminbooking.aspx.designer.cs">
+      <DependentUpon>adminbooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminissue.aspx.cs">
+      <DependentUpon>adminissue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminissue.aspx.designer.cs">
+      <DependentUpon>adminissue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\booking.aspx.cs">
       <DependentUpon>booking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +303,13 @@
     </Compile>
     <Compile Include="Views\issue.aspx.designer.cs">
       <DependentUpon>issue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminusers.aspx.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminusers.aspx.designer.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\profileedit.aspx.cs">
       <DependentUpon>profileedit.aspx</DependentUpon>
@@ -353,6 +378,13 @@
     </Compile>
     <Compile Include="Views\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
