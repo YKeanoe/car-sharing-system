@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.UI;
+using System.Diagnostics;
 
 namespace car_sharing_system
 {
@@ -26,5 +27,13 @@ namespace car_sharing_system
                 });
             }
         }
+
+		void Session_Start(object sender, EventArgs e) {
+			Debug.WriteLine("session start");
+		}
+
+		void Session_End(object sender, EventArgs e) {
+			Debug.WriteLine("session end");
+		}
     }
 }

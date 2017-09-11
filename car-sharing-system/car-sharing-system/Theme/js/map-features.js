@@ -189,6 +189,8 @@ function refreshList(data) {
   for (var i = 0; i < data.length; i++) {
     var carName = data[i].carName;
     var range = data[i].dist;
+    re = /\((.*)\)/i;
+    var carId = data[i].carName.match(re)[1];
     var html = '<div class="panel-default car-panel">\
                   <div class="panel-heading">\
                     <a data-toggle="collapse" href="#{0}" class="car-panel-title">\
@@ -198,7 +200,7 @@ function refreshList(data) {
                   </div>\
                   <div id="{0}" class="panel-collapse collapse">\
                     <div class="panel-body">\
-                      <a class="btn" href="/dashboard/confirmation?id=aaaaa" role="button">Register</a>\
+                      <a class="btn" href="/dashboard/confirmation?id={3}" role="button">Register</a>\
                       asdasd asdasd\
                     </div>\
                   </div>\
@@ -206,6 +208,7 @@ function refreshList(data) {
     html = html.replace(/\{0\}/g, "collapse_" + i);
     html = html.replace(/\{1\}/g, carName);
     html = html.replace(/\{2\}/g, range);
+    html = html.replace(/\{3\}/g, carId);
 
     $("#carlist").append(html);
   }

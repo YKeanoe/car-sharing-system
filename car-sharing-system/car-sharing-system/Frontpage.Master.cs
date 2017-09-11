@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics;
 
 namespace car_sharing_system
 {
@@ -11,7 +12,10 @@ namespace car_sharing_system
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+			if (Session["UserId"] != null) {
+				Debug.WriteLine("uid = " + Session["UserId"].ToString());
+			}
 
-        }
-    }
+		}
+	}
 }

@@ -18,16 +18,15 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class login : System.Web.UI.Page
     {
+
+		String redirect;
+
         protected void Page_Load(object sender, EventArgs e) {
-            String path = HttpContext.Current.Request.Url.AbsolutePath;
-            String pathBefore = Request.UrlReferrer.ToString();
 
-            Debug.WriteLine("cpath " + path);
-            if (pathBefore != null) {
-              Debug.WriteLine("bpath " + pathBefore);
-            }
+			redirect = Request.QueryString["redirect"];
 
-            Login1.DestinationPageUrl = "~/Views/Admin_Theme/dashboard.aspx";
+			// I don't think this do anything
+			// Login1.DestinationPageUrl = "/dashboard/profile";
         }
         protected void ValidateUser(object sender, EventArgs e)
         {
@@ -36,8 +35,15 @@ namespace car_sharing_system.Admin_Theme.pages
             User myData = data.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {
-                FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);
-            }
+				//FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);
+
+				FormsAuthentication.SetAuthCookie(myData.id.ToString(), Login1.RememberMeSet);
+				if (redirect != null) {
+					Response.Redirect(redirect);
+				} else {
+					Response.Redirect("/dashboard/");
+				}
+			}
             else
             {
                 Login1.FailureText = password;
