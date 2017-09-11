@@ -126,55 +126,55 @@
                             <form id="updateform" runat="server">
                                                
                                  <div class="field1">
-                                    <label>First Name: <%=fn%> </label><br />
+                                    <label>First Name: <%=newUser.fname%> </label><br />
                                 </div>
 
                                 <div class="field2">
-                                    <label>Last Name:  <%=ln%></label><br />
+                                    <label>Last Name:  <%=newUser.lname%></label><br />
                                 </div>
 
                                 <div class="field3">
-                                    <label>Licence Number: <%=licenceNo%> </label> <br />
+                                    <label>Licence Number: <%=newUser.licenceNo%> </label> <br />
                                 </div>
 
                                 <div class="field4">
-                                    <label>Date of Birth: <%=birth%></label> <br />
+                                    <label>Date of Birth: <%=newUser.birth%></label> <br />
                                 </div>
 
                                 <div class="field5">
-                                    <label>Gender: <%=gender%></label> <br />
+                                    <label>Gender: <%=newUser.gender%></label> <br />
                                 </div>
 
                                 <div class="field6">
-                                    <label>Phone: <%=phone%></label> <br />
+                                    <label>Phone: <%=newUser.phone%></label> <br />
                                 </div>
 
                                 <div class="field7"> 
-                                    <label>Street: <%=street%></label> <br />
+                                    <label>Street: <%=newUser.street%></label> <br />
                                 </div>
 
                                 <div class="field8">
-                                    <label>Suburb: <%=suburb%></label> <br />
+                                    <label>Suburb: <%=newUser.suburb%></label> <br />
                                 </div>
 
                                 <div class="field9">
-                                     <label>Postcode: <%=postcode%></label> <br />
+                                     <label>Postcode: <%=newUser.postcode%></label> <br />
                                 </div>
 
                                 <div class="field10">
-                                     <label>Territory: <%=territory%></label> <br />
+                                     <label>Territory: <%=newUser.territory%></label> <br />
                                 </div>
 
                                 <div class="field11">
-                                     <label>City: <%=city%></label> <br />
+                                     <label>City: <%=newUser.city%></label> <br />
                                 </div>
 
                                 <div class="field12">
-                                     <label>Country: <%=country%></label> <br />
+                                     <label>Country: <%=newUser.country%></label> <br />
                                 </div>
 
                                 <div class="field13">
-                                     <label>ProfileURL: <%=profileURL%></label> <br />
+                                     <label>ProfileURL: <%=newUser.profileURL%></label> <br />
                                 </div>
 
                              </form>

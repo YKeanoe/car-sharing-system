@@ -10,25 +10,12 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class profile : System.Web.UI.Page
     {
-        protected String fn;
-        protected String ln;
-        protected String licenceNo;
-        protected String birth;
-        protected String gender;
-        protected String phone;
-        protected String street;
-        protected String suburb;
-        protected String postcode;
-        protected String territory;
-        protected String city;
-        protected String country;
-        protected String profileURL;
-
+        protected User newUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            User newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
+             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
 
             if (!Request.IsAuthenticated)
