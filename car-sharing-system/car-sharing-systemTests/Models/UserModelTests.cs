@@ -46,9 +46,9 @@ namespace car_sharing_system.Models.Tests
         public void loginAttemptTestWithUser()
         {
             UserModel data = new UserModel();
-            string beforeHash = "ZyiXDnElJ";
-            string password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-            string userName = "rhoncus.Nullam@egestasSed.org";
+            String beforeHash = "ZyiXDnElJ";
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = "rhoncus.Nullam@egestasSed.org";
             User myData = data.loginAttempt(userName, password);
             if (myData != null)
             {
@@ -192,26 +192,54 @@ namespace car_sharing_system.Models.Tests
             DatabaseReader dr = new DatabaseReader();
             String beforeHash = "PasswordTest1"; // Plaintext Password
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-            string emailRego = "example@email.com"; // Valid email address
-            string passwordRego = password; // Hashed Password
-            string licenseRego = "123456789"; // 9 digit license number
-            string firstRego = "John"; // First Name
-            string lastNameRego = "Smith"; // Last Name
-            string genderRego = "Male"; // Gender (Male / Female)
-            string birthRego = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
-            string phoneNoRego = "9300 1212"; // Phone number
-            string streetRego = "1 Example Street"; // Street Address
-            string suburbRego = "Docklands"; // Suburb
-            string postRego = "1234"; // Postcode
-            string terrRego = "Territory"; // Territory
-            string cityRego = "Melbourne"; // City
-            string countryRego = "Australia"; // Country
-            string urlRego = ""; // Avatar image url?
+            String emailRego = "example@email.com"; // Valid email address
+            String passwordRego = password; // Hashed Password
+            String licenseRego = "123456789"; // 9 digit license number
+            String firstRego = "John"; // First Name
+            String lastNameRego = "Smith"; // Last Name
+            String genderRego = "Male"; // Gender (Male / Female)
+            String birthRego = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phoneNoRego = "9300 1212"; // Phone number
+            String streetRego = "1 Example Street"; // Street Address
+            String suburbRego = "Docklands"; // Suburb
+            String postRego = "1234"; // Postcode
+            String terrRego = "Territory"; // Territory
+            String cityRego = "Melbourne"; // City
+            String countryRego = "Australia"; // Country
+            String urlRego = ""; // Avatar image url?
             newUser = new User(-1, emailRego, passwordRego, 0, licenseRego, firstRego, lastNameRego,
                 genderRego, birthRego, phoneNoRego, streetRego, suburbRego, postRego, terrRego,
                 cityRego, countryRego, urlRego);
 
             dr.Registeration(newUser);
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(emailRego, password);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database, user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
         }
     }
 }
