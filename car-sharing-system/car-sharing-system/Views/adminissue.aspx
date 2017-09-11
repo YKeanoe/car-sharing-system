@@ -98,18 +98,25 @@
 
                         <div class="panel-body">
    
+                            <div class="table">
+                                            <div class="row">
+                                                <div class="cell onecol">
+                                                    <span>Issue ID</span>
+                                                </div>
+                                                <div class="cell twocol">
+                                                     <span>Account ID</span>
+                                                </div>
+                                                <div class="cell threecol">
+                                                     <span>Submission Date</span>
+                                                </div>
+
+                                                <div class="cell fourcol">
+                                                     <span>Subject</span>
+                                                </div>
+
+
+                                                </div>
                             
-                            <div class="form-group">
-                            <form id="updateform" runat="server">
-                           </form>
-
-
-
-
-                                           <a href="/dashboard/profileedit.aspx" class="btn btn-info">
-                                                Edit
-                                            </a>
-                                        </div>
                         </div>
 
 
