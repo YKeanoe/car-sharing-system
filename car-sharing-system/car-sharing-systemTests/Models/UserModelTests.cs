@@ -13,22 +13,23 @@ namespace car_sharing_system.Models.Tests
     [TestFixture()]
     public class UserModelTests
     {
+        protected User newUser;
         [Test()]
         // Attempt login with admin credentials.
-        public void loginAttemptTestWithAdmin() 
+        public void loginAttemptTestWithAdmin()
         {
             UserModel data = new UserModel();
 
             // Plaintext password
-            String beforeHash = "admin"; 
+            String beforeHash = "admin";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
 
             // Admin email
-            String UserName = "admin@gmail.com"; 
+            String UserName = "admin@gmail.com";
             User myData = data.loginAttempt(UserName, password);
 
             // If database returns data from a matching entry
-            if (myData != null) 
+            if (myData != null)
             {
                 Assert.Pass("Valid User in database with matching email: " + myData.email);
             }
@@ -42,7 +43,7 @@ namespace car_sharing_system.Models.Tests
 
         [Test()]
         // Attempt login with user credentials
-        public void loginAttemptTestWithUser() 
+        public void loginAttemptTestWithUser()
         {
             UserModel data = new UserModel();
             string beforeHash = "ZyiXDnElJ";
@@ -50,7 +51,7 @@ namespace car_sharing_system.Models.Tests
             string userName = "rhoncus.Nullam@egestasSed.org";
             User myData = data.loginAttempt(userName, password);
             if (myData != null)
-            {   
+            {
                 Assert.Pass("Valid User in database, email: " + myData.email);
             }
             else
@@ -146,10 +147,10 @@ namespace car_sharing_system.Models.Tests
         public void HashFunctionTest() // 
         {
             // Plaintext password
-            String beforeHash = "ZyiXDnElJ"; 
+            String beforeHash = "ZyiXDnElJ";
 
             // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); 
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
 
             // Expected Hash Result
             if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
@@ -184,6 +185,33 @@ namespace car_sharing_system.Models.Tests
             {
                 Assert.Pass("Password mismatch, hashed value: " + password);
             }
+        }
+        // This test is not implemented yet
+        public void registerUserTest() // To register an user and add to database
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String beforeHash = "PasswordTest1"; // Plaintext Password
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            string emailRego = "example@email.com"; // Valid email address
+            string passwordRego = password; // Hashed Password
+            string licenseRego = "123456789"; // 9 digit license number
+            string firstRego = "John"; // First Name
+            string lastNameRego = "Smith"; // Last Name
+            string genderRego = "Male"; // Gender (Male / Female)
+            string birthRego = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            string phoneNoRego = "9300 1212"; // Phone number
+            string streetRego = "1 Example Street"; // Street Address
+            string suburbRego = "Docklands"; // Suburb
+            string postRego = "1234"; // Postcode
+            string terrRego = "Territory"; // Territory
+            string cityRego = "Melbourne"; // City
+            string countryRego = "Australia"; // Country
+            string urlRego = ""; // Avatar image url?
+            newUser = new User(-1, emailRego, passwordRego, 0, licenseRego, firstRego, lastNameRego,
+                genderRego, birthRego, phoneNoRego, streetRego, suburbRego, postRego, terrRego,
+                cityRego, countryRego, urlRego);
+
+            dr.Registeration(newUser);
         }
     }
 }
