@@ -39,7 +39,7 @@
                             <!-- Password Label -->
                             <label>Password</label> 
                             <br />
-                            <asp:TextBox ID="passwordRego" runat="server"></asp:TextBox> 
+                            <asp:TextBox ID="passwordRego" TextMode="Password" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="passwordRego"
                                 ErrorMessage="Please enter password"   
