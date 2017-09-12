@@ -241,12 +241,14 @@
     <Content Include="Theme\Images\test3.JPG" />
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
+    <Content Include="Views\successIssue.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\DatabaseReader.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\User.cs" />
@@ -353,6 +355,13 @@
     </Compile>
     <Compile Include="Views\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\successIssue.aspx.cs">
+      <DependentUpon>successIssue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\successIssue.aspx.designer.cs">
+      <DependentUpon>successIssue.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

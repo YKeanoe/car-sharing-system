@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Web;
 using MySql.Data.MySqlClient;
 using car_sharing_system.Models;
+using car_sharing_system.Admin_Theme.pages;
 
 namespace car_sharing_system.Models
 {
@@ -72,6 +73,9 @@ namespace car_sharing_system.Models
                 return users;
             }
         }
+
+        
+
         // userQuerySingle return the first user found as an object.
         // return null if no user is found
         public static User userQuerySingle(String where)
@@ -158,7 +162,31 @@ namespace car_sharing_system.Models
 
         }
 
+        public void Issue(Issues newIssue)
+        {
 
+            String query = "INSERT TO issue (subject, description)";
+            query += "VALUES (@subject, description)";
+
+            {
+
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query))
+                {
+
+                    mySqlCommand.Parameters.AddWithValue("subject", newIssue.subject);
+                    mySqlCommand.Parameters.AddWithValue("description", newIssue.description);           
+                    mySqlCommand.ExecuteNonQuery();
+
+                }
+
+            }
+
+
+
+
+
+
+        }
 
 
         public static List<Car> carQuery(String where) {
