@@ -30,7 +30,7 @@
                             <!-- Email Label -->
                             <label>Email</label>
                             <br />
-                            <asp:TextBox Type="email" ID=emailRego runat="server" ></asp:TextBox> 
+                            <asp:TextBox Type="email" ID="emailRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
@@ -39,7 +39,7 @@
                             <!-- Password Label -->
                             <label>Password</label> 
                             <br />
-                            <asp:TextBox ID="passwordRego" runat="server"></asp:TextBox> 
+                            <asp:TextBox ID="passwordRego" runat="server" Type="password"></asp:TextBox> 
                             <br />
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="passwordRego"
                                 ErrorMessage="Please enter password"   
