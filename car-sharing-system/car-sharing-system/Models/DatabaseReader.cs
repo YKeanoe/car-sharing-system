@@ -221,15 +221,14 @@ namespace car_sharing_system.Models
 						} else {
 							transmission = 'M';
 						}
-						Boolean cdPlayer = (Int32.Parse(dbread[16].ToString()) == 1) ? true : false;
-						Boolean gps = (Int32.Parse(dbread[19].ToString()) == 1) ? true : false;
-						Boolean bluetooth = (Int32.Parse(dbread[20].ToString()) == 1) ? true : false;
-						//Boolean cruiseControl = (Int32.Parse(dbread[19].ToString()) == 1) ? true : false;
-						//Boolean reverseCam = (Int32.Parse(dbread[20].ToString()) == 1) ? true : false;
-						Boolean radio = (Int32.Parse(dbread[18].ToString()) == 1) ? true : false;
-						Boolean airCon = (Int32.Parse(dbread[17].ToString()) == 1) ? true : false;
+
+						Boolean x = (Boolean) dbread[16];
+						Debug.WriteLine("ffffffff");
+						Debug.WriteLine(x);
+
+						
 						return new Car(dbread[0].ToString() /*ID / license plate*/,
-							newLocation, /* Car Location */
+							newLocation /* Car Location */,
 							dbread[3].ToString() /*Country*/,
 							dbread[4].ToString() /*Brand*/,
 							dbread[5].ToString() /*Model*/,
@@ -242,13 +241,13 @@ namespace car_sharing_system.Models
 							Convert.ToDouble(dbread[12].ToString()) /*Fuel Consumption*/,
 							Int32.Parse(dbread[13].ToString()) /*Average Range*/,
 							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
-							cdPlayer,
-							gps,
-							bluetooth,
+							(Boolean)dbread[16] /*CD Player*/,
+							(Boolean)dbread[19] /*GPS*/,
+							(Boolean)dbread[20] /*Bluetooth*/,
 							/*cruiseControl,*/
 							/*reverseCam,*/
-							radio,
-							airCon);
+							(Boolean)dbread[18] /*Radio*/,
+							(Boolean)dbread[17] /*Air Con*/);
 					} else {
 						return null;
 					}
