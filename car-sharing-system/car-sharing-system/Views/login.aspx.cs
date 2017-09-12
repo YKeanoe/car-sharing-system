@@ -19,15 +19,17 @@ namespace car_sharing_system.Admin_Theme.pages
     public partial class login : System.Web.UI.Page
     {
 
-		String redirect;
+		String redirect, carid;
 
         protected void Page_Load(object sender, EventArgs e) {
 
 			redirect = Request.QueryString["redirect"];
-
+			if (redirect.Equals("/dashboard/confirmation")) {
+				carid = Request.QueryString["id"];
+			}
 			// I don't think this do anything
 			// Login1.DestinationPageUrl = "/dashboard/profile";
-        }
+		}
         protected void ValidateUser(object sender, EventArgs e)
         {
             UserModel data = new UserModel();
@@ -39,7 +41,11 @@ namespace car_sharing_system.Admin_Theme.pages
 
 				FormsAuthentication.SetAuthCookie(myData.id.ToString(), Login1.RememberMeSet);
 				if (redirect != null) {
-					Response.Redirect(redirect);
+					if (carid != null) {
+						Response.Redirect(redirect + "?id=" + carid);
+					} else {
+						Response.Redirect(redirect);
+					}
 				} else {
 					Response.Redirect("/dashboard/");
 				}

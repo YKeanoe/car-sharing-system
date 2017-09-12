@@ -166,9 +166,9 @@ namespace car_sharing_system
       Location latlong1 = new Location(-37.816261m, 144.970976m);
       Location latlong2 = new Location(-37.815555m, 144.970107m);
       Location latlong3 = new Location(-37.815539m, 144.966278m);
-      cars.Add(new Car("V123", "Mercedes", "C Series", "Sedan", 5, 5.00, latlong1));
-      cars.Add(new Car("V124", "Mercedes", "A Series", "Sedan", 5, 6.00,latlong2));
-      cars.Add(new Car("V125", "Mercedes", "S Series", "Sedan", 5, 6.30, latlong3));
+      cars.Add(new Car("V123", latlong1,  "Mercedes", "C Series", 5.00));
+      cars.Add(new Car("V124", latlong2, "Mercedes", "A Series", 6.00));
+      cars.Add(new Car("V125", latlong3, "Mercedes", "S Series",  6.30));
     }
 
     [System.Web.Services.WebMethod]
