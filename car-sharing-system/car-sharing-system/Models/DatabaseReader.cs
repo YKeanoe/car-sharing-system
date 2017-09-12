@@ -153,14 +153,15 @@ namespace car_sharing_system.Models
 
 
                     int email = (int)mySqlCommand.ExecuteScalar();
-                    if (email>0)
+                    if (email > 0)
                     {
-                     //prompt 
-                    
+                        //prompt 
+
                     }
                     else
 
-                    mySqlCommand.ExecuteNonQuery();
+                        mySqlCommand.ExecuteNonQuery();
+                   
                     //prompt
                 }
 
@@ -176,7 +177,7 @@ namespace car_sharing_system.Models
         public void Issue(Issues newIssue)
         {
 
-            String query = "INSERT TO issue (subject, description)";
+            String query = "INSERT TO Issues (subject, description)";
             query += "VALUES (@subject, description)";
 
             {
