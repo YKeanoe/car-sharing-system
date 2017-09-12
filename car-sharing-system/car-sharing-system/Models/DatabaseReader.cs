@@ -224,9 +224,14 @@ namespace car_sharing_system.Models
 
 						Boolean x = (Boolean) dbread[16];
 						Debug.WriteLine("ffffffff");
-						Debug.WriteLine(x);
+						// WHYYYYY????? dbread[12].ToString returns x.xL instead of double
+						// Should change dot to comma
+						String fuelcon = dbread[12].ToString();
+						fuelcon = fuelcon.Remove(fuelcon.Length - 1);
+						fuelcon.Replace(',', '.');
+						Double y = Convert.ToDouble(dbread[14].ToString());
+						Debug.WriteLine(fuelcon);
 
-						
 						return new Car(dbread[0].ToString() /*ID / license plate*/,
 							newLocation /* Car Location */,
 							dbread[3].ToString() /*Country*/,
@@ -238,7 +243,7 @@ namespace car_sharing_system.Models
 							transmission,
 							dbread[10].ToString() /*Fuel Type*/,
 							Int32.Parse(dbread[11].ToString()) /*Tank Size*/,
-							Convert.ToDouble(dbread[12].ToString()) /*Fuel Consumption*/,
+							Convert.ToDouble(fuelcon) /*Fuel Consumption*/,
 							Int32.Parse(dbread[13].ToString()) /*Average Range*/,
 							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
 							(Boolean)dbread[16] /*CD Player*/,
