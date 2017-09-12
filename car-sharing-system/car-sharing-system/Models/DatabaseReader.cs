@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using car_sharing_system.Models;
 using car_sharing_system.Admin_Theme.pages;
 
+
 namespace car_sharing_system.Models
 {
     public class DatabaseReader
@@ -149,8 +150,18 @@ namespace car_sharing_system.Models
                     mySqlCommand.Parameters.AddWithValue("city", newUser.city);
                     mySqlCommand.Parameters.AddWithValue("country", newUser.country);
                     mySqlCommand.Parameters.AddWithValue("profileurl", newUser.profileURL);
-                    mySqlCommand.ExecuteNonQuery();
 
+
+                    int email = (int)mySqlCommand.ExecuteScalar();
+                    if (email>0)
+                    {
+                     //prompt 
+                    
+                    }
+                    else
+
+                    mySqlCommand.ExecuteNonQuery();
+                    //prompt
                 }
 
             }
