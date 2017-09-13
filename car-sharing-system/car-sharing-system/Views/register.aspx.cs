@@ -29,11 +29,15 @@ namespace car_sharing_system.Admin_Theme.pages
                 cityRego.Text, countryRego.Text, urlRego.Text);
 
             dr.Registeration(newUser);
-
-
             
 
+
+
+            Response.Redirect("successIssue.aspx");
+
+
         }
+        
     }
 }
             
