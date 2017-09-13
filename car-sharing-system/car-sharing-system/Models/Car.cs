@@ -30,7 +30,6 @@ namespace car_sharing_system.Models
 		public Boolean cruiseControl { get; set; }
 		public Boolean reverseCam { get; set; }
 		public Boolean radio { get; set; }
-		public Boolean airCon { get; set; }
 
 		public Car(String numberPlate, 
 				Location latlong ,
@@ -49,10 +48,9 @@ namespace car_sharing_system.Models
 				Boolean cdPlayer ,
 				Boolean gps ,
 				Boolean bluetooth ,
-				/*Boolean cruiseControl ,
-				Boolean reverseCam, */
-				Boolean radio,	 
-				Boolean airCon ) {
+				Boolean cruiseControl ,
+				Boolean reverseCam,
+				Boolean radio) {
 			this.numberPlate = numberPlate;
 			this.latlong = latlong;
 			this.country = country;
@@ -70,10 +68,9 @@ namespace car_sharing_system.Models
 			this.cdPlayer = cdPlayer;
 			this.gps = gps;
 			this.bluetooth = bluetooth;
-			/*this.cruiseControl = cruiseControl;
-			this.reverseCam = reverseCam;*/
+			this.cruiseControl = cruiseControl;
+			this.reverseCam = reverseCam;
 			this.radio = radio;
-			this.airCon = airCon;
 		}
 
 		public Car(String numberPlate, Location latlong, String brand, String model, double rate) {

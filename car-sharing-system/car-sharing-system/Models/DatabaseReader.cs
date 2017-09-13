@@ -224,6 +224,13 @@ namespace car_sharing_system.Models
 
 						Boolean x = (Boolean) dbread[16];
 						Debug.WriteLine("ffffffff");
+						Debug.WriteLine(dbread[11].ToString());
+						Debug.WriteLine(dbread[12].ToString());
+						Debug.WriteLine(dbread[13].ToString());
+						Debug.WriteLine(dbread[14].ToString());
+						Debug.WriteLine(dbread[15].ToString());
+						Debug.WriteLine(dbread[16].ToString());
+						Debug.WriteLine(dbread[17].ToString());
 						// WHYYYYY????? dbread[12].ToString returns x.xL instead of double
 						// Should change dot to comma
 						String fuelcon = dbread[12].ToString();
@@ -243,16 +250,15 @@ namespace car_sharing_system.Models
 							transmission,
 							dbread[10].ToString() /*Fuel Type*/,
 							Int32.Parse(dbread[11].ToString()) /*Tank Size*/,
-							Convert.ToDouble(fuelcon) /*Fuel Consumption*/,
+							Convert.ToDouble(dbread[12]) /*Fuel Consumption*/,
 							Int32.Parse(dbread[13].ToString()) /*Average Range*/,
-							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
+							Convert.ToDouble(dbread[14]) /*Hourly rate*/,
 							(Boolean)dbread[16] /*CD Player*/,
-							(Boolean)dbread[19] /*GPS*/,
-							(Boolean)dbread[20] /*Bluetooth*/,
-							/*cruiseControl,*/
-							/*reverseCam,*/
-							(Boolean)dbread[18] /*Radio*/,
-							(Boolean)dbread[17] /*Air Con*/);
+							(Boolean)dbread[18] /*GPS*/,
+							(Boolean)dbread[19] /*Bluetooth*/,
+							(Boolean)dbread[20] /*cruiseControl*/,
+							(Boolean)dbread[21] /*reverseCam*/,
+							(Boolean)dbread[17] /*Radio*/);
 					} else {
 						return null;
 					}

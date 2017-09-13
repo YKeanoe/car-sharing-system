@@ -19,12 +19,30 @@
 					<label><asp:Label runat="server" ID="carSeatsLabel">x Seats</asp:Label></label>
 					<label><asp:Label runat="server" ID="carTransmissionLabel">Automatic</asp:Label></label>
 					<label><asp:Label runat="server" ID="carRateLabel">$x per Hour</asp:Label></label>
+		            
+					<asp:PlaceHolder ID="featurelist"  runat="server"/>
+
 					<div class="feature-list">
-						<i class="fa fa-check fa-fw" ></i> GPS
-						<i class="fa fa-times fa-fw" ></i> GPS
-						<i class="fa fa-check fa-fw" ></i> GPS
-						<i class="fa fa-check fa-fw" ></i> GPS
+						<div class="panel-half">
+							<i class="fa fa-check fa-fw" ></i> GPS
+							<br />
+							<i class="fa fa-times fa-fw" ></i> CD Player
+							<br />
+							<i class="fa fa-check fa-fw" ></i> Bluetooth
+							<br />
+						</div>
+						<div>
+							<i class="fa fa-times fa-fw" ></i> Cruise Control
+							<br />
+							<i class="fa fa-times fa-fw" ></i> Reverse Camera
+							<br />
+							<i class="fa fa-check fa-fw" ></i> Radio
+							<br />
+						</div>
 					</div>
+
+		            <button class="btn btn-primary" type="button">Next</button>
+
 
 				</div>
 				<div class="panel-half">
@@ -44,13 +62,15 @@
 	var userPos = { lat: "", lng: "" };
 	var carPos = { lat: "", lng: "" };
 
-	$.idleTimer(2000);
+	$.idleTimer(3000);
 	
 	$(document).on("idle.idleTimer", function (event, elem, obj) {
+		$(".panel-title").prepend("<label id=\"warning\" style=\"font-size:14px; color:red; width:100%;\">You have been idle for more than 3 minutes.</label>");
 		console.log("idle");
 	});
 
 	$(document).on("active.idleTimer", function (event, elem, obj, triggerevent) {
+		$(".panel-title label").remove("#warning");
 		console.log("active");
 	});
 
@@ -61,7 +81,6 @@
 		getLocationStatus.then(sendRequestForCarLocation).done(function () {
 			dfd.resolve();
 			var googleurl = "https://maps.googleapis.com/maps/api/staticmap?"
-							+ "&zoom=5"
 							+ "&size=500x500"
 							+ "&markers=color:red%7Clabel:C%7C" + carPos.lat + "," + carPos.lng
 							+ "&markers=color:blue%7Clabel:U%7C" + userPos.lat + "," + userPos.lng
