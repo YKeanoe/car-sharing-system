@@ -101,78 +101,81 @@
                             <div class="table">
                                             <div class="row">
                                                 <div class="cell onecol">
-                                                    <span>First Name: </span> 
+                                                    <span>Brand: </span> 
                                                 </div>
                                                 <div class="cell twocol">
-                                                     <span>Last Name: </span>
+                                                     <span>Model: </span>
                                                 </div>
                                                 <div class="cell threecol">
-                                                     <span>Licence Number: </span>
+                                                     <span>Vehicle Type: </span>
                                                 </div>
 
                                                 <div class="cell fourcol">
-                                                     <span>Date of Birth: </span>
+                                                     <span>Seats : </span>
                                                 </div>
 
                                                 <div class="cell fivecol">
-                                                     <span>Gender: </span>
+                                                     <span>Doors: </span>
                                                 </div>
 
                                                 <div class="cell sixcol">
-                                                     <span>Phone: </span>
+                                                     <span>Transmission: </span>
                                                 </div>
 
                                                 <div class="cell sevencol">
-                                                     <span>Street: </span> 
+                                                     <span>Fuel Type: </span> 
                                                 </div>
 
                                                 <div class="cell eightcol">
-                                                     <span>Suburb: </span> 
+                                                     <span>Tank Size: </span> 
                                                 </div>
 
                                                  <div class="cell ninecol">
-                                                     <span>Postcode: </span>
+                                                     <span>Fuel Consumption: </span>
                                                 </div>
 
                                                  <div class="cell tencol">
-                                                     <span>Territory: </span>
+                                                     <span>Average Range: </span>
                                                 </div>
 
                                                  <div class="cell elevencol">
-                                                     <span>City: </span> 
+                                                     <span>Hourly Rate: </span> 
                                                 </div>
 
                                                 <div class="cell twelvecol">
-                                                     <span>Country: </span>
+                                                     <span>Status: </span>
                                                 </div>
 
-                                                <input type="submit" value="Edit User Details"  class="btn btn-info">
+                                                <div class="cell thirteencol">
+                                                     <span>CD Player: </span>
+                                                </div>
+
+                                                <div class="cell fourteencol">
+                                                     <span>Radio: </span>
+                                                </div>
+
+                                                <div class="cell fifthteencol">
+                                                     <span>GPS: </span>
+                                                </div>
+
+                                                <div class="cell sixthteencol">
+                                                     <span>Bluetooth: </span>
+                                                </div>
+
+                                                <div class="cell seventeencol">
+                                                     <span>Cruise Control: </span>
+                                                </div>
+
+                                                <div class="cell eighteencol">
+                                                     <span>Reverse Camera: </span>
+                                                </div>
+                                                <input type="submit" value="Edit Car Details"  class="btn btn-info">
   
-                                                <input type="submit" value="View Booking History"  class="btn btn-info">
+                                                <input type="submit" value="View Car Booking History"  class="btn btn-info">
                                                 </div>
                                                     
 
-                                	numberPlate varchar(6) NOT NULL PRIMARY KEY,
-	locationLat decimal(12,9) NULL,
-	locationLong decimal(12,9) NULL,
-	country varchar(50) NULL,
-	brand varchar(50) NULL,
-	model varchar(50) NULL,
-	vehicleType varchar(20) NULL,
-	seats varchar(2) NULL,
-	doors varchar(2) NULL,
-	transmission varchar(20) NULL,
-	fuelType varchar(20) NULL,
-	tankSize varchar(20) NULL,
-	fuelConsumption varchar(20) NULL,
-	averageRange varchar(20) NULL,
-	hourlyRate varchar (2) NULL,
-	status boolean NULL,
-	cdPlayer boolean NULL,
-	radio boolean NULL,
-	gps boolean NULL,
-	bluetooth boolean NULL
-   
+                                
                             
                           </div>
                         </div>

@@ -153,7 +153,7 @@
 
                                                 <input type="submit" value="Edit User Details"  class="btn btn-info">
   
-                                                <input type="submit" value="View Booking History"  class="btn btn-info">
+                                                <input type="submit" value="View User Booking History"  class="btn btn-info">
                                                 </div>
                                                     
                                             

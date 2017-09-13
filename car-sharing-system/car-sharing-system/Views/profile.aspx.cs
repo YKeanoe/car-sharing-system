@@ -23,15 +23,15 @@ namespace car_sharing_system.Admin_Theme.pages
                 Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
             }
 
-            //if (IsPostBack)
-            //{
-              //  updateform.Visible = false;
-                //Label1.Text = updateform.firstname;
-                //Label1.Style.Add("font-weight", "bold");
+            if (IsPostBack)
+            {
+                updateform.Visible = false;
+                Label1.Text = firstname.Text;
+                Label1.Style.Add("font-weight", "bold");
 
 
-            //}
-            //TimeLabel.Text = DateTime.Now.ToString();
+            }
+            TimeLabel.Text = DateTime.Now.ToString();
 
 
         }

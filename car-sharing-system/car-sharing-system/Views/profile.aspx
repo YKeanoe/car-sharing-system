@@ -179,7 +179,7 @@
 
                              </form>
 
-                               <!-- <p> The time is now: <asp:label runat="server" ID="TimeLabel"/> -->
+                               <p> The time is now: <asp:label runat="server" ID="TimeLabel"/> 
 
 
                                            <input type="submit" value="Submit"  class="btn btn-info"></p>

@@ -126,7 +126,6 @@
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
     <Content Include="Views\adminusers.aspx" />
-    <Content Include="Views\profileedit.aspx" />
     <Content Include="Views\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
@@ -320,13 +319,6 @@
     </Compile>
     <Compile Include="Views\adminusers.aspx.designer.cs">
       <DependentUpon>adminusers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\profileedit.aspx.cs">
-      <DependentUpon>profileedit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\profileedit.aspx.designer.cs">
-      <DependentUpon>profileedit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
