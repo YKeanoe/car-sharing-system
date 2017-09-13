@@ -187,35 +187,34 @@ namespace car_sharing_system.Models.Tests
             }
         }
         // This test is not implemented yet
-        [Test()]
+        //[Test()]
         public void registerUserTest() // To register an user and add to database
         {
             DatabaseReader dr = new DatabaseReader();
             String beforeHash = "PasswordTest1"; // Plaintext Password
+            String email = "example@email.com"; // Valid email 
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-            String emailRego = "example@email.com"; // Valid email address
-            String passwordRego = password; // Hashed Password
-            String licenseRego = "123456789"; // 9 digit license number
-            String firstRego = "John"; // First Name
-            String lastNameRego = "Smith"; // Last Name
-            String genderRego = "Male"; // Gender (Male / Female)
-            String birthRego = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
-            String phoneNoRego = "9300 1212"; // Phone number
-            String streetRego = "1 Example Street"; // Street Address
-            String suburbRego = "Docklands"; // Suburb
-            String postRego = "1234"; // Postcode
-            String terrRego = "Territory"; // Territory
-            String cityRego = "Melbourne"; // City
-            String countryRego = "Australia"; // Country
-            String urlRego = ""; // Avatar image url?
-            newUser = new User(-1, emailRego, passwordRego, 0, licenseRego, firstRego, lastNameRego,
-                genderRego, birthRego, phoneNoRego, streetRego, suburbRego, postRego, terrRego,
-                cityRego, countryRego, urlRego);
+            String licenseNo = "123456789"; // 9 digit license number
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
 
             dr.Registeration(newUser);
 
             UserModel data = new UserModel();
-            User myData = data.loginAttempt(emailRego, password);
+            User myData = data.loginAttempt(email, password);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database");    
@@ -241,6 +240,22 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Email and/or Password does not match in database.");
+            }
+            }
+        //[Test()]
+        public void issuesTest() // Placeholder
+        {
+            // Plaintext password
+            String issueDescription = "Description";
+            String issueSubjectTitle = "Title";
+            // Expected Hash Result
+            if (issueDescription == "Placeholder")      
+            {
+                Assert.Fail("Password match");
+            }
+            else
+            {
+                Assert.Pass("Placeholder2");
             }
         }
     }
