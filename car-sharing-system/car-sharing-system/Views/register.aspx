@@ -25,12 +25,13 @@
                             <asp:TextBox ID="userRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic"
+                                ValidationExpression="^[A-Za-z0-9_.]+$"
                                 ControlToValidate="userRego" ForeColor="Red" ErrorMessage="Please enter username." />
                             <br />
                             <!-- Email Label -->
                             <label>Email</label>
                             <br />
-                            <asp:TextBox Type="email" ID=emailRego runat="server" ></asp:TextBox> 
+                            <asp:TextBox Type="email" ID="emailRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
@@ -39,7 +40,7 @@
                             <!-- Password Label -->
                             <label>Password</label> 
                             <br />
-                            <asp:TextBox ID="passwordRego" runat="server"></asp:TextBox> 
+                            <asp:TextBox ID="passwordRego" runat="server" Type="password"></asp:TextBox> 
                             <br />
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="passwordRego"
                                 ErrorMessage="Please enter password"   
@@ -50,8 +51,8 @@
                             <br />
                             <asp:TextBox ID="licenseRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ValidationExpression="^[0-9]"
+                            <asp:RegularExpressionValidator runat="server" 
+                                ValidationExpression="^[0-9]{1,9}$"
                                 ControlToValidate="licenseRego" ForeColor="Red" ErrorMessage="Invalid license number." />
                             <br />
                             <!-- First Name Label -->
@@ -60,6 +61,7 @@
                             <asp:TextBox ID="firstRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="firstRego"
+                                ValidationExpression="^[a-zA-zZ]"
                                 ErrorMessage="Please enter your first name"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
@@ -70,6 +72,7 @@
                             <br />
                             <asp:RequiredFieldValidator ID="lastNameValidator" runat="server"   
                                 ControlToValidate="lastNameRego" ErrorMessage="Please enter your last name"   
+                                ValidationExpression="^[a-zA-zZ]"
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
                             <!-- Gender Label -->
@@ -95,7 +98,7 @@
                             <asp:TextBox ID="phoneNoRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ValidationExpression="^[0-9]"
+                                ValidationExpression="^[0-9]{10}$"
                                 ControlToValidate="phoneNoRego" ForeColor="Red" ErrorMessage="Invalid phone number." />          
                             <br />
                             <!-- Address Label -->
@@ -104,6 +107,7 @@
                             <asp:TextBox ID="streetRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic"
+                                ValidationExpression="^[A-Za-z0-9_.]+$"
                                 ControlToValidate="streetRego" ForeColor="Red" ErrorMessage="Enter street address." />             
                             <br />
                             <!-- Suburb Label -->
@@ -112,6 +116,7 @@
                             <asp:TextBox ID="suburbRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                                ValidationExpression="^[a-zA-zZ]"
                                 ControlToValidate="suburbRego" ForeColor="Red" ErrorMessage="Enter suburb." />      
                             <br />
                             <!-- Postcode Label -->
@@ -120,43 +125,52 @@
                             <asp:TextBox ID="postRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ValidationExpression="^[0-9]"
+                                ValidationExpression="^[0-9]{4}$"
                                 ControlToValidate="postRego" ForeColor="Red" ErrorMessage="Enter postcode." />           
                             <br />
                             <!-- Territory Label -->
-                            <label>Territory</label>
+                            <label>Territory</label> 
                             <br />
                             <asp:TextBox ID="terrRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ControlToValidate="terrRego" ForeColor="Red" ErrorMessage="Enter territory." />          
-                            <br />
+                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="terrRego"
+                                ValidationExpression="^[a-zA-zZ]"
+                                ErrorMessage="Please enter your territory"   
+                                ForeColor="Red"></asp:RequiredFieldValidator>
+                            <br>
                             <!-- City Label -->
-                            <label>City</label>
+                           <label>City</label> 
                             <br />
                             <asp:TextBox ID="cityRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ControlToValidate="cityRego" ForeColor="Red" ErrorMessage="Enter city." />
-                            <br />
+                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="cityRego"
+                                ValidationExpression="^[a-zA-zZ]"
+                                ErrorMessage="Please enter city"   
+                                ForeColor="Red"></asp:RequiredFieldValidator>
+                            <br>
                             <!-- Country Label -->
-                            <label>Country</label>
+
+                            <label>Country</label> 
                             <br />
                             <asp:TextBox ID="countryRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ControlToValidate="countryRego" ForeColor="Red" ErrorMessage="Enter country." />
+                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="countryRego"
+                                ValidationExpression="^[a-zA-zZ]"
+                                ErrorMessage="Please enter your country"   
+                                ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
                             <!-- Profile URL? -->
-                            <label>Profile URL</label>
+                            
+                            <label>Profile URL</label> 
                             <br />
                             <asp:TextBox ID="urlRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
-                                ControlToValidate="urlRego" ForeColor="Red" ErrorMessage="Invalid URL." />          
-                            <br />
+                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="urlRego"
+                                ValidationExpression="^[a-zA-zZ]"
+                                ErrorMessage="Please enter your URL"   
+                                ForeColor="Red"></asp:RequiredFieldValidator>
                             <!-- Confirm Button -->
-                            <asp:Button ID="Button1" runat="server" Text="Register" class="btn btn-primary"></asp:Button>                   
+                            <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"></asp:Button>                   
                         </div>
                     </div>
                 </form>

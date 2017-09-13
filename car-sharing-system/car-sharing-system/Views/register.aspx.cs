@@ -30,6 +30,9 @@ namespace car_sharing_system.Admin_Theme.pages
 
             dr.Registeration(newUser);
 
+
+            
+
         }
     }
 }
