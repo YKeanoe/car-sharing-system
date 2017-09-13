@@ -117,8 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\adminbooking.aspx" />
+    <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
+    <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\detail.aspx" />
@@ -245,8 +246,10 @@
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
     <Content Include="Views\admin.aspx" />
+    <Content Include="Views\admincarview.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
+    <Content Include="Views\adminissueview.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
@@ -255,12 +258,12 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Views\adminbooking.aspx.cs">
-      <DependentUpon>adminbooking.aspx</DependentUpon>
+    <Compile Include="Views\admincar.aspx.cs">
+      <DependentUpon>admincar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\adminbooking.aspx.designer.cs">
-      <DependentUpon>adminbooking.aspx</DependentUpon>
+    <Compile Include="Views\admincar.aspx.designer.cs">
+      <DependentUpon>admincar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\adminissue.aspx.cs">
       <DependentUpon>adminissue.aspx</DependentUpon>
@@ -268,6 +271,13 @@
     </Compile>
     <Compile Include="Views\adminissue.aspx.designer.cs">
       <DependentUpon>adminissue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminusersview.aspx.cs">
+      <DependentUpon>adminusersview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminusersview.aspx.designer.cs">
+      <DependentUpon>adminusersview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\booking.aspx.cs">
       <DependentUpon>booking.aspx</DependentUpon>
@@ -385,6 +395,20 @@
     </Compile>
     <Compile Include="Views\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminissueview.aspx.cs">
+      <DependentUpon>adminissueview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminissueview.aspx.designer.cs">
+      <DependentUpon>adminissueview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admincarview.aspx.cs">
+      <DependentUpon>admincarview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admincarview.aspx.designer.cs">
+      <DependentUpon>admincarview.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

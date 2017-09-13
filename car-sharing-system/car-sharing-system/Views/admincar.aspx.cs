@@ -8,7 +8,7 @@ using car_sharing_system.Models;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
-    public partial class adminbooking : System.Web.UI.Page
+    public partial class admincar : System.Web.UI.Page
     {
         protected String fn;
         protected String ln;

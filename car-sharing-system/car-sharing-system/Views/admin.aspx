@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <a href="adminbooking.aspx  ">
+            <a href="admincar.aspx  ">
                 <div class="panel-footer">
                     <span class="pull-left">View cars</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

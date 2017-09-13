@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="adminissue.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.adminissue" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
 
  <!-- /.row -->
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="adminbooking.aspx">
+                        <a href="admincar.aspx">
                             <div class="panel-footer">
                                 <span class="pull-left">View cars</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -78,7 +78,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> My Account Information
+                            <i class="fa fa-user fa-fw"></i> Issue ID:
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -101,22 +101,22 @@
                             <div class="table">
                                             <div class="row">
                                                 <div class="cell onecol">
-                                                    <span>Issue ID</span>
+                                                    <span>Issue ID:  </span>
                                                 </div>
                                                 <div class="cell twocol">
-                                                     <span>Account ID</span>
+                                                     <span>Account ID: </span>
                                                 </div>
                                                 <div class="cell threecol">
-                                                     <span>Submission Date</span>
+                                                     <span>Submission Date: </span>
                                                 </div>
 
                                                 <div class="cell fourcol">
-                                                     <span>Subject</span>
+                                                     <span>Subject: </span>
                                                 </div>
 
 
                                                 </div>
-                            
+                                                <input type="submit" value="View Issue"  class="btn btn-info">
                         </div>
 
 
