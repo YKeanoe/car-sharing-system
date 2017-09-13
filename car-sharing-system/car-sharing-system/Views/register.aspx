@@ -170,6 +170,7 @@
                                 ErrorMessage="Please enter your URL"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <!-- Confirm Button -->
+                            <br>
                             <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"></asp:Button>                   
                         </div>
                     </div>

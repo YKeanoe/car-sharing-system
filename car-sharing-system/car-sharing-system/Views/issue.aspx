@@ -117,14 +117,16 @@
                           
                            
                            
-                            <<label>Subject</label> 
+                            <label>Subject</label> 
                             <br>
                             <asp:TextBox ID="subjectIssue" runat="server" placeholder="Title"></asp:TextBox> 
-                           
+                           <br>
                             <br>
                             <asp:TextBox ID="description" runat="server" placeholder="Enter description"
-                                 rows="4" cols="74"></asp:TextBox> 
-                            <br />
+                                TextMode="Multiline" rows="4" columns="50"></asp:TextBox> 
+                            <br>
+                            <br>
+
                             <button class="btn btn-primary">Submit</button>
 
                         </div>
