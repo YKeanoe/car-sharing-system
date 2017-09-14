@@ -123,6 +123,11 @@ $('#sortby-filter-dropdown li a  ').click(function () {
   $('#sortby-filter').html($(this).html() + " <span class=\"caret\"></span>");
 })
 
+$('#car-page li a').click(function () {
+	$('#car-page .active').removeClass("active");
+	$(this).parent('li').addClass("active");
+})
+
 $('#list-collapse-btn').click(function () {
   var promise = sendFilterRequest();
   promise.then(setMap).done(function () {
@@ -160,7 +165,6 @@ function sendFilterRequest() {
   $('#list-collapse').collapse('toggle');
   $('#list-collapse').on('hidden.bs.collapse', function () {
     dfd.resolve('done');
-
   })
 
   console.log("sendfilter done");
@@ -172,7 +176,7 @@ function sendFilterRequest() {
 $(window).on('load', function () {
   setMap();
 
-  /*
+	/*
   setInterval(function () {
     setMap();
   }, 5000);
@@ -184,16 +188,16 @@ $(window).on('load', function () {
 
 function refreshList(data) {
   console.log("refreshing list");
-  $("#carlist").empty();
+  $("#carlist-accordion").empty();
 
   for (var i = 0; i < data.length; i++) {
     var carName = data[i].carName;
     var range = data[i].dist;
     re = /\((.*)\)/i;
     var carId = data[i].carName.match(re)[1];
-    var html = '<div class="panel-default car-panel">\
+    var html = '<div class="panel panel-default car-panel">\
                   <div class="panel-heading">\
-                    <a data-toggle="collapse" href="#{0}" class="car-panel-title">\
+                    <a data-toggle="collapse" href="#{0}" data-parent="#carlist-accordion" class="car-panel-title">\
                       {1}\
                       <span style="float:right;">{2}m away</span>\
                     </a>\
@@ -210,7 +214,7 @@ function refreshList(data) {
     html = html.replace(/\{2\}/g, range);
     html = html.replace(/\{3\}/g, carId);
 
-    $("#carlist").append(html);
+    $("#carlist-accordion").append(html);
   }
   console.log("list refreshed");
 }

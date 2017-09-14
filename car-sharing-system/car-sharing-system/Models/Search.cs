@@ -40,7 +40,7 @@ namespace car_sharing_system.Models
 
         public List<Car> find(double lng, double lat) {
             Setup();
-            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lng, lat }, 100);
+            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lng, lat }, 10);
             foreach (KdTreeNode<double, string> noplate in finalNodes) 
                 foreach (Car car in cars)
                     if (car.numberPlate.Equals(noplate.Value)) 

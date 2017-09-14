@@ -167,6 +167,7 @@ namespace car_sharing_system.Models
 							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/);
 						cars.Add(newCar);
 						//newCar.debug();
+						Debug.WriteLine(dbread[4].ToString());
 					}
 				}
 			}
