@@ -133,17 +133,6 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
-        public void registrationTest() // Test the registration function to see if it adds user to database with valid infomration
-        {
-            // Enter test code here (Placeholder)
-            // newUser = DatabaseReader.userQueryInsert("accountID = '" + +"';");
-            // Registration fields to be filled out are the following:
-            // Username, Email, Password, License Number, First Name, Last Name, Gender
-            // Date of Birth, Phone Number, Street Address, Suburb, Postcode, Territory
-            // City, Country 
-            // Assert.Fail("Test not completed yet");
-        }
-
         [Test()]
         public void HashFunctionTest() // 
         {
@@ -187,15 +176,15 @@ namespace car_sharing_system.Models.Tests
                 Assert.Pass("Password mismatch, hashed value: " + password);
             }
         }
-        // This test is not implemented yet
-        //[Test()]
-        public void registerUserTest() // To register an user and add to database
+
+        [Test()]
+        public void registerUserTestValidDetails() // To register an user and add to database with valid details
         {
             DatabaseReader dr = new DatabaseReader();
-            String beforeHash = "PasswordTest1"; // Plaintext Password
-            String email = "example@email.com"; // Valid email 
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-            String licenseNo = "123456789"; // 9 digit license number
+            String password = "Testing1" ; // Plaintext Password
+            String email = "example3@email.com"; // Valid email 
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456723"; // 9 digit license number
             String fname = "John"; // First Name
             String lname = "Smith"; // Last Name
             String gender = "Male"; // Gender (Male / Female)
@@ -211,15 +200,14 @@ namespace car_sharing_system.Models.Tests
             newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
-
-            dr.Registeration(newUser);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
 
             UserModel data = new UserModel();
-            User myData = data.loginAttempt(email, password);
+            User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database");    
-                System.Diagnostics.Debug.WriteLine("user info: \n"
+                Assert.Pass("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -242,7 +230,833 @@ namespace car_sharing_system.Models.Tests
             {
                 Assert.Fail("Email and/or Password does not match in database.");
             }
+        }
+
+        //[Test()]
+        public void registerUserTestNopassword() // To attempt to register a user with no password
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = ""; // No password
+            String email = "example3@email.com"; // Valid email 
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456723"; // 9 digit license number
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
             }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoEmail() // To register an user and add to database with no email
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456723"; // 9 digit license number
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNolicenseNo() // To register an user and add to database with no license number entered
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = ""; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoFirstName() // To register an user and add to database with no first name
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = ""; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoLastName() // To register an user and add to database with no last name
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = ""; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoGender() // To register an user and add to database with no gender
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = ""; // Gender (Male / Female)
+            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoDateOfBirth() // To register an user and add to database with no date of birth
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = ""; // Date of birth 'dd/mm/yyyy'
+            String phone = "9300 1212"; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoPhoneNumber() // To register an user and add to database with no phone number
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = ""; // Phone number
+            String street = "1 Example Street"; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoStreetAddress() // To register an user and add to database with no street address
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = ""; // Street Address
+            String suburb = "Docklands"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoSuburb() // To register an user and add to database with no suburb
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = "1 example street"; // Street Address
+            String suburb = ""; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoPostcode() // To register an user and add to database with no postcode
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = "1 example street"; // Street Address
+            String suburb = "Essendon"; // Suburb
+            String postcode = ""; // Postcode
+            String territory = "Territory"; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoTerritory() // To register an user and add to database with no territory
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = "1 example street"; // Street Address
+            String suburb = "Essendon"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = ""; // Territory
+            String city = "Melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoCity() // To register an user and add to database with no city
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = "1 example street"; // Street Address
+            String suburb = "Essendon"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "territory1"; // Territory
+            String city = ""; // City
+            String country = "Australia"; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoCountry() // To register an user and add to database with no country
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = "1 example street"; // Street Address
+            String suburb = "Essendon"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "territory1"; // Territory
+            String city = "melbourne"; // City
+            String country = ""; // Country
+            String profileURL = "null"; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
+        //[Test()]
+        public void registerUserTestNoProfileURL() // To register an user and add to database with no profile url
+        {
+            DatabaseReader dr = new DatabaseReader();
+            String password = "Testing1"; // Plaintext Password
+            String email = ""; // No email entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = "123456789"; // 9 digit license number, nothing entered
+            String fname = "John"; // First Name
+            String lname = "Smith"; // Last Name
+            String gender = "Male"; // Gender (Male / Female)
+            String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+            String phone = "0482999231"; // Phone number
+            String street = "1 example street"; // Street Address
+            String suburb = "Essendon"; // Suburb
+            String postcode = "1234"; // Postcode
+            String territory = "territory1"; // Territory
+            String city = "melbourne"; // City
+            String country = "Australia"; // Country
+            String profileURL = ""; // Avatar image url?
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Pass("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Fail("Email and/or Password does not match in database.");
+            }
+        }
+
         //[Test()]
         public void issuesTest() // Test issue submission
         {
@@ -252,7 +1066,7 @@ namespace car_sharing_system.Models.Tests
             DatabaseReader dr = new DatabaseReader();
             newIssue = new Issues(-1, -1, -1, -1, -1, subjectIssueText, descriptionText);
 
-            dr.Issue(newIssue);
+            //dr.Issue(newIssue);
             // Expected Hash Result
             if (newIssue.description == "Test")      
             {
