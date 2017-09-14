@@ -265,5 +265,11 @@ namespace car_sharing_system.Models
 				}
 			}
 		}
+
+		public int disableCarForBooking(String id) {
+
+			String query = "UPDATE Car SET status = FALSE numberPlate = '" + id + "'";
+			return 0;
+		}
 	}
 }

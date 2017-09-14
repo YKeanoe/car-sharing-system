@@ -23,7 +23,10 @@ namespace car_sharing_system.Views.Admin_Theme.pages
 			String query = "numberPlate = '" + id + "'";
 			Debug.WriteLine(query);
 
+
+
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
+
 			carLocation = currentCar.latlong;
 			carBrandLabel.Text = currentCar.brand;
 			carModelLabel.Text = currentCar.model;
@@ -37,7 +40,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages
 			carSeatsLabel.Text = seats + " Seats";
 			carTypeLabel.Text = currentCar.vehicleType;
 			Double rate = currentCar.rate;
-			carRateLabel.Text = "$" + rate + " per Hour";
+			carRateLabel.Text = "$" + rate.ToString("00.00") + " per Hour";
 
 
 			HtmlGenericControl div1 = new HtmlGenericControl("div");

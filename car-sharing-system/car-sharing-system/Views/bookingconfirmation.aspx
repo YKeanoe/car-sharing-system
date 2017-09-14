@@ -31,7 +31,7 @@
 							<i class="fa fa-check fa-fw" ></i> Bluetooth
 							<br />
 						</div>
-						<div>
+						<div class="panel-half">
 							<i class="fa fa-times fa-fw" ></i> Cruise Control
 							<br />
 							<i class="fa fa-times fa-fw" ></i> Reverse Camera

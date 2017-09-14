@@ -16,7 +16,10 @@ namespace car_sharing_system.Models {
 
 		// Constructor
 		private CarModel() {
-			
+			cars = DatabaseReader.carQuery(null);
+			if (cars == null) {
+				generateDummy(cars);
+			}
 		}
 
 		public void refreshCars() {
