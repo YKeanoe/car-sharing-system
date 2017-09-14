@@ -8,32 +8,19 @@ using car_sharing_system.Models;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
-    public partial class profile : System.Web.UI.Page
+    public partial class adminusersview : System.Web.UI.Page
     {
         protected User newUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
-
+            newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
             if (!Request.IsAuthenticated)
             {
                 Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
             }
-
-            if (IsPostBack)
-            {
-                updateform.Visible = false;
-                Label1.Text = firstname.Text;
-                Label1.Style.Add("font-weight", "bold");
-
-
-            }
-            TimeLabel.Text = DateTime.Now.ToString();
-
-
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="adminissueview.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.adminissueview" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
 
  <!-- /.row -->
@@ -126,56 +126,23 @@
                             <form id="updateform" runat="server">
                                                
                                   <div class="field1">
-                                    <label id="labelBox">First Name: </label><input type="text" id="firstname" name="firstname" value="<%=newUser.fname%>">
+                                    <label id="labelBox">First Name: </label><input type="text" id="firstname" name="firstname" />
                                 </div>
                                  
                                 <div class="field2">
-                                    <label id="labelBox">Last Name: </label><input type="text" id="lastname" name="lastname" value="<%=newUser.lname %>">
+                                    <label id="labelBox">Last Name: </label><input type="text" id="lastname" name="lastname"/>
                                 </div>
 
                                 <div class="field3">
-                                    <label id="labelBox">Licence Number: </label><input type="text" id="licenceNo" name="licenceNo" value="<%=newUser.licenceNo %>">
+                                    <label id="labelBox">Licence Number: </label><input type="text" id="licenceNo" name="licenceNo"/>
                                 </div>
 
                                 <div class="field4">
-                                    <label id="labelBox">Date of Birth: </label><input type="text" id="birth" name="birth" value="<%=newUser.birth %>">
+                                    <label id="labelBox">Date of Birth: </label><input type="text" id="birth" name="birth" />
                                 </div>
 
-                                <div class="field5">
-                                    <label id="labelBox">Gender: </label><input type="text" id="gender" name="gender" value="<%=newUser.gender %>">
-                                </div>
 
-                                <div class="field6">
-                                    <label id="labelBox">Phone: </label><input type="text" id="phone" name="phone" value="<%=newUser.phone %>">
-                                </div>
 
-                                <div class="field7"> 
-                                    <label id="labelBox">Street: </label><input type="text" id="street" name="street" value="<%=newUser.street %>">
-                                </div>
-
-                                <div class="field8">
-                                    <label id="labelBox">Suburb: </label><input type="text" id="suburb" name="suburb" value="<%=newUser.suburb %>">
-                                </div>
-
-                                <div class="field9">
-                                     <label id="labelBox">Postcode: </label><input type="text" id="postcode" name="postcode" value="<%=newUser.postcode %>">
-                                </div>
-
-                                <div class="field10">
-                                     <label id="labelBox">Territory: </label><input type="text" id="territory" name="territory" value="<%=newUser.territory %>">
-                                </div>
-
-                                <div class="field11">
-                                     <label id="labelBox">City: </label><input type="text" id="city" name="city" value="<%=newUser.city %>">
-                                </div>
-
-                                <div class="field12">
-                                     <label id="labelBox">Country: </label><input type="text" id="country" name="country" value="<%=newUser.country %>">
-                                </div>
-
-                                <div class="field13">
-                                     <label id="labelBox">ProfileURL: </label><input type="text" id="profileURL" name="profileURL" value="<%=newUser.profileURL %>">
-                                </div>
 
                              </form>
 
