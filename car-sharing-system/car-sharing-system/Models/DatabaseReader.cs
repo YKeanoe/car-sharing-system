@@ -85,8 +85,8 @@ namespace car_sharing_system.Models
 					return new User(Int32.Parse(dbread[0].ToString()), //accountID
 									dbread[1].ToString(),  //email
 									dbread[2].ToString(), //password
-									Int32.Parse(dbread[4].ToString()), //permission
-									dbread[3].ToString(), //licenseNo
+									Int32.Parse(dbread[3].ToString()), //permission
+									dbread[4].ToString(), //licenseNo
 									dbread[5].ToString(), //firstName
 									dbread[6].ToString(), //lastName
 									dbread[7].ToString(), //gender
