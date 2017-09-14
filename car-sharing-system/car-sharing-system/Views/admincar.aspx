@@ -169,9 +169,11 @@
                                                 <div class="cell eighteencol">
                                                      <span>Reverse Camera: </span>
                                                 </div>
+                                                <div class="buttons">
                                                 <input type="submit" value="Edit Car Details"  class="btn btn-info">
   
                                                 <input type="submit" value="View Car Booking History"  class="btn btn-info">
+                                                </div>
                                                 </div>
                                                     
 
