@@ -33,12 +33,18 @@ namespace car_sharing_system {
 				if (path.Equals("/dashboard/confirmation")) {
 					String id = Request.QueryString["id"];
 					if (!Request.IsAuthenticated) {
-						Response.Redirect("~/dashboard/login?redirect=" +  path + "&id=" + id);
+						Response.Redirect("~/dashboard/login?redirect=" + path + "&id=" + id);
 					}
+				} else if (path.Equals("/dashboard/register")) {
+					// Do nothing.
 				} else {
 					if (!Request.IsAuthenticated) {
 						Response.Redirect("~/dashboard/login?redirect=" + path);
 					}
+				}
+			} else {
+				if (Request.IsAuthenticated) {
+					Response.Redirect("/dashboard");
 				}
 			}
 		}

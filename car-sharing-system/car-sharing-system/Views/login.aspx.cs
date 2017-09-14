@@ -24,9 +24,13 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Page_Load(object sender, EventArgs e) {
 
 			redirect = Request.QueryString["redirect"];
-			//if (redirect.Equals("/dashboard/confirmation")) {
-			//	carid = Request.QueryString["id"];
-			//}
+			if (redirect != null) {
+				if (redirect.Equals("/dashboard/confirmation")) {
+					carid = Request.QueryString["id"];
+				}
+			}
+
+
 			// I don't think this do anything
 			 Login1.DestinationPageUrl = "/dashboard/profile";
 		}
