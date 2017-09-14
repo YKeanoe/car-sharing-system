@@ -30,16 +30,16 @@ namespace car_sharing_system.Models
         private void AddTestNodes()
         {
             foreach (var node in testNodes)
-                if (!tree.Add(node.Point, node.Value)) { }
-                    //throw new Exception(" adding in data ");
+                if (!tree.Add(node.Point, node.Value)) 
+                    throw new Exception(" adding in data ");
                     
             
         }
 
-        public List<String> find() {
+        public List<String> find(double lng, double lat) {
             noPlates = new List<string>();
             Setup();
-            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { -33.8674869f, 151.2069902f }, 10);
+            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lat, lng }, 10);
             foreach (KdTreeNode<double, string> noplate in finalNodes) {
                 noPlates.Add(noplate.Value);
             }

@@ -12,7 +12,7 @@ namespace car_sharing_system.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<String> print = new Search().find();
+            List<String> print = new Search().find(-33.8674869, 151.2069902);
             foreach (String p in print)
                 test.InnerText += p + " - ";
         }
