@@ -22,40 +22,31 @@
 		            
 					<asp:PlaceHolder ID="featurelist"  runat="server"/>
 
-					<div class="feature-list">
-						<div class="panel-half">
-							<i class="fa fa-check fa-fw" ></i> GPS
-							<br />
-							<i class="fa fa-times fa-fw" ></i> CD Player
-							<br />
-							<i class="fa fa-check fa-fw" ></i> Bluetooth
-							<br />
-						</div>
-						<div class="panel-half">
-							<i class="fa fa-times fa-fw" ></i> Cruise Control
-							<br />
-							<i class="fa fa-times fa-fw" ></i> Reverse Camera
-							<br />
-							<i class="fa fa-check fa-fw" ></i> Radio
-							<br />
-						</div>
-					</div>
+					
 
 		            <button class="btn btn-primary" type="button">Next</button>
 
 
 				</div>
 				<div class="panel-half">
-						<div id="map"><img id="googlemap" border="0" src="#"/></div>
+						<div id="map"><img id="googlemap" border="0" src="javascript:void(0);"/></div>
 
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 <link rel="stylesheet" type="text/css" href="/Theme/css/bookingconfirmation.css" />
+
 <script src="/Theme/js/idle-timer.min.js"></script>
-<script src="/Theme/js/booking-confirmation-map.js"></script>
-<script src="Theme/js/timeout-features.js"></script>
+<script type="text/javascript" src="/Theme/js/booking-confirmation-map.js"></script>
+<script type="text/javascript" src="/Theme/js/timeout-features.js"></script>
+
+<script type="text/javascript">
+	$(window).on('beforeunload', function () {
+		return "You haven't complete the booking.";
+	});
+</script>
 
 </asp:Content>

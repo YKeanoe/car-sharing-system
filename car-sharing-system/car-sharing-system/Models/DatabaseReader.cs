@@ -159,6 +159,7 @@ namespace car_sharing_system.Models
 							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/);
 						cars.Add(newCar);
 						newCar.debug();
+						Debug.WriteLine(dbread[15].ToString());
 					}
 				}
 			}
@@ -266,10 +267,43 @@ namespace car_sharing_system.Models
 			}
 		}
 
-		public int disableCarForBooking(String id) {
+		public static int disableCar(String id) {
+			String query = "UPDATE Car SET status = FALSE WHERE numberPlate = '" + id + "'";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
 
-			String query = "UPDATE Car SET status = FALSE numberPlate = '" + id + "'";
-			return 0;
+		public static int enableCar(String id) {
+			String query = "UPDATE Car SET status = TRUE WHERE numberPlate = '" + id + "'";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
+		public static void checkCarStatus(String id) {
+			String query = "SELECT * FROM Car WHERE numberPlate = '" + id + "'";
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					if (dbread.Read()) {
+						Debug.WriteLine("Car id " + id + " status is " + dbread[15].ToString());
+					} else {
+						Debug.WriteLine("Car id " + id + " isn't found");
+					}
+				}
+			}
 		}
 	}
 }
