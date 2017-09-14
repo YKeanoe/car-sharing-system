@@ -121,6 +121,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Theme\css\bookingconfirmation.css" />
+    <Content Include="Theme\js\booking-confirmation-map.js" />
+    <Content Include="Theme\js\idle-timer.min.js" />
+    <Content Include="Theme\js\timeout-features.js" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\detail.aspx" />
@@ -253,7 +257,8 @@
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\Search.cs" />
+	<Compile Include="Models\CarModel.cs" />
+	<Compile Include="Models\Search.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\DatabaseReader.cs" />
     <Compile Include="Models\Location.cs" />

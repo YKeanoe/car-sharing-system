@@ -1,0 +1,27 @@
+﻿.panel-half {
+	width: 50%;
+	float:left;
+}
+
+.panel-half label {
+	width:100%;
+}
+
+.panel-half span {
+	width:100%;
+}
+
+.panel-title {
+	width:100%;
+	font-size:24px;
+}
+
+#map{
+	position:relative;
+	width:100%;
+	overflow:hidden;
+}
+
+#map img {
+	max-width:100%;
+}

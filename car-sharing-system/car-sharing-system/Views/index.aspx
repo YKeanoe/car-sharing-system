@@ -44,7 +44,7 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- Car Section -->
   <section id="cars" class="about-section">
     <div class="container-fluid">
       <div class="panel panel-default">

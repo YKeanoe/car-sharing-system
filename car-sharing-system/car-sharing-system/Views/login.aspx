@@ -17,7 +17,7 @@
                     ID = "Login1" 
                     runat = "server" 
                     OnAuthenticate= "ValidateUser" 
-                    DestinationPageUrl="~/dashboard.aspx">
+                    DestinationPageUrl="/dashboard">
                         <LayoutTemplate>
                             <div class="form-group">
                                 <asp:TextBox class="form-control" placeholder="Email" id="UserName" runat="server"></asp:TextBox>

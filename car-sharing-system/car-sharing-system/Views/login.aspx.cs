@@ -12,15 +12,24 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Security.Cryptography;
 using Rework;
+using System.Diagnostics;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class login : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            Login1.DestinationPageUrl = "~/Views/Admin_Theme/dashboard.aspx";
-        }
+
+		String redirect, carid;
+
+        protected void Page_Load(object sender, EventArgs e) {
+
+			redirect = Request.QueryString["redirect"];
+			if (redirect.Equals("/dashboard/confirmation")) {
+				carid = Request.QueryString["id"];
+			}
+			// I don't think this do anything
+			// Login1.DestinationPageUrl = "/dashboard/profile";
+		}
         protected void ValidateUser(object sender, EventArgs e)
         {
             UserModel data = new UserModel();
@@ -28,8 +37,19 @@ namespace car_sharing_system.Admin_Theme.pages
             User myData = data.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {
-                FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);
-            }
+				//FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);
+
+				FormsAuthentication.SetAuthCookie(myData.id.ToString(), Login1.RememberMeSet);
+				if (redirect != null) {
+					if (carid != null) {
+						Response.Redirect(redirect + "?id=" + carid);
+					} else {
+						Response.Redirect(redirect);
+					}
+				} else {
+					Response.Redirect("/dashboard/");
+				}
+			}
             else
             {
                 Login1.FailureText = password;
