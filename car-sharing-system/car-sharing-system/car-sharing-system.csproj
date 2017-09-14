@@ -130,12 +130,15 @@
 	<None Include=".ebextensions\environmentvariables.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\admincar.aspx" />
+    <Content Include="Views\adminissue.aspx" />
+    <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
-    <Content Include="Views\profileedit.aspx" />
+    <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
@@ -256,8 +259,11 @@
     <Content Include="Theme\js\map-features.js" />
     <Content Include="Views\successIssue.aspx" />
     <Content Include="Views\WebForm2.aspx" />
+    <Content Include="Views\admin.aspx" />
+    <Content Include="Views\admincarview.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
+    <Content Include="Views\adminissueview.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
@@ -269,6 +275,27 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Views\admincar.aspx.cs">
+      <DependentUpon>admincar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admincar.aspx.designer.cs">
+      <DependentUpon>admincar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminissue.aspx.cs">
+      <DependentUpon>adminissue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminissue.aspx.designer.cs">
+      <DependentUpon>adminissue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminusersview.aspx.cs">
+      <DependentUpon>adminusersview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminusersview.aspx.designer.cs">
+      <DependentUpon>adminusersview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\booking.aspx.cs">
       <DependentUpon>booking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,12 +331,12 @@
     <Compile Include="Views\issue.aspx.designer.cs">
       <DependentUpon>issue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\profileedit.aspx.cs">
-      <DependentUpon>profileedit.aspx</DependentUpon>
+    <Compile Include="Views\adminusers.aspx.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\profileedit.aspx.designer.cs">
-      <DependentUpon>profileedit.aspx</DependentUpon>
+    <Compile Include="Views\adminusers.aspx.designer.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -385,6 +412,27 @@
     </Compile>
     <Compile Include="Views\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminissueview.aspx.cs">
+      <DependentUpon>adminissueview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminissueview.aspx.designer.cs">
+      <DependentUpon>adminissueview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\admincarview.aspx.cs">
+      <DependentUpon>admincarview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\admincarview.aspx.designer.cs">
+      <DependentUpon>admincarview.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

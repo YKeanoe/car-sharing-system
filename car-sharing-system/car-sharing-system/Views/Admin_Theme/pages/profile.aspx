@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profileedit.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profileedit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <!-- /.row -->
             <div class="row">
@@ -122,59 +122,58 @@
    
                             
                                         <div class="form-group">
-                             <form id="updateform" runat="server">
+                            <form id="updateform" runat="server">
                                                
                                  <div class="field1">
-                                     
-                                    <span>First Name: <input type="text" name="firstname" value="<%=fn %>"></span ><br />
+                                    <label>First Name: <%=fn%> </label><br />
                                 </div>
 
                                 <div class="field2">
-                                    <span>Last Name: <input type="text" name="lastname" value="<%=ln %>"></span><br />
+                                    <label>Last Name:  <%=ln%></label><br />
                                 </div>
 
                                 <div class="field3">
-                                    <span>Licence Number: <input type="text" name="licenceNo" value="<%=licenceNo %>"> </span> <br />
+                                    <label>Licence Number: <%=licenceNo%> </label> <br />
                                 </div>
 
                                 <div class="field4">
-                                    <span>Date of Birth: <input type="text" name="birth" value="<%=birth %>"> </span> <br />
+                                    <label>Date of Birth: <%=birth%></label> <br />
                                 </div>
 
                                 <div class="field5">
-                                    <span>Gender: <input type="text" name="gender" value="<%=gender %>"></span> <br />
+                                    <label>Gender: <%=gender%></label> <br />
                                 </div>
 
                                 <div class="field6">
-                                    <span>Phone: <input type="text" name="phone" value="<%=phone %>"></span> <br />
+                                    <label>Phone: <%=phone%></label> <br />
                                 </div>
 
                                 <div class="field7"> 
-                                    <span>Street: <input type="text" name="street" value="<%=street %>"></span> <br />
+                                    <label>Street: <%=street%></label> <br />
                                 </div>
 
                                 <div class="field8">
-                                    <span>Suburb: <input type="text" name="suburb" value="<%=suburb %>"></span> <br />
+                                    <label>Suburb: <%=suburb%></label> <br />
                                 </div>
 
                                 <div class="field9">
-                                     <span>Postcode: <input type="text" name="postcode" value="<%=postcode %>"></span> <br />
+                                     <label>Postcode: <%=postcode%></label> <br />
                                 </div>
 
                                 <div class="field10">
-                                     <span>Territory: <input type="text" name="territory" value="<%=territory %>"></span> <br />
+                                     <label>Territory: <%=territory%></label> <br />
                                 </div>
 
                                 <div class="field11">
-                                     <span>City: <input type="text" name="city" value="<%=city %>"></span> <br />
+                                     <label>City: <%=city%></label> <br />
                                 </div>
 
                                 <div class="field12">
-                                     <span>Country: <input type="text" name="country" value="<%=country %>"></span> <br />
+                                     <label>Country: <%=country%></label> <br />
                                 </div>
 
                                 <div class="field13">
-                                     <span>ProfileURL: <input type="text" name="profileURL" value="<%=profileURL %>"></span> <br />
+                                     <label>ProfileURL: <%=profileURL%></label> <br />
                                 </div>
 
                              </form>
@@ -183,7 +182,7 @@
 
 
                                            <a href="/dashboard/update" class="btn btn-info">
-                                                Submit
+                                                Edit
                                             </a>
                                         </div>
                         </div>

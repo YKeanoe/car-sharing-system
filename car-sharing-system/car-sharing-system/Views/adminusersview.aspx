@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="adminusersview.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.adminusersview" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
 
  <!-- /.row -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+
+
+               <div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
                         <div class="panel-heading">
                             <div class="row">
@@ -13,13 +15,13 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"></div>
                                     <br>
-                                    <div>Profile!</div>
+                                    <div>Users!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="profile">
+                        <a href="adminusers.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View users</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -31,18 +33,18 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-car fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"></div>
                                     <br>
-                                    <div>Booking history!</div>
+                                    <div>Car history!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="booking">
+                        <a href="admincar.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View cars</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -58,42 +60,21 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <br>
-                                    <div>View kms!</div>
+                                    <div>View Issues!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="detail">
+                        <a href="adminissue.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View issues</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-envelope-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"></div>
-                                    <br>
-                                    <div>Having issues?</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="issue">
-                            <div class="panel-footer">
-                                <span class="pull-left">Submit concerns</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+
+
             </div>
             <!-- /.row -->
             <div class="row">
@@ -101,7 +82,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> My Account Information 
+                            <i class="fa fa-user fa-fw"></i> Account ID <%=newUser.id%>
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -120,10 +101,11 @@
                       <asp:Label ID="Label1" runat="server" ></asp:Label>
 
                         <div class="panel-body">
-   
-                            
-                                        <div class="form-group">
-                            <form id="updateform" runat="server">
+
+
+                                        <div class="table">
+                                            <div class="row">
+                                <form id="updateform" runat="server">
                                                
                                   <div class="field1">
                                     <label id="labelBox">First Name: </label><input type="text" id="firstname" name="firstname" value="<%=newUser.fname%>">
@@ -178,18 +160,11 @@
                                 </div>
 
                              </form>
-
-                               <p> The time is now: <asp:label runat="server" ID="TimeLabel"/> 
-
-
-                                           <input type="submit" value="Submit"  class="btn btn-info"></p>
-                                                
-
-                                        
-
+                                            <input type="submit" value="Submit"  class="btn btn-info"></p>
+                                        </div>
 
                                         </div>
-                        </div>
+                
 
 
                         <!-- /.panel-body -->
@@ -209,3 +184,4 @@
    
 
 </asp:Content>
+
