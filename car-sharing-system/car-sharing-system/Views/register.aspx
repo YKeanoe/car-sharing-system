@@ -111,13 +111,14 @@
                                 ControlToValidate="streetRego" ForeColor="Red" ErrorMessage="Enter street address." />             
                             <br />
                             <!-- Suburb Label -->
-                            <label>Suburb</label>
+                            <label>Suburb</label> 
                             <br />
                             <asp:TextBox ID="suburbRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic" 
+                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="suburbRego"
                                 ValidationExpression="^[a-zA-zZ]"
-                                ControlToValidate="suburbRego" ForeColor="Red" ErrorMessage="Enter suburb." />      
+                                ErrorMessage="Please enter your suburb"   
+                                ForeColor="Red"></asp:RequiredFieldValidator>     
                             <br />
                             <!-- Postcode Label -->
                             <label>Post code</label>
@@ -171,7 +172,7 @@
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <!-- Confirm Button -->
                             <br>
-                            <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"></asp:Button>                   
+                            <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"  href="/successIssue.aspx"></asp:Button>                   
                         </div>
                     </div>
                 </form>
