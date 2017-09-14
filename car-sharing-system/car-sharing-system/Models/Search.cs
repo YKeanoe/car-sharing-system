@@ -8,22 +8,22 @@ namespace car_sharing_system.Models
 {
     public class Search
     {
-        private KdTree<float, string> tree;
-        private List<KdTreeNode<float, string>> testNodes;
-        private List<KdTreeNode<float, string>> finalNodes;
+        private KdTree<double, string> tree;
+        private List<KdTreeNode<double, string>> testNodes;
+        private List<KdTreeNode<double, string>> finalNodes;
         private List<String> noPlates;
 
         public void Setup()
         {
-            tree = new KdTree<float, string>(2, new FloatMath());
+            tree = new KdTree<double, string>(2, new DoubleMath());
 
-            testNodes = new List<KdTreeNode<float, string>>();
+            testNodes = new List<KdTreeNode<double, string>>();
             List<Car> cars = DatabaseReader.carQuery(null);
 
             foreach (Car car in cars) 
-                testNodes.Add( new KdTreeNode<float, string>(
-                    new float[] { (float)car.latlong.lat,
-                        (float)car.latlong.lng }, car.numberPlate));
+                testNodes.Add( new KdTreeNode<double, string>(
+                    new double[] { (double)car.latlong.lat,
+                        (double)car.latlong.lng }, car.numberPlate));
            
             AddTestNodes();
         }
@@ -32,14 +32,15 @@ namespace car_sharing_system.Models
             foreach (var node in testNodes)
                 if (!tree.Add(node.Point, node.Value)) { }
                     //throw new Exception(" adding in data ");
+                    
             
         }
 
         public List<String> find() {
             noPlates = new List<string>();
             Setup();
-            KdTreeNode<float, string>[] finalNodes = tree.GetNearestNeighbours(new float[] { -33.8674869f, 151.2069902f }, 10);
-            foreach (KdTreeNode<float, string> noplate in finalNodes) {
+            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { -33.8674869f, 151.2069902f }, 10);
+            foreach (KdTreeNode<double, string> noplate in finalNodes) {
                 noPlates.Add(noplate.Value);
             }
             return noPlates;
