@@ -30,8 +30,6 @@ namespace car_sharing_system {
 
 			DatabaseReader.carQuery("status = FALSE");
             getCarsData();
-
-
         }
 
 		[System.Web.Services.WebMethod]

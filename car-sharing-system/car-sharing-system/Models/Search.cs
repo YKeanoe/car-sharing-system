@@ -11,7 +11,7 @@ namespace car_sharing_system.Models
     {
         private KdTree<double, string> tree;
         private List<KdTreeNode<double, string>> testNodes;
-        private List<KdTreeNode<double, string>> finalNodes = new List<KdTreeNode<double, string>>();
+        private List<KdTreeNode<double, string>> finalNodes;
         private List<Car> cars;
         private List<Car> finalCars = new List<Car>();
 
@@ -40,7 +40,7 @@ namespace car_sharing_system.Models
 
         public List<Car> find(double lng, double lat) {
             Setup();
-            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lat, lng }, 10);
+            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lng, lat }, 10);
             foreach (KdTreeNode<double, string> noplate in finalNodes) {
                 foreach (Car car in cars)
                 {
