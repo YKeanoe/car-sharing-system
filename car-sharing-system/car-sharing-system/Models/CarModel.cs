@@ -7,6 +7,7 @@ namespace car_sharing_system.Models {
 	public class CarModel {
 		private static CarModel carModel;
 		public List<Car> cars;
+
 		public static CarModel getInstance() {
 			if (carModel == null) {
 				carModel = new Models.CarModel();
@@ -56,6 +57,11 @@ namespace car_sharing_system.Models {
 			cars.Add(new Car("V123", latlong1, "Mercedes", "C Series", 5.00));
 			cars.Add(new Car("V124", latlong2, "Mercedes", "A Series", 6.00));
 			cars.Add(new Car("V125", latlong3, "Mercedes", "S Series", 6.30));
+		}
+
+		public List<Car> getCloseCar(Double lat, Double lng) {
+			List<Car> closeCars = new Search().find(lat,lng);
+			return closeCars;
 		}
 	}
 }

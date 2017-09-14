@@ -72,7 +72,7 @@ function sendRequestForCars() {
   $.ajax({
     type: "POST",
     url: "/Views/index.aspx/getCarsData",
-    data: "{}",
+    data: JSON.stringify(userPos),
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     success: function (response) {

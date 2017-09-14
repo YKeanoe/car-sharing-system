@@ -28,20 +28,21 @@ namespace car_sharing_system {
 	public partial class FrontPage : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
 
-			DatabaseReader.carQuery("status = FALSE");
-            getCarsData();
+			//DatabaseReader.carQuery("status = FALSE");
+            //getCarsData("jimmy", "jommy");
         }
 
 		[System.Web.Services.WebMethod]
-		public static string getCarsData() {
+		public static string getCarsData(String lat, String lng) {
+			//Debug.WriteLine("text rec = " + lat + ", " + lng);
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
 			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
 
+			Random rand = new Random();
 			CarModel cm = CarModel.getInstance();
 			//List<Car> randCars = cm.getRandomCars();
-            List<Car> closeCars = new Search().find(-37.813628, 144.9651170);
-            Random rand = new Random();
-
+			List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
+				
 			foreach (Car car in closeCars) {
 				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1,50)));
 			}
