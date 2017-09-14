@@ -13,6 +13,7 @@ namespace car_sharing_system.Models.Tests
     [TestFixture()]
     public class UserModelTests
     {
+        protected Issues newIssue;
         protected User newUser;
         [Test()]
         // Attempt login with admin credentials.
@@ -243,19 +244,23 @@ namespace car_sharing_system.Models.Tests
             }
             }
         //[Test()]
-        public void issuesTest() // Placeholder
+        public void issuesTest() // Test issue submission
         {
             // Plaintext password
-            String issueDescription = "Description";
-            String issueSubjectTitle = "Title";
+            String subjectIssueText = "Test";
+            String descriptionText = "The quick brown fox jumps over the fence";
+            DatabaseReader dr = new DatabaseReader();
+            newIssue = new Issues(-1, -1, -1, -1, -1, subjectIssueText, descriptionText);
+
+            dr.Issue(newIssue);
             // Expected Hash Result
-            if (issueDescription == "Placeholder")      
+            if (newIssue.description == "Test")      
             {
-                Assert.Fail("Password match");
+                Assert.Pass("Issue Submitted");
             }
             else
             {
-                Assert.Pass("Placeholder2");
+                Assert.Fail("Issue not submitted");
             }
         }
     }
