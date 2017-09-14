@@ -12,7 +12,9 @@ namespace car_sharing_system.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            test.InnerText = new Search().find();
+            List<String> print = new Search().find();
+            foreach (String p in print)
+                test.InnerText += p + " - ";
         }
     }
 }

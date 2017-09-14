@@ -10,37 +10,39 @@ namespace car_sharing_system.Models
     {
         private KdTree<float, string> tree;
         private List<KdTreeNode<float, string>> testNodes;
+        private List<KdTreeNode<float, string>> finalNodes;
+        private List<String> noPlates;
 
         public void Setup()
         {
             tree = new KdTree<float, string>(2, new FloatMath());
 
             testNodes = new List<KdTreeNode<float, string>>();
-            testNodes.AddRange(new KdTreeNode<float, string>[]
-            {
-                new KdTreeNode<float, string>(new float[] { -27.5829487f, 151.8643252f }, "Root"),
+            List<Car> cars = DatabaseReader.carQuery(null);
 
-                new KdTreeNode<float, string>(new float[] { -27.4710107f, 153.0234489f }, "Root-Left"),
-                new KdTreeNode<float, string>(new float[] { -28.0172605f, 153.4256987f }, "Root-Right"),
-
-                new KdTreeNode<float, string>(new float[] { -27.3748288f, 153.0554193f }, "Root-Left-Left"),
-
-                new KdTreeNode<float, string>(new float[] { -37.814107f, 144.96328f }, "Root-Right-Right")
-            });
+            foreach (Car car in cars) 
+                testNodes.Add( new KdTreeNode<float, string>(
+                    new float[] { (float)car.latlong.lat,
+                        (float)car.latlong.lng }, car.numberPlate));
+           
             AddTestNodes();
         }
         private void AddTestNodes()
         {
             foreach (var node in testNodes)
-                if (!tree.Add(node.Point, node.Value))
-                  throw new Exception("Failed to add node to tree");
+                if (!tree.Add(node.Point, node.Value)) { }
+                    //throw new Exception(" adding in data ");
+            
         }
 
-
-        public String find() {
+        public List<String> find() {
+            noPlates = new List<string>();
             Setup();
-            String test = tree.GetNearestNeighbours(new float[] { -33.8674869f, 151.2069902f }, 2)[1].Value.ToString();
-            return test;
+            KdTreeNode<float, string>[] finalNodes = tree.GetNearestNeighbours(new float[] { -33.8674869f, 151.2069902f }, 10);
+            foreach (KdTreeNode<float, string> noplate in finalNodes) {
+                noPlates.Add(noplate.Value);
+            }
+            return noPlates;
         }
     }
 }
