@@ -26,7 +26,7 @@ namespace car_sharing_system.Admin_Theme.pages
             DatabaseReader dr = new DatabaseReader();
             newIssue = new Issues(-1,-1,-1,-1,-1,subjectIssue.Text, description.Text);
 
-            dr.Issue(newIssue);
+            //dr.Issue(newIssue);
 
             Response.Redirect("successIssue.aspx");
 

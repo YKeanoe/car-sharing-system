@@ -29,8 +29,10 @@ namespace car_sharing_system {
 		protected void Page_Load(object sender, EventArgs e) {
 
 			DatabaseReader.carQuery("status = FALSE");
+            getCarsData();
 
-		}
+
+        }
 
 		[System.Web.Services.WebMethod]
 		public static string getCarsData() {
@@ -38,10 +40,11 @@ namespace car_sharing_system {
 			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
 
 			CarModel cm = CarModel.getInstance();
-			List<Car> randCars = cm.getRandomCars();
+			//List<Car> randCars = cm.getRandomCars();
+            List<Car> closeCars = new Search().find(-37.813628, 144.9651170);
+            Random rand = new Random();
 
-			Random rand = new Random();
-			foreach (Car car in randCars) {
+			foreach (Car car in closeCars) {
 				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1,50)));
 			}
 

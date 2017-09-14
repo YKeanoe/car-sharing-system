@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using KdTree.Math;
 using KdTree;
+using System.Diagnostics;
 
 namespace car_sharing_system.Models
 {
@@ -10,15 +11,16 @@ namespace car_sharing_system.Models
     {
         private KdTree<double, string> tree;
         private List<KdTreeNode<double, string>> testNodes;
-        private List<KdTreeNode<double, string>> finalNodes;
-        private List<String> noPlates;
+        private List<KdTreeNode<double, string>> finalNodes = new List<KdTreeNode<double, string>>();
+        private List<Car> cars;
+        private List<Car> finalCars = new List<Car>();
 
         public void Setup()
         {
             tree = new KdTree<double, string>(2, new DoubleMath());
 
             testNodes = new List<KdTreeNode<double, string>>();
-            List<Car> cars = DatabaseReader.carQuery(null);
+            cars = DatabaseReader.carQuery(null);
 
             foreach (Car car in cars) 
                 testNodes.Add( new KdTreeNode<double, string>(
@@ -30,20 +32,24 @@ namespace car_sharing_system.Models
         private void AddTestNodes()
         {
             foreach (var node in testNodes)
-                if (!tree.Add(node.Point, node.Value)) { }
-                    //throw new Exception(" adding in data ");
+                if (!tree.Add(node.Point, node.Value)) 
+                    throw new Exception(" adding in data ");
                     
             
         }
 
-        public List<String> find() {
-            noPlates = new List<string>();
+        public List<Car> find(double lng, double lat) {
             Setup();
-            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { -33.8674869f, 151.2069902f }, 10);
+            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lat, lng }, 10);
             foreach (KdTreeNode<double, string> noplate in finalNodes) {
-                noPlates.Add(noplate.Value);
+                foreach (Car car in cars)
+                {
+                    Debug.WriteLine(noplate.Value);
+                    if (car.numberPlate.Equals(noplate.Value)) 
+                        finalCars.Add(car);
+                }
             }
-            return noPlates;
+            return finalCars;
         }
     }
 }
