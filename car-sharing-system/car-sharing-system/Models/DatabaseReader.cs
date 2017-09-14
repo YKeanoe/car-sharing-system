@@ -108,12 +108,12 @@ namespace car_sharing_system.Models
 
         public void Registeration(User newUser)
         {
-            String query = "INSERT TO User (email, password, permission, licenseNo, fName, lname, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl)";
-            query += "VALUES (@email, @password, 0, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl)";
+            String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
+            query += " VALUES (@email, @password, 0, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
-
+                Debug.WriteLine(newUser.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
                     mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
@@ -167,7 +167,6 @@ namespace car_sharing_system.Models
 							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/);
 						cars.Add(newCar);
 						newCar.debug();
-						Debug.WriteLine(dbread[15].ToString());
 					}
 				}
 			}
@@ -232,21 +231,12 @@ namespace car_sharing_system.Models
 						}
 
 						Boolean x = (Boolean) dbread[16];
-						Debug.WriteLine("ffffffff");
-						Debug.WriteLine(dbread[11].ToString());
-						Debug.WriteLine(dbread[12].ToString());
-						Debug.WriteLine(dbread[13].ToString());
-						Debug.WriteLine(dbread[14].ToString());
-						Debug.WriteLine(dbread[15].ToString());
-						Debug.WriteLine(dbread[16].ToString());
-						Debug.WriteLine(dbread[17].ToString());
 						// WHYYYYY????? dbread[12].ToString returns x.xL instead of double
 						// Should change dot to comma
 						String fuelcon = dbread[12].ToString();
 						fuelcon = fuelcon.Remove(fuelcon.Length - 1);
 						fuelcon.Replace(',', '.');
 						Double y = Convert.ToDouble(dbread[14].ToString());
-						Debug.WriteLine(fuelcon);
 
 						return new Car(dbread[0].ToString() /*ID / license plate*/,
 							newLocation /* Car Location */,

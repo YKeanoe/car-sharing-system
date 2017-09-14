@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -50,7 +51,7 @@ namespace car_sharing_system.Models
 
             this.id = id;
             this.email = email;
-            this.password = password;
+            hashMe(password);
             this.permission = permission;
             this.licenceNo = licenceNo;
             this.fname = fname;
@@ -70,7 +71,10 @@ namespace car_sharing_system.Models
 
 
         }
-
+        public void hashMe(String password)
+        {
+            this.password = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+        }
         public String toString()
         {
             return "ID: " + id + "<br />" +
@@ -82,14 +86,14 @@ namespace car_sharing_system.Models
                 "Last Name: " + lname + "<br />" +
                 "Gender: " + gender + "<br />" +
                 "Date Of Birth: " + birth + "<br />" +
-                "Phone: " + birth + "<br />" +
-                "Street: " + birth + "<br />" +
-                "Suburb: " + birth + "<br />" +
-                "Postcode: " + birth + "<br />" +
-                "Territory: " + birth + "<br />" +
-                "City: " + birth + "<br />" +
-                "Country: " + birth + "<br />" +
-                "ProfileURL: " + birth + "<br />";
+                "Phone: " + phone + "<br />" +
+                "Street: " + street + "<br />" +
+                "Suburb: " + suburb + "<br />" +
+                "Postcode: " + postcode + "<br />" +
+                "Territory: " + territory + "<br />" +
+                "City: " + city + "<br />" +
+                "Country: " + country + "<br />" +
+                "ProfileURL: " + profileURL + "<br />";
 
 
         }

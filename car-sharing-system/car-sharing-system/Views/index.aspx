@@ -10,8 +10,8 @@
         <img src="/Theme/Images/logo2.png" />
         <h2>Rent a car anywhere at a touch of a button</h2>          
         <p>
-          <a class="btn btn-warning btn-front-page-sign-register" href="dashboard/register" role="button">Register</a>
-          <a class="btn btn-primary btn-front-page-sign-register" href="dashboard/login" role="button">Login</a>
+          <a class="btn btn-warning btn-front-page-sign-register" href="/dashboard/register" role="button">Register</a>
+          <a class="btn btn-primary btn-front-page-sign-register" href="/dashboard/login" role="button">Login</a>
         </p>
       </div>
 
