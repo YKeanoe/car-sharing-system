@@ -33,7 +33,7 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void ValidateUser(object sender, EventArgs e)
         {
             UserModel data = new UserModel();
-            String password = (Login1.Password+"CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = (Login1.Password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             User myData = data.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {
@@ -54,7 +54,7 @@ namespace car_sharing_system.Admin_Theme.pages
             {
                 Login1.FailureText = password;
             }
-        
+
         }
 
     }
