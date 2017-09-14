@@ -132,7 +132,7 @@ namespace car_sharing_system.Models
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
-                
+                mySqlConnection.Open();
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query))
                 {
 
@@ -156,7 +156,7 @@ namespace car_sharing_system.Models
 
 
                     int b = mySqlCommand.ExecuteNonQuery();
-
+                    mySqlConnection.Close();
                     //prompt
                 }
             }
