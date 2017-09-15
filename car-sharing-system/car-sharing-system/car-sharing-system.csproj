@@ -495,7 +495,7 @@
     <Content Include="Admin_Theme\README.md" />
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
-    <Content Include=".ebextensions\test.config" />
+    <Content Include=".ebextensions\http_redirect.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
