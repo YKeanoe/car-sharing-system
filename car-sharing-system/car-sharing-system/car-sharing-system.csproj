@@ -124,6 +124,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include=".ebextensions\SecureConfig.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
