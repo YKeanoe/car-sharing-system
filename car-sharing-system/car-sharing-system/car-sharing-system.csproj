@@ -124,17 +124,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".ebextensions\nginx.conf" />
-    <None Include=".ebextensions\SecureConfig.config">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include=".ebextensions\httpd\conf.d\ssl_rewrite.conf" />
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
     <Content Include="Theme\js\timeout-features.js" />
-    <None Include=".ebextensions\environmentvariables.config">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
     <Content Include="Views\adminusersview.aspx" />
