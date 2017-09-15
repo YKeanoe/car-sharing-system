@@ -496,6 +496,7 @@
     <Content Include="Admin_Theme\README.md" />
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
+    <Content Include=".ebextensions\ssl_rewrite.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
