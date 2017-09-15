@@ -5,7 +5,6 @@ using System.Web;
 
 namespace car_sharing_system.Models
 {
-
     public class Issues
     {
         public int issueID { get; private set; }
@@ -15,9 +14,7 @@ namespace car_sharing_system.Models
         public String subject { get; private set; }
         public String description { get; private set; }
        
-
-
-        public Issues(int id,
+        public Issues(
             int issueID,
             int accountID,
             int bookingID,
@@ -26,20 +23,12 @@ namespace car_sharing_system.Models
             String description
             )
         {
-
-
-
             this.issueID = issueID;
             this.accountID = accountID;
             this.bookingID = bookingID;
             this.submissionDate = submissionDate;
             this.subject = subject;
             this.description = description;
-            
-
-
-
-
         }
 
         public String toString()
@@ -50,11 +39,6 @@ namespace car_sharing_system.Models
                 "submissionDate: " + submissionDate + "<br />" +
                 "subject: " + subject + "<br />" +
                 "description: " + description + "<br />" ;
-
-
-                
-
-
         }
     }
 }

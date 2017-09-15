@@ -106,6 +106,42 @@ namespace car_sharing_system.Models
 			}
         }
 
+        public static Issues issueQuerySingle(String where)
+        {
+            String query;
+            if (!String.IsNullOrEmpty(where))
+            {
+                query = "SELECT * FROM Issues WHERE " + where;
+            }
+            else
+            {
+                query = "SELECT * FROM Issues";
+            }
+
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
+                {
+                    if (dbread.Read())
+                    {
+                        return new Issues(Int32.Parse(dbread[0].ToString()), //issueID
+                                        Int32.Parse(dbread[1].ToString()),  //accountID
+                                       Int32.Parse(dbread[2].ToString()), //bookingID
+                                        Int32.Parse(dbread[3].ToString()), //submissionDate
+                                        dbread[4].ToString(), //subject
+                                        dbread[5].ToString()); //description
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
         public void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
@@ -139,8 +175,28 @@ namespace car_sharing_system.Models
             }
         }
 
+        public void Issue(Issues newIssue)
+        {
+            String query = "INSERT INTO Issues (issueID, accountID, bookingID, submissionDate, subject, description)";
+            query += " VALUES (@issueID, @accountID, -1, @submissionDate, @subject, @description);";
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                Debug.WriteLine(newIssue.toString());
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+                {
+                    mySqlCommand.Parameters.AddWithValue("@issueID", newIssue.issueID);
+                    mySqlCommand.Parameters.AddWithValue("@accountID", newIssue.accountID);
+                    mySqlCommand.Parameters.AddWithValue("@submissionDate", newIssue.submissionDate);
+                    mySqlCommand.Parameters.AddWithValue("@subject", newIssue.subject);
+                    mySqlCommand.Parameters.AddWithValue("@description", newIssue.description);
 
+                    mySqlCommand.ExecuteNonQuery();
 
+                }
+                mySqlConnection.Close();
+            }
+        }
 
         public static List<Car> carQuery(String where) {
 			Debug.WriteLine("car query");

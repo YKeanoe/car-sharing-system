@@ -24,7 +24,7 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Button2_Click(object sender, EventArgs e)
         {
             DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1,-1,-1,-1,-1,subjectIssue.Text, description.Text);
+            newIssue = new Issues(-1,-1,-1,-1,subjectIssue.Text, description.Text);
 
             //dr.Issue(newIssue);
 
