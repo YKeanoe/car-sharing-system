@@ -11,7 +11,7 @@ using Rework;
 namespace car_sharing_system.Models.Tests
 {
     [TestFixture()]
-    public class UserModelTests
+    public class UnitTests
     {
         protected Issues newIssue;
         protected User newUser;
