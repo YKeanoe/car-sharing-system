@@ -124,7 +124,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".ebextensions\httpd\conf.d\ssl_rewrite.conf" />
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
@@ -496,7 +495,7 @@
     <Content Include="Admin_Theme\README.md" />
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
-    <Content Include=".ebextensions\ssl_rewrite.config" />
+    <Content Include=".ebextensions\test.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
