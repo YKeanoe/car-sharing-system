@@ -115,7 +115,8 @@
                     <form id="form2" runat="server"> 
                         <div class="form-group">
                           
-                           
+                            
+                            
                            
                             <label>Subject</label> 
                             <br>
@@ -124,10 +125,14 @@
                             <br>
                             <asp:TextBox ID="description" runat="server" placeholder="Enter description"
                                 TextMode="Multiline" rows="4" columns="50"></asp:TextBox> 
+                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="description"
+                                ValidationExpression="^[a-zA-zZ0-9]"
+                                ErrorMessage="Please issue"   
+                                ForeColor="Red"></asp:RequiredFieldValidator>
                             <br>
                             <br>
 
-                            <button class="btn btn-primary">Submit</button>
+                            <asp:Button Text="Submit" runat="server" class="btn btn-primary" OnClick="Button1_Click" href="/successIssue.aspx" > </asp:Button>
 
                         </div>
                     </form>

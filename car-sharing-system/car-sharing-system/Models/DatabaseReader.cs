@@ -152,6 +152,8 @@ namespace car_sharing_system.Models
                 Debug.WriteLine(newUser.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
+                  
+
                     mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
                     mySqlCommand.Parameters.AddWithValue("@password", newUser.password);
                     mySqlCommand.Parameters.AddWithValue("@license", newUser.licenceNo);
@@ -174,7 +176,38 @@ namespace car_sharing_system.Models
                 mySqlConnection.Close();
             }
         }
+     /*  public void Duplicate(User newUser)
+        {
+            String query = "INSERT COUNT (email) FROM User " + newUser.email;
+            int count = 0;
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
+                    while (dbread.Read())
+                    {
+                        count = Convert.ToInt32(dbread[0].ToString());
+                    
 
+                        if (count > 0)
+                        {
+
+                        }
+                        else
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
+                            mySqlCommand.ExecuteNonQuery();
+                        }
+
+
+                        {
+                            
+                            mySqlConnection.Close();
+                        }
+                    }
+            }
+        } */
         public void clientIssue(Issues newIssue)
         {
             String query = "INSERT INTO Issues (bookingID,submissionDate, subject, description) ";
