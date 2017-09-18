@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +99,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="UrlRewrite, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UrlRewrite.Net.1.2.7\lib\net45\UrlRewrite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -123,13 +128,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-	<Content Include="Theme\css\bookingconfirmation.css" />
+    <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
     <Content Include="Theme\js\timeout-features.js" />
-	<None Include=".ebextensions\environmentvariables.config">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
     <Content Include="Views\adminusersview.aspx" />
@@ -268,8 +270,9 @@
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="Models\Admin.cs" />
-	<Compile Include="Models\CarModel.cs" />
-	<Compile Include="Models\Search.cs" />
+    <Compile Include="Models\CarModel.cs" />
+    <Compile Include="Models\IssueModel.cs" />
+    <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\DatabaseReader.cs" />
     <Compile Include="Models\Location.cs" />
@@ -496,6 +499,7 @@
     <Content Include="Admin_Theme\README.md" />
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
+    <Content Include=".ebextensions\http_rewrite.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

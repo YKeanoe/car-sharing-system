@@ -162,14 +162,15 @@
                             <br />
                             <!-- Profile URL? -->
                             
-                            <label>Profile URL</label> 
+                          <!-- <label>Profile URL</label> 
                             <br />
                             <asp:TextBox ID="urlRego" runat="server"></asp:TextBox> 
                             <br />
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="urlRego"
                                 ValidationExpression="^[a-zA-zZ]"
                                 ErrorMessage="Please enter your URL"   
-                                ForeColor="Red"></asp:RequiredFieldValidator>
+                                ForeColor="Red"></asp:RequiredFieldValidator> -->
+                            
                             <!-- Confirm Button -->
                             <br>
                             <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"  href="/successIssue.aspx"></asp:Button>                   
