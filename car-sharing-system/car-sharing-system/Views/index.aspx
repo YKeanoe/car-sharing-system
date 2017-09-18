@@ -185,10 +185,12 @@
 										<label class="advance-label"><input type="checkbox" value=""> Cruise Control</label>
 											</div>
 											<div class="col-sm-4">
-										<label class="advance-label"><input type="checkbox" value=""> Radio</label>
+												<label class="advance-label"><input type="checkbox" value=""> Radio</label>
 											</div>
 											<div class="col-sm-4">
-										<label class="advance-label"><input type="checkbox" value=""> Reverse Camera</label>
+												<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+												  Single toggle
+												</button>			
 											</div>
 										</div>
 									</div>
