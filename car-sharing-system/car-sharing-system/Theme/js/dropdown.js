@@ -1,22 +1,15 @@
 ﻿function dropdown() {
     var language = document.getElementById("mySelect").value;
 
-    if (language = "English") {
+    if (language == "English") {
         document.getElementById("language").innerHTML = "English";
-    }
-
-    
-    else if (language = "Espanol") {
+    } else if (language == "Espanol") {
         document.getElementById("language").innerHTML = "Espanol";
-    }
-
-    else if (language = "Francais") {
+    }else if (language == "Francais") {
         document.getElementById("language").innerHTML = "Francais";
     }
+}
 
-    $("#mySelect").change function()
-        
-        ){dropdown();}
-
-
-}  
+$("#mySelect").change(function(){
+       dropdown();
+});
