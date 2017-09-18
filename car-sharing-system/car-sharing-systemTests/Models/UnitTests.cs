@@ -134,7 +134,7 @@ namespace car_sharing_system.Models.Tests
         }
 
         [Test()]
-        public void HashFunctionTest() // 
+        public void HashFunctionTest()
         {
             // Plaintext password
             String beforeHash = "ZyiXDnElJ";
@@ -232,12 +232,25 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
-        //[Test()]
+        //Function to get random number
+        private static readonly Random getrandom = new Random();
+        private static readonly object syncLock = new object();
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            { // synchronize
+                return getrandom.Next(min, max);
+            }
+        }
+        Random rnd = new Random(DateTime.Now.Millisecond);
+
+        [Test()]
         public void registerUserTestNopassword() // To attempt to register a user with no password
         {
+            string randInt = GetRandomNumber(0, 1).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = ""; // No password
-            String email = "example3@email.com"; // Valid email 
+            String email = "example3@email.com" + randInt; // Valid email 
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456723"; // 9 digit license number
             String fname = "John"; // First Name
@@ -262,7 +275,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -283,13 +296,14 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoEmail() // To register an user and add to database with no email
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
             String email = ""; // No email entered
@@ -317,7 +331,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -338,16 +352,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNolicenseNo() // To register an user and add to database with no license number entered
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = ""; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -372,7 +387,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -393,16 +408,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoFirstName() // To register an user and add to database with no first name
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = ""; // First Name
@@ -427,7 +443,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -448,16 +464,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoLastName() // To register an user and add to database with no last name
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -482,7 +499,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -503,16 +520,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoGender() // To register an user and add to database with no gender
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -537,7 +555,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -558,16 +576,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoDateOfBirth() // To register an user and add to database with no date of birth
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -592,7 +611,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -613,16 +632,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoPhoneNumber() // To register an user and add to database with no phone number
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -647,7 +667,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -668,16 +688,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoStreetAddress() // To register an user and add to database with no street address
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -702,7 +723,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -723,16 +744,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoSuburb() // To register an user and add to database with no suburb
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -757,7 +779,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -778,16 +800,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoPostcode() // To register an user and add to database with no postcode
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -812,7 +835,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -833,16 +856,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoTerritory() // To register an user and add to database with no territory
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -867,7 +891,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -888,16 +912,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoCity() // To register an user and add to database with no city
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -922,7 +947,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -943,16 +968,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoCountry() // To register an user and add to database with no country
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -977,7 +1003,7 @@ namespace car_sharing_system.Models.Tests
             User myData = data.loginAttempt(email, passwordTest);
             if (myData != null)
             {
-                Assert.Pass("Valid User in database" + "user info: \n"
+                Assert.Fail("Valid User in database" + "user info: \n"
                             + "\nID: " + myData.id
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
@@ -998,16 +1024,17 @@ namespace car_sharing_system.Models.Tests
             }
             else
             {
-                Assert.Fail("Email and/or Password does not match in database.");
+                Assert.Pass("Email and/or Password does not match in database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void registerUserTestNoProfileURL() // To register an user and add to database with no profile url
         {
+            string randInt = GetRandomNumber(0, 1000).ToString();
             DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
-            String email = ""; // No email entered
+            String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = "123456789"; // 9 digit license number, nothing entered
             String fname = "John"; // First Name
@@ -1057,8 +1084,64 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
+        [Test()]
+        public void registerUserTestNoDetails() // To register an user and add to database with no registration info entered
+        {
+            string randInt = GetRandomNumber(0, 1000).ToString();
+            DatabaseReader dr = new DatabaseReader();
+            String password = ""; // Plaintext Password, balnk
+            String email = "" + randInt; // No email address entered
+            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+            String licenseNo = ""; // 9 digit license number, nothing entered
+            String fname = ""; // First Name
+            String lname = ""; // Last Name
+            String gender = ""; // Gender (Male / Female)
+            String birth = ""; // Date of birth 'dd/mm/yyyy'
+            String phone = ""; // Phone number
+            String street = ""; // Street Address
+            String suburb = ""; // Suburb
+            String postcode = ""; // Postcode
+            String territory = ""; // Territory
+            String city = ""; // City
+            String country = ""; // Country
+            String profileURL = ""; // Avatar Image Url
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                gender, birth, phone, street, suburb, postcode, territory,
+                city, country, profileURL);
+            // dr.Registeration(newUser); This line is commented out because test can only be run once to register user as you can't
+            // register the same user two times with the same email or license number.
+
+            UserModel data = new UserModel();
+            User myData = data.loginAttempt(email, passwordTest);
+            if (myData != null)
+            {
+                Assert.Fail("Valid User in database" + "user info: \n"
+                            + "\nID: " + myData.id
+                            + "\nEmail: " + myData.email
+                            + "\nPassword: " + myData.password
+                            + "\nPermission: " + myData.permission
+                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nFirst Name: " + myData.fname
+                            + "\nLast Name: " + myData.lname
+                            + "\nGender: " + myData.gender
+                            + "\nDate of Birth: " + myData.birth
+                            + "\nPhone Number: " + myData.phone
+                            + "\nStreet Address: " + myData.street
+                            + "\nSuburb: " + myData.suburb
+                            + "\nPostcode: " + myData.postcode
+                            + "\nTerritory: " + myData.territory
+                            + "\nCity: " + myData.city
+                            + "\nCountry: " + myData.country
+                            + "\nImage URL: " + myData.profileURL);
+            }
+            else
+            {
+                Assert.Pass("Email and/or Password does not match in database.");
+            }
+        }
+
         //[Test()]
-        public void issuesTest() // Test issue submission, may not be working yet
+        public void issuesTestValidDetails() // Submit issue with valid details
         {
             String subjectIssueText = "Test";
             String descriptionText = "The quick brown fox jumps over the fence";
@@ -1076,6 +1159,72 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Issue not submitted");
+            }
+        }
+
+        //[Test()]
+        public void issuesTestNoSubject() // Submit issue with no subject
+        {
+            String subjectIssueText = "";
+            String descriptionText = "The quick brown fox jumps over the fence";
+            DatabaseReader dr = new DatabaseReader();
+            newIssue = new Issues(-1, -1, -1, -1, subjectIssueText, descriptionText);
+
+            dr.Issue(newIssue); // May not appear to submit the issue yet,
+
+            IssueModel issue = new IssueModel();
+            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
+            if (myIssue != null)
+            {
+                Assert.Fail("Issue Submitted");
+            }
+            else
+            {
+                Assert.Pass("Issue not submitted");
+            }
+        }
+
+        //[Test()]
+        public void issuesTestNoDescription() // Submit issue with no description
+        {
+            String subjectIssueText = "Test";
+            String descriptionText = "";
+            DatabaseReader dr = new DatabaseReader();
+            newIssue = new Issues(-1, -1, -1, -1, subjectIssueText, descriptionText);
+
+            dr.Issue(newIssue); // May not appear to submit the issue yet,
+
+            IssueModel issue = new IssueModel();
+            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
+            if (myIssue != null)
+            {
+                Assert.Fail("Issue Submitted");
+            }
+            else
+            {
+                Assert.Pass("Issue not submitted");
+            }
+        }
+
+        //[Test()]
+        public void issuesTestNoSubjectOrDescription() // Submit issue with no subject or description
+        {
+            String subjectIssueText = "";
+            String descriptionText = "";
+            DatabaseReader dr = new DatabaseReader();
+            newIssue = new Issues(-1, -1, -1, -1, subjectIssueText, descriptionText);
+
+            dr.Issue(newIssue); // May not appear to submit the issue yet,
+
+            IssueModel issue = new IssueModel();
+            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
+            if (myIssue != null)
+            {
+                Assert.Fail("Issue Submitted");
+            }
+            else
+            {
+                Assert.Pass("Issue not submitted");
             }
         }
     }
