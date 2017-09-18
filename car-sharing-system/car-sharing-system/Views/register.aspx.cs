@@ -28,7 +28,7 @@ namespace car_sharing_system.Admin_Theme.pages
 
             newUser = new User(-1 ,emailRego.Text, passwordRego.Text, 0, licenseRego.Text, firstRego.Text, lastNameRego.Text, 
                 RadioButtonList1.Text, birthRego.Text, phoneNoRego.Text, streetRego.Text, suburbRego.Text, postRego.Text, terrRego.Text,
-                cityRego.Text, countryRego.Text, urlRego.Text);
+                cityRego.Text, countryRego.Text, "");
 
             dr.Registeration(newUser);
             

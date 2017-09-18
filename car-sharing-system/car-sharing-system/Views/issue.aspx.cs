@@ -21,12 +21,19 @@ namespace car_sharing_system.Admin_Theme.pages
         {
 
         }
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1,-1,-1,-1,subjectIssue.Text, description.Text);
 
-            //dr.Issue(newIssue);
+        int bookingID = 0;
+        protected void Button2_Click(object sender, EventArgs e)
+
+        {
+            {
+                bookingID ++;
+            }
+        
+            DatabaseReader dr = new DatabaseReader();
+            newIssue = new Issues(-1,-1,bookingID, DateTime.Now, subjectIssue.Text, description.Text);
+
+            dr.clientIssue(newIssue);
 
             Response.Redirect("successIssue.aspx");
 

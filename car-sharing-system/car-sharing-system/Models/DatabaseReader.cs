@@ -130,7 +130,7 @@ namespace car_sharing_system.Models
                         return new Issues(Int32.Parse(dbread[0].ToString()), //issueID
                                         Int32.Parse(dbread[1].ToString()),  //accountID
                                        Int32.Parse(dbread[2].ToString()), //bookingID
-                                        Int32.Parse(dbread[3].ToString()), //submissionDate
+                                        DateTime.Parse(dbread[3].ToString()), //submissionDate
                                         dbread[4].ToString(), //subject
                                         dbread[5].ToString()); //description
                     }
@@ -175,19 +175,18 @@ namespace car_sharing_system.Models
             }
         }
 
-        public void Issue(Issues newIssue)
+        public void clientIssue(Issues newIssue)
         {
-            String query = "INSERT INTO Issues (issueID, accountID, bookingID, submissionDate, subject, description)";
-            query += " VALUES (@issueID, @accountID, -1, @submissionDate, @subject, @description);";
+            String query = "INSERT INTO Issues (bookingID,submissionDate, subject, description) ";
+            query += " VALUES (@bookingID, submissionDate, @subject, @description); ";
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
                 Debug.WriteLine(newIssue.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
-                    mySqlCommand.Parameters.AddWithValue("@issueID", newIssue.issueID);
-                    mySqlCommand.Parameters.AddWithValue("@accountID", newIssue.accountID);
-                    mySqlCommand.Parameters.AddWithValue("@submissionDate", newIssue.submissionDate);
+                    mySqlCommand.Parameters.AddWithValue("@bookingID", newIssue.bookingID);
+                    mySqlCommand.Parameters.AddWithValue("@submissionDate", DateTime.Now);
                     mySqlCommand.Parameters.AddWithValue("@subject", newIssue.subject);
                     mySqlCommand.Parameters.AddWithValue("@description", newIssue.description);
 
