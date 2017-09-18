@@ -82,7 +82,7 @@
                     <div class="panel panel-default">
                         
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Account ID <%=newUser.id%>
+   
                             <div class="pull-right">
                                 
                                 <div class="btn-group">
@@ -98,68 +98,36 @@
 
                         <!-- /.panel-heading -->
                       
-                      <asp:Label ID="Label1" runat="server" ></asp:Label>
 
                         <div class="panel-body">
 
+                        <div  id="pagers" runat="server">
 
-                                        <div class="table">
-                                            <div class="row">
-                                                <div class="cell onecol">
-                                                    <span>First Name: </span> <%=newUser.fname%>
-                                                </div>
-                                                <div class="cell twocol">
-                                                     <span>Last Name: </span> <%=newUser.lname %>
-                                                </div>
-                                                <div class="cell threecol">
-                                                     <span>Licence Number: </span> <%=newUser.licenceNo %>
-                                                </div>
 
-                                                <div class="cell fourcol">
-                                                     <span>Date of Birth: </span> <%=newUser.birth %>
-                                                </div>
+                        </div>
 
-                                                <div class="cell fivecol">
-                                                     <span>Gender: </span> <%=newUser.gender %>
-                                                </div>
-
-                                                <div class="cell sixcol">
-                                                     <span>Phone: </span> <%=newUser.phone %>
-                                                </div>
-
-                                                <div class="cell sevencol">
-                                                     <span>Street: </span> <%=newUser.street %>
-                                                </div>
-
-                                                <div class="cell eightcol">
-                                                     <span>Suburb: </span> <%=newUser.suburb %>
-                                                </div>
-
-                                                 <div class="cell ninecol">
-                                                     <span>Postcode: </span><%=newUser.postcode %>
-                                                </div>
-
-                                                 <div class="cell tencol">
-                                                     <span>Territory: </span><%=newUser.territory %>
-                                                </div>
-
-                                                 <div class="cell elevencol">
-                                                     <span>City: </span> <%=newUser.city %>
-                                                </div>
-
-                                                <div class="cell twelvecol">
-                                                     <span>Country: </span><%=newUser.country %>
-                                                </div>
-
-                                                <input type="submit" value="Edit User Details"  class="btn btn-info">
-  
-                                                <input type="submit" value="View User Booking History"  class="btn btn-info">
-                                                </div>
-                                                    
-                                            
-                                        </div>
-
-                                        </div>
+                        <div class="table" id="Usertable" runat="server">
+                            <div class="userrowHead">
+                                <div class="cellHead firstCol">
+                                    <h4>User's ID</h4>
+                                </div>
+                                <div class="cellHead col">
+                                    <h4>User's Name</h4>
+                                </div>
+                                <div class="cellHead col lic">
+                                    <h4>User's Licence</h4>
+                                </div>
+                                <div class="cellHead col em">
+                                    <h4>User's Email</h4>
+                                </div>
+                                <div class="cellHead col">
+                                    <h4>View User's Profile</h4>
+                                </div>
+                                <div class="cellHead col">
+                                    <h4>View User's Booking History</h4>
+                                </div>
+                            </div>    
+                        </div>
                 
 
 
