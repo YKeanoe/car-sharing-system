@@ -15,15 +15,17 @@
   <link href="/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom CSS -->
   <link href="/Bootstrap/css/scrolling-nav.css" rel="stylesheet" />
+  <link href="/Datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
   <link href="/Theme/css/index.css" rel="stylesheet" />
-    <!-- jQuery -->
+  <!-- jQuery -->
   <script src="/Bootstrap/js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="/Bootstrap/js/bootstrap.min.js"></script>
   <!-- Scrolling Nav JavaScript -->
   <script src="/Bootstrap/js/jquery.easing.min.js"></script>
   <script src="/Bootstrap/js/scrolling-nav.js"></script>
-
+  <!-- Moment Javascript -->
+  <script src="/Bootstrap/js/moment.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

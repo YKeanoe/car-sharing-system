@@ -128,6 +128,27 @@ $('#car-page li a').click(function () {
 	$(this).parent('li').addClass("active");
 })
 
+var now = moment().endOf('hour').add(1, 'seconds').startOf('hour').toDate();
+$('#start-date-picker').datetimepicker({
+	date:now,
+	format: 'DD/MM/YYYY HH:00 a'
+});
+var next = moment().endOf('hour').add(1, 'seconds').startOf('hour').add(1, 'hours').toDate();
+$('#end-date-picker').datetimepicker({
+	date: next,
+	minDate: next,
+	useCurrent: false, //Important! See issue #1075
+	format: 'DD/MM/YYYY HH:00 a'
+});
+$("#start-date-picker").on("dp.change", function (e) {
+	$('#end-date-picker').data("DateTimePicker").minDate(e.date.add(1, 'hours'));
+	var startmoment = $("#start-date-picker").data("DateTimePicker").date();
+	var endmoment = $("#end-date-picker").data("DateTimePicker").date();
+	if (startmoment > endmoment) {
+		$("#end-date-picker").data("DateTimePicker").date(e.date);
+	}
+});
+
 $('#list-collapse-btn').click(function () {
   var promise = sendFilterRequest();
   promise.then(setMap).done(function () {

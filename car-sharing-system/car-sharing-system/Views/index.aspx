@@ -58,6 +58,29 @@
 					<div class="list" >
 						<div class="panel">
 							<label class="result-label">Refine Results</label>
+
+							<div class="filter">
+								<div id="date-group">
+									<div class="col-md-6">
+										<label>Start date</label>
+										<div class='input-group date' id='start-date-picker'>
+											<input type='text' class="form-control" />
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<label>End date</label>
+										<div class='input-group date' id='end-date-picker'>
+											<input type='text' class="form-control" />
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>								
+								</div>
+							</div>
 							<div class="filter">
 								<div class="dropdown filter-dropdown">
 									<button class="btn btn-primary dropdown-toggle btn-filter" id="brand-filter" type="button" data-toggle="dropdown">
@@ -91,22 +114,6 @@
 									</ul>
 								</div>
 								<div class="dropdown filter-dropdown">
-									<button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="sortby-filter" type="button" data-toggle="dropdown">
-										Sort by
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu filter-dropdown-menu-sortby" id="sortby-filter-dropdown">
-										<li><a href:"#">Any</a></li>
-										<li><a href:"#">Distance (Lowest)</a></li>
-										<li><a href:"#">Distance (Highest)</a></li>
-										<li><a href:"#">Rate (Lowest)</a></li>
-										<li><a href:"#">Rate (Highest)</a></li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="filter">
-								<div class="dropdown filter-dropdown">
 									<button class="btn btn-primary dropdown-toggle btn-filter" id="type-filter" type="button" data-toggle="dropdown">
 										Type
 										<span class="caret"></span>
@@ -123,6 +130,22 @@
 										<li><a href:"#">Ute</a></li>
 										<li><a href:"#">Van</a></li>
 										<li><a href:"#">Wagon</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="filter">
+								<div class="dropdown filter-dropdown">
+									<button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="sortby-filter" type="button" data-toggle="dropdown">
+										Sort by
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu filter-dropdown-menu-sortby" id="sortby-filter-dropdown">
+										<li><a href:"#">Any</a></li>
+										<li><a href:"#">Distance (Lowest)</a></li>
+										<li><a href:"#">Distance (Highest)</a></li>
+										<li><a href:"#">Rate (Lowest)</a></li>
+										<li><a href:"#">Rate (Highest)</a></li>
 									</ul>
 								</div>
 								<div class="dropdown filter-dropdown">
@@ -146,11 +169,28 @@
 							<div class="panel panel-default">
 								<div id="filter-feat" class="panel-collapse collapse">
 									<div class="panel-body">
-										<label><input type="checkbox" value="">CD Player</label>
-										<label><input type="checkbox" value="">GPS</label>
-										<label><input type="checkbox" value="">Bluetooth</label>
-										<label><input type="checkbox" value="">Cruise Control</label>
-										<label><input type="checkbox" value="">Reverse Camera</label>
+										<div class="col-sm-12">
+											<div class="col-sm-4">
+												<label class="advance-label"><input type="checkbox" value=""> CD Player</label>
+											</div>
+											<div class="col-sm-4">
+												<label class="advance-label"><input type="checkbox" value=""> Bluetooth</label>
+											</div>
+											<div class="col-sm-4">
+												<label class="advance-label"><input type="checkbox" value=""> GPS</label>
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="col-sm-4">
+										<label class="advance-label"><input type="checkbox" value=""> Cruise Control</label>
+											</div>
+											<div class="col-sm-4">
+										<label class="advance-label"><input type="checkbox" value=""> Radio</label>
+											</div>
+											<div class="col-sm-4">
+										<label class="advance-label"><input type="checkbox" value=""> Reverse Camera</label>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -203,6 +243,8 @@
 </section>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
+<script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/Theme/js/map-features.js"></script>
+
 
 </asp:Content>

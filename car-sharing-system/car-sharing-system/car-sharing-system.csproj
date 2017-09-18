@@ -128,6 +128,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bootstrap\js\moment.js" />
+    <Content Include="Datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="Datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Datetimepicker\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
@@ -500,6 +506,8 @@
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
     <Content Include=".ebextensions\http_rewrite.config" />
+    <Content Include="Datetimepicker\less\bootstrap-datetimepicker-build.less" />
+    <Content Include="Datetimepicker\less\_bootstrap-datetimepicker.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
