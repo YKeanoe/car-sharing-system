@@ -128,6 +128,11 @@ $('#car-page li a').click(function () {
 	$(this).parent('li').addClass("active");
 })
 
+$(".flat-butt").click(function () {
+	console.log("clickkyyy");
+	$(this).toggleClass('flat-danger-butt flat-primary-butt');
+});
+
 var now = moment().endOf('hour').add(1, 'seconds').startOf('hour').toDate();
 $('#start-date-picker').datetimepicker({
 	date:now,
