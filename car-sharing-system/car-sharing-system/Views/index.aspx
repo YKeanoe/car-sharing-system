@@ -10,8 +10,8 @@
         <img src="/Theme/Images/logo2.png" />
         <h2>Rent a car anywhere at a touch of a button</h2>          
         <p>
-          <a class="btn btn-warning btn-front-page-sign-register" href="dashboard/register" role="button">Register</a>
-          <a class="btn btn-primary btn-front-page-sign-register" href="dashboard/login" role="button">Login</a>
+          <a class="btn btn-warning btn-front-page-sign-register" href="/dashboard/register" role="button">Register</a>
+          <a class="btn btn-primary btn-front-page-sign-register" href="/dashboard/login" role="button">Login</a>
         </p>
       </div>
 
@@ -43,8 +43,8 @@
       </div>
     </div>
   </section>
-
-  <!-- About Section -->
+    Welcome to Ace Car Rentals
+  <!-- Car Section -->
   <section id="cars" class="about-section">
     <div class="container-fluid">
       <div class="panel panel-default">
@@ -140,9 +140,32 @@
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="container">
+
       <div class="row">
+         
         <div class="col-lg-12">
-          <h1>Contact Section</h1>
+          <h1>Contact Us</h1>
+            <h2><p>Need Help? Want to send us feedback?</p></h2>
+                <h2><p>Call us, Email us or submit a support ticket.</p></h2>
+            <div class="dropdown">
+                <select id="mySelect" onchange="dropdown()">
+                    <option value="English">English
+                    <option value="Espanol">Espanol
+                    <option value="Francais">Francais
+                </select>
+
+                <p id="language"></p>
+
+            </div>
+            <h3><p>24 Hour Phone Support: (03) 9560 2122</p></h3>
+            
+
+            <h3><p>Email: support@acecarrentals.com</p></h3>
+            
+            <a href="https://www.w3schools.com"><h3>Submit a support ticket</h3></a>
+
+            
+
         </div>
       </div>
     </div>
@@ -150,5 +173,5 @@
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
     <script src="/Theme/js/map-features.js"></script>
-
+    <script src="/Theme/js/dropdown.js"></script>
 </asp:Content>
