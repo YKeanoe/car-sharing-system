@@ -260,7 +260,6 @@
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
     <Content Include="Views\successIssue.aspx" />
-    <Content Include="Views\WebForm2.aspx" />
     <Content Include="Views\admin.aspx" />
     <Content Include="Views\admincarview.aspx" />
     <Content Include="Web.config" />
@@ -408,13 +407,6 @@
     </Compile>
     <Compile Include="Views\successIssue.aspx.designer.cs">
       <DependentUpon>successIssue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>

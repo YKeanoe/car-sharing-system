@@ -64,7 +64,32 @@ namespace car_sharing_system.Models
                 return users;
             }
         }
+        public static int UserCount(String where)
+        {
+            String query;
+            if (!String.IsNullOrEmpty(where))
+            {
+                query = "SELECT count(*) FROM User WHERE " + where;
+            }
+            else
+            {
+                query = "SELECT count(*) FROM User";
+            }
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
+                {
+                    if (dbread.Read())
+                    {
+                        return Int32.Parse(dbread[0].ToString());
+                    }
+                }
+                return 0;
+            }
+        }
         // userQuerySingle return the first user found as an object.
         // return null if no user is found
         public static User userQuerySingle(String where)
