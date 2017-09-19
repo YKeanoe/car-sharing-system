@@ -33,6 +33,63 @@ namespace car_sharing_system {
         }
 
 		[System.Web.Services.WebMethod]
+		public static string getCarsDataFiltered(String lat, String lng,
+												int sdate, int edate,
+												String brand,
+												String seat,
+												int sortby,
+												String transmission,
+												String type,
+												bool adv, bool cd,
+												bool bt, bool gps, 
+												bool cc, bool rad, 
+												bool revcam ) {
+
+			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
+			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
+
+			Random rand = new Random();
+			CarModel cm = CarModel.getInstance();
+			List<Car> closeCars = cm.getCloseCarFiltered(Double.Parse(lat), Double.Parse(lng),
+														sdate, edate, // Starting and ending date
+														brand,
+														seat,
+														sortby,
+														transmission,
+														type,
+														adv, cd, bt, gps, cc, rad, revcam );
+
+			if (closeCars == null) {
+				return null;
+			}
+
+			foreach (Car car in closeCars) {
+				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1, 50)));
+			}
+
+			return oSerializer.Serialize(carlocs);
+		}
+
+		[System.Web.Services.WebMethod]
+		public static string getCarPage(int page) {
+			Debug.WriteLine("text rec = " + page);
+			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
+			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
+
+			Random rand = new Random();
+			CarModel cm = CarModel.getInstance();
+
+			List<Car> randCars = cm.getRandomCars();
+			//List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
+
+
+			foreach (Car car in randCars) {
+				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1, 50)));
+			}
+
+			return oSerializer.Serialize(carlocs);
+		}
+		[System.Web.Services.WebMethod]
 		public static string getCarsData(String lat, String lng) {
 			//Debug.WriteLine("text rec = " + lat + ", " + lng);
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
@@ -42,7 +99,8 @@ namespace car_sharing_system {
 			CarModel cm = CarModel.getInstance();
 			//List<Car> randCars = cm.getRandomCars();
 			List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
-				
+			
+
 			foreach (Car car in closeCars) {
 				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1,50)));
 			}

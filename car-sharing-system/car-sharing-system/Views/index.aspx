@@ -99,7 +99,7 @@
 									Transmission
 									<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu filter-dropdown-menu" id="transmission-filter-dropdown">
+								<ul class="dropdown-menu dropdown-menu-right filter-dropdown-menu" id="transmission-filter-dropdown">
 									<li><a href:"#">Any</a></li>
 									<li><a href:"#">Automatic</a></li>
 									<li><a href:"#">Manual</a></li>
@@ -144,7 +144,7 @@
 									Type
 									<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu filter-dropdown-menu" id="type-filter-dropdown">
+								<ul class="dropdown-menu dropdown-menu-right filter-dropdown-menu" id="type-filter-dropdown">
 									<li><a href:"#">Any</a></li>
 									<li><a href:"#">Convertible</a></li>
 									<li><a href:"#">Coupe</a></li>

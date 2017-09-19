@@ -198,7 +198,6 @@ namespace car_sharing_system.Models
         }
 
         public static List<Car> carQuery(String where) {
-			Debug.WriteLine("car query");
 			String query;
 			List<Car> cars = new List<Car>();
 			if (!String.IsNullOrEmpty(where)) {
@@ -206,6 +205,8 @@ namespace car_sharing_system.Models
 			} else {
 				query = "SELECT * FROM Car";
 			}
+
+			Debug.WriteLine(query);
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
@@ -226,6 +227,7 @@ namespace car_sharing_system.Models
 				}
 			}
 			if (cars.Count() == 0) {
+				Debug.WriteLine("query returns null");
 				return null;
 			} else {
 				return cars;
