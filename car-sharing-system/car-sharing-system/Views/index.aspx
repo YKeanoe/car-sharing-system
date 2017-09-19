@@ -88,8 +88,7 @@
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu filter-dropdown-menu-sortby" id="sortby-filter-dropdown">
-									<li><a href:"#">Any</a></li>
-									<li><a href:"#">Distance (Lowest)</a></li>
+									<li><a href:"#">Distance (Lowest) (Default)</a></li>
 									<li><a href:"#">Distance (Highest)</a></li>
 									<li><a href:"#">Rate (Lowest)</a></li>
 									<li><a href:"#">Rate (Highest)</a></li>
@@ -101,9 +100,9 @@
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu filter-dropdown-menu" id="transmission-filter-dropdown">
+									<li><a href:"#">Any</a></li>
 									<li><a href:"#">Automatic</a></li>
 									<li><a href:"#">Manual</a></li>
-									<li><a href:"#">Any</a></li>
 								</ul>
 							</div>
 								
@@ -174,17 +173,17 @@
 								<div class="panel-body">
 									<div class="col-sm-12 advance-margin">
 										<div class="col-sm-4">
-											<button type="button" class="flat-butt flat-danger-butt" data-toggle="button" aria-pressed="false" autocomplete="off">
+											<button type="button" id="cd-btn" class="flat-butt flat-danger-butt">
 												CD Player
 											</button>			
 										</div>
 										<div class="col-sm-4">
-											<button type="button" class="flat-butt flat-danger-butt" data-toggle="button" aria-pressed="false" autocomplete="off">
+											<button type="button" id="bt-btn" class="flat-butt flat-danger-butt">
 												Bluetooth
 											</button>			
 										</div>
 										<div class="col-sm-4">
-											<button type="button" class="flat-butt flat-danger-butt" data-toggle="button" aria-pressed="false" autocomplete="off">
+											<button type="button" id="gps-btn" class="flat-butt flat-danger-butt">
 												GPS
 											</button>			
 										</div>
@@ -192,17 +191,17 @@
 									<br />
 									<div class="col-sm-12 advance-margin">
 										<div class="col-sm-4">
-											<button type="button" class="flat-butt flat-danger-butt" data-toggle="button" aria-pressed="false" autocomplete="off">
+											<button type="button" id="cc-btn" class="flat-butt flat-danger-butt">
 												Cruise Control
 											</button>
 										</div>
 										<div class="col-sm-4">
-											<button type="button" class="flat-butt flat-danger-butt" data-toggle="button" aria-pressed="false" autocomplete="off">
+											<button type="button" id="rad-btn" class="flat-butt flat-danger-butt">
 												Radio
 											</button>
 										</div>
 										<div class="col-sm-4"> 
-											<button type="button" class="flat-butt flat-danger-butt" data-toggle="button" aria-pressed="false" autocomplete="off">
+											<button type="button" id="rev-btn" class="flat-butt flat-danger-butt">
 												Reverse Camera
 											</button>			
 										</div>

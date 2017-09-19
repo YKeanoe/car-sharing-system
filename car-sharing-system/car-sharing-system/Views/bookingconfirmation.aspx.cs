@@ -22,7 +22,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			Debug.WriteLine(query);
 
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-
+			//currentCar.fulldebug();
 			// Uncomment to change database
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
 			//DatabaseReader.disableCar(currentCar.numberPlate);

@@ -123,6 +123,14 @@ $('#sortby-filter-dropdown li a  ').click(function () {
   $('#sortby-filter').html($(this).html() + " <span class=\"caret\"></span>");
 })
 
+$('#type-filter-dropdown li a  ').click(function () {
+	$('#type-filter').html($(this).html() + " <span class=\"caret\"></span>");
+})
+
+$('#transmission-filter-dropdown li a  ').click(function () {
+	$('#transmission-filter').html($(this).html() + " <span class=\"caret\"></span>");
+})
+
 $('#car-page li a').click(function () {
 	$('#car-page .active').removeClass("active");
 	$(this).parent('li').addClass("active");
@@ -136,14 +144,14 @@ $(".flat-butt").click(function () {
 var now = moment().endOf('hour').add(1, 'seconds').startOf('hour').toDate();
 $('#start-date-picker').datetimepicker({
 	date:now,
-	format: 'DD/MM/YYYY HH:00 a'
+	format: 'DD/MM/YYYY HH:00'
 });
 var next = moment().endOf('hour').add(1, 'seconds').startOf('hour').add(1, 'hours').toDate();
 $('#end-date-picker').datetimepicker({
 	date: next,
 	minDate: next,
 	useCurrent: false, //Important! See issue #1075
-	format: 'DD/MM/YYYY HH:00 a'
+	format: 'DD/MM/YYYY HH:00'
 });
 $("#start-date-picker").on("dp.change", function (e) {
 	$('#end-date-picker').data("DateTimePicker").minDate(e.date.add(1, 'hours'));
@@ -160,41 +168,111 @@ $('#list-collapse-btn').click(function () {
     console.log("filter done");
     $('#list-collapse').collapse('toggle');
     $('#list-collapse-btn').prop("disabled", false);
-
   })
 })
 
 
 function sendFilterRequest() {
-  var dfd = $.Deferred();
-  var brand = $('#brand-filter').text();
-  var seat = $('#seat-filter').text();
-  var sortby = $('#sortby-filter').text();
-  // Remove all spaces. Careful if the car's brand contain 2 words.
-  brand = brand.replace(/\s+/g, '');
-  // Remove spaces and 'seats'. returns only the number of seats.
-  seat = seat.charAt(0);
-  // Convert sortby options to interger.
-  if (sortby == "Sort by ") {
-    sortby = 0; // 0 represent default or sort by distance
-  } else if (sortby == "Distance (Lowest) ") {
-    sortby = 0;
-  } else if (sortby == "Distance (Highest) ") {
-    sortby = 1; // 1 represent sort by furthest distance
-  } else if (sortby == "Rate (Lowest) ") {
-    sortby = 2; // 2 represent sort by lowest rate
-  } else {
-    sortby = 3; // 3 represent sort by highest rate
-  }
-  console.log(brand + " | " + seat + " | " + sortby);
-  $('#list-collapse-btn').prop("disabled", true);
-  $('#list-collapse').collapse('toggle');
-  $('#list-collapse').on('hidden.bs.collapse', function () {
-    dfd.resolve('done');
-  })
+	var dfd = $.Deferred();
+	var filterObj;
+	var startdate = $("#start-date-picker").data("DateTimePicker").date().format('X');
+	var endate = $("#end-date-picker").data("DateTimePicker").date().format('X');
+	var brand = $('#brand-filter').text();
+	var seat = $('#seat-filter').text();
+	var sortby = $('#sortby-filter').text();
+	var transmission = $('#transmission-filter').text();
+	var type = $('#type-filter').text();
+	var adv = $('#x-filter').attr('aria-expanded');
+	var cd = ($('#cd-btn').hasClass("flat-primary-butt"));
+	var bt = ($('#bt-btn').hasClass("flat-primary-butt"));
+	var gps = ($('#gps-btn').hasClass("flat-primary-butt"));
+	var cc = ($('#cc-btn').hasClass("flat-primary-butt"));
+	var rad = ($('#rad-btn').hasClass("flat-primary-butt"));
+	var revcam = ($('#rev-btn').hasClass("flat-primary-butt"));
 
-  console.log("sendfilter done");
-  return dfd.promise();
+	// Remove all spaces. Careful if the car's brand contain 2 words.
+	// brand = brand.replace(/\s+/g, '');
+	// Remove all spaces at the start or end of the string.
+	// Swap brand to any if no specific brand is filtered.
+	brand = brand.trim();
+	if (brand == "Brand") {
+		brand = "Any";
+	}
+	// Remove spaces and 'seats' and returns only the number of seats if 
+	// it's specified.
+	seat = seat.trim();
+	if (seat == "Any" || seat == "Seats") {
+		seat = "Any"
+	} else {
+		seat = seat.charAt(0);
+	}
+	// Convert sortby options to interger.
+	sortby = sortby.trim();
+	if (sortby == "Sort by") {
+	sortby = 0; // 0 represent default or sort by distance
+	} else if (sortby == "Distance (Lowest) (Default)") {
+	sortby = 0;
+	} else if (sortby == "Distance (Highest) ") {
+	sortby = 1; // 1 represent sort by furthest distance
+	} else if (sortby == "Rate (Lowest) ") {
+	sortby = 2; // 2 represent sort by lowest rate
+	} else {
+	sortby = 3; // 3 represent sort by highest rate
+	}
+	// Convert transmission to char. N to identify none.
+	transmission = transmission.trim();
+	if (transmission == "Automatic") {
+		transmission = 'A';
+	} else if (transmission == "Manual") {
+		transmission = 'M';
+	} else {
+		transmission = 'N';
+	}
+	// Trim type of unneccessary spaces.
+	type = type.trim();
+	if (type == "Type") {
+		type = "Any";
+	}
+	// If advance filter tab is active, include all adv
+	// filters inside object.
+	if (adv) {
+		filterObj = {
+			sdate: startdate, edate: endate,
+			brand: brand,
+			seat: seat,
+			sortby: sortby,
+			transmission: transmission,
+			type: type,
+			adv: adv,
+			cd: cd,
+			bt: bt,
+			gps: gps,
+			cc: cc,
+			rad: rad,
+			revcam: revcam
+		};
+	} else {
+		filterObj = {
+			sdate: startdate, edate: endate,
+			brand: brand,
+			seat: seat,
+			sortby: sortby,
+			transmission: transmission,
+			type: type,
+			adv: false,
+		};
+	}
+
+	$('#list-collapse-btn').prop("disabled", true);
+	$('#list-collapse').collapse('toggle');
+	$('#list-collapse').on('hidden.bs.collapse', function () {
+		dfd.resolve('done');
+	})
+
+	
+	console.log(filterObj);
+	console.log("sendfilter done");
+	return dfd.promise();
 }
 
 // Set windows onload not ready as it need to load
@@ -208,9 +286,6 @@ $(window).on('load', function () {
   }, 5000);
   */
 });
-
-// Get location of user after load is successful
-//window.onload = getLocation
 
 function refreshList(data) {
   console.log("refreshing list");
