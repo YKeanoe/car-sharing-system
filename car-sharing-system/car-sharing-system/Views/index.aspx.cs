@@ -79,16 +79,17 @@ namespace car_sharing_system {
 			Random rand = new Random();
 			CarModel cm = CarModel.getInstance();
 
-			List<Car> randCars = cm.getRandomCars();
+			//List<Car> randCars = cm.getRandomCars();
 			//List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
+			List<Car> closeCars = cm.getPageCar(page);
 
-
-			foreach (Car car in randCars) {
+			foreach (Car car in closeCars) {
 				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1, 50)));
 			}
 
 			return oSerializer.Serialize(carlocs);
 		}
+
 		[System.Web.Services.WebMethod]
 		public static string getCarsData(String lat, String lng) {
 			//Debug.WriteLine("text rec = " + lat + ", " + lng);

@@ -58,9 +58,14 @@ namespace car_sharing_system.Models {
 		}
 
 		public List<Car> getCloseCar(Double lat, Double lng) {
-			List<Car> cars = DatabaseReader.carQuery(null);
-			List<Car> closeCars = new Search(cars).find(lat,lng);
-			return closeCars;
+			List<Car> dbcars = DatabaseReader.carQuery(null);
+			cars = new Search(dbcars).find(lat,lng);
+			return cars.GetRange(0,5);
+		}
+
+		public List<Car> getPageCar(int page) {
+			int fpage = (page * 5) - 5;
+			return cars.GetRange(fpage, 5);
 		}
 
 		public List<Car> getCloseCarFiltered(Double lat, Double lng,
@@ -74,7 +79,6 @@ namespace car_sharing_system.Models {
 											bool bt, bool gps,
 											bool c, bool rad,
 											bool revcam ) {
-			List<Car> cars;
 			StringBuilder query = new StringBuilder();
 			if (!brand.Equals("Any")) {
 				query.AppendFormat("brand = '{0}' " , brand);
@@ -101,10 +105,10 @@ namespace car_sharing_system.Models {
 				query.AppendFormat("transmission = '{0}' ", transmission);
 			}
 
-			cars = DatabaseReader.carQuery(query.ToString());
-			if (cars != null) {
-				List<Car> closeCars = new Search(cars).find(lat, lng);
-				return closeCars;
+			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
+			if (dbcars != null) {
+				cars = new Search(dbcars).find(lat, lng);
+				return cars.GetRange(0,5);
 			} else {
 				return null;
 			}
