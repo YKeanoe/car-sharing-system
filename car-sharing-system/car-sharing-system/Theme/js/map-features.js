@@ -134,6 +134,9 @@ function setMapWithFilters(filter) {
 	var dfd = $.Deferred();
 	var getLocationStatus = getLocation();
 	getLocationStatus.then(sendRequestForCarsWithFilter(filter)).done(function () {
+		// Refresh the pagination page number
+		$('#car-page .active').removeClass("active");
+		$('#car-page li a').filter(function () { return $.text([this]) === '1'; }).parent('li').addClass("active");
 		dfd.resolve();
 	})
 	return dfd.promise();
@@ -342,20 +345,20 @@ function refreshList(data) {
 			var range = data[i].dist;
 			re = /\((.*)\)/i;
 			var carId = data[i].carName.match(re)[1];
-			var html = '<div class="panel panel-default car-panel">\
-							<div class="panel-heading">\
-								<a data-toggle="collapse" href="#{0}" data-parent="#carlist-accordion" class="car-panel-title">\
-									{1}\
-									<span style="float:right;">{2}m away</span>\
-								</a>\
-							</div>\
-							<div id="{0}" class="panel-collapse collapse">\
-								<div class="panel-body">\
-									<a class="btn" href="/dashboard/confirmation?id={3}" role="button">Register</a>\
-									asdasd asdasd\
-								</div>\
-							</div>\
-						</div>';
+			var html = "<div class=\"panel panel-default car-panel\">"
+						+	"<div class=\"panel-heading\">"
+						+		"<a data-toggle=\"collapse\" href=\"#{0}\" data-parent=\"#carlist-accordion\" class=\"car-panel-title\">"
+						+			"{1}"
+						+			"<span style=\"float:right;\">{2}m away</span>"
+						+		"</a>"
+						+	"</div>"
+						+	"<div id=\"{0}\" class=\"panel-collapse collapse\">"
+						+		"<div class=\"panel-body\">"
+						+			"<a class=\"btn\" onclick=\"toBookingPage('{3}')\" role=\"button\">Book</a>"
+						+			"asdasd asdasd"
+						+		"</div>"
+						+	"</div>"
+						+"</div>";
 			html = html.replace(/\{0\}/g, "collapse_" + i);
 			html = html.replace(/\{1\}/g, carName);
 			html = html.replace(/\{2\}/g, range);
@@ -363,6 +366,12 @@ function refreshList(data) {
 			$("#carlist-accordion").append(html);
 		}
 	}
+}
+
+function toBookingPage(id) {
+	var startdate = $("#start-date-picker").data("DateTimePicker").date().format('X');
+	var endate = $("#end-date-picker").data("DateTimePicker").date().format('X');
+	location.href = "/dashboard/confirmation?id=" + id + "&sdate=" + startdate + "&edate=" + endate;
 }
 
 // Set windows onload not ready as it need to load

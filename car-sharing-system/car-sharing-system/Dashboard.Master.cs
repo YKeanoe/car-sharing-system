@@ -10,10 +10,6 @@ namespace car_sharing_system {
     public partial class Dashboard : System.Web.UI.MasterPage {
 
         protected void Page_Load(object sender, EventArgs e) {
-			if (Session["UserId"] != null) {
-				Debug.WriteLine("uid = " + Session["UserId"].ToString());
-			}
-
 			String path = HttpContext.Current.Request.Url.AbsolutePath;
             String pathBefore;
             if (Request.UrlReferrer != null) {
@@ -32,8 +28,11 @@ namespace car_sharing_system {
 				// If the page is booking confirmation page
 				if (path.Equals("/dashboard/confirmation")) {
 					String id = Request.QueryString["id"];
+					int sdate = Int32.Parse(Request.QueryString["sdate"]);
+					int edate = Int32.Parse(Request.QueryString["edate"]);
+
 					if (!Request.IsAuthenticated) {
-						Response.Redirect("~/dashboard/login?redirect=" + path + "&id=" + id);
+						Response.Redirect("~/dashboard/login?redirect=" + path + "&id=" + id + "&sdate=" + sdate + "&edate=" + edate);
 					}
 				} else if (path.Equals("/dashboard/register")) {
 					// Do nothing.
