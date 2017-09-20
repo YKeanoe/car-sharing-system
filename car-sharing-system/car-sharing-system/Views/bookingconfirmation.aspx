@@ -13,6 +13,7 @@
 					<label>Car Information</label>
 				</div>
 				<div class="panel-half">
+					<label><asp:Label runat="server" ID="carNumberPlate">Plate</asp:Label></label>
 					<label><asp:Label runat="server" ID="carBrandLabel">Brand</asp:Label></label>
 					<label><asp:Label runat="server" ID="carModelLabel">Model</asp:Label></label>
 					<label><asp:Label runat="server" ID="carTypeLabel">Type</asp:Label></label>
@@ -24,7 +25,7 @@
 
 					
 
-		            <button class="btn btn-primary" type="button">Next</button>
+		            <button id="confirm-btn" class="btn btn-primary" type="button">Next</button>
 
 
 				</div>
@@ -44,9 +45,43 @@
 <script type="text/javascript" src="/Theme/js/timeout-features.js"></script>
 
 <script type="text/javascript">
-	$(window).on('beforeunload', function () {
-		return "You haven't complete the booking.";
-	});
+	var confirm = false;
+
+	window.onbeforeunload = function () {
+		if (!confirm) {
+			cancel();
+			return "You haven't complete the booking.";
+		}
+	};
+
+
+	$('#confirm-btn').click(function () {
+		confirm = true;
+		location.href = "/dashboard";
+	})
+
+	function cancel() {
+		var carid = $('#carNumberPlate').text;
+		console.log(carid);
+		var request = {}
+		$.ajax({
+			type: "POST",
+			async: false,
+			url: "/Views/bookingconfirmation.aspx/cancelBook",
+			data: JSON.stringify(request),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function () {
+				cancel = true;
+				console.log("Car JSON succ");
+			},
+			failure: function () {
+				console.error("Car JSON error");
+			}
+		});
+	}
+
+
 </script>
 
 </asp:Content>

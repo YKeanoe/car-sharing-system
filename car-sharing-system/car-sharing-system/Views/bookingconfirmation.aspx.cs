@@ -31,9 +31,9 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			//currentCar.fulldebug();
 			// Uncomment to change database
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
-			//DatabaseReader.disableCar(currentCar.numberPlate);
+			DatabaseReader.disableCar(currentCar.numberPlate);
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
-
+			carNumberPlate.Text = id;
 			carLocation = currentCar.latlong;
 			carBrandLabel.Text = currentCar.brand;
 			carModelLabel.Text = currentCar.model;
@@ -87,5 +87,14 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				return null;
 			}
 		}
+
+
+		[System.Web.Services.WebMethod]
+		public static void cancelBooking(String id) {
+			String query = "numberPlate = '" + id + "'";
+			Car currentCar = DatabaseReader.carQuerySingleFull(query);
+			DatabaseReader.enableCar(currentCar.numberPlate);
+		}
+
 	}
 }

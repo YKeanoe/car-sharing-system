@@ -195,8 +195,11 @@ function filterClickfunctions() {
 function setDatetimePickerFunction() {
 	// Set the start and end date datetimepicker
 	var now = moment().endOf('hour').add(1, 'seconds').startOf('hour').toDate();
+	var startMax = moment().endOf('hour').add(1, 'seconds').startOf('hour').add(12, 'hours').toDate();
 	$('#start-date-picker').datetimepicker({
 		date: now,
+		minDate: now,
+		maxDate: startMax,
 		format: 'DD/MM/YYYY HH:00'
 	});
 	var next = moment().endOf('hour').add(1, 'seconds').startOf('hour').add(1, 'hours').toDate();

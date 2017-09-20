@@ -27,9 +27,6 @@ namespace car_sharing_system {
 
 	public partial class FrontPage : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-
-			//DatabaseReader.carQuery("status = FALSE");
-            //getCarsData("jimmy", "jommy");
         }
 
 		[System.Web.Services.WebMethod]
@@ -45,14 +42,15 @@ namespace car_sharing_system {
 												bool cc, bool rad, 
 												bool revcam ) {
 			CarModel cm = CarModel.getInstance();
-			List<Car> closeCars = cm.getCloseCarFiltered(Double.Parse(lat), Double.Parse(lng),
-														sdate, edate, // Starting and ending date
-														brand,
-														seat,
-														sortby,
-														transmission,
-														type,
-														adv, cd, bt, gps, cc, rad, revcam );
+			List<Car> closeCars = cm.getCloseCarFiltered(
+												Double.Parse(lat), Double.Parse(lng),
+												sdate, edate, // Start and end date
+												brand,
+												seat,
+												sortby,
+												transmission,
+												type,
+												adv, cd, bt, gps, cc, rad, revcam );
 			if (closeCars == null) {
 				return null;
 			} else {
@@ -80,8 +78,10 @@ namespace car_sharing_system {
 
 			// TODO Random car's range generator
 			Random rand = new Random();
+
 			foreach (Car car in cars) {
-				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1, 50)));
+				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong,
+												rand.Next(1, 50)));
 			}
 
 			return oSerializer.Serialize(carlocs);
