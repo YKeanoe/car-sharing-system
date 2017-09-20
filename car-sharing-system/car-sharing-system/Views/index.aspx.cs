@@ -33,18 +33,55 @@ namespace car_sharing_system {
         }
 
 		[System.Web.Services.WebMethod]
+		public static string getCarsDataFiltered(String lat, String lng,
+												int sdate, int edate,
+												String brand,
+												String seat,
+												int sortby,
+												String transmission,
+												String type,
+												bool adv, bool cd,
+												bool bt, bool gps, 
+												bool cc, bool rad, 
+												bool revcam ) {
+			CarModel cm = CarModel.getInstance();
+			List<Car> closeCars = cm.getCloseCarFiltered(Double.Parse(lat), Double.Parse(lng),
+														sdate, edate, // Starting and ending date
+														brand,
+														seat,
+														sortby,
+														transmission,
+														type,
+														adv, cd, bt, gps, cc, rad, revcam );
+			if (closeCars == null) {
+				return null;
+			} else {
+				return generateGoogleCarLocation(closeCars);
+			}
+		}
+
+		[System.Web.Services.WebMethod]
+		public static string getCarPage(int page) {
+			CarModel cm = CarModel.getInstance();
+			List<Car> closeCars = cm.getPageCar(page);
+			return generateGoogleCarLocation(closeCars);
+		}
+
+		[System.Web.Services.WebMethod]
 		public static string getCarsData(String lat, String lng) {
-			//Debug.WriteLine("text rec = " + lat + ", " + lng);
+			CarModel cm = CarModel.getInstance();
+			List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
+			return generateGoogleCarLocation(closeCars);
+		}
+
+		private static String generateGoogleCarLocation(List<Car> cars) {
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
 			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
 
+			// TODO Random car's range generator
 			Random rand = new Random();
-			CarModel cm = CarModel.getInstance();
-			//List<Car> randCars = cm.getRandomCars();
-			List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
-				
-			foreach (Car car in closeCars) {
-				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1,50)));
+			foreach (Car car in cars) {
+				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong, rand.Next(1, 50)));
 			}
 
 			return oSerializer.Serialize(carlocs);

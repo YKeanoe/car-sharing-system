@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Text;
 
 namespace car_sharing_system.Models
 {
@@ -87,6 +88,13 @@ namespace car_sharing_system.Models
 
 		public void debug() {
 			System.Diagnostics.Debug.WriteLine(numberPlate + " | " + brand + " | " + model + " | " + latlong.ToString());
+		}
+		public void fulldebug() {
+			StringBuilder sb = new StringBuilder();
+			sb.AppendFormat("{0} | {1} {2} | {3}", numberPlate, brand, model, latlong.ToString());
+			sb.Append(Environment.NewLine);
+			sb.AppendFormat("{0} | {1} Seats | {2} doors | {3}", vehicleType, seats, doors, transmission);
+			System.Diagnostics.Debug.WriteLine(sb);
 		}
 	}
 }

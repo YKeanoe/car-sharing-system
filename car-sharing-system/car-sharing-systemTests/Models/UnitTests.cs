@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using Rework;
 
+
 namespace car_sharing_system.Models.Tests
 {
     [TestFixture()]
@@ -31,7 +32,7 @@ namespace car_sharing_system.Models.Tests
                 return getrandom.Next(min, max);
             }
         }
-        
+
         Random rnd = new Random(DateTime.Now.Millisecond);
 
         [Test()]
@@ -56,17 +57,17 @@ namespace car_sharing_system.Models.Tests
             // If database does not find a matching entry
             else
             {
-                Assert.Fail("Invalid user in database, invalid email: " + myData.email);
+                Assert.Fail("Invalid user in database, invalid email: " + myData.email + password);
             }
         }
 
-        [Test()] 
+        [Test()]
         public void loginAttemptTestWithUser() // Attempt login with user credentials
         {
             UserModel data = new UserModel();
-            String beforeHash = "ZyiXDnElJ";
+            String beforeHash = "soNzIMHTX";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-            String userName = "rhoncus.Nullam@egestasSed.org";
+            String userName = "Nulla@elitpharetra.ca";
             User myData = data.loginAttempt(userName, password);
             if (myData != null)
             {
@@ -84,7 +85,7 @@ namespace car_sharing_system.Models.Tests
             UserModel data = new UserModel();
             String beforeHash = "";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-            String userName = "rhoncus.Nullam@egestasSed.org";
+            String userName = "Nulla@elitpharetra.ca";
             User myData = data.loginAttempt(userName, password);
             if (myData != null)
             {
@@ -100,7 +101,7 @@ namespace car_sharing_system.Models.Tests
         public void loginAttemptNoUserTest() // Attempt login with no username entered
         {
             UserModel data = new UserModel();
-            String beforeHash = "ZyiXDnElJ";
+            String beforeHash = "soNzIMHTX";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "";
             User myData = data.loginAttempt(userName, password);
@@ -200,7 +201,7 @@ namespace car_sharing_system.Models.Tests
             string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
             string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
             DatabaseReader dr = new DatabaseReader();
-            String password = "Testing1" ; // Plaintext Password
+            String password = "Testing1"; // Plaintext Password
             String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = randLicense; // 9 digit license number
@@ -1267,7 +1268,7 @@ namespace car_sharing_system.Models.Tests
 
             IssueModel issue = new IssueModel();
             Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
-            if (myIssue != null)      
+            if (myIssue != null)
             {
                 Assert.Pass("Issue Submitted");
             }

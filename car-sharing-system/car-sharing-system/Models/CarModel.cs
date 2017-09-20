@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Text;
+using System.Diagnostics;
 
 namespace car_sharing_system.Models {
 	public class CarModel {
@@ -17,10 +19,6 @@ namespace car_sharing_system.Models {
 
 		// Constructor
 		private CarModel() {
-			cars = DatabaseReader.carQuery(null);
-			if (cars == null) {
-				generateDummy(cars);
-			}
 		}
 
 		public void refreshCars() {
@@ -60,8 +58,60 @@ namespace car_sharing_system.Models {
 		}
 
 		public List<Car> getCloseCar(Double lat, Double lng) {
-			List<Car> closeCars = new Search().find(lat,lng);
-			return closeCars;
+			List<Car> dbcars = DatabaseReader.carQuery(null);
+			cars = new Search(dbcars).find(lat,lng);
+			return cars.GetRange(0,5);
+		}
+
+		public List<Car> getPageCar(int page) {
+			int fpage = (page * 5) - 5;
+			return cars.GetRange(fpage, 5);
+		}
+
+		public List<Car> getCloseCarFiltered(Double lat, Double lng,
+											int sdate, int edate,
+											String brand,
+											String seat,
+											int sortby,
+											String transmission,
+											String type,
+											bool adv, bool cd,
+											bool bt, bool gps,
+											bool c, bool rad,
+											bool revcam ) {
+			StringBuilder query = new StringBuilder();
+			if (!brand.Equals("Any")) {
+				query.AppendFormat("brand = '{0}' " , brand);
+			}
+
+			if (!seat.Equals("Any")) {
+				if (query.Length > 0) {
+					query.Append("AND ");
+				}
+				query.AppendFormat("seats = {0} ", seat);
+			}
+
+			if (!type.Equals("Any")) {
+				if (query.Length > 0) {
+					query.Append("AND ");
+				}
+				query.AppendFormat("vehicleType = '{0}' ", type);
+			}
+
+			if (!transmission.Equals("Any")) {
+				if (query.Length > 0) {
+					query.Append("AND ");
+				}
+				query.AppendFormat("transmission = '{0}' ", transmission);
+			}
+
+			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
+			if (dbcars != null) {
+				cars = new Search(dbcars).find(lat, lng);
+				return cars.GetRange(0,5);
+			} else {
+				return null;
+			}
 		}
 	}
 }

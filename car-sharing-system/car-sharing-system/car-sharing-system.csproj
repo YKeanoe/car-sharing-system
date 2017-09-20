@@ -37,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,8 +77,12 @@
       <HintPath>..\packages\MySql.Web.6.9.9\lib\net45\MySql.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.engine.api, Version=3.0.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.Engine.Tool.3.6.0\lib\nunit.engine.api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.7.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.7.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rework.1.0.12\lib\net45\Rework.dll</HintPath>
@@ -101,7 +106,6 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="UrlRewrite, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UrlRewrite.Net.1.2.7\lib\net45\UrlRewrite.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +132,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bootstrap\js\moment.js" />
+    <Content Include="Datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="Datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Datetimepicker\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
@@ -492,6 +502,8 @@
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
     <Content Include=".ebextensions\http_rewrite.config" />
+    <Content Include="Datetimepicker\less\bootstrap-datetimepicker-build.less" />
+    <Content Include="Datetimepicker\less\_bootstrap-datetimepicker.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -20,6 +20,7 @@ namespace car_sharing_system.Admin_Theme.pages
     {
 
 		String redirect, carid;
+		int sdate, edate;
 
         protected void Page_Load(object sender, EventArgs e) {
 
@@ -27,6 +28,8 @@ namespace car_sharing_system.Admin_Theme.pages
 			if (redirect != null) {
 				if (redirect.Equals("/dashboard/confirmation")) {
 					carid = Request.QueryString["id"];
+					sdate = Int32.Parse(Request.QueryString["sdate"]);
+					edate = Int32.Parse(Request.QueryString["edate"]);
 				}
 			}
 
@@ -46,7 +49,7 @@ namespace car_sharing_system.Admin_Theme.pages
 				FormsAuthentication.SetAuthCookie(myData.id.ToString(), Login1.RememberMeSet);
 				if (redirect != null) {
 					if (carid != null) {
-						Response.Redirect(redirect + "?id=" + carid);
+						Response.Redirect(redirect + "?id=" + carid + " &sdate=" + sdate + " &edate=" + edate);
 					} else {
 						Response.Redirect(redirect);
 					}
