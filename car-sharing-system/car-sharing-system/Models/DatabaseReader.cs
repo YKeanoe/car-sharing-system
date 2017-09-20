@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Web;
 using MySql.Data.MySqlClient;
 using car_sharing_system.Models;
+using System.Text;
 
 namespace car_sharing_system.Models
 {
@@ -256,17 +257,42 @@ namespace car_sharing_system.Models
         }
 
         public static List<Car> carQuery(String where) {
-			String query;
+			// TO DO 
+			// Change db to datetime first
+			/*
+			// Convert current time to unix timestamp for easier manipulation
+			int currUnixTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+			// Round current time to next hour
+			int roundTime = currUnixTime - (currUnixTime % 3600) + 3600;
+			// Convert time to DateTime
+			DateTime cur = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(roundTime));
+
+			StringBuilder querysb = new StringBuilder();
+			querysb.Append("SELECT * FROM Car ");
+			querysb.Append("LEFT JOIN Booking ");
+			querysb.Append("ON Car.numberPlate = Booking.numberPlate ");
+			querysb.Append("WHERE Car.status = TRUE ");
+			querysb.AppendFormat("AND DATE('{0}') NOT BETWEEN Booking.startDate AND Booking.endDate ", cur.ToString("yyyy-MM-dd HH:mm:ss"));
+			Debug.WriteLine("2");
 			List<Car> cars = new List<Car>();
 			if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE " + where;
+				querysb.Append(where);
+			}
+			Debug.WriteLine("3");
+
+			String query = querysb.ToString();
+			Debug.WriteLine(query);
+			*/
+
+			List<Car> cars = new List<Car>();
+			String query;
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
 			} else {
-				query = "SELECT * FROM Car";
+				query = "SELECT * FROM Car WHERE status = TRUE";
 			}
 
-			Debug.WriteLine(query);
-
-            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 		        using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
@@ -294,13 +320,13 @@ namespace car_sharing_system.Models
 
         public static Car carQuerySingle(String where) {
             String query;
-            if (!String.IsNullOrEmpty(where)) {
-                query = "SELECT * FROM Car WHERE " + where;
-            } else {
-                query = "SELECT * FROM Car";
-            }
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+			} else {
+				query = "SELECT * FROM Car WHERE status = TRUE";
+			}
 
-            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 
@@ -323,10 +349,10 @@ namespace car_sharing_system.Models
 
 		public static Car carQuerySingleFull(String where) {
 			String query;
-			if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE " + where;
+		if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
 			} else {
-				query = "SELECT * FROM Car";
+				query = "SELECT * FROM Car WHERE status = TRUE";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -352,7 +378,7 @@ namespace car_sharing_system.Models
 						fuelcon = fuelcon.Remove(fuelcon.Length - 1);
 						fuelcon.Replace(',', '.');
 						Double y = Convert.ToDouble(dbread[14].ToString());
-
+						
 						return new Car(dbread[0].ToString() /*ID / license plate*/,
 							newLocation /* Car Location */,
 							dbread[3].ToString() /*Country*/,
@@ -396,6 +422,26 @@ namespace car_sharing_system.Models
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
+		public static int addBooking(String carid, int uid, int sdate, int edate, decimal lat, decimal lng) {
+			StringBuilder querysb = new StringBuilder();
+
+			querysb.Append("INSERT INTO Booking(accountID,numberPlate,startDate,endDate,bookinguserlocationLat,bookinguserlocationLong,travelDistance)");
+			querysb.AppendFormat("VALUES ({0},'{1}', DATE('{2}'), DATE('{3}'), {4}, {5}, null)",
+								uid,
+								carid,
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(sdate)).ToString("yyyy-MM-dd HH:mm:ss"),
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(edate)).ToString("yyyy-MM-dd HH:mm:ss"),
+								lat, lng); 
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(querysb.ToString(), mySqlConnection);
 				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
 				Debug.WriteLine("rows affected = " + numRowsUpdated);
 				return numRowsUpdated;

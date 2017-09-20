@@ -13,6 +13,15 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
     public partial class bookingconfirmation {
         
         /// <summary>
+        /// carNumberPlate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label carNumberPlate;
+        
+        /// <summary>
         /// carBrandLabel control.
         /// </summary>
         /// <remarks>
