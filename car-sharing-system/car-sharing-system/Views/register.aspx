@@ -19,15 +19,6 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <!-- Username Label -->
-                            <label>Username</label> 
-                            <br />
-                            <asp:TextBox ID="userRego" runat="server"></asp:TextBox> 
-                            <br />
-                            <asp:RegularExpressionValidator runat="server" Display="Dynamic"
-                                ValidationExpression="^[A-Za-z0-9_.]+$"
-                                ControlToValidate="userRego" ForeColor="Red" ErrorMessage="Please enter username." />
-                            <br />
                             <!-- Email Label -->
                             <label>Email</label>
                             <br />
@@ -43,7 +34,8 @@
                             <asp:TextBox ID="passwordRego" runat="server" Type="password"></asp:TextBox> 
                             <br />
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="passwordRego"
-                                ErrorMessage="Please enter password"   
+                                ValidationExpression="[0-9]{1,}[a-z]{1,}[A-Z]{1,}"
+                                ErrorMessage="Password Requires a capital letter, a lower case letter and a number"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
                             <!-- License Label -->
@@ -70,7 +62,7 @@
                             <br />
                             <asp:TextBox ID="lastNameRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RequiredFieldValidator ID="lastNameValidator" runat="server"   
+                            <asp:RequiredFieldValidator  runat="server"   
                                 ControlToValidate="lastNameRego" ErrorMessage="Please enter your last name"   
                                 ValidationExpression="^[a-zA-zZ]"
                                 ForeColor="Red"></asp:RequiredFieldValidator>
@@ -162,18 +154,14 @@
                             <br />
                             <!-- Profile URL? -->
                             
-                          <!-- <label>Profile URL</label> 
+                            <label>Profile URL</label> 
                             <br />
                             <asp:TextBox ID="urlRego" runat="server"></asp:TextBox> 
                             <br />
-                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="urlRego"
-                                ValidationExpression="^[a-zA-zZ]"
-                                ErrorMessage="Please enter your URL"   
-                                ForeColor="Red"></asp:RequiredFieldValidator> -->
                             
-                            <!-- Confirm Button -->
-                            <br>
+                            <p>Confirm Button</p>
                             <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"  href="/successIssue.aspx"></asp:Button>                   
+                            <span id="regFail" runat="server"></span>
                         </div>
                     </div>
                 </form>

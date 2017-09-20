@@ -14,8 +14,12 @@ namespace car_sharing_system.Admin_Theme.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/dashboard/login");
+            }
 
-             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
+            newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 			
 
             if (IsPostBack)

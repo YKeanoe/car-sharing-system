@@ -31,15 +31,6 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.ScriptManager sm;
         
         /// <summary>
-        /// userRego control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userRego;
-        
-        /// <summary>
         /// emailRego control.
         /// </summary>
         /// <remarks>
@@ -83,15 +74,6 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lastNameRego;
-        
-        /// <summary>
-        /// lastNameValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator lastNameValidator;
         
         /// <summary>
         /// RadioButtonList1 control.
@@ -191,5 +173,14 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// regFail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl regFail;
     }
 }

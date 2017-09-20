@@ -16,7 +16,13 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		static Location carLocation;
 
 		protected void Page_Load(object sender, EventArgs e) {
-			String id = Request.QueryString["id"];
+
+            if (!Request.IsAuthenticated)
+            {
+                Response.Redirect("~/dashboard/login");
+            }
+
+            String id = Request.QueryString["id"];
 
 			String query = "numberPlate = '" + id + "'";
 			Debug.WriteLine(query);
