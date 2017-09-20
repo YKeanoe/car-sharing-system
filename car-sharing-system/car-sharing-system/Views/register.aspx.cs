@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using car_sharing_system.Models;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using System.Web.Security;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
@@ -37,6 +38,7 @@ namespace car_sharing_system.Admin_Theme.pages
             {
                 if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenceNo + "' = licenseNo LIMIT 1") == null) {
                     dr.Registeration(newUser);
+                    FormsAuthentication.SetAuthCookie(newUser.id.ToString(), false);
                     Response.Redirect("~/dashboard/congratz");
                 }else
                 {
