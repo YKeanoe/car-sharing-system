@@ -4,30 +4,38 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-.table {width: 100%; height: 100%;}
-.row {width: 100%; min-height: 1px; height: auto; margin: 0;}
-.cell {float: left; margin: 0; padding: 0;}
-.onecol {width: 25%; border-top-style: groove;
-    border-right-style: groove;
-    border-bottom-style: groove;
-    border-left-style: solid;}
-.twocol {width: 25%; border-style: groove;}
-.threecol {width: 25%; border-style: groove;}
-.fourcol {width: 25%; border-style: groove;}
-.fivecol {width: 25%; border-style: groove;}
-.sixcol {width: 25%; border-style: groove;}
-.sevencol {width: 25%; border-style: groove;}
-.eightcol {width: 25%; border-style: groove;}
-.ninecol {width: 25%; border-style: groove;}
-.tencol {width: 25%; border-style: groove;}
-.elevencol {width: 25%; border-style: groove;}
-.twelvecol {width: 25%; border-style: groove;}
-.thirteencol {width: 25%; border-style: groove;}
-.fourteencol {width: 25%; border-style: groove;}
-.fifthteencol {width: 25%; border-style: groove;}
-.sixthteencol {width: 25%; border-style: groove;}
-.seventeencol {width: 25%; border-style: groove;}
-.eighteencol {width: 25%; border-style: groove;}
+.table {width: 100%;}
+
+#Usertable {
+    min-width:1000px;
+}
+
+.userrow:nth-child(odd) {
+    background-color:#d3d3d3;
+}
+.userrowHead { margin: 0;
+    background-color:white;
+    height:18px;
+}
+.userrow { margin: 0;
+          background-color:white;
+          height:24px;
+}
+.cellHead {float: left; margin: 0; padding: 0;}
+.cell {float: left; margin: 0; padding: 0;height:24px;}
+.firstCol {width: 10%; border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;text-align:center;}
+.col {width: 18%; border-top-style: none;border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none; text-align:center;}
+.lic {
+    width: 12%;
+}
+.em {
+    width: 24%;
+}
 
 #labelBox {
     width: 125px;
