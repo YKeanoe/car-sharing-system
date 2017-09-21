@@ -13,18 +13,12 @@ namespace car_sharing_system.Admin_Theme.pages
     public partial class issue : System.Web.UI.Page
     {
         protected Issues newIssue;
-       
-
-       
-
+        private int bookingID = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-        int bookingID = 0;
         protected void Button2_Click(object sender, EventArgs e)
-
         {
             if (subjectIssue.Text.Equals(null) || description.Text.Equals(null))
             {
