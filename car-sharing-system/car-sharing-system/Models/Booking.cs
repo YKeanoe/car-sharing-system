@@ -10,19 +10,19 @@ namespace car_sharing_system.Models
         public int bookingID { get; }
         public int accountID { get;}
         public String numberPlate { get; }
-        public DateTime startDate { get; set; }
-        public DateTime endDate { get; set; }
+        public int startDate { get; set; }
+        public int endDate { get; set; }
         public Location latlong { get; set; }
         public int travelDistance { get; }
 
-        public Booking(int accountID, String numberPlate, DateTime startDate, DateTime endDate, Location latlong) {
+        public Booking(int accountID, String numberPlate, int startDate, int endDate, Location latlong) {
             this.accountID = accountID;
             this.numberPlate = numberPlate;
             this.startDate = startDate;
             this.endDate = endDate;
             this.latlong = latlong;
         }
-        public Booking(int bookingID, int accountID, String numberPlate, DateTime startDate, DateTime endDate, Location latlong)
+        public Booking(int bookingID, int accountID, String numberPlate, int startDate, int endDate, Location latlong)
         {
             this.bookingID = bookingID;
             this.accountID = accountID;
@@ -31,8 +31,8 @@ namespace car_sharing_system.Models
             this.endDate = endDate;
             this.latlong = latlong;
         }
-        public Booking(int bookingID, int accountID, String numberPlate, DateTime startDate,
-            DateTime endDate, Location latlong, int travelDistance)
+        public Booking(int bookingID, int accountID, String numberPlate, int startDate,
+            int endDate, Location latlong, int travelDistance)
         {
             this.bookingID = bookingID;
             this.accountID = accountID;
