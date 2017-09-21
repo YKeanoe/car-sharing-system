@@ -1,4 +1,5 @@
-﻿
+﻿var uPos = {lat:"", lng:""};
+
 function setMap(data) {
 	var carLocs = JSON.parse(data.d);
 	console.log(carLocs);

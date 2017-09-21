@@ -14,6 +14,16 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 	public partial class bookingconfirmation : System.Web.UI.Page {
 
 		static Location carLocation;
+		static Location userLocation;
+
+		int bookingID { get; }
+		int accountID { get; }
+		String numberPlate { get; }
+		int startDate { get; set; }
+		int endDate { get; set; }
+		Location latlong { get; set; }
+
+
 
 		protected void Page_Load(object sender, EventArgs e) {
 
@@ -78,8 +88,9 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		}
 
 		[System.Web.Services.WebMethod]
-		public static String getCarLocation() {
+		public static String getCarLocation(String lat, String lng) {
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
+			userLocation = new Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
 
 			if (carLocation != null) {
 				return oSerializer.Serialize(carLocation);
@@ -95,6 +106,13 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
 			DatabaseReader.enableCar(currentCar.numberPlate);
 		}
+
+		protected void confirmBook(object sender, EventArgs e) {
+			Booking book = new Booking();
+			DatabaseReader.addBooking();
+
+		}
+
 
 	}
 }

@@ -26,7 +26,7 @@
 					
 
 		            <button id="confirm-btn" class="btn btn-primary" type="button">Next</button>
-
+                    <asp:Button ID="Button1" runat="server" Text="Confirm" OnClick="confirmBook"  href="~/dashboard/"></asp:Button>                   
 
 				</div>
 				<div class="panel-half">
@@ -57,7 +57,8 @@
 
 	$('#confirm-btn').click(function () {
 		confirm = true;
-		location.href = "/dashboard";
+		sendbook();
+		location.href = "/dashboard/paymentconfirm?id=asd";
 	})
 
 	function cancel() {
@@ -81,6 +82,26 @@
 		});
 	}
 
+	function sendbook() {
+		var carid = $('#carNumberPlate').text;
+		console.log(carid);
+		var request = {}
+		$.ajax({
+			type: "POST",
+			async: false,
+			url: "/Views/bookingconfirmation.aspx/confirmbook",
+			data: JSON.stringify(request),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			success: function () {
+				cancel = true;
+				console.log("Car JSON succ");
+			},
+			failure: function () {
+				console.error("Car JSON error");
+			}
+		});
+	}
 
 </script>
 
