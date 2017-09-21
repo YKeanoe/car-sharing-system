@@ -26,9 +26,10 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Button2_Click(object sender, EventArgs e)
 
         {
-            {
-                bookingID ++;
+            if (subjectIssue.Text.Equals(null) || description.Text.Equals(null)) {
+                issueFail.innerText = "Please fill out the whole form.";
             }
+            bookingID ++;
         
             DatabaseReader dr = new DatabaseReader();
             newIssue = new Issues(-1,-1,bookingID, DateTime.Now, subjectIssue.Text, description.Text);

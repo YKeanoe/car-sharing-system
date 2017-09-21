@@ -132,8 +132,8 @@
                             <br>
                             <br>
 
-                            <asp:Button Text="Submit" runat="server" class="btn btn-primary" OnClick="Button1_Click" href="/successIssue.aspx" > </asp:Button>
-
+                            <asp:Button Text="Submit" runat="server" class="btn btn-primary" OnClick="Button2_Click" href="/successIssue.aspx" > </asp:Button>
+                            <span id="issueFail" runat="server"></span>
                         </div>
                     </form>
                     
