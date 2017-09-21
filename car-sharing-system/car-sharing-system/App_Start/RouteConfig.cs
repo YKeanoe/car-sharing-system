@@ -74,11 +74,16 @@ namespace car_sharing_system
                 "dashboard/confirmation",
                 new CustomRouteHandler("~/Views/bookingconfirmation.aspx")
             ));
-            routes.Add("DashboardConfirmUser", new Route
+            routes.Add("issuereported", new Route
             (
-                "dashboard/successregistration",
+                "dashboard/issuereported",
                 new CustomRouteHandler("~/Views/successregister.aspx")
             ));
-    }
+            routes.Add("bookinghistory", new Route
+            (
+                "dashboard/bookinghistory",
+                new CustomRouteHandler("~/Views/bookinghistory.aspx")
+            ));
+        }
     }
 }

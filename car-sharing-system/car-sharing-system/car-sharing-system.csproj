@@ -147,6 +147,7 @@
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
+    <Content Include="Views\bookinghistory.aspx" />
     <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
@@ -280,6 +281,7 @@
     <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CarModel.cs" />
+    <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\IssueModel.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Issue.cs" />
@@ -321,6 +323,13 @@
     </Compile>
     <Compile Include="Views\bookingconfirmation.aspx.designer.cs">
       <DependentUpon>bookingconfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\bookinghistory.aspx.cs">
+      <DependentUpon>bookinghistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookinghistory.aspx.designer.cs">
+      <DependentUpon>bookinghistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\detail.aspx.cs">
       <DependentUpon>detail.aspx</DependentUpon>

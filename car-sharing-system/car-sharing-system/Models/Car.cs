@@ -52,6 +52,7 @@ namespace car_sharing_system.Models
 				Boolean cruiseControl ,
 				Boolean reverseCam,
 				Boolean radio) {
+
 			this.numberPlate = numberPlate;
 			this.latlong = latlong;
 			this.country = country;

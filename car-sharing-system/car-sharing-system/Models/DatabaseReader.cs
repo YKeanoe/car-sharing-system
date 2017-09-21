@@ -178,8 +178,6 @@ namespace car_sharing_system.Models
                 Debug.WriteLine(newUser.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
-                  
-
                     mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
                     mySqlCommand.Parameters.AddWithValue("@password", newUser.password);
                     mySqlCommand.Parameters.AddWithValue("@license", newUser.licenceNo);
@@ -197,53 +195,21 @@ namespace car_sharing_system.Models
                     mySqlCommand.Parameters.AddWithValue("@profileurl", newUser.profileURL);
 
                     mySqlCommand.ExecuteNonQuery();
-
                 }
                 mySqlConnection.Close();
             }
         }
-     /*  public void Duplicate(User newUser)
-        {
-            String query = "INSERT COUNT (email) FROM User " + newUser.email;
-            int count = 0;
-            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
-            {
-                mySqlConnection.Open();
-                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
-                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-                    while (dbread.Read())
-                    {
-                        count = Convert.ToInt32(dbread[0].ToString());
-                    
-
-                        if (count > 0)
-                        {
-
-                        }
-                        else
-                        {
-                            mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
-                            mySqlCommand.ExecuteNonQuery();
-                        }
-
-
-                        {
-                            
-                            mySqlConnection.Close();
-                        }
-                    }
-            }
-        } */
         public void clientIssue(Issues newIssue)
         {
-            String query = "INSERT INTO Issues (bookingID,submissionDate, subject, description) ";
-            query += " VALUES (@bookingID, submissionDate, @subject, @description); ";
+            String query = "INSERT INTO Issues (accountID, bookingID,submissionDate, subject, description) ";
+            query += " VALUES (@accountID,@bookingID, submissionDate, @subject, @description); ";
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
                 Debug.WriteLine(newIssue.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
+                    mySqlCommand.Parameters.AddWithValue("@accountID", newIssue.accountID);
                     mySqlCommand.Parameters.AddWithValue("@bookingID", newIssue.bookingID);
                     mySqlCommand.Parameters.AddWithValue("@submissionDate", DateTime.Now);
                     mySqlCommand.Parameters.AddWithValue("@subject", newIssue.subject);
@@ -427,7 +393,38 @@ namespace car_sharing_system.Models
 				return numRowsUpdated;
 			}
 		}
+        public static List<Booking> findMyBookings(int accountID)
+        {
+            List<Booking> myBooking = new List<Booking>();
+            String query = "SELECT * FROM Booking WHERE accountID = " + id;
 
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
+                {
+                    if (dbread.Read())
+                    {
+                        Location newLocation = new Location(
+                            Convert.ToDecimal(dbread[5].ToString()) /*Latitude*/,
+                            Convert.ToDecimal(dbread[6].ToString()) /*Longitude*/);
+                        myBooking.Add(
+                            new Booking(
+                                Int32.Parse(dbread[0].ToString()), // BookingID
+                                Int32.Parse(dbread[1].ToString()), // AccountID
+                                dbread[2].ToString(), // Numberplate
+                                DateTime.Parse(dbread[3].ToString()), // start time
+                                DateTime.Parse(dbread[4].ToString()), // end time
+                                newLocation, // location from above
+                                Int32.Parse(dbread[7].ToString()) // total distance
+                            )
+                        );
+                    }
+                }
+            }
+            return myBooking;
+        }
 		public static int addBooking(String carid, int uid, int sdate, int edate, decimal lat, decimal lng) {
 			StringBuilder querysb = new StringBuilder();
 

@@ -26,18 +26,21 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Button2_Click(object sender, EventArgs e)
 
         {
-            if (subjectIssue.Text.Equals(null) || description.Text.Equals(null)) {
-                issueFail.innerText = "Please fill out the whole form.";
+            if (subjectIssue.Text.Equals(null) || description.Text.Equals(null))
+            {
+                issueFail.InnerText = "Please fill out the whole form.";
             }
-            bookingID ++;
-        
-            DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1,-1,bookingID, DateTime.Now, subjectIssue.Text, description.Text);
+            else
+            {
+                bookingID++;
 
-            dr.clientIssue(newIssue);
+                DatabaseReader dr = new DatabaseReader();
+                newIssue = new Issues(-1,Int32.Parse(User.Identity.Name), bookingID, DateTime.Now, subjectIssue.Text, description.Text);
 
-            Response.Redirect("successIssue.aspx");
+                dr.clientIssue(newIssue);
 
+                Response.Redirect("~/dashboard/issuereported");
+            }
         }
     }
 }
