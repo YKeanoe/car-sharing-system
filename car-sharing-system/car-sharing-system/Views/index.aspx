@@ -22,28 +22,28 @@
                 <!-- Set the first background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/Theme/Images/test1.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                  
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/Theme/Images/test2.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                   
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/Theme/Images/test3.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                 
                 </div>
             </div>
         </div>
       </div>
     </div>
   </section>
-    Welcome to Ace Car Rentals
+
   <!-- Car Section -->
   <section id="cars" class="about-section">
     <div class="container-fluid">
@@ -131,7 +131,27 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1>Services Section</h1>
+          <h1>News</h1>
+
+            <div id="pagewrap">
+
+	<section id="content">
+	
+        <img src="../Theme/Images/middle.png" />
+	</section>
+	
+	<section id="middle">
+        <img src="../Theme/Images/middle.png" />
+	</section>
+
+
+	<aside id="sidebar">
+		
+		  <img src="../Theme/Images/middle.png" />
+
+	</aside>
+	
+</div>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+
+
 .btn-front-page-sign-register {
   font-size: 18px;
   width: 20%;
@@ -9,7 +11,7 @@
   left:0;
   right:0;
   margin:150px auto;
-
+  color: white;
   width:60%;
 }
 
@@ -151,4 +153,40 @@ a.car-panel-title {
 .btn-filter-sortby {
   width:100%;
   float:left;
+}
+
+#pagewrap {
+	padding: 5px;
+	width: 1260px;
+	margin: 20px auto;
+}
+
+#content {
+	width: 420px;
+	float: left;
+	padding: 5px 15px;
+}
+
+#middle{
+	width: 420px; /* Account for margins + border values */
+	float: left;
+	padding: 5px 15px;
+	margin: 0px 5px 5px 5px;
+}
+
+
+
+
+#sidebar {
+	width: 400px;
+	padding: 5px 15px;
+	float: left;
+}
+
+#content, #middle, #sidebar {
+	margin-bottom: 5px;
+}
+
+#pagewrap, #content, #middle, #sidebar, {
+	border: solid 1px #ccc;
 }

@@ -55,13 +55,13 @@
             <a class="page-scroll" href="#page-top"></a>
           </li>
           <li>
-            <a class="page-scroll" href="#cars">Cars</a>
+            <a class="page-scroll" href="#cars">Book Now</a>
           </li>
           <li>
-            <a class="page-scroll" href="#book">Book</a>
+            <a class="page-scroll" href="#book">News</a>
           </li>
           <li>
-            <a class="page-scroll" href="#contact">Contact</a>
+            <a class="page-scroll" href="#contact">Contact Us</a>
           </li>
         </ul>
       </div>

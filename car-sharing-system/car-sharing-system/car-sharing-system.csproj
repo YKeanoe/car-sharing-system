@@ -117,6 +117,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Theme\Images\ecofriendly.png" />
+    <Content Include="Theme\Images\enviromental.png" />
+    <Content Include="Theme\Images\middle.png" />
     <Content Include="Theme\js\dropdown.js" />
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
