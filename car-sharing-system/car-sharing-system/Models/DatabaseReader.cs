@@ -336,15 +336,7 @@ namespace car_sharing_system.Models
 						} else {
 							transmission = 'M';
 						}
-
-						Boolean x = (Boolean) dbread[16];
-						// WHYYYYY????? dbread[12].ToString returns x.xL instead of double
-						// Should change dot to comma
-						String fuelcon = dbread[12].ToString();
-						fuelcon = fuelcon.Remove(fuelcon.Length - 1);
-						fuelcon.Replace(',', '.');
-						Double y = Convert.ToDouble(dbread[14].ToString());
-						
+												
 						return new Car(dbread[0].ToString() /*ID / license plate*/,
 							newLocation /* Car Location */,
 							dbread[3].ToString() /*Country*/,
@@ -414,8 +406,8 @@ namespace car_sharing_system.Models
                                 Int32.Parse(dbread[0].ToString()), // BookingID
                                 Int32.Parse(dbread[1].ToString()), // AccountID
                                 dbread[2].ToString(), // Numberplate
-                                DateTime.Parse(dbread[3].ToString()), // start time
-                                DateTime.Parse(dbread[4].ToString()), // end time
+                                (Int32)DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds, // start time
+								(Int32)DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds, // end time
                                 newLocation, // location from above
                                 Int32.Parse(dbread[7].ToString()) // total distance
                             )
@@ -425,17 +417,20 @@ namespace car_sharing_system.Models
             }
             return myBooking;
         }
-		public static int addBooking(String carid, int uid, int sdate, int edate, decimal lat, decimal lng) {
+		public static int addBooking(Booking book) {
+
+			//String carid, int uid, int sdate, int edate, decimal lat, decimal lng;
+
 			StringBuilder querysb = new StringBuilder();
 
 			querysb.Append("INSERT INTO Booking(accountID,numberPlate,startDate,endDate,bookinguserlocationLat,bookinguserlocationLong,travelDistance)");
 			querysb.AppendFormat("VALUES ({0},'{1}', DATE('{2}'), DATE('{3}'), {4}, {5}, null)",
-								uid,
-								carid,
-								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(sdate)).ToString("yyyy-MM-dd HH:mm:ss"),
-								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(edate)).ToString("yyyy-MM-dd HH:mm:ss"),
-								lat, lng); 
-
+								book.accountID,
+								book.numberPlate,
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.startDate)).ToString("yyyy-MM-dd HH:mm:ss"),
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.endDate)).ToString("yyyy-MM-dd HH:mm:ss"),
+								book.latlong.lat, book.latlong.lng); 
+			
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(querysb.ToString(), mySqlConnection);
