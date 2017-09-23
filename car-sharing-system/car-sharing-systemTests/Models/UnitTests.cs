@@ -516,6 +516,137 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
+
+        [Test()]
+        public void registerUserTestNolicenseNoTerritory() // To register an user and add to database with no license number or territory entered
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString();
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = null; // 9 digit license number, nothing entered
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = null; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for licenseNo and territory was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for licenseNo and territory was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNolicenseNoFirstName() // To register an user and add to database with no license number or first name entered
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString();
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = null; // 9 digit license number, nothing entered
+                String fname = null; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for licenseNo and first name was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for licenseNo and first name was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoPostcodeFirstName() // To register an user and add to database with no post code or first name entered
+        {
+            String test = "";
+            try
+            {
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                string randInt = GetRandomNumber(0, 1000).ToString();
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number, nothing entered
+                String fname = null; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "null"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for postcode and first name was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for postcode and first name was not handled successfully.");
+            }
+        }
+
         [Test()]
         public void registerUserTestNoFirstName() // To register an user and add to database with no first name
         {
@@ -557,6 +688,50 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Null for first name was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoSuburbLastName() // To register an user and add to database with no suburb or last name
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = null; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = null; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for suburb and last name was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for suburb and last name was not handled successfully.");
             }
         }
 
@@ -605,6 +780,94 @@ namespace car_sharing_system.Models.Tests
         }
 
         [Test()]
+        public void registerUserTestNoLastNameFirstName() // To register an user and add to database with no last name or first name
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = null; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for first name and last name was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for first name and last name was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoprofileURLPhoneNumber() // To register an user and add to database with profileURL or phone number
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = null; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for profileURL and phone number was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for profileURL and phone number was not handled successfully.");
+            }
+        }
+
+        [Test()]
         public void registerUserTestNoGender() // To register an user and add to database with no gender
         {
             String test = "";
@@ -645,6 +908,50 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Null for gender was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoGenderDateofBirth() // To register an user and add to database with no gender or date of birth
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = null; // Gender (Male / Female)
+                String birth = null; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for gender and date of birth was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for gender and date of birth was not handled successfully.");
             }
         }
 
@@ -693,6 +1000,50 @@ namespace car_sharing_system.Models.Tests
         }
 
         [Test()]
+        public void registerUserTestNoDateOfBirthPhoneNumber() // To register an user and add to database with no date of birth or phone number
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = null; // Date of birth 'dd/mm/yyyy'
+                String phone = null; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for date of birth and phone number was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for date of birth and phone number was not handled successfully.");
+            }
+        }
+
+        [Test()]
         public void registerUserTestNoPhoneNumber() // To register an user and add to database with no phone number
         {
             String test = "";
@@ -733,6 +1084,50 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Null for phone number was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoPhoneNumberStreet() // To register an user and add to database with no phone number and street address
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+                String phone = null; // Phone number
+                String street = null; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for phone number and street address was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for phone number and street address was not handled successfully.");
             }
         }
 
@@ -781,6 +1176,50 @@ namespace car_sharing_system.Models.Tests
         }
 
         [Test()]
+        public void registerUserTestNoStreetAddressSuburb() // To register an user and add to database with no street address and suburb
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+                String phone = "0482999231"; // Phone number
+                String street = null; // Street Address
+                String suburb = null; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for street address and suburb was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for street address and suburb was not handled successfully.");
+            }
+        }
+
+        [Test()]
         public void registerUserTestNoSuburb() // To register an user and add to database with no suburb
         {
             String test = "";
@@ -825,6 +1264,50 @@ namespace car_sharing_system.Models.Tests
         }
 
         [Test()]
+        public void registerUserTestNoSuburbPostcode() // To register an user and add to database with no suburb and postcode
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+                String phone = "0482999231"; // Phone number
+                String street = "1 example street"; // Street Address
+                String suburb = null; // Suburb
+                String postcode = null; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for suburb and postcode was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for suburb and postcode was not handled successfully.");
+            }
+        }
+
+        [Test()]
         public void registerUserTestNoPostcode() // To register an user and add to database with no postcode
         {
             String test = "";
@@ -865,6 +1348,50 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Null for postcode was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoPostcodeTerritory() // To register an user and add to database with no postcode or territory
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+                String phone = "0482999231"; // Phone number
+                String street = "1 example street"; // Street Address
+                String suburb = "Essendon"; // Suburb
+                String postcode = null; // Postcode
+                String territory = null; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new 
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for postcode and territory was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for postcode and territory was not handled successfully.");
             }
         }
 
@@ -956,6 +1483,53 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Fail("Null for city was not handled successfully.");
+            }
+        }
+
+        [Test()]
+        public void registerUserTestNoCityCountry() // To register an user and add to database with no city or country
+        {
+            String test = "";
+            try
+            {
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                DatabaseReader dr = new DatabaseReader();
+                String password = "Testing1"; // Plaintext Password
+                String email = "example3@email.com" + randInt; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "12/02/1980"; // Date of birth 'dd/mm/yyyy'
+                String phone = "0482999231"; // Phone number
+                String street = "1 example street"; // Street Address
+                String suburb = "Essendon"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "territory1"; // Territory
+                String city = null; // City
+                String country = null; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+
+                UserModel data = new UserModel();
+                User myData = data.loginAttempt(email, passwordTest);
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for city and country was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for city and country was not handled successfully.");
             }
         }
 

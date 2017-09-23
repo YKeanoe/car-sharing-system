@@ -15,34 +15,34 @@
 			</p>
 		</div>
 
-		<!-- Carousel Div -->
-		<div id="carCarousel" class="carousel slide" data-ride="carousel" data-interval="20000">
-			<div class="carousel-inner">
-				<div class="item active">
-					<!-- Set the first background image using inline CSS below. -->
-					<div class="fill" style="background-image:url('/Theme/Images/test1.jpg');"></div>
-					<div class="carousel-caption">
-						<h2>Caption 1</h2>
-					</div>
-				</div>
-				<div class="item">
-					<!-- Set the second background image using inline CSS below. -->
-					<div class="fill" style="background-image:url('/Theme/Images/test2.jpg');"></div>
-					<div class="carousel-caption">
-						<h2>Caption 2</h2>
-					</div>
-				</div>
-				<div class="item">
-					<!-- Set the third background image using inline CSS below. -->
-					<div class="fill" style="background-image:url('/Theme/Images/test3.jpg');"></div>
-					<div class="carousel-caption">
-						<h2>Caption 3</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+      <!-- Carousel Div -->
+      <div id="carCarousel" class="carousel slide" data-ride="carousel" data-interval="20000">
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Theme/Images/test1.jpg');"></div>
+                <div class="carousel-caption">
+                  
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Theme/Images/test2.jpg');"></div>
+                <div class="carousel-caption">
+                   
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Theme/Images/test3.jpg');"></div>
+                <div class="carousel-caption">
+                 
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!-- Car Section -->
 <section id="cars" class="car-section">
@@ -235,31 +235,78 @@
 	</div>
 </section>
   
-<!-- Services Section -->
-<section id="book" class="services-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1>Services Section</h1>
-			</div>
-		</div>
-	</div>
-</section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1>Contact Section</h1>
-			</div>
-		</div>
+  <!-- Services Section -->
+  <section id="book" class="services-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>News</h1>
+
+            <div id="pagewrap">
+
+	<div class="middle">
+	
+        <img src="../Theme/Images/middle.png" />
 	</div>
-</section>
+	
+	<div class="middle">
+        <img src="../Theme/Images/middle.png" />
+	</div>
+
+
+	<div class="middle">
+		
+		  <img src="../Theme/Images/middle.png" />
+
+	</div>
+	
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+
+      <div class="row">
+         
+        <div class="col-lg-12">
+          <h1>Contact Us</h1>
+            <h2><p>Need Help? Want to send us feedback?</p></h2>
+                <h2><p>Call us, Email us or submit a support ticket.</p></h2>
+            <div class="dropdown">
+                <select id="mySelect" onchange="dropdown()">
+                    <option value="English">English
+                    <option value="Espanol">Espanol
+                    <option value="Francais">Francais
+                </select>
+
+                <p id="language"></p>
+
+            </div>
+            <h3><p>24 Hour Phone Support: (03) 9560 2122</p></h3>
+            
+
+            <h3><p>Email: support@acecarrentals.com</p></h3>
+            
+            <a href="https://www.w3schools.com"><h3>Submit a support ticket</h3></a>
+
+            
+
+        </div>
+      </div>
+    </div>
+  </section>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
 <script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/Theme/js/map-features.js"></script>
 
 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
+    <script src="/Theme/js/map-features.js"></script>
+    <script src="/Theme/js/dropdown.js"></script>
 </asp:Content>
