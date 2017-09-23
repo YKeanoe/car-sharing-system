@@ -13,21 +13,22 @@
 					<label>Car Information</label>
 				</div>
 				<div class="panel-half">
-					<label><asp:Label runat="server" ID="carNumberPlate">Plate</asp:Label></label>
-					<label><asp:Label runat="server" ID="carBrandLabel">Brand</asp:Label></label>
-					<label><asp:Label runat="server" ID="carModelLabel">Model</asp:Label></label>
-					<label><asp:Label runat="server" ID="carTypeLabel">Type</asp:Label></label>
-					<label><asp:Label runat="server" ID="carSeatsLabel">x Seats</asp:Label></label>
-					<label><asp:Label runat="server" ID="carTransmissionLabel">Automatic</asp:Label></label>
-					<label><asp:Label runat="server" ID="carRateLabel">$x per Hour</asp:Label></label>
+					<form id="form1" runat="server">  
+						<label><asp:Label runat="server" ID="carNumberPlate">Plate</asp:Label></label>
+						<label><asp:Label runat="server" ID="carBrandLabel">Brand</asp:Label></label>
+						<label><asp:Label runat="server" ID="carModelLabel">Model</asp:Label></label>
+						<label><asp:Label runat="server" ID="carTypeLabel">Type</asp:Label></label>
+						<label><asp:Label runat="server" ID="carSeatsLabel">x Seats</asp:Label></label>
+						<label><asp:Label runat="server" ID="carTransmissionLabel">Automatic</asp:Label></label>
+						<label><asp:Label runat="server" ID="carRateLabel">$x per Hour</asp:Label></label>
 		            
-					<asp:PlaceHolder ID="featurelist"  runat="server"/>
+						<asp:PlaceHolder ID="featurelist"  runat="server"/>
 
 					
 
-		            <button id="confirm-btn" class="btn btn-primary" type="button">Next</button>
-                    <asp:Button ID="Button1" runat="server" Text="Confirm" OnClick="confirmBook"  href="~/dashboard/"></asp:Button>                   
-
+						<button id="confirm-btn" class="btn btn-primary" type="button">Next</button>
+						<asp:Button ID="Button1" runat="server" Text="Confirm" OnClick="confirmBook" href="/dashboard/"></asp:Button>                   
+					</form>
 				</div>
 				<div class="panel-half">
 						<div id="map"><img id="googlemap" border="0" src="javascript:void(0);"/></div>

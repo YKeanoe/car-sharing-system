@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Diagnostics;
 
 namespace car_sharing_system.Models
 {
@@ -42,5 +43,10 @@ namespace car_sharing_system.Models
             this.latlong = latlong;
             this.travelDistance = travelDistance;
         }
+
+		public void debug() {
+			Debug.WriteLine("id " + accountID + " book a car for " + startDate);
+			latlong.debug();
+		}
     }
 }

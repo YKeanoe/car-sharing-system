@@ -27,7 +27,7 @@ namespace car_sharing_system {
 
 	public partial class FrontPage : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-        }
+		}
 
 		[System.Web.Services.WebMethod]
 		public static string getCarsDataFiltered(String lat, String lng,

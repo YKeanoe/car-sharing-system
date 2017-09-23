@@ -65,6 +65,8 @@ namespace car_sharing_system.Models
                 return users;
             }
         }
+
+		// UserCount returns the total number of available users
         public static int UserCount(String where)
         {
             String query;
@@ -132,6 +134,7 @@ namespace car_sharing_system.Models
 			}
         }
 
+		// issueQuerySingle return the first issue found as an object.
         public static Issues issueQuerySingle(String where)
         {
             String query;
@@ -168,6 +171,7 @@ namespace car_sharing_system.Models
             }
         }
 
+		// Registeration function is used to register new user to the database.
         public void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
@@ -199,6 +203,8 @@ namespace car_sharing_system.Models
                 mySqlConnection.Close();
             }
         }
+
+		// clientIssue function is used to add new issue to the database.
         public void clientIssue(Issues newIssue)
         {
             String query = "INSERT INTO Issues (accountID, bookingID,submissionDate, subject, description) ";
@@ -222,40 +228,14 @@ namespace car_sharing_system.Models
             }
         }
 
+		// carQuery returns a list of cars from the query.
         public static List<Car> carQuery(String where) {
-			// TO DO 
-			// Change db to datetime first
-			/*
-			// Convert current time to unix timestamp for easier manipulation
-			int currUnixTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-			// Round current time to next hour
-			int roundTime = currUnixTime - (currUnixTime % 3600) + 3600;
-			// Convert time to DateTime
-			DateTime cur = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(roundTime));
-
-			StringBuilder querysb = new StringBuilder();
-			querysb.Append("SELECT * FROM Car ");
-			querysb.Append("LEFT JOIN Booking ");
-			querysb.Append("ON Car.numberPlate = Booking.numberPlate ");
-			querysb.Append("WHERE Car.status = TRUE ");
-			querysb.AppendFormat("AND DATE('{0}') NOT BETWEEN Booking.startDate AND Booking.endDate ", cur.ToString("yyyy-MM-dd HH:mm:ss"));
-			Debug.WriteLine("2");
-			List<Car> cars = new List<Car>();
-			if (!String.IsNullOrEmpty(where)) {
-				querysb.Append(where);
-			}
-			Debug.WriteLine("3");
-
-			String query = querysb.ToString();
-			Debug.WriteLine(query);
-			*/
-
 			List<Car> cars = new List<Car>();
 			String query;
 			if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+				query = "SELECT * FROM Car WHERE " + where;
 			} else {
-				query = "SELECT * FROM Car WHERE status = TRUE";
+				query = "SELECT * FROM Car";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -283,13 +263,14 @@ namespace car_sharing_system.Models
 				return cars;
 			}
 		}
-
+		
+		// carQuerySingle return the first car found as an object
         public static Car carQuerySingle(String where) {
             String query;
 			if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+				query = "SELECT * FROM Car WHERE " + where;
 			} else {
-				query = "SELECT * FROM Car WHERE status = TRUE";
+				query = "SELECT * FROM Car";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -313,12 +294,14 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// carQuerySingleFull return the first car found as an object, filled
+		// with all of the car's information.
 		public static Car carQuerySingleFull(String where) {
 			String query;
-		if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Car WHERE " + where;
 			} else {
-				query = "SELECT * FROM Car WHERE status = TRUE";
+				query = "SELECT * FROM Car";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -364,6 +347,7 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// disableCar updates the car's status to false
 		public static int disableCar(String id) {
 			String query = "UPDATE Car SET status = FALSE WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -375,6 +359,7 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// enableCar updates the car's status to true
 		public static int enableCar(String id) {
 			String query = "UPDATE Car SET status = TRUE WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -385,6 +370,8 @@ namespace car_sharing_system.Models
 				return numRowsUpdated;
 			}
 		}
+
+		// findMyBookings returns the first booking found as an object.
         public static List<Booking> findMyBookings(int accountID)
         {
             List<Booking> myBooking = new List<Booking>();
@@ -417,9 +404,9 @@ namespace car_sharing_system.Models
             }
             return myBooking;
         }
-		public static int addBooking(Booking book) {
 
-			//String carid, int uid, int sdate, int edate, decimal lat, decimal lng;
+		// addBooking add a new booking to the database
+		public static int addBooking(Booking book) {
 
 			StringBuilder querysb = new StringBuilder();
 
@@ -440,6 +427,7 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// checkCarStatus is a debug function to check the car's status.
 		public static void checkCarStatus(String id) {
 			String query = "SELECT * FROM Car WHERE numberPlate = '" + id + "'";
 

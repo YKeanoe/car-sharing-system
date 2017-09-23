@@ -1,4 +1,4 @@
-﻿var uPos = {lat:"", lng:""};
+﻿var userPos = {lat:"", lng:""};
 
 function setMap(data) {
 	var carLocs = JSON.parse(data.d);
@@ -44,11 +44,36 @@ function sendRequestForCarLocation() {
 	return dfd.promise();
 }
 
+function sendUserLoc() {
+	console.log("send u");
+	console.log(userPos);
+	var dfd = $.Deferred();
+	$.ajax({
+		type: "POST",
+		url: "/Views/bookingconfirmation.aspx/setLoc",
+		data: JSON.stringify(userPos),
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function () {
+			console.log("Location send succ");
+			dfd.resolve();
+		},
+		failure: function () {
+			console.error("Location send error");
+			dfd.reject();
+		}
+	});
+	console.log("send u2");
+
+	return dfd.promise();
+}
+
+
 $(window).on('load', function () {
 	console.log("setting map");
 	var dfd = $.Deferred();
 	var getLocationStatus = getLocation();
-	getLocationStatus.then(sendRequestForCarLocation).done(function () {
+	getLocationStatus.then(sendUserLoc).then(sendRequestForCarLocation).done(function () {
 		dfd.resolve();
 		var googleurl = "https://maps.googleapis.com/maps/api/staticmap?"
 						+ "&size=500x500"

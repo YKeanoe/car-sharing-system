@@ -9,19 +9,17 @@ using car_sharing_system.Models;
 using System.Diagnostics;
 using System.Web.Script.Serialization;
 using System.Text;
+using System.Device.Location;
 
 namespace car_sharing_system.Views.Admin_Theme.pages {
 	public partial class bookingconfirmation : System.Web.UI.Page {
 
 		static Location carLocation;
-		static Location userLocation;
-
-		int bookingID { get; }
-		int accountID { get; }
-		String numberPlate { get; }
-		int startDate { get; set; }
-		int endDate { get; set; }
-		Location latlong { get; set; }
+		
+		String numberPlate;
+		int startDate;
+		int endDate;
+		static Location latlong;
 
 
 
@@ -32,18 +30,21 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
                 Response.Redirect("~/dashboard/login");
             }
 
-            String id = Request.QueryString["id"];
+			numberPlate = Request.QueryString["id"];
+			startDate = Int32.Parse(Request.QueryString["sdate"]);
+			endDate = Int32.Parse(Request.QueryString["edate"]);
 
-			String query = "numberPlate = '" + id + "'";
+			String query = "status = TRUE AND numberPlate = '" + numberPlate + "'";
 			Debug.WriteLine(query);
 
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
 			//currentCar.fulldebug();
 			// Uncomment to change database
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
-			DatabaseReader.disableCar(currentCar.numberPlate);
+			//DatabaseReader.disableCar(currentCar.numberPlate);
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
-			carNumberPlate.Text = id;
+
+			carNumberPlate.Text = numberPlate;
 			carLocation = currentCar.latlong;
 			carBrandLabel.Text = currentCar.brand;
 			carModelLabel.Text = currentCar.model;
@@ -88,9 +89,8 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		}
 
 		[System.Web.Services.WebMethod]
-		public static String getCarLocation(String lat, String lng) {
+		public static String getCarLocation() {
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
-			userLocation = new Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
 
 			if (carLocation != null) {
 				return oSerializer.Serialize(carLocation);
@@ -108,11 +108,19 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		}
 
 		protected void confirmBook(object sender, EventArgs e) {
-			Booking book = new Booking();
-			DatabaseReader.addBooking();
-
+			
+			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, startDate, endDate, latlong);
+			book.debug();
+			
+			//DatabaseReader.addBooking(book);
 		}
 
+		[System.Web.Services.WebMethod]
+		public static void setLoc(String lat, String lng) {
+			Location userLoc = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
+			latlong = userLoc;
+			//userLoc.debug();
+		}
 
 	}
 }
