@@ -18,6 +18,7 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (subjectIssue.Text.Equals(null) || description.Text.Equals(null))

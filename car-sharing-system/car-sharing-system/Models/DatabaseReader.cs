@@ -348,8 +348,8 @@ namespace car_sharing_system.Models
 		}
 
 		// disableCar updates the car's status to false
-		public static int disableCar(String id) {
-			String query = "UPDATE Car SET status = FALSE WHERE numberPlate = '" + id + "'";
+		public static int setCarBooked(String id) {
+			String query = "UPDATE Car SET status = 'B' WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);

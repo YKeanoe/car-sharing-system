@@ -36,7 +36,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			//currentCar.fulldebug();
 			// Uncomment to change database
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
-			//DatabaseReader.disableCar(currentCar.numberPlate);
+			//DatabaseReader.setCarBooked(currentCar.numberPlate);
 			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
 
 			carNumberPlate.Text = numberPlate;
