@@ -31,10 +31,7 @@ namespace car_sharing_system.Admin_Theme.pages
             User newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
 
-            if (!Request.IsAuthenticated)
-            {
-                Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
-            }
+   
         }
     }
 }

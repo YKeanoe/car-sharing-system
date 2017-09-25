@@ -25,11 +25,6 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		protected void Page_Load(object sender, EventArgs e) {
 
-            if (!Request.IsAuthenticated)
-            {
-                Response.Redirect("~/dashboard/login");
-            }
-
 			numberPlate = Request.QueryString["id"];
 			startDate = Int32.Parse(Request.QueryString["sdate"]);
 			endDate = Int32.Parse(Request.QueryString["edate"]);
