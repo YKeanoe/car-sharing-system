@@ -516,7 +516,6 @@
     <Content Include="Admin_Theme\README.md" />
     <Content Include="Frontpage.Master" />
     <Content Include="Dashboard.Master" />
-    <Content Include=".ebextensions\http_rewrite.config" />
     <Content Include="Datetimepicker\less\bootstrap-datetimepicker-build.less" />
     <Content Include="Datetimepicker\less\_bootstrap-datetimepicker.less" />
     <Content Include="rewrite_amd64_en-US.msi" />
