@@ -129,6 +129,14 @@ namespace car_sharing_system.Models {
 				query.AppendFormat("transmission = '{0}' ", transmission);
 			}
 
+			// TODO
+			// Uncomment when db status is changed
+			/*
+			if (query.Length > 0) {
+				query.Append("AND Status = 'A'");
+			}
+			*/
+
 			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
 			if (dbcars != null) {
 				cars = new Search(dbcars).find(lat, lng);

@@ -12,7 +12,7 @@ using System.Text;
 using System.Device.Location;
 
 namespace car_sharing_system.Views.Admin_Theme.pages {
-	public partial class bookingconfirmation : System.Web.UI.Page {
+	public partial class bookingreturn : System.Web.UI.Page {
 
 		static Location carLocation;
 		
@@ -23,21 +23,10 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		protected void Page_Load(object sender, EventArgs e) {
 
-			String tid, tsd, ted;
-			tid = Request.QueryString["id"];
-			tsd = Request.QueryString["sdate"];
-			ted = Request.QueryString["edate"];
-
-			if (!String.IsNullOrEmpty(tid) && !String.IsNullOrEmpty(tsd) && !String.IsNullOrEmpty(ted)) {
-				numberPlate = Request.QueryString["id"];
-				startDate = Int32.Parse(Request.QueryString["sdate"]);
-				endDate = Int32.Parse(Request.QueryString["edate"]);
-			} else {
-				Response.Redirect("/");
-			}
 			// TODO change status to 'A'
+			// Might need to cross check with booking table
 			// String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
-			String query = "status = TRUE AND numberPlate = '" + numberPlate + "'";
+			String query = "status = 'U' AND numberPlate = '" + numberPlate + "'";
 
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
 
@@ -62,13 +51,6 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				Double estPrice = (Double)(endDate - startDate) / 3600 * currentCar.rate;
 				bookEstimatePrice.Text = "$" + estPrice.ToString("00.00");
 
-				featureHTML(leftfeat, currentCar.gps, "GPS");
-				featureHTML(leftfeat, currentCar.cdPlayer, "CD Player");
-				featureHTML(leftfeat, currentCar.bluetooth, "Bluetooth");
-
-				featureHTML(rightfeat, currentCar.cruiseControl, "Cruise Control");
-				featureHTML(rightfeat, currentCar.reverseCam, "Reverse Camera");
-				featureHTML(rightfeat, currentCar.radio, "Radio");
 			} else {
 				Response.Redirect("/");
 			}

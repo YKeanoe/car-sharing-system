@@ -347,7 +347,7 @@ namespace car_sharing_system.Models
 			}
 		}
 
-		// disableCar updates the car's status to false
+		// setCarBooked updates the car's status to B for Booked
 		public static int setCarBooked(String id) {
 			String query = "UPDATE Car SET status = 'B' WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -359,9 +359,21 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// setCarUsed updates the car's status to U for being used
+		public static int setCarUsed(String id) {
+			String query = "UPDATE Car SET status = 'U' WHERE numberPlate = '" + id + "'";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
 		// enableCar updates the car's status to true
 		public static int enableCar(String id) {
-			String query = "UPDATE Car SET status = TRUE WHERE numberPlate = '" + id + "'";
+			String query = "UPDATE Car SET status = 'A' WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
