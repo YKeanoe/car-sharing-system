@@ -3,6 +3,12 @@
 	float:left;
 }
 
+.panel-full{
+	width:100%;
+	overflow:auto;
+	margin: 5% 0;
+}
+
 .panel-half label {
 	width:100%;
 }

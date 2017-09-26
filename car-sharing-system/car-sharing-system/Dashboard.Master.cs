@@ -15,11 +15,10 @@ namespace car_sharing_system {
 			if (!path.Equals("/dashboard/login")) {
 				// If the page is booking confirmation page
 				if (path.Equals("/dashboard/confirmation")) {
-					String id = Request.QueryString["id"];
-					int sdate = Int32.Parse(Request.QueryString["sdate"]);
-					int edate = Int32.Parse(Request.QueryString["edate"]);
-
 					if (!Request.IsAuthenticated) {
+						String id = Request.QueryString["id"];
+						int sdate = Int32.Parse(Request.QueryString["sdate"]);
+						int edate = Int32.Parse(Request.QueryString["edate"]);
 						Response.Redirect("/dashboard/login?redirect=" + path + "&id=" + id + "&sdate=" + sdate + "&edate=" + edate);
 					}
 				} else if (path.Equals("/dashboard/register")) {

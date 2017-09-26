@@ -16,71 +16,69 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		static Location carLocation;
 		
-		String numberPlate;
+		static String numberPlate;
 		int startDate;
 		int endDate;
-		static Location latlong;
-
-
+		static Location userLocation;
 
 		protected void Page_Load(object sender, EventArgs e) {
 
-			numberPlate = Request.QueryString["id"];
-			startDate = Int32.Parse(Request.QueryString["sdate"]);
-			endDate = Int32.Parse(Request.QueryString["edate"]);
+			String tid, tsd, ted;
+			tid = Request.QueryString["id"];
+			tsd = Request.QueryString["sdate"];
+			ted = Request.QueryString["edate"];
 
+			if (!String.IsNullOrEmpty(tid) && !String.IsNullOrEmpty(tsd) && !String.IsNullOrEmpty(ted)) {
+				numberPlate = Request.QueryString["id"];
+				startDate = Int32.Parse(Request.QueryString["sdate"]);
+				endDate = Int32.Parse(Request.QueryString["edate"]);
+			}
+
+			// TODO change status to 'A'
+			// String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
 			String query = "status = TRUE AND numberPlate = '" + numberPlate + "'";
-			Debug.WriteLine(query);
 
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-			//currentCar.fulldebug();
-			// Uncomment to change database
-			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
-			//DatabaseReader.setCarBooked(currentCar.numberPlate);
-			//DatabaseReader.checkCarStatus(currentCar.numberPlate);
 
-			carNumberPlate.Text = numberPlate;
-			carLocation = currentCar.latlong;
-			carBrandLabel.Text = currentCar.brand;
-			carModelLabel.Text = currentCar.model;
-			char transmission = currentCar.transmission;
-			if (transmission.Equals('A')) {
-				carTransmissionLabel.Text = "Automatic";
-			} else {
-				carTransmissionLabel.Text = "Manual";
+			if (currentCar != null) {
+				// Set the car status to be booked
+				//DatabaseReader.setCarBooked(currentCar.numberPlate);
+
+				// Set page's labels
+				carNumberPlate.Text = numberPlate;
+				carLocation = currentCar.latlong;
+				carBrandLabel.Text = currentCar.brand;
+				carModelLabel.Text = currentCar.model;
+				char transmission = currentCar.transmission;
+				carTransmissionLabel.Text = (transmission.Equals('A')) ? "Automatic" : "Manual";
+				carSeatsLabel.Text = currentCar.seats + " Seats";
+				carTypeLabel.Text = currentCar.vehicleType;
+				carRateLabel.Text = "$" + currentCar.rate.ToString("00.00") + " per Hour";
+
+				bookStartTime.Text = "From " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
+				bookEndTime.Text = "To " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(endDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
+
+				Double estPrice = (Double) (endDate - startDate) / 3600 * currentCar.rate;
+				bookEstimatePrice.Text = "$" + estPrice.ToString("00.00");
+
+				featureHTML(leftfeat, currentCar.gps, "GPS");
+				featureHTML(leftfeat, currentCar.cdPlayer, "CD Player");
+				featureHTML(leftfeat, currentCar.bluetooth, "Bluetooth");
+
+				featureHTML(rightfeat, currentCar.cruiseControl, "Cruise Control");
+				featureHTML(rightfeat, currentCar.reverseCam, "Reverse Camera");
+				featureHTML(rightfeat, currentCar.radio, "Radio");
 			}
-			int seats = currentCar.seats;
-			carSeatsLabel.Text = seats + " Seats";
-			carTypeLabel.Text = currentCar.vehicleType;
-			Double rate = currentCar.rate;
-			carRateLabel.Text = "$" + rate.ToString("00.00") + " per Hour";
 
-
-			HtmlGenericControl div1 = new HtmlGenericControl("div");
-			div1.Attributes.Add("class", "feature-list");
-			StringBuilder carPanelHTML = new StringBuilder();
-			carPanelHTML.Append("<div class=\"panel-half\"> ");
-			addHTML(carPanelHTML, currentCar.gps, "GPS");
-			addHTML(carPanelHTML, currentCar.cdPlayer, "CD Player");
-			addHTML(carPanelHTML, currentCar.bluetooth, "Bluetooth");
-			carPanelHTML.Append("</div>");
-			carPanelHTML.Append("<div class=\"panel-half\"> ");
-			addHTML(carPanelHTML, currentCar.cruiseControl, "Cruise Control");
-			addHTML(carPanelHTML, currentCar.reverseCam, "Reverse Camera");
-			addHTML(carPanelHTML, currentCar.radio, "Radio");
-			carPanelHTML.Append("</div>");
-			div1.InnerHtml = carPanelHTML.ToString();
-			featurelist.Controls.Add(div1);
 		}
 
-		private void addHTML(StringBuilder panel, bool feat, String feature) {
+		private void featureHTML(PlaceHolder ph, bool feat, String feature) {
 			if (feat) {
-				panel.AppendFormat("<i class=\"fa fa-check fa-fw\" ></i> " + feature);
+				ph.Controls.Add(new LiteralControl("<i class=\"fa fa-check fa-fw\"></i> " + feature));
 			} else {
-				panel.AppendFormat("<i class=\"fa fa-times fa-fw\" ></i> " + feature);
+				ph.Controls.Add(new LiteralControl("<i class=\"fa fa-times fa-fw\"></i> " + feature));
 			}
-			panel.Append("<br />");
-
+			ph.Controls.Add(new LiteralControl("<br />"));
 		}
 
 		[System.Web.Services.WebMethod]
@@ -96,26 +94,28 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 
 		[System.Web.Services.WebMethod]
-		public static void cancelBooking(String id) {
-			String query = "numberPlate = '" + id + "'";
+		public static void cancelBooking() {
+			Debug.WriteLine("booking canceled");			
+			String query = "numberPlate = '" + numberPlate + "'";
+			Debug.WriteLine(query);
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-			DatabaseReader.enableCar(currentCar.numberPlate);
+			//DatabaseReader.enableCar(currentCar.numberPlate);	
 		}
 
 		protected void confirmBook(object sender, EventArgs e) {
-			
-			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, startDate, endDate, latlong);
+			Debug.WriteLine("Booking confirmed");
+			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, startDate, endDate, userLocation);
 			book.debug();
-			
+			Response.Redirect("/dashboard/");
 			//DatabaseReader.addBooking(book);
 		}
 
 		[System.Web.Services.WebMethod]
 		public static void setLoc(String lat, String lng) {
-			Location userLoc = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
-			latlong = userLoc;
+			userLocation = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
 			//userLoc.debug();
 		}
+
 
 	}
 }

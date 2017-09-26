@@ -15,24 +15,33 @@
 				<div class="panel-half">
 					<form id="form1" runat="server">  
 						<label><asp:Label runat="server" ID="carNumberPlate">Plate</asp:Label></label>
-						<label><asp:Label runat="server" ID="carBrandLabel">Brand</asp:Label></label>
-						<label><asp:Label runat="server" ID="carModelLabel">Model</asp:Label></label>
+						<label>
+							<asp:Label runat="server" ID="carBrandLabel">Brand</asp:Label>
+							<asp:Label runat="server" ID="carModelLabel">Model</asp:Label>
+						</label>
 						<label><asp:Label runat="server" ID="carTypeLabel">Type</asp:Label></label>
 						<label><asp:Label runat="server" ID="carSeatsLabel">x Seats</asp:Label></label>
 						<label><asp:Label runat="server" ID="carTransmissionLabel">Automatic</asp:Label></label>
 						<label><asp:Label runat="server" ID="carRateLabel">$x per Hour</asp:Label></label>
-		            
+						<label><asp:Label runat="server" ID="bookStartTime">Start Time</asp:Label></label>
+						<label><asp:Label runat="server" ID="bookEndTime">End Time</asp:Label></label>
+						<label>Estimated price</label>
+						<label><asp:Label runat="server" ID="bookEstimatePrice">Estimated price</asp:Label></label>
 						<asp:PlaceHolder ID="featurelist"  runat="server"/>
-
-					
-
-						<button id="confirm-btn" class="btn btn-primary" type="button">Next</button>
-						<asp:Button ID="Button1" runat="server" Text="Confirm" OnClick="confirmBook" href="/dashboard/"></asp:Button>                   
+						<div class="panel-full">
+							<label>Car's Features</label>
+							<div class="panel-half">
+								<asp:PlaceHolder ID="leftfeat" runat="server"></asp:PlaceHolder>
+							</div>
+							<div class="panel-half">
+								<asp:PlaceHolder ID="rightfeat" runat="server"></asp:PlaceHolder>
+							</div>
+						</div>
+						<asp:Button ID="confirmbtn" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="confirmBook"></asp:Button>
 					</form>
 				</div>
 				<div class="panel-half">
 						<div id="map"><img id="googlemap" border="0" src="javascript:void(0);"/></div>
-
 				</div>
 			</div>
 		</div>
@@ -44,66 +53,7 @@
 <script src="/Theme/js/idle-timer.min.js"></script>
 <script type="text/javascript" src="/Theme/js/booking-confirmation-map.js"></script>
 <script type="text/javascript" src="/Theme/js/timeout-features.js"></script>
+<script type="text/javascript" src="/Theme/js/booking-confirmation-features.js"></script>
 
-<script type="text/javascript">
-	var confirm = false;
-
-	window.onbeforeunload = function () {
-		if (!confirm) {
-			cancel();
-			return "You haven't complete the booking.";
-		}
-	};
-
-
-	$('#confirm-btn').click(function () {
-		confirm = true;
-		sendbook();
-		location.href = "/dashboard/paymentconfirm?id=asd";
-	})
-
-	function cancel() {
-		var carid = $('#carNumberPlate').text;
-		console.log(carid);
-		var request = {}
-		$.ajax({
-			type: "POST",
-			async: false,
-			url: "/Views/bookingconfirmation.aspx/cancelBook",
-			data: JSON.stringify(request),
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			success: function () {
-				cancel = true;
-				console.log("Car JSON succ");
-			},
-			failure: function () {
-				console.error("Car JSON error");
-			}
-		});
-	}
-
-	function sendbook() {
-		var carid = $('#carNumberPlate').text;
-		console.log(carid);
-		var request = {}
-		$.ajax({
-			type: "POST",
-			async: false,
-			url: "/Views/bookingconfirmation.aspx/confirmbook",
-			data: JSON.stringify(request),
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			success: function () {
-				cancel = true;
-				console.log("Car JSON succ");
-			},
-			failure: function () {
-				console.error("Car JSON error");
-			}
-		});
-	}
-
-</script>
 
 </asp:Content>

@@ -142,13 +142,6 @@ function setMapWithFilters(filter) {
 	return dfd.promise();
 }
 
-
-// TODO used to find distance between 2 latlong using google api
-function refreshMap() {
-	var x = google.maps.geometry.spherical.computeDistanceBetween(loc, loc2);
-	getLocation().then(sendRequestForCars);
-}
-
 // Function to set user's position
 function setUserPosition(position) {
 	userPos = { lat: position.coords.latitude, lng: position.coords.longitude }
@@ -284,9 +277,9 @@ function sendFilterRequest() {
 	sortby = 0; // 0 represent default or sort by distance
 	} else if (sortby == "Distance (Lowest) (Default)") {
 	sortby = 0;
-	} else if (sortby == "Distance (Highest) ") {
+	} else if (sortby == "Distance (Highest)") {
 	sortby = 1; // 1 represent sort by furthest distance
-	} else if (sortby == "Rate (Lowest) ") {
+	} else if (sortby == "Rate (Lowest)") {
 	sortby = 2; // 2 represent sort by lowest rate
 	} else {
 	sortby = 3; // 3 represent sort by highest rate

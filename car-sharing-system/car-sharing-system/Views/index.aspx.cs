@@ -17,8 +17,8 @@ namespace car_sharing_system {
 	public class GoogleCarLocation {
 		public String carName { get; set; }
 		public Location loc { get; set; }
-		public int dist { get; set; }
-		public GoogleCarLocation(String n, Location l, int d) {
+		public Double dist { get; set; }
+		public GoogleCarLocation(String n, Location l, Double d) {
 			carName = n;
 			loc = l;
 			dist = d;
@@ -76,13 +76,11 @@ namespace car_sharing_system {
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
 			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
 
-			// TODO Random car's range generator
-			Random rand = new Random();
-
 			foreach (Car car in cars) {
 				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong,
-												rand.Next(1, 50)));
+												Math.Round(car.rangeToUser,2)));
 			}
+			
 
 			return oSerializer.Serialize(carlocs);
 		}

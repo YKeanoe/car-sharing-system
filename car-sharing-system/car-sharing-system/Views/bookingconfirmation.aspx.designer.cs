@@ -85,6 +85,33 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.Label carRateLabel;
         
         /// <summary>
+        /// bookStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bookStartTime;
+        
+        /// <summary>
+        /// bookEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bookEndTime;
+        
+        /// <summary>
+        /// bookEstimatePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bookEstimatePrice;
+        
+        /// <summary>
         /// featurelist control.
         /// </summary>
         /// <remarks>
@@ -94,12 +121,30 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.PlaceHolder featurelist;
         
         /// <summary>
-        /// Button1 control.
+        /// leftfeat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.PlaceHolder leftfeat;
+        
+        /// <summary>
+        /// rightfeat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder rightfeat;
+        
+        /// <summary>
+        /// confirmbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirmbtn;
     }
 }
