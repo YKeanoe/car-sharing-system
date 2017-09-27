@@ -20,19 +20,20 @@ namespace car_sharing_system.Admin_Theme.pages
             }
 
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
-			
 
-            if (IsPostBack)
+            if (Request.QueryString["edit"] == "1")
             {
-                updateform.Visible = false;
-                Label1.Text = firstname.Text;
-                Label1.Style.Add("font-weight", "bold");
-
-
+                showData.Visible = false;
+                updateform.Visible = true;
             }
-            TimeLabel.Text = DateTime.Now.ToString();
-
-
+            else
+            {
+                showData.Visible = true;
+                updateform.Visible = false;
+            }
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

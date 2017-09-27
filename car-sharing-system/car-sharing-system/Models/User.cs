@@ -13,7 +13,7 @@ namespace car_sharing_system.Models
         public String email { get; private set; }
         public String password { get; private set; }
         public int permission { get; private set; }
-        public String licenceNo { get; private set; }
+        public String licenseNo { get; private set; }
         public String fname { get; private set; }
         public String lname { get; private set; }
         public String gender { get; private set; }
@@ -33,7 +33,7 @@ namespace car_sharing_system.Models
             String email,
             String password,
             int permission,
-            String licenceNo,
+            String licenseNo,
             String fname,
             String lname,
             String gender,
@@ -54,7 +54,7 @@ namespace car_sharing_system.Models
             this.email = email;
             this.password = hashMe(password);
             this.permission = permission;
-            this.licenceNo = licenceNo;
+            this.licenseNo = licenseNo;
             this.fname = fname;
             this.lname = lname;
             this.gender = gender;
@@ -74,7 +74,7 @@ namespace car_sharing_system.Models
         }
         public Boolean nullChecker() {
             if (id.Equals(null) || email.Equals(null) || password.Equals(null) || 
-                permission.Equals(null) || licenceNo.Equals(null) || fname.Equals(null) || 
+                permission.Equals(null) || licenseNo.Equals(null) || fname.Equals(null) || 
                 lname.Equals(null) || gender.Equals(null) || birth.Equals(null) || phone.Equals(null) || 
                 street.Equals(null) || suburb.Equals(null) || postcode.Equals(null) || 
                 territory.Equals(null) ||  city.Equals(null) || country.Equals(null))
@@ -87,7 +87,7 @@ namespace car_sharing_system.Models
                 "Email: " + email + "<br />" +
                 "Password: " + password + "<br />" +
                 "Permission: " + permission + "<br />" +
-                "LicenceNo: " + licenceNo + "<br />" +
+                "licenseNo: " + licenseNo + "<br />" +
                 "First Name: " + fname + "<br />" +
                 "Last Name: " + lname + "<br />" +
                 "Gender: " + gender + "<br />" +

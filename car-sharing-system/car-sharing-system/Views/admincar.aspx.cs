@@ -12,7 +12,7 @@ namespace car_sharing_system.Admin_Theme.pages
     {
         protected String fn;
         protected String ln;
-        protected String licenceNo;
+        protected String licenseNo;
         protected String birth;
         protected String gender;
         protected String phone;

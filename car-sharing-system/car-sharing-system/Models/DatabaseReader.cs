@@ -180,7 +180,7 @@ namespace car_sharing_system.Models
                 {
                     mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
                     mySqlCommand.Parameters.AddWithValue("@password", newUser.password);
-                    mySqlCommand.Parameters.AddWithValue("@license", newUser.licenceNo);
+                    mySqlCommand.Parameters.AddWithValue("@license", newUser.licenseNo);
                     mySqlCommand.Parameters.AddWithValue("@fName", newUser.fname);
                     mySqlCommand.Parameters.AddWithValue("@lName", newUser.lname);
                     mySqlCommand.Parameters.AddWithValue("@gender", newUser.gender);

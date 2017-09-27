@@ -267,7 +267,7 @@ namespace car_sharing_system.Models.Tests
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
                             + "\nPermission: " + myData.permission
-                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nLicense Number: " + myData.licenseNo
                             + "\nFirst Name: " + myData.fname
                             + "\nLast Name: " + myData.lname
                             + "\nGender: " + myData.gender
@@ -323,7 +323,7 @@ namespace car_sharing_system.Models.Tests
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
                             + "\nPermission: " + myData.permission
-                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nLicense Number: " + myData.licenseNo
                             + "\nFirst Name: " + myData.fname
                             + "\nLast Name: " + myData.lname
                             + "\nGender: " + myData.gender
@@ -1039,7 +1039,7 @@ namespace car_sharing_system.Models.Tests
                             + "\nEmail: " + myData.email
                             + "\nPassword: " + myData.password
                             + "\nPermission: " + myData.permission
-                            + "\nLicense Number: " + myData.licenceNo
+                            + "\nLicense Number: " + myData.licenseNo
                             + "\nFirst Name: " + myData.fname
                             + "\nLast Name: " + myData.lname
                             + "\nGender: " + myData.gender
