@@ -19,9 +19,10 @@ namespace car_sharing_system.Models
         public Double travelDistance { get; }
 
 		// Used to add new booking
-        public Booking(int accountID, String numberPlate, long startDate, long estEndDate, Location latlong) {
+        public Booking(int accountID, String numberPlate, long bookingDate, long startDate, long estEndDate, Location latlong) {
             this.accountID = accountID;
             this.numberPlate = numberPlate;
+			this.bookingDate = bookingDate;
             this.startDate = startDate;
             this.estEndDate = estEndDate;
             this.latlong = latlong;
@@ -48,8 +49,10 @@ namespace car_sharing_system.Models
             this.bookingID = bookingID;
             this.accountID = accountID;
             this.numberPlate = numberPlate;
-            this.startDate = startDate;
-            this.latlong = latlong;
+			this.bookingDate = bookingDate;
+			this.startDate = startDate;
+			this.estEndDate = estEndDate;
+			this.latlong = latlong;
         }
 
 		public void debug() {

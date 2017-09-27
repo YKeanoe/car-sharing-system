@@ -102,7 +102,10 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		protected void confirmBook(object sender, EventArgs e) {
 			// Debug.WriteLine("Booking confirmed");
-			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, startDate, endDate, userLocation);
+			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+			long currentunix = (long)DateTime.Now.Subtract(unixStart).TotalSeconds;
+
+			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, currentunix, startDate, endDate, userLocation);
 			// book.debug();
 			DatabaseReader.addBooking(book);
 			Response.Redirect("/dashboard/");

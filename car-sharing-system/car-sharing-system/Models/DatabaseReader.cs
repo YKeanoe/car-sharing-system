@@ -398,25 +398,41 @@ namespace car_sharing_system.Models
                 using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
 					while (dbread.Read()) {
 						Location newLocation = new Location(
-							Convert.ToDecimal(dbread[7].ToString()) /*Latitude*/,
-							Convert.ToDecimal(dbread[8].ToString()) /*Longitude*/);
+							Convert.ToDecimal(dbread[6].ToString()) /*Latitude*/,
+							Convert.ToDecimal(dbread[7].ToString()) /*Longitude*/);
 						String actEndDate = dbread[6].ToString();
-						int endDate;
+						long endDate;
 						if (!String.IsNullOrEmpty(actEndDate)) {
-							endDate = (Int32)DateTime.UtcNow.Subtract(DateTime.Parse(actEndDate)).TotalSeconds;
+							endDate = Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(actEndDate)).TotalSeconds);
 						} else {
 							endDate = 0;
 						}
-						Booking currBook = new Booking(
-							Int32.Parse(dbread[0].ToString()), // BookingID
-							Int32.Parse(dbread[1].ToString()), // AccountID
-							dbread[2].ToString(), // Numberplate
-							(Int32)DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds, // start time
-							(Int32)DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds, // end time
-							newLocation, // location from above
-							Int32.Parse(dbread[7].ToString()) // total distance
-						); 
-                        
+						Booking currBook;
+
+
+						if (endDate == 0) {
+							currBook = new Booking(
+									Int32.Parse(dbread[0].ToString()), // BookingID
+									Int32.Parse(dbread[1].ToString()), // AccountID
+									dbread[2].ToString(), // Numberplate
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds), // Booking date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds), // Start Date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[5].ToString())).TotalSeconds), // Est end date
+									newLocation // location from above
+							);
+						} else {
+							currBook = new Booking(
+									Int32.Parse(dbread[0].ToString()), // BookingID
+									Int32.Parse(dbread[1].ToString()), // AccountID
+									dbread[2].ToString(), // Numberplate
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds), // Booking date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds), // Start Date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[5].ToString())).TotalSeconds), // Est end date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[6].ToString())).TotalSeconds), // end date
+									newLocation, // location from above
+									Convert.ToDouble(dbread[7].ToString())
+							);
+						}
                     }
                 }
             }
@@ -427,16 +443,14 @@ namespace car_sharing_system.Models
 		public static int addBooking(Booking book) {
 
 			StringBuilder querysb = new StringBuilder();
-			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-			long currentunix = (long)DateTime.Now.Subtract(unixStart).TotalSeconds;
 
 			querysb.Append("INSERT INTO Booking(accountID,numberPlate,bookingDate,startDate,estimatedEndDate,endDate,bookinguserlocationLat,bookinguserlocationLong,travelDistance)");
 			querysb.AppendFormat("VALUES ({0},'{1}', DATE('{2}'), DATE('{3}'), DATE('{4}'), null, {5}, {6}, null)",
 								book.accountID,
 								book.numberPlate,
-								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(currentunix)).ToString("yyyy-MM-dd HH:mm:ss"),
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.bookingDate)).ToString("yyyy-MM-dd HH:mm:ss"),
 								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.startDate)).ToString("yyyy-MM-dd HH:mm:ss"),
-								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.endDate)).ToString("yyyy-MM-dd HH:mm:ss"),
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.estEndDate)).ToString("yyyy-MM-dd HH:mm:ss"),
 								book.latlong.lat, book.latlong.lng); 
 			
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
