@@ -22,10 +22,6 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		static Location userLocation;
 
 		protected void Page_Load(object sender, EventArgs e) {
-
-			// TODO change status to 'A'
-			// Might need to cross check with booking table
-			// String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
 			String query = "status = 'U' AND numberPlate = '" + numberPlate + "'";
 
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);

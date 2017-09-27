@@ -59,7 +59,7 @@ namespace car_sharing_system.Models {
 		}
 
 		public List<Car> getCloseCar(Double lat, Double lng) {
-			List<Car> dbcars = DatabaseReader.carQuery(null);
+			List<Car> dbcars = DatabaseReader.carQuery("Status = 'A'");
 			cars = new Search(dbcars).find(lat,lng);
 			sortCarList(lat,lng,0);
 			return cars.GetRange(0,5);
@@ -129,13 +129,9 @@ namespace car_sharing_system.Models {
 				query.AppendFormat("transmission = '{0}' ", transmission);
 			}
 
-			// TODO
-			// Uncomment when db status is changed
-			/*
 			if (query.Length > 0) {
 				query.Append("AND Status = 'A'");
 			}
-			*/
 
 			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
 			if (dbcars != null) {

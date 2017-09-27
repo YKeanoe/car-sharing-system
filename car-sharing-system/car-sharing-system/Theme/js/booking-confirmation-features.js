@@ -10,8 +10,11 @@ window.onbeforeunload = function () {
 	return "You haven't complete the booking.";
 };
 	
+// 
 $(".btn-primary").click(function () {
 	window.onbeforeunload = null;
+	// Return false so that no postback is called
+	// return false;
 });
 
 function cancel() {

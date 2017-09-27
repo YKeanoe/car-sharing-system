@@ -21,7 +21,7 @@ namespace car_sharing_system.Admin_Theme.pages
             if (IsPostBack)
             {
                 updateform.Visible = false;
-                Label1.Text = firstname.Text;
+                Label1.Text = newUser.fname;
                 Label1.Style.Add("font-weight", "bold");
 
 

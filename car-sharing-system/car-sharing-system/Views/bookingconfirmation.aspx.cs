@@ -22,55 +22,53 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		static Location userLocation;
 
 		protected void Page_Load(object sender, EventArgs e) {
+			if (!IsPostBack) {
+				String tid, tsd, ted;
+				tid = Request.QueryString["id"];
+				tsd = Request.QueryString["sdate"];
+				ted = Request.QueryString["edate"];
+				if (!String.IsNullOrEmpty(tid) && !String.IsNullOrEmpty(tsd) && !String.IsNullOrEmpty(ted)) {
+					numberPlate = Request.QueryString["id"];
+					startDate = Int32.Parse(Request.QueryString["sdate"]);
+					endDate = Int32.Parse(Request.QueryString["edate"]);
+				} else {
+					Response.Redirect("/");
+				}
+				String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
 
-			String tid, tsd, ted;
-			tid = Request.QueryString["id"];
-			tsd = Request.QueryString["sdate"];
-			ted = Request.QueryString["edate"];
+				Car currentCar = DatabaseReader.carQuerySingleFull(query);
 
-			if (!String.IsNullOrEmpty(tid) && !String.IsNullOrEmpty(tsd) && !String.IsNullOrEmpty(ted)) {
-				numberPlate = Request.QueryString["id"];
-				startDate = Int32.Parse(Request.QueryString["sdate"]);
-				endDate = Int32.Parse(Request.QueryString["edate"]);
-			} else {
-				Response.Redirect("/");
-			}
-			// TODO change status to 'A'
-			// String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
-			String query = "status = TRUE AND numberPlate = '" + numberPlate + "'";
+				if (currentCar != null) {
+					// Set the car status to be booked
+					DatabaseReader.setCarBooked(currentCar.numberPlate);
 
-			Car currentCar = DatabaseReader.carQuerySingleFull(query);
+					// Set page's labels
+					carNumberPlate.Text = numberPlate;
+					carLocation = currentCar.latlong;
+					carBrandLabel.Text = currentCar.brand;
+					carModelLabel.Text = currentCar.model;
+					char transmission = currentCar.transmission;
+					carTransmissionLabel.Text = (transmission.Equals('A')) ? "Automatic" : "Manual";
+					carSeatsLabel.Text = currentCar.seats + " Seats";
+					carTypeLabel.Text = currentCar.vehicleType;
+					carRateLabel.Text = "$" + currentCar.rate.ToString("00.00") + " per Hour";
 
-			if (currentCar != null) {
-				// Set the car status to be booked
-				//DatabaseReader.setCarBooked(currentCar.numberPlate);
+					bookStartTime.Text = "From " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
+					bookEndTime.Text = "To " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(endDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
 
-				// Set page's labels
-				carNumberPlate.Text = numberPlate;
-				carLocation = currentCar.latlong;
-				carBrandLabel.Text = currentCar.brand;
-				carModelLabel.Text = currentCar.model;
-				char transmission = currentCar.transmission;
-				carTransmissionLabel.Text = (transmission.Equals('A')) ? "Automatic" : "Manual";
-				carSeatsLabel.Text = currentCar.seats + " Seats";
-				carTypeLabel.Text = currentCar.vehicleType;
-				carRateLabel.Text = "$" + currentCar.rate.ToString("00.00") + " per Hour";
+					Double estPrice = (Double)(endDate - startDate) / 3600 * currentCar.rate;
+					bookEstimatePrice.Text = "$" + estPrice.ToString("00.00");
 
-				bookStartTime.Text = "From " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
-				bookEndTime.Text = "To " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(endDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
+					featureHTML(leftfeat, currentCar.gps, "GPS");
+					featureHTML(leftfeat, currentCar.cdPlayer, "CD Player");
+					featureHTML(leftfeat, currentCar.bluetooth, "Bluetooth");
 
-				Double estPrice = (Double)(endDate - startDate) / 3600 * currentCar.rate;
-				bookEstimatePrice.Text = "$" + estPrice.ToString("00.00");
-
-				featureHTML(leftfeat, currentCar.gps, "GPS");
-				featureHTML(leftfeat, currentCar.cdPlayer, "CD Player");
-				featureHTML(leftfeat, currentCar.bluetooth, "Bluetooth");
-
-				featureHTML(rightfeat, currentCar.cruiseControl, "Cruise Control");
-				featureHTML(rightfeat, currentCar.reverseCam, "Reverse Camera");
-				featureHTML(rightfeat, currentCar.radio, "Radio");
-			} else {
-				Response.Redirect("/");
+					featureHTML(rightfeat, currentCar.cruiseControl, "Cruise Control");
+					featureHTML(rightfeat, currentCar.reverseCam, "Reverse Camera");
+					featureHTML(rightfeat, currentCar.radio, "Radio");
+				} else {
+					Response.Redirect("/");
+				}
 			}
 		}
 
@@ -94,28 +92,25 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			}
 		}
 
-
 		[System.Web.Services.WebMethod]
 		public static void cancelBooking() {
-			//Debug.WriteLine("booking canceled");			
+			// Debug.WriteLine("booking canceled");			
 			String query = "numberPlate = '" + numberPlate + "'";
-			//Debug.WriteLine(query);
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-			//DatabaseReader.enableCar(currentCar.numberPlate);	
+			DatabaseReader.enableCar(currentCar.numberPlate);	
 		}
 
 		protected void confirmBook(object sender, EventArgs e) {
-			//Debug.WriteLine("Booking confirmed");
+			// Debug.WriteLine("Booking confirmed");
 			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, startDate, endDate, userLocation);
-			book.debug();
+			// book.debug();
+			DatabaseReader.addBooking(book);
 			Response.Redirect("/dashboard/");
-			//DatabaseReader.addBooking(book);
 		}
 
 		[System.Web.Services.WebMethod]
 		public static void setLoc(String lat, String lng) {
 			userLocation = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
-			//userLoc.debug();
 		}
 	}
 }

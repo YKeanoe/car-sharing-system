@@ -37,7 +37,7 @@
 								<asp:PlaceHolder ID="rightfeat" runat="server"></asp:PlaceHolder>
 							</div>
 						</div>
-						<asp:Button ID="confirmbtn" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="confirmBook"></asp:Button>
+						<asp:Button ID="confirmbtn" runat="server" Text="Confirm" CssClass="btn btn-primary" OnClick="confirmBook" />
 					</form>
 				</div>
 				<div class="panel-half">
