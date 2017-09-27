@@ -31,13 +31,9 @@ namespace car_sharing_system.Admin_Theme.pages
 
 
             }
-            TimeLabel.Text = DateTime.Now.ToString();
 
 
-            }
-        }
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+            
         }
     }
 }
