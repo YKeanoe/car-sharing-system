@@ -116,7 +116,7 @@
                                 </div>
 
                                 <div class="field3">
-                                    <label id="labelBox">Licence Number: </label><input type="text" id="licenceNo" name="licenceNo" value="<%=newUser.licenceNo %>">
+                                    <label id="labelBox">license Number: </label><input type="text" id="licenseNo" name="licenseNo" value="<%=newUser.licenseNo %>">
                                 </div>
 
                                 <div class="field4">

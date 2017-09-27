@@ -61,7 +61,7 @@ namespace car_sharing_system.Admin_Theme.pages
                             "<span>"+curr.fname+" "+curr.lname+ "</span>\n" +
                         "</div>\n" +
                         "<div class='cell col lic'>\n" +
-                            "<span>"+curr.licenceNo.ToString()+ "</span>\n" +
+                            "<span>"+curr.licenseNo.ToString()+ "</span>\n" +
                         "</div>\n" +
                         "<div class='cell col em'>\n" +
                             "<span>"+curr.email+ "</span>\n" +

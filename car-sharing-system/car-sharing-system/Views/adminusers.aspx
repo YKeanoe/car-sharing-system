@@ -115,7 +115,7 @@
                                     <h4>User's Name</h4>
                                 </div>
                                 <div class="cellHead col lic">
-                                    <h4>User's Licence</h4>
+                                    <h4>User's license</h4>
                                 </div>
                                 <div class="cellHead col em">
                                     <h4>User's Email</h4>

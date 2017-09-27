@@ -16,10 +16,15 @@ namespace car_sharing_system.Admin_Theme.pages
         {
 
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
-			
 
-            if (IsPostBack)
+            if (Request.QueryString["edit"] == "1")
             {
+                showData.Visible = false;
+                updateform.Visible = true;
+            }
+            else
+            {
+                showData.Visible = true;
                 updateform.Visible = false;
                 Label1.Text = newUser.fname;
                 Label1.Style.Add("font-weight", "bold");
@@ -29,6 +34,10 @@ namespace car_sharing_system.Admin_Theme.pages
             TimeLabel.Text = DateTime.Now.ToString();
 
 
+            }
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }
