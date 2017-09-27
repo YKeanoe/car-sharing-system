@@ -9,10 +9,10 @@
                 <div class="row">
                     <div class="col-xs-3">
                         <i class="fa fa-user fa-5x"></i>
-                    </div>
+                      </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge"></div> 
-                        <br>
+                            <br>
                         <div>Profile!</div>
                     </div>
                 </div>
@@ -32,10 +32,10 @@
                 <div class="row">
                     <div class="col-xs-3">
                         <i class="fa fa-tasks fa-5x"></i>
-                    </div>
+                           </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge"></div>
-                        <br>
+                             <br>
                         <div>Booking history!</div>
                     </div>
                 </div>
@@ -81,19 +81,18 @@
                 <i class="fa fa-envelope-o fa-fw"></i> Submit concerns
                 <div class="pull-right">
                     <div class="btn-group">
-                                        
-                                    
-                                  
-                    </div>
+                              
                 </div>
-            </div>
+                  </div>
+                     </div>
+                        </div>
+
+
             <div class="panel-body">
                 <div class="panel-body">
                     <form id="form2" runat="server"> 
                         <div class="form-group">
                           
-                            
-                            
                            
                             <label>Subject</label> 
                             <br>
@@ -102,10 +101,6 @@
                             <br>
                             <asp:TextBox ID="description" runat="server" placeholder="Enter description"
                                 TextMode="Multiline" rows="4" columns="50"></asp:TextBox> 
-                            <asp:RequiredFieldValidator  runat="server" ControlToValidate="description"
-                                ValidationExpression="^[a-zA-zZ0-9]"
-                                ErrorMessage="Please issue"   
-                                ForeColor="Red"></asp:RequiredFieldValidator>
                             <br>
                             <br>
 
@@ -117,6 +112,5 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 </asp:Content>

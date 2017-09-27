@@ -90,7 +90,6 @@
                 <div class="col-lg-8">
                     <div id="bookings">Bookings Data</div>
                 </div>
-                <a href="#" class="btn btn-default btn-block" style="display:inline-block;">View All Alerts</a>
             </div>
             <section id="cars" class="about-section">
     <div class="container-fluid">
