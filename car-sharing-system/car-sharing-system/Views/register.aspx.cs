@@ -39,7 +39,7 @@ namespace car_sharing_system.Admin_Theme.pages
                 if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenseNo + "' = licenseNo LIMIT 1") == null) {
                     dr.Registeration(newUser);
                     FormsAuthentication.SetAuthCookie(newUser.id.ToString(), false);
-                    Response.Redirect("~/dashboard/congratz");
+                    Response.Redirect("~/login.aspx");
                 }else
                 {
                     regFail.InnerText = "Email or license Number already used";

@@ -245,21 +245,21 @@
 
             <div id="pagewrap">
 
-	<section id="content">
+	<div class="middle">
 	
         <img src="../Theme/Images/middle.png" />
-	</section>
+	</div>
 	
-	<section id="middle">
+	<div class="middle">
         <img src="../Theme/Images/middle.png" />
-	</section>
+	</div>
 
 
-	<aside id="sidebar">
+	<div class="middle">
 		
 		  <img src="../Theme/Images/middle.png" />
 
-	</aside>
+	</div>
 	
 </div>
         </div>

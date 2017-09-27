@@ -202,11 +202,10 @@ namespace car_sharing_system.Models
         public void clientIssue(Issues newIssue)
         {
             String query = "INSERT INTO Issues (accountID, bookingID,submissionDate, subject, description) ";
-            query += " VALUES (@accountID,@bookingID, submissionDate, @subject, @description); ";
+            query += " VALUES (@accountID, @bookingID, @submissionDate, @subject, @description) ";
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
-                Debug.WriteLine(newIssue.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
                     mySqlCommand.Parameters.AddWithValue("@accountID", newIssue.accountID);
