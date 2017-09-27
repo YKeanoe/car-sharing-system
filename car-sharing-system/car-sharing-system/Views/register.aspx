@@ -10,15 +10,17 @@
                     <div class="btn-group"></div>
                 </div>        
             </div>
-
+            
             <!-- /.panel-heading -->
             <div class="panel-body">
+                <div class="form-group">      
                 <form id="form1" runat="server">  
                     <asp:ScriptManager ID="sm" runat="server"></asp:ScriptManager>
                     <div class="row">
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+
                             <!-- Email Label -->
                             <label>Email</label>
                             <br />
@@ -28,6 +30,7 @@
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                                 ControlToValidate="emailRego" ForeColor="Red" ErrorMessage="Invalid email address." />
                             <br />
+
                             <!-- Password Label -->
                             <label>Password</label> 
                             <br />
@@ -38,6 +41,7 @@
                                 ErrorMessage="Password Requires a capital letter, a lower case letter and a number"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
+
                             <!-- License Label -->
                             <label>License Number</label> 
                             <br />
@@ -47,6 +51,7 @@
                                 ValidationExpression="^[0-9]{1,9}$"
                                 ControlToValidate="licenseRego" ForeColor="Red" ErrorMessage="Invalid license number." />
                             <br />
+
                             <!-- First Name Label -->
                             <label>First Name</label> 
                             <br />
@@ -57,6 +62,7 @@
                                 ErrorMessage="Please enter your first name"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
+
                             <!-- Last Name Label -->
                             <label>Last Name</label>
                             <br />
@@ -67,6 +73,7 @@
                                 ValidationExpression="^[a-zA-zZ]"
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
+
                             <!-- Gender Label -->
                             <label>Gender</label> 
                             <br />
@@ -75,7 +82,8 @@
                             <asp:ListItem>Female</asp:ListItem>
                             </asp:RadioButtonList>
                             <br />
-                            <!-- Birthdate Label -->
+
+                            <!-- Birth date Label -->
                             <label>Birth</label> 
                             <br />
                             <asp:TextBox ID="birthRego" runat="server" placeholder="dd/mm/yy"></asp:TextBox> 
@@ -84,6 +92,7 @@
                                 runat="server" Display="Dynamic" 
                                 ControlToValidate="birthRego" ForeColor="Red" ErrorMessage="Enter birth." />
                             <br />
+
                             <!-- Phone Label -->
                             <label>Phone Number</label>
                             <br />
@@ -93,6 +102,7 @@
                                 ValidationExpression="^[0-9]{10}$"
                                 ControlToValidate="phoneNoRego" ForeColor="Red" ErrorMessage="Invalid phone number." />          
                             <br />
+
                             <!-- Address Label -->
                             <label>Street address</label>
                             <br />
@@ -102,6 +112,7 @@
                                 ValidationExpression="^[A-Za-z0-9_.]+$"
                                 ControlToValidate="streetRego" ForeColor="Red" ErrorMessage="Enter street address." />             
                             <br />
+
                             <!-- Suburb Label -->
                             <label>Suburb</label> 
                             <br />
@@ -112,6 +123,7 @@
                                 ErrorMessage="Please enter your suburb"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>     
                             <br />
+
                             <!-- Postcode Label -->
                             <label>Post code</label>
                             <br />
@@ -121,6 +133,7 @@
                                 ValidationExpression="^[0-9]{4}$"
                                 ControlToValidate="postRego" ForeColor="Red" ErrorMessage="Enter postcode." />           
                             <br />
+
                             <!-- Territory Label -->
                             <label>Territory</label> 
                             <br />
@@ -131,6 +144,7 @@
                                 ErrorMessage="Please enter your territory"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br>
+
                             <!-- City Label -->
                            <label>City</label> 
                             <br />
@@ -141,8 +155,8 @@
                                 ErrorMessage="Please enter city"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br>
-                            <!-- Country Label -->
 
+                            <!-- Country Label -->
                             <label>Country</label> 
                             <br />
                             <asp:TextBox ID="countryRego" runat="server"></asp:TextBox> 
@@ -152,14 +166,8 @@
                                 ErrorMessage="Please enter your country"   
                                 ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
-                            <!-- Profile URL? -->
-                            
-                            <label>Profile URL</label> 
-                            <br />
-                            <asp:TextBox ID="urlRego" runat="server"></asp:TextBox> 
-                            <br />
-                            
-                            <p>Confirm Button</p>
+                         
+                            <p>Confirmation button</p>
                             <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click"  href="/successIssue.aspx"></asp:Button>                   
                             <span id="regFail" runat="server"></span>
                         </div>
