@@ -22,15 +22,15 @@ namespace car_sharing_system.Admin_Theme.pages
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 			
 
-            if (IsPostBack)
-            {
-                updateform.Visible = false;
-                Label1.Text = firstname.Text;
-                Label1.Style.Add("font-weight", "bold");
+          //  if (IsPostBack)
+            //{
+              //  updateform.Visible = false;
+                //Label1.Text = firstname.Text;
+                //Label1.Style.Add("font-weight", "bold");
 
 
-            }
-            TimeLabel.Text = DateTime.Now.ToString();
+//            }
+  //          TimeLabel.Text = DateTime.Now.ToString();
 
 
         }

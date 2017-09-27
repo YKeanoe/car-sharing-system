@@ -110,6 +110,7 @@
                     Brand
                     <span class="caret"></span>
                   </button>
+                    <br>
                   <ul class="dropdown-menu filter-dropdown-menu" id="brand-filter-dropdown">
                     <li><a href:"#">Audi</a></li>
                     <li><a href:"#">Ford</a></li>

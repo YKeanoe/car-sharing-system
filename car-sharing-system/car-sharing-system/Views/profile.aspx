@@ -19,7 +19,7 @@
                         </div>
                         <a href="profile">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View profile details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -42,7 +42,7 @@
                         </div>
                         <a href="booking">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">View booking history</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -159,8 +159,7 @@
 
                                <p> The time is now: <asp:label runat="server" ID="TimeLabel"/> 
 
-
-                                           <input type="submit" value="Submit"  class="btn btn-info"></p>
+                                           <input type="submit" value="Submit"  class="btn btn-primary"></p>
                                                 
 
                                         
