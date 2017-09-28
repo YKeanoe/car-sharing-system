@@ -21,10 +21,10 @@
                         <LayoutTemplate>
                             <div class="form-group">
                                 <asp:TextBox class="form-control" placeholder="Email" id="UserName" runat="server"></asp:TextBox>
-                                <asp:requiredfieldvalidator id="UserNameRequired" runat="server" ControlToValidate="UserName" Text="*"></asp:requiredfieldvalidator>
+                                <asp:requiredfieldvalidator id="UserNameRequired" runat="server" ForeColor="Red" ControlToValidate="UserName" Text="Please enter a username."></asp:requiredfieldvalidator>
                                 <br />
                                 <asp:TextBox class="form-control" placeholder="Password" id="Password" runat="server" textMode="Password"></asp:TextBox>
-                                <asp:requiredfieldvalidator id="PasswordRequired" runat="server" ControlToValidate="Password" Text="*"></asp:requiredfieldvalidator>
+                                <asp:requiredfieldvalidator id="PasswordRequired" runat="server" ForeColor="Red" ControlToValidate="Password" Text="Please enter a password."></asp:requiredfieldvalidator>
                                 <br />
                                 <asp:button id="Button1" class="btn btn-primary" CommandName="Login" runat="server" Text="Login"></asp:button>
                                 <a href="/dashboard/register" class="btn btn-info">Register</a>
