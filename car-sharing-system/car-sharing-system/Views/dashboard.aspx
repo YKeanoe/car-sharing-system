@@ -105,12 +105,13 @@
             <div class="panel">
               <label class="result-label">Refine Results</label>
               <div class="filter">
+                  
                 <div class="dropdown filter-dropdown">
                   <button class="btn btn-primary dropdown-toggle btn-filter" id="brand-filter" type="button" data-toggle="dropdown">
                     Brand
                     <span class="caret"></span>
                   </button>
-                    <br>
+                    
                   <ul class="dropdown-menu filter-dropdown-menu" id="brand-filter-dropdown">
                     <li><a href:"#">Audi</a></li>
                     <li><a href:"#">Ford</a></li>
@@ -123,6 +124,7 @@
                     <li><a href:"#">Suzuki</a></li>
                   </ul>
                 </div>
+                      
                 <div class="dropdown filter-dropdown">
                   <button class="btn btn-primary dropdown-toggle btn-filter" id="seat-filter" type="button" data-toggle="dropdown">
                     Seats
@@ -146,6 +148,7 @@
                   </ul>
                 </div>
               </div>
+                <br>
               <button class="btn btn-primary" id="list-collapse-btn" type="button">Filter</button>
             </div>
             <div class="collapse in" id="list-collapse">

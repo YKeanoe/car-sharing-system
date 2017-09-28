@@ -25,3 +25,8 @@
 #map img {
 	max-width:100%;
 }
+
+.dropup, .dropdown, .dropdown filter-dropdown, .dropdown-menu filter-dropdown-menu{
+    display: inline-block;
+}
+

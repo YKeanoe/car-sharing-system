@@ -94,6 +94,10 @@
     display: inline-table;
 }
 
+.block {
+  position: relative;
+    display: inline-block;
+}
 
 
 body {
