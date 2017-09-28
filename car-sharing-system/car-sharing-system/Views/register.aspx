@@ -17,7 +17,7 @@
                     <div class="form-group"> 
                             <!-- Email Label -->
                         <div class = "emailRego">
-                            <label id="labelBox1">Email:</label>
+                            <label class="label2">Email:</label>
                             <asp:TextBox Type="email" ID="emailRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator runat="server" Display="Dynamic" 
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
@@ -26,7 +26,7 @@
                        
                             <!-- Password Label -->
                             <div class = "passwordRego">
-                            <label id="labelBox1">Password:</label>
+                            <label class="label2">Password:</label>
                             <asp:TextBox ID="passwordRego" runat="server" Type="password"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="passwordRego"
                                 ValidationExpression="[0-9]{1,}[a-z]{1,}[A-Z]{1,}"
@@ -36,7 +36,7 @@
 
                             <!-- License Label -->
                         <div class = "licenseRego">
-                            <label id="labelBox1">License Number:</label>
+                            <label class="label2">License Number:</label>
                             <asp:TextBox ID="licenseRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator runat="server" 
                                 ValidationExpression="^[0-9]{1,9}$"
@@ -45,7 +45,7 @@
 
                             <!-- First Name Label -->
                         <div class = "firstRego">
-                            <label id="labelBox1">First name:</label> 
+                            <label class="label2">First name:</label> 
                             <asp:TextBox ID="firstRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="firstRego"
                                 ValidationExpression="^[a-zA-zZ]"
@@ -55,7 +55,7 @@
 
                             <!-- Last Name Label -->
                         <div class = "lastNameRego">
-                            <label id="labelBox1">Last name:</label>
+                            <label class="label2">Last name:</label>
                             <asp:TextBox ID="lastNameRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server"   
                                 ControlToValidate="lastNameRego" ErrorMessage="Please enter your last name"   
@@ -65,7 +65,7 @@
 
                             <!-- Gender Label -->
                         <div class = "RadioButtonList1">
-                            <label id="labelBox1">Gender:</label>
+                            <label class="label2">Gender:</label>
                             <asp:RadioButtonList id=RadioButtonList1 runat="server">
                             <asp:ListItem>Male</asp:ListItem>
                             <asp:ListItem>Female</asp:ListItem>
@@ -74,7 +74,7 @@
 
                             <!-- Birth date Label -->
                         <div class = "birthRego">
-                            <label id="labelBox1">Birth:</label> 
+                            <label class="label2">Birth:</label> 
                             <asp:TextBox ID="birthRego" runat="server" placeholder="dd/mm/yy"></asp:TextBox> 
                             <asp:RequiredFieldValidator ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"
                                 runat="server" Display="Dynamic" 
@@ -83,7 +83,7 @@
                  
                             <!-- Phone Label -->
                         <div class = "phoneNoRego">
-                            <label id="labelBox1">Phone Number:</label>
+                            <label class="label2">Phone Number:</label>
                             <asp:TextBox ID="phoneNoRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator runat="server" Display="Dynamic" 
                                 ValidationExpression="^[0-9]{10}$"
@@ -94,7 +94,7 @@
 
                             <!-- Address Label -->
                         <div class = "streetRego">
-                            <label id="labelBox1">Street:</label>
+                            <label class="label2">Street:</label>
                             <asp:TextBox ID="streetRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator runat="server" Display="Dynamic"
                                 ValidationExpression="^[A-Za-z0-9_.]+$"
@@ -103,7 +103,7 @@
 
                             <!-- Suburb Label -->
                         <div class = "suburbRego">
-                            <label id="labelBox1">Suburb:</label> 
+                            <label class="label2">Suburb:</label> 
                             <asp:TextBox ID="suburbRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="suburbRego"
                                 ValidationExpression="^[a-zA-zZ]"
@@ -113,7 +113,7 @@
 
                             <!-- Postcode Label -->
                         <div class = "postRego">
-                            <label id="labelBox1">Postcode:</label>
+                            <label class="label2">Postcode:</label>
                             <asp:TextBox ID="postRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator runat="server" Display="Dynamic" 
                                 ValidationExpression="^[0-9]{4}$"
@@ -122,7 +122,7 @@
 
                             <!-- Territory Label -->
                         <div class = "terrRego">
-                            <label id="labelBox1">Territory:</label> 
+                            <label class="label2">Territory:</label> 
                             <asp:TextBox ID="terrRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="terrRego"
                                 ValidationExpression="^[a-zA-zZ]"
@@ -132,7 +132,7 @@
 
                             <!-- City Label -->
                         <div class = "cityRego">
-                           <label id="labelBox1">City:</label> 
+                           <label class="label2">City:</label> 
                             <asp:TextBox ID="cityRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="cityRego"
                                 ValidationExpression="^[a-zA-zZ]"
@@ -142,7 +142,7 @@
 
                             <!-- Country Label -->
                         <div class = "countryRego">
-                            <label id="labelBox1">Country:</label> 
+                            <label class="label2">Country:</label> 
                             <asp:TextBox ID="countryRego" runat="server"></asp:TextBox> 
                             <asp:RequiredFieldValidator  runat="server" ControlToValidate="countryRego"
                                 ValidationExpression="^[a-zA-zZ]"

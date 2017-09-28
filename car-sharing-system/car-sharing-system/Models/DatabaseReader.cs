@@ -203,8 +203,36 @@ namespace car_sharing_system.Models
                 mySqlConnection.Close();
             }
         }
+        public static void updateProfile(User newUser)
+        {
+            String query = "UPDATE User (licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
+            query += " VALUES (@license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                Debug.WriteLine(newUser.toString());
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+                {
+                    mySqlCommand.Parameters.AddWithValue("@license", newUser.licenseNo);
+                    mySqlCommand.Parameters.AddWithValue("@fName", newUser.fname);
+                    mySqlCommand.Parameters.AddWithValue("@lName", newUser.lname);
+                    mySqlCommand.Parameters.AddWithValue("@gender", newUser.gender);
+                    mySqlCommand.Parameters.AddWithValue("@birth", newUser.birth);
+                    mySqlCommand.Parameters.AddWithValue("@phoneNo", newUser.phone);
+                    mySqlCommand.Parameters.AddWithValue("@street", newUser.street);
+                    mySqlCommand.Parameters.AddWithValue("@suburb", newUser.suburb);
+                    mySqlCommand.Parameters.AddWithValue("@postcode", newUser.postcode);
+                    mySqlCommand.Parameters.AddWithValue("@territory", newUser.territory);
+                    mySqlCommand.Parameters.AddWithValue("@city", newUser.city);
+                    mySqlCommand.Parameters.AddWithValue("@country", newUser.country);
+                    mySqlCommand.Parameters.AddWithValue("@profileurl", newUser.profileURL);
 
-		// clientIssue function is used to add new issue to the database.
+                    mySqlCommand.ExecuteNonQuery();
+                }
+                mySqlConnection.Close();
+            }
+        }
+        // clientIssue function is used to add new issue to the database.
         public void clientIssue(Issues newIssue)
         {
             String query = "INSERT INTO Issues (accountID, bookingID,submissionDate, subject, description) ";

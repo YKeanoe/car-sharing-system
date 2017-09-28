@@ -95,86 +95,138 @@
 
                         <!-- /.panel-heading -->
                       
-                      <asp:Label ID="Label1" runat="server" ></asp:Label>
 
                         <div class="panel-body">
    
                             
                                         <div class="form-group">
                             <div id="showData"  runat="server">
-                                <p>First Name: <%=newUser.fname%></p>
-                                <p>Last Name: <%=newUser.lname%></p>
-                                <p>license Number: <%=newUser.licenseNo%></p>
-                                <p>Date of Birth: <%=newUser.birth%></p>
-                                <p>license Number: <%=newUser.licenseNo%></p>
-                                <p>gender: <%=newUser.gender%></p>
-                                <p>phone: <%=newUser.phone%></p>
-                                <p>street: <%=newUser.street%></p>
-                                <p>suburb: <%=newUser.suburb%></p>
-                                <p>postcode: <%=newUser.postcode%></p>
-                                <p>territory: <%=newUser.territory%></p>
-                                <p>city: <%=newUser.city%></p>
-                                <p>country: <%=newUser.country%></p>
-                                <img src='<%=newUser.profileURL%>'/>
+                                <div >
+                                    <label>First Name: </label>
+                                    <span id="fN" runat="server"></span>
+                                </div>
+                                <div >
+                                    <label>Last Name: </label><span id="lN" runat="server"></span>
+                                </div>
+                                <div >
+                                    <label >License Number: </label><span id="LiN" runat="server"></span>
+                                </div>
+
+                                <div >
+                                    <label>Date of Birth: </label><span id="dob" runat="server"></span>
+                                </div>
+
+                                <div >
+                                    <label>Gender: </label><span id="gen" runat="server"></span>
+                                </div>
+
+                                <div >
+                                    <label>Phone: </label><span id="ph" runat="server"></span>
+                                </div>
+
+                                <div > 
+                                    <label>Street: </label><span id="st" runat="server"></span>
+                                </div>
+
+                                <div >
+                                    <label>Suburb: </label><span id="sb" runat="server"></span>
+                                </div>
+
+                                <div >
+                                     <label>Postcode: </label><span id="pc" runat="server"></span>
+                                </div>
+
+                                <div >
+                                     <label>Territory: </label><span id="ter" runat="server"></span>
+                                </div>
+
+                                <div >
+                                     <label>City: </label><span id="ci" runat="server"></span>
+                                </div>
+
+                                <div >
+                                     <label>Country: </label><span id="co" runat="server"></span>
+                                </div>
+
+                                <img id="pu" src="" runat="server"/>
                                 <a class="btn btn-info" id="edit" href="/dashboard/profile?edit=1">Edit</a>
                             </div>
+
                             <form id="updateform" runat="server">
                                                
-                                  <div class="field1">
-                                    <label  >First Name: </label><input type="text" id="firstname" name="firstname" value="<%=newUser.fname%>">
+                                <div >
+                                    <label class="label">First Name: </label>
+                                    <input type="text" name="firstname" id="efirstname" runat="server"/>
                                 </div>
                                  
-                                <div class="field2">
-                                    <label  >Last Name: </label><input type="text" id="lastname" name="lastname" value="<%=newUser.lname %>">
+                                <div >
+                                    <label class="label">Last Name: </label>
+                                    <input type="text" name="lastname" id="elastname" runat="server"/>
                                 </div>
 
-                                <div class="field3">
-                                    <label  >license Number: </label><input type="text" id="licenseNo" name="licenseNo" value="<%=newUser.licenseNo %>">
+                                <div >
+                                    <label class="label">License Number: </label>
+                                    <input type="text" name="licenseNo" id="elicenseNo" runat="server"/>
                                 </div>
 
-                                <div class="field4">
-                                    <label  >Date of Birth: </label><input type="text" id="birth" name="birth" value="<%=newUser.birth %>">
+                                <div >
+                                    <label class="label">Date of Birth: </label>
+                                    <input type="text" name="birth" id="ebirth" runat="server"/>
                                 </div>
 
-                                <div class="field5">
-                                    <label  >Gender: </label><input type="text" id="gender" name="gender" value="<%=newUser.gender %>">
+                                <div >
+                                    <label class="label">Gender: </label>
+                                    <input type="text" name="gender" id="egender" runat="server"/>
                                 </div>
 
-                                <div class="field6">
-                                    <label  >Phone: </label><input type="text" id="phone" name="phone" value="<%=newUser.phone %>">
+                                <div >
+                                    <label class="label">Phone: </label>
+                                    <input type="text" name="phone" id="ephone" runat="server"/>
                                 </div>
 
-                                <div class="field7"> 
-                                    <label  >Street: </label><input type="text" id="street" name="street" value="<%=newUser.street %>">
+                                <div > 
+                                    <label class="label">Street: </label>
+                                    <input type="text" name="street" id="estreet" runat="server"/>
                                 </div>
 
-                                <div class="field8">
-                                    <label  >Suburb: </label><input type="text" id="suburb" name="suburb" value="<%=newUser.suburb %>">
+                                <div >
+                                    <label class="label">Suburb: </label>
+                                    <input type="text" name="suburb" id="esuburb" runat="server"/>
                                 </div>
 
-                                <div class="field9">
-                                     <label  >Postcode: </label><input type="text" id="postcode" name="postcode" value="<%=newUser.postcode %>">
+                                <div >
+                                     <label class="label">Postcode: </label>
+                                    <input type="text" name="postcode" id="epostcode" runat="server"/>
                                 </div>
 
-                                <div class="field10">
-                                     <label  >Territory: </label><input type="text" id="territory" name="territory" value="<%=newUser.territory %>">
+                                <div >
+                                     <label class="label">Territory: </label>
+                                    <input type="text" name="territory" id="eterritory" runat="server"/>
                                 </div>
 
-                                <div class="field11">
-                                     <label  >City: </label><input type="text" id="city" name="city" value="<%=newUser.city %>">
+                                <div >
+                                     <label class="label">City: </label>
+                                    <input type="text" name="city" id="ecity" runat="server"/>
                                 </div>
 
-                                <div class="field12">
-                                     <label  >Country: </label><input type="text" id="country" name="country" value="<%=newUser.country %>">
+                                <div >
+                                     <label class="label">Country: </label>
+                                     <input type="text" name="country" id="ecountry" runat="server"/>
                                 </div>
 
-                                <div class="field13">
-                                     <label  >ProfileURL: </label><input type="text" id="profileURL" name="profileURL" value="<%=newUser.profileURL %>">
+                                <div class="last">
+                                     <label  class="label" >ProfileURL: </label>
+                                    <input type="text" id="eprofileURL" runat="server"/>
+                                    <img src="" id="eprofileIMG" runat="server"/>
                                 </div>
-                                 <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-info">
+                                     <label id="profileImg">ProfileURL: </label>
+                                <br>
+                                <div class="submit1">
+                                    <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-primary">
+                                </div>
                              </form>
 
-                                        </div>
+                            </div>
                         </div>
 
 

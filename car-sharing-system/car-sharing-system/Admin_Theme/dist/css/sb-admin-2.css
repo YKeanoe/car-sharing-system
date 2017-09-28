@@ -37,13 +37,13 @@
     width: 24%;
 }
 
-#labelBox {
+.label {  
     width: 125px;
     text-align: left;
     padding-right: 10px;
 }
 
-#labelBox1 {
+.label2  {
     width: 125px;
     text-align: left;
     padding-right: 10px;
@@ -63,6 +63,10 @@
     margin-left: 0px;
     margin-top: -5px;
     font-size: x-large;
+}
+
+.submit1 {
+    margin-left: 2%;
 }
 
 d {
@@ -88,23 +92,20 @@ p {
 }
 
 .col-lg-8 {
-    width: 98%;
+    width: 100%;
 }
 
 .page-header {
     margin: 10px 0 20px;
 }
 
-.field2, .field3, .field4, .field5, .field6, .field7, .field8, .field9, .field10, .field11, .field12 {
+#updateform div, #showData div{
     padding:20px 10px 0px 20px;
-}
-
-.field1, .field2, .field3, .field4, .field5, .field6, .field7, .field8, .field9, .field10, .field11, .field12 {
     width: 40%;
     display: inline-table;
 }
 
-.field13{
+.last{
     padding:20px 10px 10px 20px;
 }
 
