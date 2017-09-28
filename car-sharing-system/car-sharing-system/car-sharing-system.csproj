@@ -172,7 +172,6 @@
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
-    <Content Include="Views\bookinghistory.aspx" />
     <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
@@ -356,13 +355,6 @@
     <Compile Include="Views\bookingconfirmation.aspx.designer.cs">
       <DependentUpon>bookingconfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\bookinghistory.aspx.cs">
-      <DependentUpon>bookinghistory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\bookinghistory.aspx.designer.cs">
-      <DependentUpon>bookinghistory.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\detail.aspx.cs">
       <DependentUpon>detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -372,7 +364,6 @@
     </Compile>
     <Compile Include="Views\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
