@@ -121,55 +121,56 @@
                             <form id="updateform" runat="server">
                                                
                                   <div class="field1">
-                                    <label  >First Name: </label><input type="text" id="firstname" name="firstname" value="<%=newUser.fname%>">
+                                    <label  >First Name: </label><input runat="server" type="text" id="firstname" name="firstname" value="<%=newUser.fname%>">
                                 </div>
                                  
                                 <div class="field2">
-                                    <label  >Last Name: </label><input type="text" id="lastname" name="lastname" value="<%=newUser.lname %>">
+                                    <label  >Last Name: </label><input runat="server" type="text" id="lastname" name="lastname" value="<%=newUser.lname %>">
                                 </div>
 
                                 <div class="field3">
-                                    <label  >license Number: </label><input type="text" id="licenseNo" name="licenseNo" value="<%=newUser.licenseNo %>">
+                                    <label  >license Number: </label><input runat="server" type="text" id="licenseNo" name="licenseNo" value="<%=newUser.licenseNo %>">
                                 </div>
 
                                 <div class="field4">
-                                    <label  >Date of Birth: </label><input type="text" id="birth" name="birth" value="<%=newUser.birth %>">
+                                    <label  >Date of Birth: </label><input runat="server" type="text" id="birth" name="birth" />
                                 </div>
 
                                 <div class="field5">
-                                    <label  >Gender: </label><input type="text" id="gender" name="gender" value="<%=newUser.gender %>">
+                                    <label  >Gender: </label><input runat="server"  type="text" id="gender" name="gender" />
                                 </div>
 
                                 <div class="field6">
-                                    <label  >Phone: </label><input type="text" id="phone" name="phone" value="<%=newUser.phone %>">
+                                    <label  >Phone: </label><input runat="server" type="text" id="phone" name="phone" />
                                 </div>
 
                                 <div class="field7"> 
-                                    <label  >Street: </label><input type="text" id="street" name="street" value="<%=newUser.street %>">
+                                    <label  >Street: </label><input runat="server" type="text" id="street" name="street" />
                                 </div>
 
                                 <div class="field8">
-                                    <label  >Suburb: </label><input type="text" id="suburb" name="suburb" value="<%=newUser.suburb %>">
+                                    <label  >Suburb: </label><input runat="server" type="text" id="suburb" name="suburb" />
                                 </div>
 
                                 <div class="field9">
-                                     <label  >Postcode: </label><input type="text" id="postcode" name="postcode" value="<%=newUser.postcode %>">
+                                     <label  >Postcode: </label><input runat="server" type="text" id="postcode" name="postcode" />
                                 </div>
 
                                 <div class="field10">
-                                     <label  >Territory: </label><input type="text" id="territory" name="territory" value="<%=newUser.territory %>">
+                                     <label  >Territory: </label><input runat="server" type="text" id="territory" name="territory" />
                                 </div>
 
                                 <div class="field11">
-                                     <label  >City: </label><input type="text" id="city" name="city" value="<%=newUser.city %>">
+                                     <label  >City: </label><input runat="server" type="text" id="city" name="city" />
                                 </div>
 
                                 <div class="field12">
-                                     <label  >Country: </label><input type="text" id="country" name="country" value="<%=newUser.country %>">
+                                     <label  >Country: </label><input runat="server" type="text" id="country" name="country"/>
                                 </div>
 
                                 <div class="field13">
-                                     <label  >ProfileURL: </label><input type="text" id="profileURL" name="profileURL" value="<%=newUser.profileURL %>">
+                                     <label  >ProfileURL: </label><input runat="server" type="text" id="profileURL" name="profileURL" />
+                                    <img src="<%=newUser.profileURL %>"/>
                                 </div>
                                  <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-info">
                              </form>
