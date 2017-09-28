@@ -10,7 +10,7 @@
 namespace car_sharing_system.Views.Admin_Theme.pages {
     
     
-    public partial class bookingconfirmation {
+    public partial class bookingreturn {
         
         /// <summary>
         /// form1 control.
@@ -119,24 +119,6 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder featurelist;
-        
-        /// <summary>
-        /// leftfeat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder leftfeat;
-        
-        /// <summary>
-        /// rightfeat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder rightfeat;
         
         /// <summary>
         /// confirmbtn control.

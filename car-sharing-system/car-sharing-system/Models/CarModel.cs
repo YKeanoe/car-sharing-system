@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Diagnostics;
+using System.Device.Location;
 
 namespace car_sharing_system.Models {
 	public class CarModel {
@@ -58,9 +59,32 @@ namespace car_sharing_system.Models {
 		}
 
 		public List<Car> getCloseCar(Double lat, Double lng) {
-			List<Car> dbcars = DatabaseReader.carQuery(null);
+			List<Car> dbcars = DatabaseReader.carQuery("Status = 'A'");
 			cars = new Search(dbcars).find(lat,lng);
+			sortCarList(lat,lng,0);
 			return cars.GetRange(0,5);
+		}
+
+		// sortCarList function is used to sort the list of cars depending on
+		// user to car range. It take user's lat and long as parameter and an
+		// Integer to represent sortby's type. 0 represent range ASC, 1 
+		// represent range DESC, 2 represent rate ASC, 3 represent rate DESC.
+		public void sortCarList(Double lat, Double lng, int sortby) {
+			foreach (Car car in cars) {
+				var locA = new GeoCoordinate(lat, lng);
+				var locB = new GeoCoordinate(Convert.ToDouble(car.latlong.lat), Convert.ToDouble(car.latlong.lng));
+				double distance = locA.GetDistanceTo(locB); // metres
+				car.rangeToUser = distance;
+			}
+			if (sortby == 0) {
+				cars = cars.OrderBy(x => x.rangeToUser).ToList<Car>();
+			} else if (sortby == 1) {
+				cars = cars.OrderByDescending(x => x.rangeToUser).ToList<Car>();
+			} else if (sortby == 1) {
+				cars = cars.OrderBy(x => x.rate).ToList<Car>();
+			} else {
+				cars = cars.OrderByDescending(x => x.rate).ToList<Car>();
+			}
 		}
 
 		public List<Car> getPageCar(int page) {
@@ -105,9 +129,14 @@ namespace car_sharing_system.Models {
 				query.AppendFormat("transmission = '{0}' ", transmission);
 			}
 
+			if (query.Length > 0) {
+				query.Append("AND Status = 'A'");
+			}
+
 			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
 			if (dbcars != null) {
 				cars = new Search(dbcars).find(lat, lng);
+				sortCarList(lat, lng, sortby);
 				return cars.GetRange(0,5);
 			} else {
 				return null;

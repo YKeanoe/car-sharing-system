@@ -134,7 +134,7 @@
                                 </div>
 
                                 <div class="field3">
-                                    <label id="labelBox">Licence Number: </label><input type="text" id="licenceNo" name="licenceNo"/>
+                                    <label id="labelBox">license Number: </label><input type="text" id="licenseNo" name="licenseNo"/>
                                 </div>
 
                                 <div class="field4">

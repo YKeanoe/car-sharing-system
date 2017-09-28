@@ -14,25 +14,26 @@ namespace car_sharing_system.Admin_Theme.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsAuthenticated)
-            {
-                Response.Redirect("~/dashboard/login");
-            }
 
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
-			
 
-            if (IsPostBack)
+            if (Request.QueryString["edit"] == "1")
             {
+                showData.Visible = false;
+                updateform.Visible = true;
+            }
+            else
+            {
+                showData.Visible = true;
                 updateform.Visible = false;
-                Label1.Text = firstname.Text;
+                Label1.Text = newUser.fname;
                 Label1.Style.Add("font-weight", "bold");
 
 
             }
-            TimeLabel.Text = DateTime.Now.ToString();
 
 
+            
         }
     }
 }

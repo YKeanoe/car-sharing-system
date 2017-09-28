@@ -12,7 +12,7 @@ namespace car_sharing_system.Admin_Theme.pages
     {
         protected String fn;
         protected String ln;
-        protected String licenceNo;
+        protected String licenseNo;
         protected String birth;
         protected String gender;
         protected String phone;
@@ -31,10 +31,7 @@ namespace car_sharing_system.Admin_Theme.pages
             User newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
 
-            if (!Request.IsAuthenticated)
-            {
-                Response.Redirect("~/Views/Admin_Theme/pages/login.aspx");
-            }
+   
         }
     }
 }

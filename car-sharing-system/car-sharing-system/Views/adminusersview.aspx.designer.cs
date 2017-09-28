@@ -29,18 +29,5 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
-        protected global::System.Web.UI.WebControls.TextBox firstname;
-        protected global::System.Web.UI.WebControls.TextBox lastname;
-        protected global::System.Web.UI.WebControls.TextBox licenceNo;
-        protected global::System.Web.UI.WebControls.TextBox birth;
-        protected global::System.Web.UI.WebControls.TextBox gender;
-        protected global::System.Web.UI.WebControls.TextBox phone;
-        protected global::System.Web.UI.WebControls.TextBox street;
-        protected global::System.Web.UI.WebControls.TextBox suburb;
-        protected global::System.Web.UI.WebControls.TextBox postcode;
-        protected global::System.Web.UI.WebControls.TextBox territory;
-        protected global::System.Web.UI.WebControls.TextBox city;
-        protected global::System.Web.UI.WebControls.TextBox country;
-        protected global::System.Web.UI.WebControls.TextBox profileURL;
     }
 }

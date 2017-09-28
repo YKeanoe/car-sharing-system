@@ -90,6 +90,7 @@
       <HintPath>..\packages\Rework.1.0.12\lib\net45\Rework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Device" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -137,6 +138,7 @@
     <Content Include="Theme\Images\ecofriendly.png" />
     <Content Include="Theme\Images\enviromental.png" />
     <Content Include="Theme\Images\middle.png" />
+    <Content Include="Theme\js\booking-confirmation-features.js" />
     <Content Include="Theme\js\dropdown.js" />
     <Content Include="Bootstrap\js\moment.js" />
     <Content Include="Datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
@@ -152,6 +154,7 @@
     <Content Include="Views\adminissue.aspx" />
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
+    <Content Include="Views\bookingreturn.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\bookinghistory.aspx" />
     <Content Include="Views\detail.aspx" />
@@ -322,6 +325,13 @@
     </Compile>
     <Compile Include="Views\booking.aspx.designer.cs">
       <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\bookingreturn.aspx.cs">
+      <DependentUpon>bookingreturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookingreturn.aspx.designer.cs">
+      <DependentUpon>bookingreturn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\bookingconfirmation.aspx.cs">
       <DependentUpon>bookingconfirmation.aspx</DependentUpon>

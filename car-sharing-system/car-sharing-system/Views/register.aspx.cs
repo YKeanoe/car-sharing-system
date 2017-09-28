@@ -36,13 +36,13 @@ namespace car_sharing_system.Admin_Theme.pages
 
             if (newUser.nullChecker())
             {
-                if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenceNo + "' = licenseNo LIMIT 1") == null) {
+                if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenseNo + "' = licenseNo LIMIT 1") == null) {
                     dr.Registeration(newUser);
                     FormsAuthentication.SetAuthCookie(newUser.id.ToString(), false);
                     Response.Redirect("~/login.aspx");
                 }else
                 {
-                    regFail.InnerText = "Email or Licence Number already used";
+                    regFail.InnerText = "Email or license Number already used";
                 }
             }
             else {
