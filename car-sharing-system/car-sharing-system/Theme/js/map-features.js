@@ -69,10 +69,18 @@ function getLocation() {
 // Function to send request to server for cars.
 // Call initializeMap function when successfull
 function sendRequestForCars() {
+	var path = window.location.pathname;
+	var wmurl;
+	if (path == "/") {
+		wmurl = "/Views/index.aspx/getCarsData"
+	} else {
+		wmurl = "/Views/dashboard.aspx/getCarsData"
+	}
+
 	var dfd = $.Deferred();
 	$.ajax({
 		type: "POST",
-		url: "/Views/index.aspx/getCarsData",
+		url: wmurl,
 		data: JSON.stringify(userPos),
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
@@ -95,12 +103,19 @@ function sendRequestForCarsWithFilter(filter) {
 	var result = {};
 	for (var key in userPos) result[key] = userPos[key];
 	for (var key in filter) result[key] = filter[key];
-	console.log(result);
+
+	var path = window.location.pathname;
+	var wmurl;
+	if (path == "/") {
+		wmurl = "/Views/index.aspx/getCarsDataFiltered"
+	} else {
+		wmurl = "/Views/dashboard.aspx/getCarsDataFiltered"
+	}
 
 	var dfd = $.Deferred();
 	$.ajax({
 		type: "POST",
-		url: "/Views/index.aspx/getCarsDataFiltered",
+		url: wmurl,
 		data: JSON.stringify(result),
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",
@@ -217,11 +232,18 @@ function loadPage(pagenum) {
 }
 
 function sendPageRequest(pagenum) {
+	var path = window.location.pathname;
+	var wmurl;
+	if (path == "/") {
+		wmurl = "/Views/index.aspx/getCarPage"
+	} else {
+		wmurl = "/Views/dashboard.aspx/getCarPage"
+	}
 	var jsonObj = { page: pagenum };
 	var dfd = $.Deferred();
 	$.ajax({
 		type: "POST",
-		url: "/Views/index.aspx/getCarPage",
+		url: wmurl,
 		data: JSON.stringify(jsonObj),
 		contentType: "application/json; charset=utf-8",
 		dataType: "json",

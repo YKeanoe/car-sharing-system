@@ -27,11 +27,13 @@ namespace car_sharing_system {
 
 	public partial class FrontPage : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-			
+			/*
 			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
 			String dt1 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 			long x = (long)DateTime.Now.Subtract(unixStart).TotalSeconds; // start time
 			String dt2 = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(x)).ToString("yyyy-MM-dd HH:mm:ss");
+			DatabaseReader.bookingQuery(null);
+			*/
 
 		}
 
@@ -89,5 +91,5 @@ namespace car_sharing_system {
 			
 			return oSerializer.Serialize(carlocs);
 		}
-  }
+	}
 }

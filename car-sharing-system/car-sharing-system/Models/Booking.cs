@@ -14,7 +14,7 @@ namespace car_sharing_system.Models
 		public long bookingDate { get; set; }
 		public long startDate { get; set; }
 		public long estEndDate { get; set; }
-		public long endDate { get; set; }
+		public long? endDate { get; set; }
 		public Location latlong { get; set; }
         public Double travelDistance { get; }
 
@@ -55,9 +55,25 @@ namespace car_sharing_system.Models
 			this.latlong = latlong;
         }
 
+		public bool isFinish() {
+			if (endDate == null) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
 		public void debug() {
-			Debug.WriteLine("id " + accountID + " book a car for " + startDate);
+			Debug.WriteLine("id " + accountID + " book a car for " + startDate + " until " + estEndDate);
 			latlong.debug();
+			String start = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
+			String estend = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
+			if (endDate == null) {
+				Debug.WriteLine("start at (" + start + ") until (" + estend + ")");
+			} else {
+				String end = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(endDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
+				Debug.WriteLine("start at (" + start + ") until (" + estend + ") and returned at (" + end + ")");
+			}
 		}
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/FrontPage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.FrontPage" %>
+﻿<%@ Page Title="Ace Rentals Home Page" Language="C#" MasterPageFile="~/FrontPage.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="car_sharing_system.FrontPage"%>
 <asp:Content ID="IndexContent" ContentPlaceHolderID="FrontPageHolder" runat="server">
   
 <!-- Intro Section -->

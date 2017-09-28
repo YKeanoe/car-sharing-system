@@ -35,7 +35,8 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 					Response.Redirect("/");
 				}
 				String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
-
+				Debug.WriteLine(startDate);
+				Debug.WriteLine(endDate);
 				Car currentCar = DatabaseReader.carQuerySingleFull(query);
 
 				if (currentCar != null) {
@@ -69,6 +70,16 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				} else {
 					Response.Redirect("/");
 				}
+			} else {
+				String tid, tsd, ted;
+				tid = Request.QueryString["id"];
+				tsd = Request.QueryString["sdate"];
+				ted = Request.QueryString["edate"];
+				if (!String.IsNullOrEmpty(tid) && !String.IsNullOrEmpty(tsd) && !String.IsNullOrEmpty(ted)) {
+					numberPlate = Request.QueryString["id"];
+					startDate = Int32.Parse(Request.QueryString["sdate"]);
+					endDate = Int32.Parse(Request.QueryString["edate"]);
+				} 
 			}
 		}
 
@@ -102,8 +113,11 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		protected void confirmBook(object sender, EventArgs e) {
 			// Debug.WriteLine("Booking confirmed");
+			Debug.WriteLine(startDate);
+			Debug.WriteLine(endDate);
+
 			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-			long currentunix = (long)DateTime.Now.Subtract(unixStart).TotalSeconds;
+			long currentunix = (long)DateTime.UtcNow.Subtract(unixStart).TotalSeconds;
 
 			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, currentunix, startDate, endDate, userLocation);
 			// book.debug();
