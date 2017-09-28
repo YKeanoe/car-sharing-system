@@ -67,7 +67,7 @@ namespace car_sharing_system.Admin_Theme.pages
                             "<span>"+curr.email+ "</span>\n" +
                         "</div>\n" +
                         "<div class='cell col'>\n" +
-                            "<a type='button' href='adminviewprofile&id="+ curr.id.ToString() +
+                            "<a type='button' href='/dashboard/profile?edit="+ curr.id.ToString() +
                             "'>View User's Profile</a>\n" +
                         "</div>\n" +
                         "<div class='cell col'>\n" +
