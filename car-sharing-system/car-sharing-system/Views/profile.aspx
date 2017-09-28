@@ -98,9 +98,9 @@
 
                         <div class="panel-body">
    
-                            
-                                        <div class="form-group">
-                            <div id="showData"  runat="server">
+                            <h2 id="updated" runat="server"></h2>
+                            <div class="form-group">
+                                <div id="showData"  runat="server">
                                 <div >
                                     <label>First Name: </label>
                                     <span id="fN" runat="server"></span>
