@@ -1288,9 +1288,7 @@ h6,
 .h6 {
   font-size: 12px;
 }
-p {
-  margin: 20px 18px 10px;
-}
+
 .lead {
   margin-bottom: 20px;
   font-size: 16px;
@@ -3512,10 +3510,7 @@ tbody.collapse.in {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
-.dropup, .dropdown {
-  position: relative;
-    
-}
+
 
 
    

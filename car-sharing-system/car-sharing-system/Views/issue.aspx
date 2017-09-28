@@ -96,9 +96,9 @@
                            <br>
                             <br>
                             <asp:TextBox ID="description" runat="server" placeholder="Enter description"
-                                TextMode="Multiline" rows="4" columns="50"></asp:TextBox> 
+                                TextMode="Multiline" rows="10" columns="100"></asp:TextBox> 
                             <br>
-                            
+                            <br>
                             
                             <asp:Button Text="Submit" runat="server" class="btn btn-primary" OnClick="Button2_Click" href="/successIssue.aspx" > </asp:Button>
                             <span id="issueFail" runat="server"></span>
