@@ -21,8 +21,8 @@ namespace car_sharing_system.Admin_Theme.pages
 
             admin = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
-            if (admin.permission == 0) {
-                Response.Redirect("~/dashboard/");
+            if (admin ==null || admin.permission == 0) {
+                Response.Redirect("/dashboard/");
             }
             if (!string.IsNullOrEmpty(Request.QueryString["page"]))
             {

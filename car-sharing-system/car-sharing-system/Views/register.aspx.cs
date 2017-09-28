@@ -23,7 +23,7 @@ namespace car_sharing_system.Admin_Theme.pages
             //check if existing email n license n phoneno 
             if (Request.IsAuthenticated)
             {
-                Response.Redirect("~/dashboard/");
+                Response.Redirect("/dashboard/");
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace car_sharing_system.Admin_Theme.pages
                 if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenseNo + "' = licenseNo LIMIT 1") == null) {
                     dr.Registeration(newUser);
                     FormsAuthentication.SetAuthCookie(newUser.id.ToString(), false);
-                    Response.Redirect("~/login.aspx");
+                    Response.Redirect("/dashboard/");
                 }else
                 {
                     regFail.InnerText = "Email or license Number already used";

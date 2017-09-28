@@ -11,13 +11,14 @@ namespace car_sharing_system.Admin_Theme.pages
     public partial class profile : System.Web.UI.Page
     {
         protected User newUser;
+        protected String theID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["update"] == "1")
                 updated.InnerText = "Updated your profile!";
 
-            String theID = getID();
+            theID = getID();
 
             if (Request.QueryString["edit"] == theID )
             {
@@ -61,7 +62,7 @@ namespace car_sharing_system.Admin_Theme.pages
         protected string getID() {
             User curr = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
-            String theID = User.Identity.Name;
+            theID = User.Identity.Name;
 
             if (!String.IsNullOrEmpty(Request.QueryString["edit"]) && curr.permission == 1)
                 theID = Request.QueryString["edit"];
@@ -69,7 +70,7 @@ namespace car_sharing_system.Admin_Theme.pages
         }
         protected void submit(object sender, EventArgs e)
         {
-            String theID = getID();
+            theID = getID();
 
             newUser = DatabaseReader.userQuerySingle("accountID = '" + theID + "';");
 

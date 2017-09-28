@@ -149,7 +149,8 @@
                                 </div>
 
                                 <img id="pu" src="" runat="server"/>
-                                <a class="btn btn-info" id="edit" href="/dashboard/profile?edit=1">Edit</a>
+
+                                <a class="btn btn-info" id="edit" href="/dashboard/profile?edit=<%=theID %>">Edit</a>
                             </div>
 
                             <form id="updateform" runat="server">
