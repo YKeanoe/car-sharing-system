@@ -13,19 +13,19 @@ namespace car_sharing_system.Models
         public String email { get; private set; }
         public String password { get; private set; }
         public int permission { get; private set; }
-        public String licenseNo { get; private set; }
-        public String fname { get; private set; }
-        public String lname { get; private set; }
-        public String gender { get; private set; }
-        public String birth { get; private set; }
-        public String phone { get; private set; }
-        public String street { get; private set; }
-        public String suburb { get; private set; }
-        public String postcode { get; private set; }
-        public String territory { get; private set; }
-        public String city { get; private set; }
-        public String country { get; private set; }
-        public String profileURL { get; private set; }
+        public String licenseNo { get; set; }
+        public String fname { get; set; }
+        public String lname { get; set; }
+        public String gender { get; set; }
+        public String birth { get; set; }
+        public String phone { get; set; }
+        public String street { get; set; }
+        public String suburb { get; set; }
+        public String postcode { get; set; }
+        public String territory { get; set; }
+        public String city { get; set; }
+        public String country { get; set; }
+        public String profileURL { get; set; }
 
         public User() {
         }

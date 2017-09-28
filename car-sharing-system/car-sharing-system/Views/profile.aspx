@@ -207,6 +207,10 @@
                                 </div>
 
                                 <div class="field13">
+                                     <label  >ProfileURL: </label><input runat="server" type="text" id="profileURL" name="profileURL" />
+                                    <img src="<%=newUser.profileURL %>"/>
+                                </div>
+                                 <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-info">
                                      <label id="profileURL">ProfileURL: </label><input type="text" name="profileURL" value="<%=newUser.profileURL %>">
                                 </div>
                                 <br>
