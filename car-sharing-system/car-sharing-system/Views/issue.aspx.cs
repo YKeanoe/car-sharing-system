@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using car_sharing_system.Models;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace car_sharing_system.Admin_Theme.pages
 {
@@ -16,8 +17,8 @@ namespace car_sharing_system.Admin_Theme.pages
         private int bookingID = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
+
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (subjectIssue.Text.Equals(null) || description.Text.Equals(null))

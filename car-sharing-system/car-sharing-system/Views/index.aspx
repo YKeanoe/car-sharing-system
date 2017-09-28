@@ -304,9 +304,5 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
 <script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/Theme/js/map-features.js"></script>
-
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
-    <script src="/Theme/js/map-features.js"></script>
-    <script src="/Theme/js/dropdown.js"></script>
+<script src="/Theme/js/dropdown.js"></script>
 </asp:Content>

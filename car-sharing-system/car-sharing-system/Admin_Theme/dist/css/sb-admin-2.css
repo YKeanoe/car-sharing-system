@@ -43,6 +43,37 @@
     padding-right: 10px;
 }
 
+#labelBox1 {
+    width: 125px;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.dropdown, .dropup, .dropdown filter-dropdown {
+    display: inline-block;
+}
+
+.navbar-brand{
+    padding-left: 18px;
+    line-height: 30px; 
+}
+
+.navbar-default .navbar-brand {
+    color: #777;
+    margin-left: 0px;
+    margin-top: -5px;
+    font-size: x-large;
+}
+
+d {
+
+    font-size: x-large;
+}
+
+p {
+  margin: 20px 18px 10px;
+}
+
 #labelFormatter {
     border-radius: 5px;
 }
@@ -51,8 +82,17 @@
 
 }
 
+.col-lg-3, .col-md-6 {
+    width: 29%;
+    margin-left: 35px;
+}
+
 .col-lg-8 {
-    width: 100%;
+    width: 98%;
+}
+
+.page-header {
+    margin: 10px 0 20px;
 }
 
 .field2, .field3, .field4, .field5, .field6, .field7, .field8, .field9, .field10, .field11, .field12 {
@@ -61,15 +101,29 @@
 
 .field1, .field2, .field3, .field4, .field5, .field6, .field7, .field8, .field9, .field10, .field11, .field12 {
     width: 40%;
-    display: inline-table
+    display: inline-table;
 }
 
 .field13{
     padding:20px 10px 10px 20px;
 }
 
+
 .btn btn-info {
     padding: 0px 0px 0px 5px;
+}
+
+.emailRego, .passwordRego, .licenseRego, .firstRego, .lastNameRego,
+.RadioButtonList1, .phoneNoRego, .birthRego, .streetRego, .suburbRego, .postRego, .terrRego,
+.cityRego, .countryRego, .Button1 {
+    width: 35%; 
+    padding:20px 10px -1px 32px;
+    display: inline-table;
+}
+
+.block {
+  position: relative;
+    display: inline-block;
 }
 
 

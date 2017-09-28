@@ -17,8 +17,8 @@ namespace car_sharing_system {
 	public class GoogleCarLocation {
 		public String carName { get; set; }
 		public Location loc { get; set; }
-		public int dist { get; set; }
-		public GoogleCarLocation(String n, Location l, int d) {
+		public Double dist { get; set; }
+		public GoogleCarLocation(String n, Location l, Double d) {
 			carName = n;
 			loc = l;
 			dist = d;
@@ -27,7 +27,13 @@ namespace car_sharing_system {
 
 	public partial class FrontPage : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-        }
+			
+			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+			String dt1 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+			long x = (long)DateTime.Now.Subtract(unixStart).TotalSeconds; // start time
+			String dt2 = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(x)).ToString("yyyy-MM-dd HH:mm:ss");
+
+		}
 
 		[System.Web.Services.WebMethod]
 		public static string getCarsDataFiltered(String lat, String lng,
@@ -76,14 +82,11 @@ namespace car_sharing_system {
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
 			List<GoogleCarLocation> carlocs = new List<GoogleCarLocation>();
 
-			// TODO Random car's range generator
-			Random rand = new Random();
-
 			foreach (Car car in cars) {
 				carlocs.Add(new GoogleCarLocation(car.getCarAsTitle(), car.latlong,
-												rand.Next(1, 50)));
+												Math.Round(car.rangeToUser,2)));
 			}
-
+			
 			return oSerializer.Serialize(carlocs);
 		}
   }

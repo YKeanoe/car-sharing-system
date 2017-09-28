@@ -65,6 +65,8 @@ namespace car_sharing_system.Models
                 return users;
             }
         }
+
+		// UserCount returns the total number of available users
         public static int UserCount(String where)
         {
             String query;
@@ -132,6 +134,7 @@ namespace car_sharing_system.Models
 			}
         }
 
+		// issueQuerySingle return the first issue found as an object.
         public static Issues issueQuerySingle(String where)
         {
             String query;
@@ -168,6 +171,7 @@ namespace car_sharing_system.Models
             }
         }
 
+		// Registeration function is used to register new user to the database.
         public void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
@@ -199,6 +203,8 @@ namespace car_sharing_system.Models
                 mySqlConnection.Close();
             }
         }
+
+		// clientIssue function is used to add new issue to the database.
         public void clientIssue(Issues newIssue)
         {
             String query = "INSERT INTO Issues (accountID, bookingID,submissionDate, subject, description) ";
@@ -221,40 +227,14 @@ namespace car_sharing_system.Models
             }
         }
 
+		// carQuery returns a list of cars from the query.
         public static List<Car> carQuery(String where) {
-			// TO DO 
-			// Change db to datetime first
-			/*
-			// Convert current time to unix timestamp for easier manipulation
-			int currUnixTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-			// Round current time to next hour
-			int roundTime = currUnixTime - (currUnixTime % 3600) + 3600;
-			// Convert time to DateTime
-			DateTime cur = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(roundTime));
-
-			StringBuilder querysb = new StringBuilder();
-			querysb.Append("SELECT * FROM Car ");
-			querysb.Append("LEFT JOIN Booking ");
-			querysb.Append("ON Car.numberPlate = Booking.numberPlate ");
-			querysb.Append("WHERE Car.status = TRUE ");
-			querysb.AppendFormat("AND DATE('{0}') NOT BETWEEN Booking.startDate AND Booking.endDate ", cur.ToString("yyyy-MM-dd HH:mm:ss"));
-			Debug.WriteLine("2");
-			List<Car> cars = new List<Car>();
-			if (!String.IsNullOrEmpty(where)) {
-				querysb.Append(where);
-			}
-			Debug.WriteLine("3");
-
-			String query = querysb.ToString();
-			Debug.WriteLine(query);
-			*/
-
 			List<Car> cars = new List<Car>();
 			String query;
 			if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+				query = "SELECT * FROM Car WHERE " + where;
 			} else {
-				query = "SELECT * FROM Car WHERE status = TRUE";
+				query = "SELECT * FROM Car";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -282,13 +262,14 @@ namespace car_sharing_system.Models
 				return cars;
 			}
 		}
-
+		
+		// carQuerySingle return the first car found as an object
         public static Car carQuerySingle(String where) {
             String query;
 			if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+				query = "SELECT * FROM Car WHERE " + where;
 			} else {
-				query = "SELECT * FROM Car WHERE status = TRUE";
+				query = "SELECT * FROM Car";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -312,12 +293,14 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// carQuerySingleFull return the first car found as an object, filled
+		// with all of the car's information.
 		public static Car carQuerySingleFull(String where) {
 			String query;
-		if (!String.IsNullOrEmpty(where)) {
-				query = "SELECT * FROM Car WHERE status = TRUE AND " + where;
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Car WHERE " + where;
 			} else {
-				query = "SELECT * FROM Car WHERE status = TRUE";
+				query = "SELECT * FROM Car";
 			}
 
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -363,8 +346,9 @@ namespace car_sharing_system.Models
 			}
 		}
 
-		public static int disableCar(String id) {
-			String query = "UPDATE Car SET status = FALSE WHERE numberPlate = '" + id + "'";
+		// setCarBooked updates the car's status to B for Booked
+		public static int setCarBooked(String id) {
+			String query = "UPDATE Car SET status = 'B' WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
@@ -374,8 +358,21 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// setCarUsed updates the car's status to U for being used
+		public static int setCarUsed(String id) {
+			String query = "UPDATE Car SET status = 'U' WHERE numberPlate = '" + id + "'";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
+		// enableCar updates the car's status to true
 		public static int enableCar(String id) {
-			String query = "UPDATE Car SET status = TRUE WHERE numberPlate = '" + id + "'";
+			String query = "UPDATE Car SET status = 'A' WHERE numberPlate = '" + id + "'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
@@ -384,50 +381,76 @@ namespace car_sharing_system.Models
 				return numRowsUpdated;
 			}
 		}
-        public static List<Booking> findMyBookings(int accountID)
-        {
-            List<Booking> myBooking = new List<Booking>();
-            String query = "SELECT * FROM Booking WHERE accountID = " + id;
 
-            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
-            {
+		// bookingQuery returns the bookings found as a list of booking object.
+		public static List<Booking> bookingQuery(String where) {
+            List<Booking> myBooking = new List<Booking>();
+			String query;
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Booking WHERE " + where;
+			} else {
+				query = "SELECT * FROM Booking";
+			}
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
-                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-                {
-                    if (dbread.Read())
-                    {
-                        Location newLocation = new Location(
-                            Convert.ToDecimal(dbread[5].ToString()) /*Latitude*/,
-                            Convert.ToDecimal(dbread[6].ToString()) /*Longitude*/);
-                        myBooking.Add(
-                            new Booking(
-                                Int32.Parse(dbread[0].ToString()), // BookingID
-                                Int32.Parse(dbread[1].ToString()), // AccountID
-                                dbread[2].ToString(), // Numberplate
-                                (Int32)DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds, // start time
-								(Int32)DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds, // end time
-                                newLocation, // location from above
-                                Int32.Parse(dbread[7].ToString()) // total distance
-                            )
-                        );
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						Location newLocation = new Location(
+							Convert.ToDecimal(dbread[6].ToString()) /*Latitude*/,
+							Convert.ToDecimal(dbread[7].ToString()) /*Longitude*/);
+						String actEndDate = dbread[6].ToString();
+						long endDate;
+						if (!String.IsNullOrEmpty(actEndDate)) {
+							endDate = Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(actEndDate)).TotalSeconds);
+						} else {
+							endDate = 0;
+						}
+						Booking currBook;
+
+
+						if (endDate == 0) {
+							currBook = new Booking(
+									Int32.Parse(dbread[0].ToString()), // BookingID
+									Int32.Parse(dbread[1].ToString()), // AccountID
+									dbread[2].ToString(), // Numberplate
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds), // Booking date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds), // Start Date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[5].ToString())).TotalSeconds), // Est end date
+									newLocation // location from above
+							);
+						} else {
+							currBook = new Booking(
+									Int32.Parse(dbread[0].ToString()), // BookingID
+									Int32.Parse(dbread[1].ToString()), // AccountID
+									dbread[2].ToString(), // Numberplate
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[3].ToString())).TotalSeconds), // Booking date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[4].ToString())).TotalSeconds), // Start Date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[5].ToString())).TotalSeconds), // Est end date
+									Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(dbread[6].ToString())).TotalSeconds), // end date
+									newLocation, // location from above
+									Convert.ToDouble(dbread[7].ToString())
+							);
+						}
                     }
                 }
             }
             return myBooking;
         }
+		
+		// addBooking add a new booking to the database
 		public static int addBooking(Booking book) {
-
-			//String carid, int uid, int sdate, int edate, decimal lat, decimal lng;
 
 			StringBuilder querysb = new StringBuilder();
 
-			querysb.Append("INSERT INTO Booking(accountID,numberPlate,startDate,endDate,bookinguserlocationLat,bookinguserlocationLong,travelDistance)");
-			querysb.AppendFormat("VALUES ({0},'{1}', DATE('{2}'), DATE('{3}'), {4}, {5}, null)",
+			querysb.Append("INSERT INTO Booking(accountID,numberPlate,bookingDate,startDate,estimatedEndDate,endDate,bookinguserlocationLat,bookinguserlocationLong,travelDistance)");
+			querysb.AppendFormat("VALUES ({0},'{1}', DATE('{2}'), DATE('{3}'), DATE('{4}'), null, {5}, {6}, null)",
 								book.accountID,
 								book.numberPlate,
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.bookingDate)).ToString("yyyy-MM-dd HH:mm:ss"),
 								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.startDate)).ToString("yyyy-MM-dd HH:mm:ss"),
-								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.endDate)).ToString("yyyy-MM-dd HH:mm:ss"),
+								new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.estEndDate)).ToString("yyyy-MM-dd HH:mm:ss"),
 								book.latlong.lat, book.latlong.lng); 
 			
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
@@ -439,6 +462,7 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// checkCarStatus is a debug function to check the car's status.
 		public static void checkCarStatus(String id) {
 			String query = "SELECT * FROM Car WHERE numberPlate = '" + id + "'";
 
@@ -455,5 +479,22 @@ namespace car_sharing_system.Models
 				}
 			}
 		}
+		/*
+		public static Booking checkUserBook(String userid) {
+			String query = "SELECT * FROM Car WHERE numberPlate = '" + id + "'";
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					if (dbread.Read()) {
+						Debug.WriteLine("Car id " + id + " status is " + dbread[15].ToString());
+					} else {
+						return null;
+					}
+				}
+			}
+		}*/
 	}
 }

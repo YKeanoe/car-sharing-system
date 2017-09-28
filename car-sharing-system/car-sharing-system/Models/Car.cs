@@ -32,6 +32,8 @@ namespace car_sharing_system.Models
 		public Boolean reverseCam { get; set; }
 		public Boolean radio { get; set; }
 
+		public Double rangeToUser { get; set; }
+
 		public Car(String numberPlate, 
 				Location latlong ,
 				String country ,

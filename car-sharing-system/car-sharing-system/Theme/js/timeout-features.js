@@ -1,9 +1,7 @@
-﻿var userPos = { lat: "", lng: "" };
-var carPos = { lat: "", lng: "" };
-
-$.idleTimer(420000);
+﻿$.idleTimer(420000);
 	
 $(document).on("idle.idleTimer", function (event, elem, obj) {
+	window.onbeforeunload = null;
 	window.location.replace(document.location.origin);
 });
 

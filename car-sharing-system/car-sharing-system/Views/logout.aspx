@@ -12,8 +12,10 @@
                 </div>
             </div>
             <div class="panel-body">
-                Are you sure you want to logout?
+                <d>Are you sure you want to logout?</d>
                 <form id="form2" runat="server">
+                    <br>
+                    <br>
                     <asp:LinkButton class="btn btn-primary" Text="Log out" OnClick="LoginLink_OnClick" runat="server" />
                 </form>
             </div>
