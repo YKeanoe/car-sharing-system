@@ -148,121 +148,121 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm updateform;
         
         /// <summary>
-        /// efirstname control.
+        /// edfirstname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText efirstname;
+        protected global::System.Web.UI.WebControls.TextBox edfirstname;
         
         /// <summary>
-        /// elastname control.
+        /// edlastname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText elastname;
+        protected global::System.Web.UI.WebControls.TextBox edlastname;
         
         /// <summary>
-        /// elicenseNo control.
+        /// edlicenseNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText elicenseNo;
+        protected global::System.Web.UI.WebControls.TextBox edlicenseNo;
         
         /// <summary>
-        /// ebirth control.
+        /// edbirth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ebirth;
+        protected global::System.Web.UI.WebControls.TextBox edbirth;
         
         /// <summary>
-        /// egender control.
+        /// edgender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText egender;
+        protected global::System.Web.UI.WebControls.TextBox edgender;
         
         /// <summary>
-        /// ephone control.
+        /// edphone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ephone;
+        protected global::System.Web.UI.WebControls.TextBox edphone;
         
         /// <summary>
-        /// estreet control.
+        /// edstreet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText estreet;
+        protected global::System.Web.UI.WebControls.TextBox edstreet;
         
         /// <summary>
-        /// esuburb control.
+        /// edsuburb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText esuburb;
+        protected global::System.Web.UI.WebControls.TextBox edsuburb;
         
         /// <summary>
-        /// epostcode control.
+        /// edpostcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText epostcode;
+        protected global::System.Web.UI.WebControls.TextBox edpostcode;
         
         /// <summary>
-        /// eterritory control.
+        /// edterritory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText eterritory;
+        protected global::System.Web.UI.WebControls.TextBox edterritory;
         
         /// <summary>
-        /// ecity control.
+        /// edcity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ecity;
+        protected global::System.Web.UI.WebControls.TextBox edcity;
         
         /// <summary>
-        /// ecountry control.
+        /// edcountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ecountry;
+        protected global::System.Web.UI.WebControls.TextBox edcountry;
         
         /// <summary>
-        /// eprofileURL control.
+        /// edprofileURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText eprofileURL;
+        protected global::System.Web.UI.WebControls.TextBox edprofileURL;
         
         /// <summary>
         /// eprofileIMG control.

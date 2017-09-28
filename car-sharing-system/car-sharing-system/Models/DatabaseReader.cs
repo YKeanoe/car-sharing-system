@@ -205,14 +205,17 @@ namespace car_sharing_system.Models
         }
         public static void updateProfile(User newUser)
         {
-            String query = "UPDATE User (licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
-            query += " VALUES (@license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
+            String query = "UPDATE User";
+            query += " SET licenseNo = @license, firstName = @fName, lastName = @lName, gender = @gender,";
+            query += " birth = @birth, phone = @phoneNo, street = @street, suburb = @suburb, postcode = @postcode,";
+            query += " territory = @territory, city = @city, country = @country, profileurl = @profileurl ";
+            query += " WHERE accountID = @accountID";
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
-                Debug.WriteLine(newUser.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
+                    mySqlCommand.Parameters.AddWithValue("@accountID", newUser.id);
                     mySqlCommand.Parameters.AddWithValue("@license", newUser.licenseNo);
                     mySqlCommand.Parameters.AddWithValue("@fName", newUser.fname);
                     mySqlCommand.Parameters.AddWithValue("@lName", newUser.lname);

@@ -156,73 +156,73 @@
                                                
                                 <div >
                                     <label class="label">First Name: </label>
-                                    <input type="text" name="firstname" id="efirstname" runat="server"/>
+                                    <asp:TextBox  name="firstname" id="edfirstname" runat="server" ></asp:TextBox>
                                 </div>
                                  
                                 <div >
                                     <label class="label">Last Name: </label>
-                                    <input type="text" name="lastname" id="elastname" runat="server"/>
+                                    <asp:TextBox  name="lastname" id="edlastname" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
                                     <label class="label">License Number: </label>
-                                    <input type="text" name="licenseNo" id="elicenseNo" runat="server"/>
+                                    <asp:TextBox  name="licenseNo" id="edlicenseNo" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
                                     <label class="label">Date of Birth: </label>
-                                    <input type="text" name="birth" id="ebirth" runat="server"/>
+                                    <asp:TextBox  name="birth" id="edbirth" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
                                     <label class="label">Gender: </label>
-                                    <input type="text" name="gender" id="egender" runat="server"/>
+                                    <asp:TextBox  name="gender" id="edgender" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
                                     <label class="label">Phone: </label>
-                                    <input type="text" name="phone" id="ephone" runat="server"/>
+                                    <asp:TextBox  name="phone" id="edphone" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div > 
                                     <label class="label">Street: </label>
-                                    <input type="text" name="street" id="estreet" runat="server"/>
+                                    <asp:TextBox  name="street" id="edstreet" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
                                     <label class="label">Suburb: </label>
-                                    <input type="text" name="suburb" id="esuburb" runat="server"/>
+                                    <asp:TextBox  name="suburb" id="edsuburb" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
-                                     <label class="label">Postcode: </label>
-                                    <input type="text" name="postcode" id="epostcode" runat="server"/>
+                                    <label class="label">Postcode: </label>
+                                    <asp:TextBox  name="postcode" id="edpostcode" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
-                                     <label class="label">Territory: </label>
-                                    <input type="text" name="territory" id="eterritory" runat="server"/>
+                                    <label class="label">Territory: </label>
+                                    <asp:TextBox  name="territory" id="edterritory" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
-                                     <label class="label">City: </label>
-                                    <input type="text" name="city" id="ecity" runat="server"/>
+                                    <label class="label">City: </label>
+                                    <asp:TextBox  name="city" id="edcity" runat="server" ></asp:TextBox>
                                 </div>
 
                                 <div >
                                      <label class="label">Country: </label>
-                                     <input type="text" name="country" id="ecountry" runat="server"/>
+                                     <asp:TextBox  name="country" id="edcountry" runat="server"></asp:TextBox>
                                 </div>
 
                                 <div class="last">
                                      <label  class="label" >ProfileURL: </label>
-                                    <input type="text" id="eprofileURL" runat="server"/>
+                                    <asp:TextBox id="edprofileURL" runat="server"></asp:TextBox>
                                     <img src="" id="eprofileIMG" runat="server"/>
                                 </div>
                                      <label id="profileImg">ProfileURL: </label>
                                 <br>
                                 <div class="submit1">
-                                    <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-primary">
+                                    <asp:Button runat="server" Text="Submit" OnClick="submit" class="btn btn-primary"></asp:Button>
                                 </div>
                              </form>
 
