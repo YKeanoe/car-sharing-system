@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.dashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
 
+<link href="/Datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="/Theme/css/index.css" rel="stylesheet" />
+
 <div class="row">
     <!-- Profile Panel -->
     <div class="col-lg-3 col-md-6">
@@ -75,109 +78,199 @@
         </div>
     </div>
 </div>
-    <h2>Welcome back <%=newUser.fname%> <%=newUser.lname%></h2>
+<h2>Welcome back <%=newUser.fname%> <%=newUser.lname%></h2>
 <div class="row">
-    <div class="col-lg-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Current booking
-                <div class="pull-right">
-                    <div class="btn-group">                     
-                    </div>
-                </div>
-            </div>
-            <div class="panel-body">       
-                <div class="col-lg-8">
-                    <div id="bookings">Bookings Data</div>
-                </div>
-            </div>
-            <section id="cars" class="about-section">
     <div class="container-fluid">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 id="aa">
-            List of cars near you
-          </h2>
-        </div>
-        <div class="panel-body">
-          <div id="map"></div>
-          <div class="list" >
-            <div class="panel">
-              <label class="result-label">Refine Results</label>
-              <div class="filter">
-                  
-                <div class="dropdown filter-dropdown">
-                  <button class="btn btn-primary dropdown-toggle btn-filter" id="brand-filter" type="button" data-toggle="dropdown">
-                    Brand
-                    <span class="caret"></span>
-                  </button>
-                    
-                  <ul class="dropdown-menu filter-dropdown-menu" id="brand-filter-dropdown">
-                    <li><a href:"#">Audi</a></li>
-                    <li><a href:"#">Ford</a></li>
-                    <li><a href:"#">Kia</a></li>
-                    <li><a href:"#">Mazda</a></li>
-                    <li><a href:"#">Mini</a></li>
-                    <li><a href:"#">Tesla</a></li>
-                    <li><a href:"#">Toyota</a></li>
-                    <li><a href:"#">Subaru</a></li>
-                    <li><a href:"#">Suzuki</a></li>
-                  </ul>
-                </div>
-                      
-                <div class="dropdown filter-dropdown">
-                  <button class="btn btn-primary dropdown-toggle btn-filter" id="seat-filter" type="button" data-toggle="dropdown">
-                    Seats
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu filter-dropdown-menu" id="seat-filter-dropdown">
-                    <li><a href:"#">2 Seats</a></li>
-                    <li><a href:"#">4 Seats</a></li>
-                  </ul>
-                </div>
-                <div class="dropdown filter-dropdown">
-                  <button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="sortby-filter" type="button" data-toggle="dropdown">
-                    Sort by
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu filter-dropdown-menu-sortby" id="sortby-filter-dropdown">
-                    <li><a href:"#">Distance (Lowest)</a></li>
-                    <li><a href:"#">Distance (Highest)</a></li>
-                    <li><a href:"#">Rate (Lowest)</a></li>
-                    <li><a href:"#">Rate (Highest)</a></li>
-                  </ul>
-                </div>
-              </div>
-                <br>
-              <button class="btn btn-primary" id="list-collapse-btn" type="button">Filter</button>
-            </div>
-            <div class="collapse in" id="list-collapse">
-              <!--<asp:PlaceHolder ID="carlist"  runat="server"/>-->
-              <div id="carlist"></div>
-              <!-- Panel default
-              <div class="panel-default car-panel">
-                <div class="panel-heading">
-                    <a data-toggle="collapse" href="#collapse1" class="car-panel-title">
-                        Suzuki x
-                      <span style="float:right;">10km away</span>
-                    </a>
-                  </div>
-                  <div id="collapse1" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    asdasd asdasd
-                  </div>
-                </div>
-              </div>-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
-    <script src="/Theme/js/map-features.js"></script>
-        </div>
-    </div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 id="aa">
+					List of cars near you
+				</h2>
+			</div>
+			<div class="panel-body">
+				<div id="map"></div>
+				<div class="list" >
+					<div class="panel filter-panel">
+						<label class="result-label">Refine Results</label>
+
+						<div class="filter">
+							<div id="date-group">
+								<div class="col-md-6">
+									<label>Start date</label>
+									<div class='input-group date' id='start-date-picker'>
+										<input type='text' class="form-control" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<label>End date</label>
+									<div class='input-group date' id='end-date-picker'>
+										<input type='text' class="form-control" />
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>								
+							</div>
+						</div>
+						<div class="filter col-md-12">
+							<div class="dropdown filter-dropdown-big filter-dropdown-left">
+								<button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="sortby-filter" type="button" data-toggle="dropdown">
+									Sort by
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu filter-dropdown-menu-sortby" id="sortby-filter-dropdown">
+									<li><a href:"#">Distance (Lowest) (Default)</a></li>
+									<li><a href:"#">Distance (Highest)</a></li>
+									<li><a href:"#">Rate (Lowest)</a></li>
+									<li><a href:"#">Rate (Highest)</a></li>
+								</ul>
+							</div>
+							<div class="dropdown filter-dropdown-big filter-dropdown-right">
+								<button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="transmission-filter" type="button" data-toggle="dropdown" style="float:right;">
+									Transmission
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right filter-dropdown-menu" id="transmission-filter-dropdown">
+									<li><a href:"#">Any</a></li>
+									<li><a href:"#">Automatic</a></li>
+									<li><a href:"#">Manual</a></li>
+								</ul>
+							</div>
+								
+						</div>
+						<div class="filter col-md-12">
+							<div class="dropdown filter-dropdown">
+								<button class="btn btn-primary dropdown-toggle btn-filter" id="brand-filter" type="button" data-toggle="dropdown">
+									Brand
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu filter-dropdown-menu" id="brand-filter-dropdown">
+									<li><a href:"#">Any</a></li>
+									<li><a href:"#">Audi</a></li>
+									<li><a href:"#">Ford</a></li>
+									<li><a href:"#">Kia</a></li>
+									<li><a href:"#">Mazda</a></li>
+									<li><a href:"#">Mini</a></li>
+									<li><a href:"#">Tesla</a></li>
+									<li><a href:"#">Toyota</a></li>
+									<li><a href:"#">Subaru</a></li>
+									<li><a href:"#">Suzuki</a></li>
+								</ul>
+							</div>
+							<div class="dropdown filter-dropdown">
+								<button class="btn btn-primary dropdown-toggle btn-filter" id="seat-filter" type="button" data-toggle="dropdown">
+									Seats
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu filter-dropdown-menu" id="seat-filter-dropdown">
+									<li><a href:"#">Any</a></li>
+									<li><a href:"#">2 Seats</a></li>
+									<li><a href:"#">5 Seats</a></li>
+									<li><a href:"#">7 Seats</a></li>
+									<li><a href:"#">8+ Seats</a></li>
+								</ul>
+							</div>
+							<div class="dropdown filter-dropdown">
+								<button class="btn btn-primary dropdown-toggle btn-filter" id="type-filter" type="button" data-toggle="dropdown">
+									Type
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right filter-dropdown-menu" id="type-filter-dropdown">
+									<li><a href:"#">Any</a></li>
+									<li><a href:"#">Convertible</a></li>
+									<li><a href:"#">Coupe</a></li>
+									<li><a href:"#">Electric</a></li>
+									<li><a href:"#">Hatch</a></li>
+									<li><a href:"#">Hybrid</a></li>
+									<li><a href:"#">Sedan</a></li>
+									<li><a href:"#">SUV</a></li>
+									<li><a href:"#">Ute</a></li>
+									<li><a href:"#">Van</a></li>
+									<li><a href:"#">Wagon</a></li>
+								</ul>
+							</div>
+						</div>
+
+						
+						<div class="filter">
+							<div class="dropdown filter-dropdown">
+								<button class="btn btn-primary btn-filter-fill" id="x-filter" type="button" data-toggle="collapse" data-target="#filter-feat">
+									Advance Filters
+								</button>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div id="filter-feat" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="col-sm-12 advance-margin">
+										<div class="col-sm-4">
+											<button type="button" id="cd-btn" class="flat-butt flat-danger-butt">
+												CD Player
+											</button>			
+										</div>
+										<div class="col-sm-4">
+											<button type="button" id="bt-btn" class="flat-butt flat-danger-butt">
+												Bluetooth
+											</button>			
+										</div>
+										<div class="col-sm-4">
+											<button type="button" id="gps-btn" class="flat-butt flat-danger-butt">
+												GPS
+											</button>			
+										</div>
+									</div>
+									<br />
+									<div class="col-sm-12 advance-margin">
+										<div class="col-sm-4">
+											<button type="button" id="cc-btn" class="flat-butt flat-danger-butt">
+												Cruise Control
+											</button>
+										</div>
+										<div class="col-sm-4">
+											<button type="button" id="rad-btn" class="flat-butt flat-danger-butt">
+												Radio
+											</button>
+										</div>
+										<div class="col-sm-4"> 
+											<button type="button" id="rev-btn" class="flat-butt flat-danger-butt">
+												Reverse Camera
+											</button>			
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-primary" id="list-collapse-btn" type="button">Filter</button>
+					</div>
+					<div class="collapse in" id="list-collapse">
+						<!--<asp:PlaceHolder ID="carlist"  runat="server"/>-->
+						<div id="carlist">
+							<div id="carlist-accordion"></div>
+							<ul id="car-page" class="pagination">
+								<li class="active"><a href="javascript:void(0);">1</a></li>
+								<li><a href="javascript:void(0);">2</a></li>
+								<li><a href="javascript:void(0);">3</a></li>
+								<li><a href="javascript:void(0);">4</a></li>
+								<li><a href="javascript:void(0);">5</a></li>
+								<li><a href="javascript:void(0);">6</a></li>
+								<li><a href="javascript:void(0);">7</a></li>
+								<li><a href="javascript:void(0);">8</a></li>
+								<li><a href="javascript:void(0);">9</a></li>	
+								<li><a href="javascript:void(0);">10</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
+<script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/Theme/js/map-features.js"></script>
+<script src="/Theme/js/dropdown.js"></script>
 </asp:Content>
