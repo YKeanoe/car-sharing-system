@@ -25,8 +25,18 @@ namespace car_sharing_system.Admin_Theme.pages
             {
                 showData.Visible = true;
                 updateform.Visible = false;
-                Label1.Text = newUser.fname;
-                Label1.Style.Add("font-weight", "bold");
+                firstname.Value = newUser.fname ;
+                lastname.Value = newUser.lname;
+                licenseNo.Value = newUser.licenseNo;
+                phone.Value = newUser.phone;
+                street.Value = newUser.street;
+                suburb.Value = newUser.suburb;
+                city.Value = newUser.city;
+                territory.Value = newUser.territory;
+                profileURL.Value = newUser.profileURL;
+                postcode.Value = newUser.postcode;
+                gender.Value = newUser.gender;
+                birth.Value = newUser.birth;
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
