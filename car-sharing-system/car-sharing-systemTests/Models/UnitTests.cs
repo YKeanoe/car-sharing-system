@@ -2112,6 +2112,151 @@ namespace car_sharing_system.Models.Tests
             {
                 Assert.Pass("Issue not submitted");
             }
+        // TODO: Create unit tests for singleQueries and ListQueries for databaseReader.
+        // - carQuery(
+        // - bookingQuery(
+        // - userQuery(
+        //
+        }
+
+        //[Test()]
+        public void carQuery() // carQuery
+        {
+            String test = "";
+            try
+            {
+                DatabaseReader dr = new DatabaseReader();
+                String password = null; // Plaintext Password
+                String email = null; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = null; // 9 digit license number
+                String fname = null; // First Name
+                String lname = null; // Last Name
+                String gender = null; // Gender (Male / Female)
+                String birth = null; // Date of birth 'dd/mm/yyyy'
+                String phone = null; // Phone number
+                String street = null; // Street Address
+                String suburb = null; // Suburb
+                String postcode = null; // Postcode
+                String territory = null; // Territory
+                String city = null; // City
+                String country = null; // Country
+                String profileURL = null; // Avatar Image Url
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for registration was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for registration was not handled successfully.");
+            }
+
+            UserModel data = new UserModel();
+            String beforeHash = "";
+            String password2 = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String userName = "Nulla@elitpharetra.ca";
+            User myData = data.loginAttempt(userName, password2);
+            if (myData != null)
+            {
+                Assert.Fail("No password check failure"); ;
+            }
+            else
+            {
+                Assert.Pass("Login fail");
+            }
+        }
+
+        //[Test()]
+        public void bookingQuery() // bookingQuery
+        {
+            String test = "";
+            try
+            {
+                DatabaseReader dr = new DatabaseReader();
+                String password = null; // Plaintext Password
+                String email = null; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = null; // 9 digit license number
+                String fname = null; // First Name
+                String lname = null; // Last Name
+                String gender = null; // Gender (Male / Female)
+                String birth = null; // Date of birth 'dd/mm/yyyy'
+                String phone = null; // Phone number
+                String street = null; // Street Address
+                String suburb = null; // Suburb
+                String postcode = null; // Postcode
+                String territory = null; // Territory
+                String city = null; // City
+                String country = null; // Country
+                String profileURL = null; // Avatar Image Url
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for registration was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for registration was not handled successfully.");
+            }
+        }
+
+        //[Test()]
+        public void userQuery() // userQuery
+        {
+            String test = "";
+            try
+            {
+                DatabaseReader dr = new DatabaseReader();
+                String password = null; // Plaintext Password
+                String email = null; // Valid email
+                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                String licenseNo = null; // 9 digit license number
+                String fname = null; // First Name
+                String lname = null; // Last Name
+                String gender = null; // Gender (Male / Female)
+                String birth = null; // Date of birth 'dd/mm/yyyy'
+                String phone = null; // Phone number
+                String street = null; // Street Address
+                String suburb = null; // Suburb
+                String postcode = null; // Postcode
+                String territory = null; // Territory
+                String city = null; // City
+                String country = null; // Country
+                String profileURL = null; // Avatar Image Url
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                dr.Registeration(newUser); // Register new user
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("NULL for registration was handled successfully.");
+            }
+            else
+            {
+                Assert.Fail("Null for registration was not handled successfully.");
+            }
         }
     }
 }
