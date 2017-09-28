@@ -14,10 +14,14 @@ namespace car_sharing_system.Admin_Theme.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
+            if (Request.QueryString["update"] == "1")
+                updated.InnerText = "Updated your profile!";
 
-            if (Request.QueryString["edit"] == "1")
+            String theID = getID();
+
+            if (Request.QueryString["edit"] == theID )
             {
+                newUser = DatabaseReader.userQuerySingle("accountID = '" + theID + "';");
                 showData.Visible = false;
                 updateform.Visible = true;
                 if (!IsPostBack) {
@@ -37,6 +41,7 @@ namespace car_sharing_system.Admin_Theme.pages
             }
             else
             {
+                newUser = DatabaseReader.userQuerySingle("accountID = '" + theID + "';");
                 showData.Visible = true;
                 updateform.Visible = false;
                 fN.InnerText = newUser.fname ;
@@ -53,9 +58,21 @@ namespace car_sharing_system.Admin_Theme.pages
                 dob.InnerText = newUser.birth;
             }
         }
+        protected string getID() {
+            User curr = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
+
+            String theID = User.Identity.Name;
+
+            if (!String.IsNullOrEmpty(Request.QueryString["edit"]) && curr.permission == 1)
+                theID = Request.QueryString["edit"];
+            return theID;
+        }
         protected void submit(object sender, EventArgs e)
         {
-            newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
+            String theID = getID();
+
+            newUser = DatabaseReader.userQuerySingle("accountID = '" + theID + "';");
+
             newUser.fname = edfirstname.Text;
             newUser.lname = edlastname.Text;
             newUser.licenseNo = edlicenseNo.Text;
