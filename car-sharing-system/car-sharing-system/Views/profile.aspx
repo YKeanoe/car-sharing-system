@@ -102,123 +102,131 @@
                                         <div class="form-group">
                             <div id="showData"  runat="server">
                                 <div >
-                                    <label id="firstName">First Name: </label><span></span>
+                                    <label>First Name: </label>
+                                    <span id="fN" runat="server"></span>
                                 </div>
-                                 
                                 <div >
-                                    <label id="lastName">Last Name: </label><span></span>
+                                    <label>Last Name: </label><span id="lN" runat="server"></span>
                                 </div>
-
                                 <div >
-                                    <label id="licenseNo">License Number: </label><span></span>
-                                </div>
-
-                                <div >
-                                    <label id="birth">Date of Birth: </label><span></span>
+                                    <label >License Number: </label><span id="LiN" runat="server"></span>
                                 </div>
 
                                 <div >
-                                    <label id="gender">Gender: </label><span></span>
+                                    <label>Date of Birth: </label><span id="dob" runat="server"></span>
                                 </div>
 
                                 <div >
-                                    <label id="phone">Phone: </label><span></span>
+                                    <label>Gender: </label><span id="gen" runat="server"></span>
+                                </div>
+
+                                <div >
+                                    <label>Phone: </label><span id="ph" runat="server"></span>
                                 </div>
 
                                 <div > 
-                                    <label id="street">Street: </label><span></span>
+                                    <label>Street: </label><span id="st" runat="server"></span>
                                 </div>
 
                                 <div >
-                                    <label id="suburb">Suburb: </label><span></span>
+                                    <label>Suburb: </label><span id="sb" runat="server"></span>
                                 </div>
 
                                 <div >
-                                     <label id="postcode">Postcode: </label><span></span>
+                                     <label>Postcode: </label><span id="pc" runat="server"></span>
                                 </div>
 
                                 <div >
-                                     <label id="territory">Territory: </label><span></span>
+                                     <label>Territory: </label><span id="ter" runat="server"></span>
                                 </div>
 
                                 <div >
-                                     <label id="city">City: </label><span></span>
+                                     <label>City: </label><span id="ci" runat="server"></span>
                                 </div>
 
                                 <div >
-                                     <label id="country">Country: </label><span></span>
+                                     <label>Country: </label><span id="co" runat="server"></span>
                                 </div>
 
-                                <div class="last">
-                                     <label id="profileURL">ProfileURL: </label><span></span>
-                                </div>
-                                <img src='<%=newUser.profileURL%>'/>
+                                <img id="pu" src="" runat="server"/>
                                 <a class="btn btn-info" id="edit" href="/dashboard/profile?edit=1">Edit</a>
                             </div>
 
                             <form id="updateform" runat="server">
                                                
                                 <div >
-                                    <label class="label">First Name: </label><input type="text" name="firstname" value="<%=newUser.fname%>"/>
+                                    <label class="label">First Name: </label>
+                                    <input type="text" name="firstname" id="efirstname" runat="server"/>
                                 </div>
                                  
                                 <div >
-                                    <label class="label">Last Name: </label><input type="text" name="lastname" value="<%=newUser.lname %>"/>
+                                    <label class="label">Last Name: </label>
+                                    <input type="text" name="lastname" id="elastname" runat="server"/>
                                 </div>
 
                                 <div >
-                                    <label class="label">License Number: </label><input type="text" name="licenseNo" value="<%=newUser.licenseNo %>"/>
+                                    <label class="label">License Number: </label>
+                                    <input type="text" name="licenseNo" id="elicenseNo" runat="server"/>
                                 </div>
 
                                 <div >
-                                    <label class="label">Date of Birth: </label><input type="text" name="birth" value="<%=newUser.birth %>"/>
+                                    <label class="label">Date of Birth: </label>
+                                    <input type="text" name="birth" id="ebirth" runat="server"/>
                                 </div>
 
                                 <div >
-                                    <label class="label">Gender: </label><input type="text" name="gender" value="<%=newUser.gender %>"/>
+                                    <label class="label">Gender: </label>
+                                    <input type="text" name="gender" id="egender" runat="server"/>
                                 </div>
 
                                 <div >
-                                    <label class="label">Phone: </label><input type="text" name="phone" value="<%=newUser.phone %>"/>
+                                    <label class="label">Phone: </label>
+                                    <input type="text" name="phone" id="ephone" runat="server"/>
                                 </div>
 
                                 <div > 
-                                    <label class="label">Street: </label><input type="text" name="street" value="<%=newUser.street %>"/>
+                                    <label class="label">Street: </label>
+                                    <input type="text" name="street" id="estreet" runat="server"/>
                                 </div>
 
                                 <div >
-                                    <label class="label">Suburb: </label><input type="text" name="suburb" value="<%=newUser.suburb %>"/>
+                                    <label class="label">Suburb: </label>
+                                    <input type="text" name="suburb" id="esuburb" runat="server"/>
                                 </div>
 
                                 <div >
-                                     <label class="label">Postcode: </label><input type="text" name="postcode" value="<%=newUser.postcode %>"/>
+                                     <label class="label">Postcode: </label>
+                                    <input type="text" name="postcode" id="epostcode" runat="server"/>
                                 </div>
 
                                 <div >
-                                     <label class="label">Territory: </label><input type="text" name="territory" value="<%=newUser.territory %>"/>
+                                     <label class="label">Territory: </label>
+                                    <input type="text" name="territory" id="eterritory" runat="server"/>
                                 </div>
 
                                 <div >
-                                     <label class="label">City: </label><input type="text" name="city" value="<%=newUser.city %>"/>
+                                     <label class="label">City: </label>
+                                    <input type="text" name="city" id="ecity" runat="server"/>
                                 </div>
 
                                 <div >
-                                     <label class="label">Country: </label><input type="text" name="country" value="<%=newUser.country %>"/>
+                                     <label class="label">Country: </label>
+                                     <input type="text" name="country" id="ecountry" runat="server"/>
                                 </div>
 
                                 <div class="last">
-                                     <label  class="label" >ProfileURL: </label><input runat="server" type="text"  name="profileURL" />
-                                    <img src="<%=newUser.profileURL %>"/>
+                                     <label  class="label" >ProfileURL: </label>
+                                    <input type="text" id="eprofileURL" runat="server"/>
+                                    <img src="" id="eprofileIMG" runat="server"/>
                                 </div>
-                                 <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-info">
                                      <label id="profileImg">ProfileURL: </label>
                                 <br>
                                 <div class="submit1">
-                                 <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-primary">
-                                    </div>
+                                    <input type="submit" value="Submit" OnClick="Button1_Click" class="btn btn-primary">
+                                </div>
                              </form>
 
-                                        </div>
+                            </div>
                         </div>
 
 
