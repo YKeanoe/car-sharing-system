@@ -25,7 +25,8 @@
 						<label><asp:Label runat="server" ID="carRateLabel">$x per Hour</asp:Label></label>
 						<label><asp:Label runat="server" ID="bookStartTime">Start Time</asp:Label></label>
 						<label><asp:Label runat="server" ID="bookEndTime">End Time</asp:Label></label>
-						<label>Estimated price</label>
+						<asp:PlaceHolder runat="server" ID="bookOverdue"></asp:PlaceHolder>
+						<label>Total price</label>
 						<label><asp:Label runat="server" ID="bookEstimatePrice">Estimated price</asp:Label></label>
 						<asp:PlaceHolder ID="featurelist"  runat="server"/>
 						<asp:Button ID="confirmbtn" runat="server" Text="Return car" CssClass="btn btn-primary" OnClick="confirmReturn"></asp:Button>
@@ -38,5 +39,6 @@
 
 
 <link rel="stylesheet" type="text/css" href="/Theme/css/bookingconfirmation.css" />
+<script type="text/javascript" src="/Theme/js/booking-return-features.js"></script>
 
 </asp:Content>

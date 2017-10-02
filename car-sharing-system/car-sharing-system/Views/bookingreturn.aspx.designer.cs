@@ -103,6 +103,15 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.Label bookEndTime;
         
         /// <summary>
+        /// bookOverdue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder bookOverdue;
+        
+        /// <summary>
         /// bookEstimatePrice control.
         /// </summary>
         /// <remarks>

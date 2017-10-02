@@ -428,51 +428,77 @@ namespace car_sharing_system.Models
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
                 using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
 					while (dbread.Read()) {
-						Debug.WriteLine(dbread[7].ToString());
-						Debug.WriteLine(dbread[8].ToString());
-						Location newLocation = new Location(
-							Convert.ToDecimal(dbread[7].ToString()) /*Latitude*/,
-							Convert.ToDecimal(dbread[8].ToString()) /*Longitude*/);
-						String actEndDate = dbread[6].ToString();
-						long endDate;
-						if (!String.IsNullOrEmpty(actEndDate)) {
-							endDate = Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(actEndDate)).TotalSeconds);
-						} else {
-							endDate = 0;
-						}
-						Booking currBook;
-						DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-						// If endDate is not set, means the car 
-						if (endDate == 0) {
-							currBook = new Booking(
-									Int32.Parse(dbread[0].ToString()), // BookingID
-									Int32.Parse(dbread[1].ToString()), // AccountID
-									dbread[2].ToString(), // Numberplate
-									(long)DateTime.Parse(dbread[3].ToString()).Subtract(unixStart).TotalSeconds, // Booking date
-									(long)DateTime.Parse(dbread[4].ToString()).Subtract(unixStart).TotalSeconds, // start date
-									(long)DateTime.Parse(dbread[5].ToString()).Subtract(unixStart).TotalSeconds, // est end date
-									newLocation // location from above
-							);
-						} else {
-							currBook = new Booking(
-									Int32.Parse(dbread[0].ToString()), // BookingID
-									Int32.Parse(dbread[1].ToString()), // AccountID
-									dbread[2].ToString(), // Numberplate
-									(long)DateTime.Parse(dbread[3].ToString()).Subtract(unixStart).TotalSeconds, // Booking date
-									(long)DateTime.Parse(dbread[4].ToString()).Subtract(unixStart).TotalSeconds, // start date
-									(long)DateTime.Parse(dbread[5].ToString()).Subtract(unixStart).TotalSeconds, // est end date
-									(long)DateTime.Parse(dbread[6].ToString()).Subtract(unixStart).TotalSeconds, // end date
-									newLocation, // location from above
-									Convert.ToDouble(dbread[7].ToString())
-							);
-						}
-						currBook.debug();
+						myBooking.Add(convertToBooking(dbread));
                     }
                 }
             }
             return myBooking;
         }
-		
+
+		// bookingQuery returns the bookings found as a list of booking object.
+		public static Booking bookingQuerySingle(String where) {
+			List<Booking> myBooking = new List<Booking>();
+			String query;
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Booking WHERE " + where;
+			} else {
+				query = "SELECT * FROM Booking";
+			}
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					if (dbread.Read()) {
+						MySqlDataReader dbreadns = dbread;
+						return convertToBooking(dbread);
+					} else {
+						return null;
+					}
+				}
+			}
+		}
+
+		private static Booking convertToBooking(MySqlDataReader dbread) {
+			Location newLocation = new Location(
+				Convert.ToDecimal(dbread[7].ToString()) /*Latitude*/,
+				Convert.ToDecimal(dbread[8].ToString()) /*Longitude*/);
+			String actEndDate = dbread[6].ToString();
+			long endDate;
+			if (!String.IsNullOrEmpty(actEndDate)) {
+				endDate = Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(actEndDate)).TotalSeconds);
+			} else {
+				endDate = 0;
+			}
+			Booking currBook;
+			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+			// If endDate is not set, means the car 
+			if (endDate == 0) {
+				currBook = new Booking(
+						Int32.Parse(dbread[0].ToString()), // BookingID
+						Int32.Parse(dbread[1].ToString()), // AccountID
+						dbread[2].ToString(), // Numberplate
+						(long)DateTime.Parse(dbread[3].ToString()).Subtract(unixStart).TotalSeconds, // Booking date
+						(long)DateTime.Parse(dbread[4].ToString()).Subtract(unixStart).TotalSeconds, // start date
+						(long)DateTime.Parse(dbread[5].ToString()).Subtract(unixStart).TotalSeconds, // est end date
+						newLocation // location from above
+				);
+			} else {
+				currBook = new Booking(
+						Int32.Parse(dbread[0].ToString()), // BookingID
+						Int32.Parse(dbread[1].ToString()), // AccountID
+						dbread[2].ToString(), // Numberplate
+						(long)DateTime.Parse(dbread[3].ToString()).Subtract(unixStart).TotalSeconds, // Booking date
+						(long)DateTime.Parse(dbread[4].ToString()).Subtract(unixStart).TotalSeconds, // start date
+						(long)DateTime.Parse(dbread[5].ToString()).Subtract(unixStart).TotalSeconds, // est end date
+						(long)DateTime.Parse(dbread[6].ToString()).Subtract(unixStart).TotalSeconds, // end date
+						newLocation, // location from above
+						Convert.ToDouble(dbread[7].ToString())
+				);
+			}
+			return currBook;
+		}
+
 		// addBooking add a new booking to the database
 		public static int addBooking(Booking book) {
 			StringBuilder querysb = new StringBuilder();
@@ -511,6 +537,44 @@ namespace car_sharing_system.Models
 				}
 			}
 		}
+
+		// finishBooking updates the car's and booking's data.
+		public static void finishBooking(String uid, Double traveldist, String cid, Location cloc) {
+			updateBooking(uid, traveldist);
+			updateCar(cid, cloc);
+		}
+
+		// updateBooking update the booking's database by filling the endDate
+		// and travel distance field, notifying that the booking is finish.
+		public static int updateBooking(String id, Double traveldist) {
+			String set = String.Format("endDate = '{0}', travelDistance = {1}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"), traveldist);
+			String where = String.Format("accountID = '{0}' AND endDate IS NULL", id);
+			String query = String.Format("UPDATE Booking SET {0} WHERE {1}" + id + "'",
+									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
+		// updateCar update the car's location.
+		public static int updateCar(String id, Location carLoc) {
+			String set = String.Format("locationLat = {0}, locationLong = {1}", carLoc.lat, carLoc.lng);
+			String where = String.Format("numberPlate = '{0}' AND Status != 'A'", id);
+			String query = String.Format("UPDATE Booking SET {0} WHERE {1}" + id + "'",
+									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
 		/*
 		public static Booking checkUserBook(String userid) {
 			String query = "SELECT * FROM Car WHERE numberPlate = '" + id + "'";

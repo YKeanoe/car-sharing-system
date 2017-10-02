@@ -155,6 +155,7 @@
     <Content Include="Theme\Images\enviromental.png" />
     <Content Include="Theme\Images\middle.png" />
     <Content Include="Theme\js\booking-confirmation-features.js" />
+    <Content Include="Theme\js\booking-return-features.js" />
     <Content Include="Theme\js\dropdown.js" />
     <Content Include="Bootstrap\js\moment.js" />
     <Content Include="Datetimepicker\css\bootstrap-datetimepicker-standalone.css" />

@@ -6,14 +6,21 @@
 .panel-full{
 	width:100%;
 	overflow:auto;
-	margin: 5% 0;
 }
 
-.panel-half label {
+.panel-half form label {
 	width:100%;
 }
 
-.panel-half span {
+.panel-half form span {
+	width:100%;
+}
+
+.panel-full label {
+	width:100%;
+}
+
+.panel-full span {
 	width:100%;
 }
 
