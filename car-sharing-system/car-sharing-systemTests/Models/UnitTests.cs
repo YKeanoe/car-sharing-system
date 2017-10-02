@@ -2118,144 +2118,88 @@ namespace car_sharing_system.Models.Tests
         // - userQuery(
         //
         }
-
-        //[Test()]
-        public void carQuery() // carQuery
+        protected Car carList;
+        protected List<Car> cars = new List<Car>();
+        [Test()]
+        public void carQuery() // Checks to see if it can find a matching car in the database with the query information.
         {
-            String test = "";
+            String test = "Pass";
             try
             {
+                String numberPlate = "8W69B0";
                 DatabaseReader dr = new DatabaseReader();
-                String password = null; // Plaintext Password
-                String email = null; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-                String licenseNo = null; // 9 digit license number
-                String fname = null; // First Name
-                String lname = null; // Last Name
-                String gender = null; // Gender (Male / Female)
-                String birth = null; // Date of birth 'dd/mm/yyyy'
-                String phone = null; // Phone number
-                String street = null; // Street Address
-                String suburb = null; // Suburb
-                String postcode = null; // Postcode
-                String territory = null; // Territory
-                String city = null; // City
-                String country = null; // Country
-                String profileURL = null; // Avatar Image Url
-                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
-                    gender, birth, phone, street, suburb, postcode, territory,
-                    city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
+                carList = DatabaseReader.carQuerySingleFull(query);
             }
             catch (Exception)
             {
-                test = "Pass";
+                test = "Fail";
             }
             if (test == "Pass")
             {
-                Assert.Pass("NULL for registration was handled successfully.");
+                Assert.Pass("Valid Car in database. " + "Car info: \n"
+                            + "\nLicense Plate: " + carList.numberPlate
+                            + "\nLocation: " + carList.latlong
+                            + "\nCountry: " + carList.country
+                            + "\nBrand: " + carList.brand
+                            + "\nModel: " + carList.model
+                            + "\nVehicle Type: " + carList.vehicleType
+                            + "\nSeats: " + carList.seats
+                            + "\nDoors: " + carList.doors
+                            + "\nTransmission: " + carList.transmission
+                            + "\nFuel Type: " + carList.fuelType
+                            + "\nTank Size: " + carList.tankSize
+                            + "\nFuel Consumption: " + carList.fuelConsumption
+                            + "\nAverage Range: " + carList.avgRange
+                            + "\nHourly Rate: " + carList.rate
+                            + "\nCD Player: " + carList.cdPlayer
+                            + "\nGPS: " + carList.gps
+                            + "\nBluetooth: " + carList.bluetooth
+                            + "\nCruise Control: " + carList.cruiseControl
+                            + "\nReverse Camera: " + carList.reverseCam
+                            + "\nRadio: " + carList.radio);
             }
             else
             {
-                Assert.Fail("Null for registration was not handled successfully.");
-            }
-
-            UserModel data = new UserModel();
-            String beforeHash = "";
-            String password2 = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-            String userName = "Nulla@elitpharetra.ca";
-            User myData = data.loginAttempt(userName, password2);
-            if (myData != null)
-            {
-                Assert.Fail("No password check failure"); ;
-            }
-            else
-            {
-                Assert.Pass("Login fail");
+                Assert.Fail("Car was not found from car query.");
             }
         }
-
-        //[Test()]
-        public void bookingQuery() // bookingQuery
+        protected User userListing;
+        protected List<User> users = new List<User>();
+        [Test()]
+        public void userQuery() // Checks to see if it can find a matching user in the database with the query information.
         {
-            String test = "";
+            String test = "Pass";
             try
             {
-                DatabaseReader dr = new DatabaseReader();
-                String password = null; // Plaintext Password
-                String email = null; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-                String licenseNo = null; // 9 digit license number
-                String fname = null; // First Name
-                String lname = null; // Last Name
-                String gender = null; // Gender (Male / Female)
-                String birth = null; // Date of birth 'dd/mm/yyyy'
-                String phone = null; // Phone number
-                String street = null; // Street Address
-                String suburb = null; // Suburb
-                String postcode = null; // Postcode
-                String territory = null; // Territory
-                String city = null; // City
-                String country = null; // Country
-                String profileURL = null; // Avatar Image Url
-                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
-                    gender, birth, phone, street, suburb, postcode, territory,
-                    city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                userListing = DatabaseReader.userQuerySingle("accountID = '" + 100 + "';");
             }
             catch (Exception)
             {
-                test = "Pass";
+                test = "Fail";
             }
             if (test == "Pass")
             {
-                Assert.Pass("NULL for registration was handled successfully.");
+                Assert.Pass("Valid User found in database. " + "User info: \n"
+                            + "\nEmail Address: " + userListing.email
+                            + "\nPassword: " + userListing.password
+                            + "\nPermission: " + userListing.permission
+                            + "\nLicense Number: " + userListing.licenseNo
+                            + "\nFirst Name: " + userListing.fname
+                            + "\nLast Name: " + userListing.lname
+                            + "\nGender: " + userListing.gender
+                            + "\nDate of Birth: " + userListing.birth
+                            + "\nPhone Number: " + userListing.phone
+                            + "\nStreet Address: " + userListing.street
+                            + "\nSuburb: " + userListing.suburb
+                            + "\nPostcode: " + userListing.postcode
+                            + "\nTerritory: " + userListing.territory
+                            + "\nCountry: " + userListing.country
+                            + "\nProfile URL: " + userListing.profileURL);
             }
             else
             {
-                Assert.Fail("Null for registration was not handled successfully.");
-            }
-        }
-
-        //[Test()]
-        public void userQuery() // userQuery
-        {
-            String test = "";
-            try
-            {
-                DatabaseReader dr = new DatabaseReader();
-                String password = null; // Plaintext Password
-                String email = null; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-                String licenseNo = null; // 9 digit license number
-                String fname = null; // First Name
-                String lname = null; // Last Name
-                String gender = null; // Gender (Male / Female)
-                String birth = null; // Date of birth 'dd/mm/yyyy'
-                String phone = null; // Phone number
-                String street = null; // Street Address
-                String suburb = null; // Suburb
-                String postcode = null; // Postcode
-                String territory = null; // Territory
-                String city = null; // City
-                String country = null; // Country
-                String profileURL = null; // Avatar Image Url
-                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
-                    gender, birth, phone, street, suburb, postcode, territory,
-                    city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
-            }
-            catch (Exception)
-            {
-                test = "Pass";
-            }
-            if (test == "Pass")
-            {
-                Assert.Pass("NULL for registration was handled successfully.");
-            }
-            else
-            {
-                Assert.Fail("Null for registration was not handled successfully.");
+                Assert.Fail("User was not found in database.");
             }
         }
     }
