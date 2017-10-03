@@ -549,10 +549,11 @@ namespace car_sharing_system.Models
 		public static int updateBooking(String id, Double traveldist) {
 			String set = String.Format("endDate = '{0}', travelDistance = {1}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"), traveldist);
 			String where = String.Format("accountID = '{0}' AND endDate IS NULL", id);
-			String query = String.Format("UPDATE Booking SET {0} WHERE {1}" + id + "'",
+			String query = String.Format("UPDATE Booking SET {0} WHERE {1}",
 									set, where);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
+				Debug.WriteLine(query);
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
 				Debug.WriteLine("rows affected = " + numRowsUpdated);
@@ -562,35 +563,18 @@ namespace car_sharing_system.Models
 
 		// updateCar update the car's location.
 		public static int updateCar(String id, Location carLoc) {
-			String set = String.Format("locationLat = {0}, locationLong = {1}", carLoc.lat, carLoc.lng);
-			String where = String.Format("numberPlate = '{0}' AND Status != 'A'", id);
-			String query = String.Format("UPDATE Booking SET {0} WHERE {1}" + id + "'",
+			String set = String.Format("locationLat = {0}, locationLong = {1}, status = 'A'", carLoc.lat, carLoc.lng);
+			String where = String.Format("numberPlate = '{0}' AND status != 'A'", id);
+			String query = String.Format("UPDATE Car SET {0} WHERE {1}",
 									set, where);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
+				Debug.WriteLine(query);
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
 				Debug.WriteLine("rows affected = " + numRowsUpdated);
 				return numRowsUpdated;
 			}
 		}
-
-		/*
-		public static Booking checkUserBook(String userid) {
-			String query = "SELECT * FROM Car WHERE numberPlate = '" + id + "'";
-
-			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
-				mySqlConnection.Open();
-				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
-
-				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
-					if (dbread.Read()) {
-						Debug.WriteLine("Car id " + id + " status is " + dbread[15].ToString());
-					} else {
-						return null;
-					}
-				}
-			}
-		}*/
 	}
 }
