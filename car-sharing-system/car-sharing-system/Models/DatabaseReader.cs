@@ -576,5 +576,23 @@ namespace car_sharing_system.Models
 				return numRowsUpdated;
 			}
 		}
+
+		// changeCarStatusInterval change the car's status if the booking start time 
+		// has past and the car status is 'booked' or 'B'
+		public static int changeCarStatusInterval() {
+			String query = "UPDATE Car INNER JOIN Booking ON Car.numberPlate = Booking.numberPlate SET Car.status = 'U' WHERE Booking.startDate <= NOW() AND Booking.endDate IS NULL AND Car.Status = 'B'";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				if (numRowsUpdated > 0) {
+					Debug.WriteLine("rows affected = " + numRowsUpdated);
+				} else {
+					Debug.WriteLine("No car need to be updated.");
+				}
+				return numRowsUpdated;
+			}
+		}
+
 	}
 }
