@@ -41,6 +41,9 @@ namespace car_sharing_system {
 			script.Controls.Add(new LiteralControl("<script src=\"/Theme/js/map-features.js\"></script>"));
 			script.Controls.Add(new LiteralControl("<script src=\"/Theme/js/dropdown.js\"></script>"));
 			*/
+
+			//DBScheduler.schedule2();
+
 		}
 
 		[System.Web.Services.WebMethod]

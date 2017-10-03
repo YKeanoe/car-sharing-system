@@ -307,6 +307,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\DBScheduler.cs" />
     <Compile Include="Models\IssueModel.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="Models\Issue.cs" />
