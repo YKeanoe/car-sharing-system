@@ -154,6 +154,7 @@
     <Content Include="Theme\Images\ecofriendly.png" />
     <Content Include="Theme\Images\enviromental.png" />
     <Content Include="Theme\Images\middle.png" />
+    <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />
     <Content Include="Theme\js\booking-return-features.js" />
     <Content Include="Theme\js\dropdown.js" />
@@ -166,6 +167,7 @@
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
+    <Content Include="Theme\js\timeout-features-return.js" />
     <Content Include="Theme\js\timeout-features.js" />
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />

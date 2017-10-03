@@ -593,6 +593,5 @@ namespace car_sharing_system.Models
 				return numRowsUpdated;
 			}
 		}
-
 	}
 }

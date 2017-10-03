@@ -2,7 +2,6 @@
 
 function setMap(data) {
 	var carLocs = JSON.parse(data.d);
-	console.log(carLocs);
 	carPos = carLocs;
 }
 
@@ -11,7 +10,6 @@ function getLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			userPos = { lat: position.coords.latitude, lng: position.coords.longitude }
-			console.log(userPos);
 			dfd.resolve();
 		}, function () {
 			dfd.reject();

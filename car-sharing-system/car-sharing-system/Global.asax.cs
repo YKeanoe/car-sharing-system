@@ -28,12 +28,6 @@ namespace car_sharing_system
                     CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
                 });
             }
-        }
-		
-		// Will be called once when the application first started
-		protected void Application_Start(object sender, EventArgs e) {
-			// I have to explicitly call this
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			// Run a scheduler to check db every x minute
 			DBScheduler.scheduleDatabaseCheck(5);
 		}

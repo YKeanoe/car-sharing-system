@@ -21,7 +21,7 @@ namespace car_sharing_system.Models {
 			// withintervalinseconds is used for debugging.
 			ITrigger trigger = TriggerBuilder.Create()
 			.WithDailyTimeIntervalSchedule
-			(s => s.WithIntervalInSeconds(min)).Build();
+			(s => s.WithIntervalInMinutes(min)).Build();
 
 			scheduler.ScheduleJob(job, trigger);
 		}

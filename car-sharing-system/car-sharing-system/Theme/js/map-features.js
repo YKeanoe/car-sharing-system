@@ -202,20 +202,26 @@ function filterClickfunctions() {
 
 function setDatetimePickerFunction() {
 	// Set the start and end date datetimepicker
-	var now = moment().endOf('hour').add(1, 'seconds').startOf('hour').toDate();
-	var startMax = moment().endOf('hour').add(1, 'seconds').startOf('hour').add(12, 'hours').toDate();
+	//var now = moment().endOf('hour').add(1, 'seconds').startOf('hour').toDate();
+	// Round date to the next nearest 5 minute
+	var round = Math.ceil((moment().get('minute')) / 5) * 5;
+	var now = moment().set('minute', round).set('second', 0).set('millisecond', 0).toDate();
+
+	var startMax = moment().set('minute', round).set('second', 0).set('millisecond', 0).add(12,'hours').toDate();
 	$('#start-date-picker').datetimepicker({
 		date: now,
+		stepping:5,
 		minDate: now,
 		maxDate: startMax,
-		format: 'DD/MM/YYYY HH:00'
+		format: 'DD/MM/YYYY HH:mm'
 	});
-	var next = moment().endOf('hour').add(1, 'seconds').startOf('hour').add(1, 'hours').toDate();
+	var next = moment().set('minute', round).set('second', 0).set('millisecond', 0).add(1, 'hours').toDate();
 	$('#end-date-picker').datetimepicker({
 		date: next,
+		stepping:5,
 		minDate: next,
 		useCurrent: false, //Important! See issue #1075
-		format: 'DD/MM/YYYY HH:00'
+		format: 'DD/MM/YYYY HH:mm'
 	});
 	$("#start-date-picker").on("dp.change", function (e) {
 		$('#end-date-picker').data("DateTimePicker").minDate(e.date.add(1, 'hours'));
@@ -391,6 +397,7 @@ function toBookingPage(id) {
 	var endate = $("#end-date-picker").data("DateTimePicker").date().format('X');
 	location.href = "/dashboard/confirmation?id=" + id + "&sdate=" + startdate + "&edate=" + endate;
 }
+
 
 // Set windows onload not ready as it need to load
 // googlemap apis before starting.

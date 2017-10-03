@@ -85,6 +85,8 @@ namespace car_sharing_system {
 		[System.Web.Services.WebMethod]
 		public static string getCarsData(String lat, String lng) {
 			CarModel cm = CarModel.getInstance();
+			if (cm == null)
+				Debug.WriteLine("cm NULL");
 			List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
 			return generateGoogleCarLocation(closeCars);
 		}

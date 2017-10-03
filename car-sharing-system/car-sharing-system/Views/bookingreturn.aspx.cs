@@ -20,7 +20,22 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		protected void Page_Load(object sender, EventArgs e) {
 			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND endDate IS NULL;");
+			if (currBooking == null) {
+				carinfo.Style.Add("display", "none");
+				errorinfo.Style.Add("display", "block");
+				errorlabel.Text = "You don't have active booking.";
+				return;
+			}
 			Car currentCar = DatabaseReader.carQuerySingleFull("numberPlate = '" + currBooking.numberPlate + "'");
+			if (currentCar == null) {
+				carinfo.Style.Add("display", "none");
+				errorinfo.Style.Add("display", "block");
+
+				errorlabel.Text = "Sorry. We can't seem to find your booked car. Please try again from the dashboard.";
+				return;
+			}
+			errorinfo.Style.Add("display", "none");
+			carinfo.Style.Add("display", "block");
 
 			// Set page's labels
 			carNumberPlate.Text = currentCar.numberPlate;
@@ -69,8 +84,11 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			carLocation = currentCar.latlong;
 			id = User.Identity.Name;
 			carid = currentCar.numberPlate;
+
+			script.Controls.Add(new LiteralControl("<script type=\"text/javascript\" src=\"/Theme/js/booking-return-features.js\"></script>"));
+			script.Controls.Add(new LiteralControl("<script type=\"text/javascript\" src=\"/Theme/js/timeout-features-return.js\"></script>"));
 		}
-	
+
 		private void featureHTML(PlaceHolder ph, bool feat, String feature) {
 			if (feat) {
 				ph.Controls.Add(new LiteralControl("<i class=\"fa fa-check fa-fw\"></i> " + feature));
