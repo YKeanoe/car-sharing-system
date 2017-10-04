@@ -65,10 +65,6 @@
     font-size: x-large;
 }
 
-.submit1 {
-    margin-left: 2%;
-}
-
 d {
 
     font-size: x-large;
@@ -120,6 +116,14 @@ p {
     width: 35%; 
     padding:20px 10px -1px 32px;
     display: inline-table;
+}
+
+#formFormat {
+    display: inline-table;
+}
+
+.aspNetHidden {
+    position: absolute;
 }
 
 .block {
