@@ -4,6 +4,8 @@ using System.Web.UI;
 using car_sharing_system.Models;
 using System.Web.Script.Serialization;
 using System.Text;
+using System.Web;
+using System.Web.Security;
 
 namespace car_sharing_system.Admin_Theme.pages {
 	public class GoogleCarLocation {
@@ -20,8 +22,18 @@ namespace car_sharing_system.Admin_Theme.pages {
 	public partial class dashboard : System.Web.UI.Page {
         protected User newUser;
 
+		/*
+		protected override void OnPreInit(EventArgs e) {
+			HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+			if (UserModel.isAdmin(authCookie)) {
+				this.MasterPageFile = "~/DashboardAdmin.master";
+			} else {
+				this.MasterPageFile = "~/Dashboard.master";
+			}
+			base.OnPreInit(e);
+		}*/
 
-        protected void Page_Load(object sender, EventArgs e) {
+		protected void Page_Load(object sender, EventArgs e) {
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND endDate IS NULL;");
 			if (currBooking != null) {

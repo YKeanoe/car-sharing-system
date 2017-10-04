@@ -13,6 +13,15 @@ namespace car_sharing_system {
     public partial class Dashboard {
         
         /// <summary>
+        /// adminList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder adminList;
+        
+        /// <summary>
         /// DashboardPageHolder control.
         /// </summary>
         /// <remarks>

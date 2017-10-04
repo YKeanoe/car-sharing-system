@@ -76,7 +76,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				odString.Append("</label>");
 				bookOverdue.Controls.Add(new LiteralControl(odString.ToString()));
 			} else {
-				diff = startTime.Subtract(estEnd);
+				diff = estEnd.Subtract(startTime);
 			}
 			totalPrice = diff.TotalHours * currentCar.rate;
 			bookEstimatePrice.Text = "$" + totalPrice.ToString("00.00");

@@ -84,10 +84,20 @@ namespace car_sharing_system
                 "dashboard/issuereported",
                 new CustomRouteHandler("~/Views/successregister.aspx")
             ));
-			routes.Add("adminuser", new Route
+			routes.Add("AdminUsers", new Route
 			(
 				"dashboard/admin/users",
 				new CustomRouteHandler("~/Views/adminusers.aspx")
+			));
+			routes.Add("AdminCars", new Route
+			(
+				"dashboard/admin/cars",
+				new CustomRouteHandler("~/Views/admincar.aspx")
+			));
+			routes.Add("AdminAddCar", new Route
+			(
+				"dashboard/admin/addcar",
+				new CustomRouteHandler("~/Views/admincarview.aspx")
 			));
 		}
     }

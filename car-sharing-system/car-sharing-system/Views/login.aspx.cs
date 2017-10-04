@@ -39,14 +39,32 @@ namespace car_sharing_system.Admin_Theme.pages
 		}
         protected void ValidateUser(object sender, EventArgs e)
         {
-            UserModel data = new UserModel();
             String password = new User().hashMe(Login1.Password);
-            User myData = data.loginAttempt(Login1.UserName, password);
+            User myData = UserModel.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {
 				//FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);
 
-				FormsAuthentication.SetAuthCookie(myData.id.ToString(), Login1.RememberMeSet);
+				FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+				  myData.id.ToString(), // userID
+				  DateTime.Now,
+				  DateTime.Now.AddMinutes(30),
+				  Login1.RememberMeSet, // rememberme tick
+				  myData.permission.ToString(), // user permission 
+				  FormsAuthentication.FormsCookiePath);
+
+				// Encrypt the ticket.
+				string encTicket = FormsAuthentication.Encrypt(ticket);
+
+				// Create the cookie.
+				Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+				// Redirect back to original URL.
+				Response.Redirect(FormsAuthentication.GetRedirectUrl(myData.id.ToString(), Login1.RememberMeSet));
+
+
+				//FormsAuthentication.SetAuthCookie(myData.id.ToString(), Login1.RememberMeSet);
+
 				if (redirect != null) {
 					if (carid != null) {
 						Response.Redirect(redirect + "?id=" + carid + " &sdate=" + sdate + " &edate=" + edate,false);

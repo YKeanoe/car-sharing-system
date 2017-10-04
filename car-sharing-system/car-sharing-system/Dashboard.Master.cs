@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
+using System.Web.Security;
+using car_sharing_system.Models;
 
 namespace car_sharing_system {
-    public partial class Dashboard : System.Web.UI.MasterPage {
+	public partial class Dashboard : System.Web.UI.MasterPage {
 
-        protected void Page_Init(object sender, EventArgs e) {
+		protected void Page_Init(object sender, EventArgs e) {
 			String path = HttpContext.Current.Request.Url.AbsolutePath;
 			// If the page is not login page
 			if (!path.Equals("/dashboard/login")) {
@@ -34,5 +36,29 @@ namespace car_sharing_system {
 				}
 			}
 		}
+
+		protected void Page_Load(object sender, EventArgs e) {
+			// Check if user is logged in
+			if (Request.IsAuthenticated) {
+				HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+				// Check if user is an admin
+				if (UserModel.isAdmin(authCookie)) {
+					String list = "<li>"
+								+ "<a href=\"#\"><i class=\"fa fa-users fa-fw\"></i> Admin<span class=\"fa arrow\"></span></a>"
+								+	"<ul class=\"nav nav-second-level\">"
+								+		"<li><a href=\"/dashboard/admin/users\">View all Users</a></li>"
+								+		"<li><a href=\"/dashboard/admin/cars\">View all Cars</a></li>"
+								+		"<li><a href=\"/dashboard/admin/addcar\">Add new Car</a></li>"
+								+	"</ul>"
+								+ "</li>";
+					adminList.Controls.Add(new LiteralControl(list));
+				}
+			}
+		}
 	}
 }
+
+/*
+
+
+*/
