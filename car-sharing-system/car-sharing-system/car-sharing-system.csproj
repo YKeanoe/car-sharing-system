@@ -151,8 +151,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
+    <Content Include="Theme\css\mobileFriendly.css" />
+    <Content Include="Theme\Images\AN.jpg" />
+    <Content Include="Theme\Images\bbc.png" />
     <Content Include="Theme\Images\ecofriendly.png" />
     <Content Include="Theme\Images\enviromental.png" />
+    <Content Include="Theme\Images\forbes.jpg" />
     <Content Include="Theme\Images\middle.png" />
     <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />

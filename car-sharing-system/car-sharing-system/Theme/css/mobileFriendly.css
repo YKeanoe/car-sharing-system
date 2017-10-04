@@ -1,0 +1,35 @@
+﻿@media screen and (max-width: 600px) {
+    .navbar-nav {
+    width: 100%;
+    }
+
+    .btn-front-page-sign-register{
+        width: 50%;
+    }
+
+    .float-jumbo{
+        width: 100%;
+    }
+
+    .navbar-default .navbar-fixed-top{
+        width: 100%;
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+}
+
+img {
+        padding-left: 27%;
+        padding-top: 17%;
+        vertical-align: middle;
+    }
