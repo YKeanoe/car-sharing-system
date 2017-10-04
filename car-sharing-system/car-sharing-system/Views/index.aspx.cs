@@ -32,8 +32,17 @@ namespace car_sharing_system {
 			String dt1 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 			long x = (long)DateTime.Now.Subtract(unixStart).TotalSeconds; // start time
 			String dt2 = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(x)).ToString("yyyy-MM-dd HH:mm:ss");
+			
 			DatabaseReader.bookingQuery(null);
 			*/
+			/*
+			script.Controls.Add(new LiteralControl("<script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry\"></script>"));
+			script.Controls.Add(new LiteralControl("<script src=\"/Datetimepicker/js/bootstrap-datetimepicker.min.js\"></script>"));
+			script.Controls.Add(new LiteralControl("<script src=\"/Theme/js/map-features.js\"></script>"));
+			script.Controls.Add(new LiteralControl("<script src=\"/Theme/js/dropdown.js\"></script>"));
+			*/
+
+			//DBScheduler.schedule2();
 
 		}
 
@@ -76,6 +85,8 @@ namespace car_sharing_system {
 		[System.Web.Services.WebMethod]
 		public static string getCarsData(String lat, String lng) {
 			CarModel cm = CarModel.getInstance();
+			if (cm == null)
+				Debug.WriteLine("cm NULL");
 			List<Car> closeCars = cm.getCloseCar(Double.Parse(lat), Double.Parse(lng));
 			return generateGoogleCarLocation(closeCars);
 		}

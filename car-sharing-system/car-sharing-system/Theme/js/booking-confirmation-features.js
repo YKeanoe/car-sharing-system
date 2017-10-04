@@ -26,4 +26,3 @@ function cancel() {
 		dataType: "json"
 	});
 }
-

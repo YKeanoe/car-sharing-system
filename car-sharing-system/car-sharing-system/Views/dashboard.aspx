@@ -80,7 +80,8 @@
 </div>
 <h2>Welcome back <%=newUser.fname%> <%=newUser.lname%></h2>
 <div class="row">
-    <div class="container-fluid">
+	
+	<div class="container-fluid" id="cardiv" runat="server">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h2 id="aa">
@@ -267,10 +268,41 @@
 			</div>
 		</div>
 	</div>
+
+    <div class="container-fluid" id="booklistdiv" runat="server">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-hourglass-half fa-fw"></i> Current Booking
+                <div class="pull-right">
+                    <div class="btn-group">                
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+				<label>
+					<asp:Label runat="server" ID="carNumberPlate">Plate</asp:Label>
+					<asp:Label runat="server" ID="carBrandLabel">Brand</asp:Label>
+					<asp:Label runat="server" ID="carModelLabel">Model</asp:Label>
+				</label>
+				<br />
+				<label><asp:Label runat="server" ID="bookStart">Start on ddddd, dd MMMM yyyy at hh:mm</asp:Label></label>
+				<br />
+				<label><asp:Label runat="server" ID="bookEstEnd">Booked until ddddd, dd MMMM yyyy at hh:mm</asp:Label></label>
+				<br />
+				<asp:placeholder runat="server" ID="bookOverdue"></asp:placeholder>
+				<br />
+
+                <a href="/dashboard/return" class="btn btn-primary">
+                    Return car
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-8">
+        </div>
+    </div>
 </div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry"></script>
-<script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/Theme/js/map-features.js"></script>
-<script src="/Theme/js/dropdown.js"></script>
+
+<asp:PlaceHolder runat="server" ID="script"></asp:PlaceHolder>
+
 </asp:Content>

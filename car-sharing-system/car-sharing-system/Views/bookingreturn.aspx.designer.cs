@@ -13,6 +13,15 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
     public partial class bookingreturn {
         
         /// <summary>
+        /// carinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl carinfo;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.Label bookEndTime;
         
         /// <summary>
+        /// bookOverdue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder bookOverdue;
+        
+        /// <summary>
         /// bookEstimatePrice control.
         /// </summary>
         /// <remarks>
@@ -128,5 +146,32 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button confirmbtn;
+        
+        /// <summary>
+        /// errorinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorinfo;
+        
+        /// <summary>
+        /// errorlabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorlabel;
+        
+        /// <summary>
+        /// script control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder script;
     }
 }

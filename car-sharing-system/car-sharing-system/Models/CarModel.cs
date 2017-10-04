@@ -8,14 +8,13 @@ using System.Device.Location;
 
 namespace car_sharing_system.Models {
 	public class CarModel {
-		private static CarModel carModel;
 		public List<Car> cars;
 
 		public static CarModel getInstance() {
-			if (carModel == null) {
-				carModel = new Models.CarModel();
+			if (HttpContext.Current.Session["CarModel"] == null) {
+				HttpContext.Current.Session["CarModel"] = new CarModel();
 			}
-			return carModel;
+			return (CarModel)HttpContext.Current.Session["CarModel"];	
 		}
 
 		// Constructor

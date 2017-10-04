@@ -13,43 +13,80 @@ using System.Device.Location;
 
 namespace car_sharing_system.Views.Admin_Theme.pages {
 	public partial class bookingreturn : System.Web.UI.Page {
-
-		static Location carLocation;
-		
-		static String numberPlate;
-		int startDate;
-		int endDate;
 		static Location userLocation;
+		static Location carLocation;
+		static String id;
+		static String carid;
 
 		protected void Page_Load(object sender, EventArgs e) {
-			String query = "status = 'U' AND numberPlate = '" + numberPlate + "'";
-
-			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-
-			if (currentCar != null) {
-				// Set the car status to be booked
-				//DatabaseReader.setCarBooked(currentCar.numberPlate);
-
-				// Set page's labels
-				carNumberPlate.Text = numberPlate;
-				carLocation = currentCar.latlong;
-				carBrandLabel.Text = currentCar.brand;
-				carModelLabel.Text = currentCar.model;
-				char transmission = currentCar.transmission;
-				carTransmissionLabel.Text = (transmission.Equals('A')) ? "Automatic" : "Manual";
-				carSeatsLabel.Text = currentCar.seats + " Seats";
-				carTypeLabel.Text = currentCar.vehicleType;
-				carRateLabel.Text = "$" + currentCar.rate.ToString("00.00") + " per Hour";
-
-				bookStartTime.Text = "From " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
-				bookEndTime.Text = "To " + new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(endDate)).ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
-
-				Double estPrice = (Double)(endDate - startDate) / 3600 * currentCar.rate;
-				bookEstimatePrice.Text = "$" + estPrice.ToString("00.00");
-
-			} else {
-				Response.Redirect("/");
+			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND endDate IS NULL;");
+			if (currBooking == null) {
+				carinfo.Style.Add("display", "none");
+				errorinfo.Style.Add("display", "block");
+				errorlabel.Text = "You don't have active booking.";
+				return;
 			}
+			Car currentCar = DatabaseReader.carQuerySingleFull("numberPlate = '" + currBooking.numberPlate + "'");
+			if (currentCar == null) {
+				carinfo.Style.Add("display", "none");
+				errorinfo.Style.Add("display", "block");
+
+				errorlabel.Text = "Sorry. We can't seem to find your booked car. Please try again from the dashboard.";
+				return;
+			}
+			errorinfo.Style.Add("display", "none");
+			carinfo.Style.Add("display", "block");
+
+			// Set page's labels
+			carNumberPlate.Text = currentCar.numberPlate;
+			carBrandLabel.Text = currentCar.brand;
+			carModelLabel.Text = currentCar.model;
+			char transmission = currentCar.transmission;
+			carTransmissionLabel.Text = (transmission.Equals('A')) ? "Automatic" : "Manual";
+			carSeatsLabel.Text = currentCar.seats + " Seats";
+			carTypeLabel.Text = currentCar.vehicleType;
+			carRateLabel.Text = "$" + currentCar.rate.ToString("00.00") + " per Hour";
+
+			DateTime startTime = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(currBooking.startDate));
+			bookStartTime.Text = "From " + startTime.ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
+
+			DateTime estEnd = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(currBooking.estEndDate));
+			bookEndTime.Text = "To " + estEnd.ToLocalTime().ToString("dddd, dd MMMMM yyyy HH:mm");
+
+			int overdue = DateTime.Compare(DateTime.UtcNow, estEnd);
+
+			Double totalPrice;
+			TimeSpan diff;
+			if (overdue > 0) {
+				diff = DateTime.UtcNow.Subtract(estEnd);
+				StringBuilder odString = new StringBuilder();
+				odString.Append("<label style=\"color:red;\"> Overdue for ");
+				if (diff.Days > 0) {
+					odString.AppendFormat("{0} days, ", diff.Days);
+				}
+				if (diff.Hours > 0) {
+					odString.AppendFormat("{0} hours ", diff.Hours);
+					if (diff.Minutes > 0) {
+						odString.Append("and ");
+					}
+				}
+				if (diff.Minutes > 0) {
+					odString.AppendFormat("{0} minutes", diff.Minutes);
+				}
+				odString.Append("</label>");
+				bookOverdue.Controls.Add(new LiteralControl(odString.ToString()));
+			} else {
+				diff = startTime.Subtract(estEnd);
+			}
+			totalPrice = diff.TotalHours * currentCar.rate;
+			bookEstimatePrice.Text = "$" + totalPrice.ToString("00.00");
+
+			carLocation = currentCar.latlong;
+			id = User.Identity.Name;
+			carid = currentCar.numberPlate;
+
+			script.Controls.Add(new LiteralControl("<script type=\"text/javascript\" src=\"/Theme/js/booking-return-features.js\"></script>"));
+			script.Controls.Add(new LiteralControl("<script type=\"text/javascript\" src=\"/Theme/js/timeout-features-return.js\"></script>"));
 		}
 
 		private void featureHTML(PlaceHolder ph, bool feat, String feature) {
@@ -61,36 +98,19 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			ph.Controls.Add(new LiteralControl("<br />"));
 		}
 
-		[System.Web.Services.WebMethod]
-		public static String getCarLocation() {
-			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
-
-			if (carLocation != null) {
-				return oSerializer.Serialize(carLocation);
-			} else {
-				return null;
-			}
-		}
 
 
-		[System.Web.Services.WebMethod]
-		public static void cancelBooking() {
-			//Debug.WriteLine("booking canceled");			
-			String query = "numberPlate = '" + numberPlate + "'";
-			//Debug.WriteLine(query);
-			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-			//DatabaseReader.enableCar(currentCar.numberPlate);	
-		}
+	
+		protected void confirmReturn(object sender, EventArgs e) {
+			Debug.WriteLine("booking returned");
 
-		protected void confirmBook(object sender, EventArgs e) {
-			//Debug.WriteLine("Booking confirmed");
-			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-			long currentunix = (long)DateTime.Now.Subtract(unixStart).TotalSeconds;
+			var locA = new GeoCoordinate(Convert.ToDouble(carLocation.lat), Convert.ToDouble(carLocation.lng));
+			var locB = new GeoCoordinate(Convert.ToDouble(userLocation.lat), Convert.ToDouble(userLocation.lng));
+			double distance = locA.GetDistanceTo(locB); // metres
 
-			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, currentunix, startDate, endDate, userLocation);
-			book.debug();
-			Response.Redirect("/dashboard/");
-			//DatabaseReader.addBooking(book);
+			DatabaseReader.finishBooking(id, distance, carid, carLocation);
+
+			Response.Redirect("/dashboard");
 		}
 
 		[System.Web.Services.WebMethod]
