@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 using car_sharing_system.Models;
 using System.Diagnostics;
 using System.Web.Script.Serialization;
-using System.Text;
-using System.Device.Location;
 
 namespace car_sharing_system.Views.Admin_Theme.pages {
 	public partial class bookingconfirmation : System.Web.UI.Page {

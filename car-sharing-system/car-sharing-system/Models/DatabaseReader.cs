@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
-using System.Web;
 using MySql.Data.MySqlClient;
-using car_sharing_system.Models;
 using System.Text;
 
 namespace car_sharing_system.Models
@@ -14,7 +12,7 @@ namespace car_sharing_system.Models
         static String id = "acerentals";
         static String db = "acerentalsdb";
         static String server = "acerentalsdb.cvun1f5zcjao.ap-southeast-2.rds.amazonaws.com";
-        static String pass = "password123";
+        static String pass = "S-1-5-21-2546178489-172965071-1887362605";
         static String sqlConnectionString = "Server=" + server + ";Database=" + db + ";Uid=" + id + ";Pwd=" + pass + ";";
 
         // userQuery returns a list of users from the query

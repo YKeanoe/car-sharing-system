@@ -1,9 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Device.Location;
+﻿using System;
 
 namespace car_sharing_system.Models
 {

@@ -38,7 +38,8 @@ namespace car_sharing_system.Admin_Theme.pages
             {
                 if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenseNo + "' = licenseNo LIMIT 1") == null) {
                     dr.Registeration(newUser);
-                    FormsAuthentication.SetAuthCookie(newUser.id.ToString(), false);
+                    User curr = DatabaseReader.userQuerySingle("email = '" + newUser.email + "';");
+                    FormsAuthentication.SetAuthCookie(curr.id.ToString(), false);
                     Response.Redirect("/dashboard/");
                 }else
                 {
