@@ -13,16 +13,12 @@ using System.Device.Location;
 
 namespace car_sharing_system.Views.Admin_Theme.pages {
 	public partial class bookingconfirmation : System.Web.UI.Page {
-
-		static Location carLocation;
 		
-		static String numberPlate;
 		long startDate;
 		long endDate;
-		static Location userLocation;
 
 		protected void Page_Load(object sender, EventArgs e) {
-
+			String numberPlate;
 			// Check if its a postback
 			if (!IsPostBack) {
 				// If it is not a postback, fill the page
@@ -45,6 +41,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				ted = Request.QueryString["edate"];
 				if (!String.IsNullOrEmpty(tid) && !String.IsNullOrEmpty(tsd) && !String.IsNullOrEmpty(ted)) {
 					numberPlate = Request.QueryString["id"];
+					HttpContext.Current.Session["bookCarNumberPlate"] = numberPlate;
 					startDate = Convert.ToInt64(Request.QueryString["sdate"]);
 					endDate = Convert.ToInt64(Request.QueryString["edate"]);
 				} else {
@@ -65,7 +62,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 					// Set page's labels
 					carNumberPlate.Text = numberPlate;
-					carLocation = currentCar.latlong;
+					HttpContext.Current.Session["bookCarLocation"] = currentCar.latlong;
 					carBrandLabel.Text = currentCar.brand;
 					carModelLabel.Text = currentCar.model;
 					char transmission = currentCar.transmission;
@@ -132,9 +129,9 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 		[System.Web.Services.WebMethod]
 		public static String getCarLocation() {
 			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
-
-			if (carLocation != null) {
-				return oSerializer.Serialize(carLocation);
+			Location carloc = (Location)HttpContext.Current.Session["bookCarLocation"];
+			if (carloc != null) {
+				return oSerializer.Serialize(carloc);
 			} else {
 				return null;
 			}
@@ -142,16 +139,20 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 		[System.Web.Services.WebMethod]
 		public static void cancelBooking() {
-			// Debug.WriteLine("booking canceled");			
-			String query = "numberPlate = '" + numberPlate + "'";
+			// Debug.WriteLine("booking canceled");		
+			String numplate = (String) HttpContext.Current.Session["bookCarNumberPlate"];
+			String query = "numberPlate = '" + numplate + "'";
 			Car currentCar = DatabaseReader.carQuerySingleFull(query);
-			DatabaseReader.enableCar(currentCar.numberPlate);	
+			DatabaseReader.enableCar(currentCar.numberPlate);
+			removeUnnecessarySession();
 		}
 
 		protected void confirmBook(object sender, EventArgs e) {
-			// Debug.WriteLine("Booking confirmed");
-			Debug.WriteLine(startDate);
-			Debug.WriteLine(endDate);
+			Debug.WriteLine("Booking confirmed");
+			// Debug.WriteLine(startDate);
+			// Debug.WriteLine(endDate);
+			String numplate = (String)HttpContext.Current.Session["bookCarNumberPlate"];
+			Location userloc = (Location) HttpContext.Current.Session["userloc"];
 
 			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
 			long currentunix = (long)DateTime.UtcNow.Subtract(unixStart).TotalSeconds;
@@ -160,15 +161,24 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				startDate = currentunix;
 			}
 
-			Booking book = new Booking(Int32.Parse(User.Identity.Name), numberPlate, currentunix, startDate, endDate, userLocation);
+			Booking book = new Booking(Int32.Parse(User.Identity.Name), numplate, currentunix, startDate, endDate, userloc);
 			// book.debug();
 			DatabaseReader.addBooking(book);
+			removeUnnecessarySession();
 			Response.Redirect("/dashboard/");
 		}
 
 		[System.Web.Services.WebMethod]
 		public static void setLoc(String lat, String lng) {
-			userLocation = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
+			HttpContext.Current.Session["userloc"] = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
+		}
+
+		private static void removeUnnecessarySession() {
+			Debug.WriteLine("bookconf close");
+			HttpContext.Current.Session.Remove("bookCarLocation");
+			HttpContext.Current.Session.Remove("bookCarNumberPlate");
+			HttpContext.Current.Session.Remove("userloc");
 		}
 	}
+
 }

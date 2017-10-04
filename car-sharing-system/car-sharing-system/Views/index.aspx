@@ -254,11 +254,10 @@
         <img src="../Theme/Images/middle.png" />
 	</div>
 
-
 	<div class="middle">
-		
+		<a href="http://www.bbc.com/news/business-41442834" >
 		  <img src="../Theme/Images/middle.png" />
-
+		</a>
 	</div>
 	
 </div>
