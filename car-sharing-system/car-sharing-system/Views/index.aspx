@@ -247,17 +247,17 @@
 
 	<div class="middle">
 	
-        <img src="../Theme/Images/middle.png" />
+      <a href="http://www.bbc.com/news/business/global_car_industry"> <img src="../Theme/Images/middle.png" /> </a>
 	</div>
 	
 	<div class="middle">
-        <img src="../Theme/Images/middle.png" />
+       <a href="https://www.forbes.com/autos/#1e9ec7447885"> <img src="../Theme/Images/middle.png" /> </a>
 	</div>
 
 
 	<div class="middle">
 		
-		  <img src="../Theme/Images/middle.png" />
+		 <a href="http://www.autonews.com/section/global"><img src="../Theme/Images/middle.png" /> </a>
 
 	</div>
 	
@@ -305,5 +305,4 @@
 <script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/Theme/js/map-features.js"></script>
 <script src="/Theme/js/dropdown.js"></script>
-
 </asp:Content>
