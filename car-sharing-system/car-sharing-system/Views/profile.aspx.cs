@@ -38,6 +38,7 @@ namespace car_sharing_system.Admin_Theme.pages
                     edpostcode.Text = newUser.postcode;
                     edgender.Text = newUser.gender;
                     edbirth.Text = newUser.birth;
+                    edcountry.Text = newUser.country;
                 }
             }
             else
@@ -57,6 +58,7 @@ namespace car_sharing_system.Admin_Theme.pages
                 pc.InnerText = newUser.postcode;
                 gen.InnerText = newUser.gender;
                 dob.InnerText = newUser.birth;
+                co.InnerText = newUser.country;
             }
         }
         protected string getID() {
@@ -86,6 +88,7 @@ namespace car_sharing_system.Admin_Theme.pages
             newUser.postcode = edpostcode.Text;
             newUser.gender = edgender.Text;
             newUser.birth = edbirth.Text;
+            newUser.country = edcountry.Text;
             DatabaseReader.updateProfile(newUser);
 
             Response.Redirect("/dashboard/profile?updated=1");
