@@ -101,51 +101,51 @@
                             <h2 id="updated" runat="server"></h2>
                             <div class="form-group">
                                 <div id="showData"  runat="server">
-                                <div >
-                                    <label>First Name: </label>
+                                <div class="formFormat">
+                                    <label class="label2">First Name: </label>
                                     <span id="fN" runat="server"></span>
                                 </div>
                                 <div >
-                                    <label>Last Name: </label><span id="lN" runat="server"></span>
+                                    <label class="label2">Last Name: </label><span id="lN" runat="server"></span>
                                 </div>
-                                <div >
-                                    <label >License Number: </label><span id="LiN" runat="server"></span>
-                                </div>
-
-                                <div >
-                                    <label>Date of Birth: </label><span id="dob" runat="server"></span>
+                                <div class="formFormat">
+                                    <label class="label2">License Number: </label><span id="LiN" runat="server"></span>
                                 </div>
 
-                                <div >
-                                    <label>Gender: </label><span id="gen" runat="server"></span>
+                                <div class="formFormat">
+                                    <label class="label2">Date of Birth: </label><span id="dob" runat="server"></span>
                                 </div>
 
-                                <div >
-                                    <label>Phone: </label><span id="ph" runat="server"></span>
+                                <div class="formFormat">
+                                    <label class="label2">Gender: </label><span id="gen" runat="server"></span>
                                 </div>
 
-                                <div > 
-                                    <label>Street: </label><span id="st" runat="server"></span>
+                                <div class="formFormat">
+                                    <label class="label2">Phone: </label><span id="ph" runat="server"></span>
                                 </div>
 
-                                <div >
-                                    <label>Suburb: </label><span id="sb" runat="server"></span>
+                                <div class="formFormat"> 
+                                    <label class="label2">Street: </label><span id="st" runat="server"></span>
                                 </div>
 
-                                <div >
-                                     <label>Postcode: </label><span id="pc" runat="server"></span>
+                                <div class="formFormat">
+                                    <label class="label2">Suburb: </label><span id="sb" runat="server"></span>
                                 </div>
 
-                                <div >
-                                     <label>Territory: </label><span id="ter" runat="server"></span>
+                                <div class="formFormat">
+                                     <label class="label2">Postcode: </label><span id="pc" runat="server"></span>
                                 </div>
 
-                                <div >
-                                     <label>City: </label><span id="ci" runat="server"></span>
+                                <div class="formFormat">
+                                     <label class="label2">Territory: </label><span id="ter" runat="server"></span>
                                 </div>
 
-                                <div >
-                                     <label>Country: </label><span id="co" runat="server"></span>
+                                <div class="formFormat">
+                                     <label class="label2">City: </label><span id="ci" runat="server"></span>
+                                </div>
+
+                                <div class="formFormat">
+                                     <label class="label2">Country: </label><span id="co" runat="server"></span>
                                 </div>
 
                                 <img id="pu" src="" runat="server"/>
@@ -155,73 +155,74 @@
 
                             <form id="updateform" runat="server">
                                                
-                                <div >
-                                    <label class="label">First Name: </label>
+                                <div class="formFormat">
+                                    <label class="label2">First Name: </label>
                                     <asp:TextBox  name="firstname" id="edfirstname" runat="server" ></asp:TextBox>
                                 </div>
                                  
-                                <div >
-                                    <label class="label">Last Name: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Last Name: </label>
                                     <asp:TextBox  name="lastname" id="edlastname" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">License Number: </label>
+                                <div class="formFormat">
+                                    <label class="label2">License Number: </label>
                                     <asp:TextBox  name="licenseNo" id="edlicenseNo" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">Date of Birth: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Date of Birth: </label>
                                     <asp:TextBox  name="birth" id="edbirth" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">Gender: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Gender: </label>
                                     <asp:TextBox  name="gender" id="edgender" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">Phone: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Phone: </label>
                                     <asp:TextBox  name="phone" id="edphone" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div > 
-                                    <label class="label">Street: </label>
+                                <div class="formFormat"> 
+                                    <label class="label2">Street: </label>
                                     <asp:TextBox  name="street" id="edstreet" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">Suburb: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Suburb: </label>
                                     <asp:TextBox  name="suburb" id="edsuburb" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">Postcode: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Postcode: </label>
                                     <asp:TextBox  name="postcode" id="edpostcode" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">Territory: </label>
+                                <div class="formFormat">
+                                    <label class="label2">Territory: </label>
                                     <asp:TextBox  name="territory" id="edterritory" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                    <label class="label">City: </label>
+                                <div class="formFormat">
+                                    <label class="label2">City: </label>
                                     <asp:TextBox  name="city" id="edcity" runat="server" ></asp:TextBox>
                                 </div>
 
-                                <div >
-                                     <label class="label">Country: </label>
+                                <div class="formFormat">
+                                     <label class="label2">Country: </label>
                                      <asp:TextBox  name="country" id="edcountry" runat="server"></asp:TextBox>
                                 </div>
 
                                 <div class="last">
-                                     <label  class="label" >ProfileURL: </label>
+                                     <label  class="label2" >ProfileURL: </label>
                                     <asp:TextBox id="edprofileURL" runat="server"></asp:TextBox>
                                     <img src="" id="eprofileIMG" runat="server"/>
                                 </div>
-                                     <label id="profileImg">ProfileURL: </label>
+
                                 <br>
+
                                 <div class="submit1">
                                     <asp:Button runat="server" Text="Submit" OnClick="submit" class="btn btn-primary"></asp:Button>
                                 </div>
