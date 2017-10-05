@@ -152,6 +152,7 @@
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
     <Content Include="Theme\css\mobileFriendly.css" />
+    <Content Include="Theme\Images\caricon-glow.png" />
     <Content Include="Theme\Images\AN.jpg" />
     <Content Include="Theme\Images\bbc.png" />
     <Content Include="Theme\Images\caricon32.png" />

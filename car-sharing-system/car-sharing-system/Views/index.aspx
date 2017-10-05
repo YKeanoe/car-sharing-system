@@ -296,5 +296,5 @@
 <script src="/Datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/Theme/js/map-features.js"></script>
 <script src="/Theme/js/dropdown.js"></script>
-    <link href="/Theme/css/mobileFriendly.css" rel="stylesheet"/> 
+<link href="/Theme/css/mobileFriendly.css" rel="stylesheet"/> 
 </asp:Content>
