@@ -29,7 +29,9 @@
     width: 50%
 }
 
-
+    .form-control {
+        width: 100%;
+    }
 
 
 

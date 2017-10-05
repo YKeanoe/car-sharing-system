@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="profile">
+                        <a href="/dashboard/profile">
                             <div class="panel-footer">
                                 <span class="pull-left">View profile details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="booking">
+                        <a href="/dashboard/booking">
                             <div class="panel-footer">
                                 <span class="pull-left">View booking history</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="issue">
+                        <a href="/dashboard/issue">
                             <div class="panel-footer">
                                 <span class="pull-left">Submit concerns</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
