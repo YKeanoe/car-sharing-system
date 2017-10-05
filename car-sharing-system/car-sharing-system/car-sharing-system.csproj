@@ -179,6 +179,7 @@
     <Content Include="Theme\js\timeout-features.js" />
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
+    <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
@@ -335,6 +336,13 @@
     </Compile>
     <Compile Include="Views\adminissue.aspx.designer.cs">
       <DependentUpon>adminissue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminusers.aspx.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminusers.aspx.designer.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\adminusersview.aspx.cs">
       <DependentUpon>adminusersview.aspx</DependentUpon>
