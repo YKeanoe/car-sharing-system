@@ -146,7 +146,7 @@ q                                <div class="formFormat">
                                 </div>
 
                                 <div class="formFormat">
-                                    <label class="label2">Feul Consumption: </label>
+                                    <label class="label2">Fuel Consumption: </label>
                                     <asp:TextBox  name="fC" id="fC" runat="server" ></asp:TextBox>
                                 </div>
 
@@ -169,7 +169,7 @@ q                                <div class="formFormat">
                                 <br>
 
                                 <div class="submit1">
-                                    <asp:Button runat="server" Text="Submit" OnClick="submit" class="btn btn-primary"></asp:Button>
+                                    <asp:Button runat="server" Text="Submit"  class="btn btn-primary"></asp:Button>
                                 </div>
                              </form>
 
