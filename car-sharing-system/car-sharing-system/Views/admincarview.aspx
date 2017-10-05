@@ -120,7 +120,7 @@
                                     <asp:TextBox  name="Vt" id="Vt" runat="server" ></asp:TextBox>
                                 </div>
 
-q                                <div class="formFormat">
+                                <div class="formFormat">
                                     <label class="label2">Number Of Seats: </label>
                                     <asp:TextBox  name="seats" id="seats" runat="server" ></asp:TextBox>
                                 </div>

@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
+    <Content Include="Theme\css\booking-history.css" />
     <Content Include="Theme\css\mobileFriendly.css" />
     <Content Include="Theme\Images\caricon-glow.png" />
     <Content Include="Theme\Images\AN.jpg" />

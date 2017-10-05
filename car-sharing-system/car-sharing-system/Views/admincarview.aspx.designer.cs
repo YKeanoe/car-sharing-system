@@ -9,7 +9,7 @@
 
 
 
-public partial class  {
+public partial class admincarview{
     
     /// <summary>
     /// Label1 control.
