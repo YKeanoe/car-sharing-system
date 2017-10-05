@@ -88,6 +88,7 @@
     <script src="/Admin_Theme/vendor/morrisjs/morris.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="/Admin_Theme/dist/js/sb-admin-2.js"></script>
+    <link href="/Theme/css/mobileFriendly.css" rel="stylesheet"/> 
 </body>
 
 </html>
