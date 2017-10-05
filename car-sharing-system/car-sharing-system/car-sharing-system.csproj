@@ -186,7 +186,6 @@
     <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
-    <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
@@ -306,11 +305,9 @@
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
     <Content Include="Views\successIssue.aspx" />
-    <Content Include="Views\admin.aspx" />
     <Content Include="Views\admincarview.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
-    <Content Include="Views\adminissueview.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
@@ -387,13 +384,6 @@
     <Compile Include="Views\issue.aspx.designer.cs">
       <DependentUpon>issue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\adminusers.aspx.cs">
-      <DependentUpon>adminusers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\adminusers.aspx.designer.cs">
-      <DependentUpon>adminusers.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,20 +451,6 @@
     </Compile>
     <Compile Include="Views\successIssue.aspx.designer.cs">
       <DependentUpon>successIssue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\adminissueview.aspx.cs">
-      <DependentUpon>adminissueview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\adminissueview.aspx.designer.cs">
-      <DependentUpon>adminissueview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\admincarview.aspx.cs">
       <DependentUpon>admincarview.aspx</DependentUpon>
