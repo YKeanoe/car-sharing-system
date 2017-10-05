@@ -154,10 +154,14 @@
     <Content Include="Theme\css\mobileFriendly.css" />
     <Content Include="Theme\Images\AN.jpg" />
     <Content Include="Theme\Images\bbc.png" />
+    <Content Include="Theme\Images\caricon32.png" />
+    <Content Include="Theme\Images\caricon48.png" />
     <Content Include="Theme\Images\ecofriendly.png" />
     <Content Include="Theme\Images\enviromental.png" />
     <Content Include="Theme\Images\forbes.jpg" />
     <Content Include="Theme\Images\middle.png" />
+    <Content Include="Theme\Images\park-128.png" />
+    <Content Include="Theme\Images\user42.png" />
     <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />
     <Content Include="Theme\js\booking-return-features.js" />
@@ -175,6 +179,7 @@
     <Content Include="Theme\js\timeout-features.js" />
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
+    <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
@@ -182,7 +187,6 @@
     <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
-    <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
     </Content>
@@ -302,11 +306,9 @@
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
     <Content Include="Views\successIssue.aspx" />
-    <Content Include="Views\admin.aspx" />
     <Content Include="Views\admincarview.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
-    <Content Include="Views\adminissueview.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
@@ -334,6 +336,13 @@
     </Compile>
     <Compile Include="Views\adminissue.aspx.designer.cs">
       <DependentUpon>adminissue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminusers.aspx.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\adminusers.aspx.designer.cs">
+      <DependentUpon>adminusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\adminusersview.aspx.cs">
       <DependentUpon>adminusersview.aspx</DependentUpon>
@@ -382,13 +391,6 @@
     </Compile>
     <Compile Include="Views\issue.aspx.designer.cs">
       <DependentUpon>issue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\adminusers.aspx.cs">
-      <DependentUpon>adminusers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\adminusers.aspx.designer.cs">
-      <DependentUpon>adminusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -457,20 +459,6 @@
     </Compile>
     <Compile Include="Views\successIssue.aspx.designer.cs">
       <DependentUpon>successIssue.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\adminissueview.aspx.cs">
-      <DependentUpon>adminissueview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\adminissueview.aspx.designer.cs">
-      <DependentUpon>adminissueview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\admincarview.aspx.cs">
       <DependentUpon>admincarview.aspx</DependentUpon>

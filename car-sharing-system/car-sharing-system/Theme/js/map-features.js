@@ -8,7 +8,8 @@ function initializeMap(data) {
 	// Refresh the html lists
 	refreshList(carLocs);
 
-	var usericon = '/Theme/Images/marker-circle-small.png';
+	var usericon = '/Theme/Images/user42.png';
+	var caricon = '/Theme/Images/caricon48.png';
 	var markers = [];
 	var bounds = new google.maps.LatLngBounds();
 
@@ -27,18 +28,21 @@ function initializeMap(data) {
 	markers.push(markerUser);
 	markerUser.setMap(map);
 
+	var carname = null;
 	// Set markers for cars
 	// If carlocs exits (not null), then set markers for all car's locations
 	if (carLocs) {
-		for (var i = 0; i < carLocs.length; i++) {
-			var markerCar = new google.maps.Marker({
-				position: carLocs[i].loc,
-				title: carLocs[i].carName
-			});
-			markers.push(markerCar);
-			markerCar.setMap(map);
-		}
-}
+	    for (var i = 0; i < carLocs.length; i++) {
+	        carname = carLocs[i].carName;
+	        var markerCar = new google.maps.Marker({
+	            position: carLocs[i].loc,
+	            title: carname,
+	            icon: caricon
+	        });
+	        markers.push(markerCar);
+	        markerCar.setMap(map);
+	    }
+	}
 	// Set boundary so that the map can fit all markers
 	for (var i = 0; i < markers.length; i++) {
 		bounds.extend(markers[i].getPosition());
@@ -379,7 +383,6 @@ function refreshList(data) {
 						+	"<div id=\"{0}\" class=\"panel-collapse collapse\">"
 						+		"<div class=\"panel-body\">"
 						+			"<a class=\"btn\" onclick=\"toBookingPage('{3}')\" role=\"button\">Book</a>"
-						+			"asdasd asdasd"
 						+		"</div>"
 						+	"</div>"
 						+"</div>";
