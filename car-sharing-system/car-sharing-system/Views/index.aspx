@@ -247,17 +247,17 @@
 
 	<div class="middle">
 	
-      <a href="http://www.bbc.com/news/business/global_car_industry"> <img src="../Theme/Images/bbc.png" /> </a>
+      <a href="http://www.bbc.com/news/business/global_car_industry"> <img id="newsImage1" src="../Theme/Images/bbc.png" /> </a>
 	</div>
 	
 	<div class="middle">
-       <a href="https://www.forbes.com/autos/#1e9ec7447885"> <img src="../Theme/Images/forbes.jpg" /> </a>
+       <a href="https://www.forbes.com/autos/#1e9ec7447885"> <img id="newsImage2" src="../Theme/Images/forbes.jpg" /> </a>
 	</div>
 
 
 	<div class="middle">
 		
-		 <a href="http://www.autonews.com/section/global"><img src="../Theme/Images/AN.jpg" /> </a>
+		 <a href="http://www.autonews.com/section/global"><img id="newsImage3" src="../Theme/Images/AN.jpg" /> </a>
 
 	</div>
 	
