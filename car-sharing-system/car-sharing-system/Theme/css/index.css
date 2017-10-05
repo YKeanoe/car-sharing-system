@@ -21,6 +21,10 @@
   width:60%;
 }
 
+#mainPageLogo{
+    width: 90%;
+}
+
 #map {
 	background: #fff;
 	font-size: 20px;
