@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll navbar-logo" href="#page-top"><img src="/Theme/Images/logo.png" width=70 height=30/></a>
-                <a class="navbar-brand" href="index">Ace rentals</a>
+                <a class="navbar-brand" href="/Views/index.aspx">Ace rentals</a>
             </div>
             <!-- Side Navigation Bar -->
             <div class="navbar-default sidebar" role="navigation">
@@ -88,6 +88,7 @@
     <script src="/Admin_Theme/vendor/morrisjs/morris.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="/Admin_Theme/dist/js/sb-admin-2.js"></script>
+    <link href="/Theme/css/mobileFriendly.css" rel="stylesheet"/> 
 </body>
 
 </html>

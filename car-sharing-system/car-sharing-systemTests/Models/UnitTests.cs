@@ -46,7 +46,7 @@ namespace car_sharing_system.Models.Tests
 
             // Admin email
             String UserName = "admin@gmail.com";
-            User myData = data.loginAttempt(UserName, password);
+            User myData = UserModel.loginAttempt(UserName, password);
 
             // If database returns data from a matching entry
             if (myData != null)
@@ -68,7 +68,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "soNzIMHTX";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "Nulla@elitpharetra.ca";
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database, email: " + myData.email);
@@ -86,7 +86,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "Nulla@elitpharetra.ca";
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No password check failure"); ;
@@ -104,7 +104,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "soNzIMHTX";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "";
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No user check failure"); ;
@@ -122,7 +122,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "";
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -140,7 +140,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "test321";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "NotAnRegisteredUser@example.com";
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -158,7 +158,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "321test";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "NotAnRegisteredUser@example.com";
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -176,7 +176,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = null;
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = null;
-            User myData = data.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -259,7 +259,7 @@ namespace car_sharing_system.Models.Tests
             dr.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            User myData = data.loginAttempt(email, passwordTest);
+            User myData = UserModel.loginAttempt(email, passwordTest);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database" + "user info: \n"
@@ -315,7 +315,7 @@ namespace car_sharing_system.Models.Tests
             dr.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            User myData = data.loginAttempt(email, password);
+            User myData = UserModel.loginAttempt(email, password);
             if (myData != null)
             {
                 Assert.Fail("Valid User in database" + "user info: \n"
@@ -1601,7 +1601,7 @@ namespace car_sharing_system.Models.Tests
                 dr.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
-                User myData = data.loginAttempt(email, passwordTest);
+                User myData = UserModel.loginAttempt(email, passwordTest);
             }
             catch (Exception)
             {
@@ -1648,7 +1648,7 @@ namespace car_sharing_system.Models.Tests
                 dr.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
-                User myData = data.loginAttempt(email, passwordTest);
+                User myData = UserModel.loginAttempt(email, passwordTest);
             }
             catch (Exception)
             {
@@ -1956,7 +1956,7 @@ namespace car_sharing_system.Models.Tests
             dr.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            User myData = data.loginAttempt(email, passwordTest);
+            User myData = UserModel.loginAttempt(email, passwordTest);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database" + "user info: \n"
