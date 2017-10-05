@@ -383,7 +383,6 @@ function refreshList(data) {
 						+	"<div id=\"{0}\" class=\"panel-collapse collapse\">"
 						+		"<div class=\"panel-body\">"
 						+			"<a class=\"btn\" onclick=\"toBookingPage('{3}')\" role=\"button\">Book</a>"
-						+			"asdasd asdasd"
 						+		"</div>"
 						+	"</div>"
 						+"</div>";
