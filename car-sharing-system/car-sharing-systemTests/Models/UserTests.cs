@@ -17,7 +17,7 @@ namespace car_sharing_system.Models.TestsRevised
             // Arrange
             String Password = "Placeholder";
             // Act
-            Password = new User().hashMe(Password);
+            Password = new user().hashMe(Password);
             // Assert
             Assert.AreEqual(Password, "65950F6300E635CC97B92E515C1D17E5234072E9" +
                 "15B0C98F75D8FE808F201FA815F2984460A4DCDB6A35D7776AACC317F1F47E" +
@@ -32,9 +32,9 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean a = new User(1, null, "", 0, "", "", "",
-                       "", "", "", "", "", "", "",
-                       "", "", "").nullChecker();
+                Boolean a = new user(1, null, "test", 0, "test", "test", "test",
+                       "test", "test", "test", "test", "test", "test", "test",
+                       "test", "test", "test").nullChecker();
             }
             catch (Exception)
             {
@@ -52,7 +52,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, null, "", "",
+                Boolean b = new user(1, "", "", 0, null, "", "",
                        "", "", "", "", "", "", "",
                        "", "", "").nullChecker();
             }
@@ -72,7 +72,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", null, "",
+                Boolean b = new user(1, "", "", 0, "", null, "",
                        "", "", "", "", "", "", "", "", "", "")
                        .nullChecker();
             }
@@ -92,7 +92,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", null, 
+                Boolean b = new user(1, "", "", 0, "", "", null, 
                     "", "", "", "", "", "", "", "", "", "")
                     .nullChecker();
             }
@@ -112,7 +112,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        null, "", "", "", "", "", "", "", "", 
                        "").nullChecker();
             }
@@ -132,7 +132,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", null, "", "", "", "", "", "", "", 
                        "").nullChecker();
             }
@@ -152,7 +152,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", null, "", "", "", "", "", "",
                        "").nullChecker();
             }
@@ -172,7 +172,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", "", null, "", "", "", "", "",
                        "").nullChecker();
             }
@@ -192,7 +192,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", "", "", null, "", "", "", "",
                        "").nullChecker();
             }
@@ -212,7 +212,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", "", "", "", null, "", "", "",
                        "").nullChecker();
             }
@@ -232,7 +232,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", "", "", "", "", null, "", "",
                        "").nullChecker();
             }
@@ -252,7 +252,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", "", "", "", "", "", null, "",
                        "").nullChecker();
             }
@@ -272,7 +272,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new User(1, "", "", 0, "", "", "",
+                Boolean b = new user(1, "", "", 0, "", "", "",
                        "", "", "", "", "", "", "", "", null,
                        "").nullChecker();
             }
@@ -285,12 +285,12 @@ namespace car_sharing_system.Models.TestsRevised
         }
 
         [TestMethod()]
-        public void toStringTest() // Checks if User string output functrion works
+        public void toStringTest() // Checks if user string output functrion works
         {
             // Arrange
             Boolean passTest = false;
             // Act
-            String output = new User(1, "example@hotmail.com", "test123", 0, 
+            String output = new user(1, "example@hotmail.com", "test123", 0, 
                 "123456789", "John", "Smith", "Male", "06/07/1969",
                 "0433 333 333", "5 Test Street", "Docklands", "3012", 
                 "North", "Melbourne", "Australia",

@@ -4,7 +4,7 @@ using System;
 namespace car_sharing_system.Models
 {
 
-    public class User
+    public class user
     {
         public int id { get; private set; }
         public String email { get; private set; }
@@ -24,9 +24,9 @@ namespace car_sharing_system.Models
         public String country { get; set; }
         public String profileURL { get; set; }
 
-        public User() {
+        public user() {
         }
-        public User(int id,
+        public user(int id,
             String email,
             String password,
             int permission,
