@@ -60,6 +60,21 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		public Double calCost() {
+			if (isFinish()) {
+				Double cost;
+				Car car = DatabaseReader.carQuerySingle("numberPlate = '" + numberPlate + "'");
+				if (estEndDate < endDate) {
+					cost = ((Double)(endDate - startDate) / 3600) * car.rate;
+				} else {
+					cost = ((Double)(estEndDate - startDate) / 3600) * car.rate;
+				}
+				return cost;
+			} else {
+				return 0;
+			}
+		}
+
 		public void debug() {
 			Debug.WriteLine("id " + accountID + " book a car for " + startDate + " until " + estEndDate);
 			latlong.debug();

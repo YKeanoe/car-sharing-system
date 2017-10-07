@@ -84,28 +84,19 @@
 			</div>
 			<div class="panel-body">
 				<div id="booking-list">
-					<div class="booking-item">
-						<label> (ASDASD) Suzuki X </label>
-						<br />
-						<label>Start on ddddd, dd MMMM yyyy at hh:mm</label>
-						<br />
-						<label>Booked until ddddd, dd MMMM yyyy at hh:mm</label>
-						<br />
-						<asp:placeholder runat="server" ID="bookOverdue"></asp:placeholder>
-						<br />
-					</div>
-					<div class="booking-item">
-						<label> (ASDASD) Suzuki X </label>
-						<br />
-						<label>Start on ddddd, dd MMMM yyyy at hh:mm</label>
-						<br />
-						<label>Booked until ddddd, dd MMMM yyyy at hh:mm</label>
-						<br />
-						<asp:placeholder runat="server" ID="Placeholder1"></asp:placeholder>
-						<br />
-					</div>
-				</div>
-				<asp:PlaceHolder runat="server" ID="bookingList"></asp:PlaceHolder>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Car</th>
+								<th>Starting date</th>
+								<th>Return date</th>
+								<th>Total Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<asp:placeholder runat="server" ID="bookinglistph"></asp:placeholder>
+						</tbody>
+					</table>
 			</div>
 		</div>
 	</div>

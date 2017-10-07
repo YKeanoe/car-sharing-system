@@ -13,30 +13,12 @@ namespace car_sharing_system.Admin_Theme.pages {
     public partial class booking {
         
         /// <summary>
-        /// bookOverdue control.
+        /// bookinglistph control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder bookOverdue;
-        
-        /// <summary>
-        /// Placeholder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder Placeholder1;
-        
-        /// <summary>
-        /// bookingList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder bookingList;
+        protected global::System.Web.UI.WebControls.PlaceHolder bookinglistph;
     }
 }
