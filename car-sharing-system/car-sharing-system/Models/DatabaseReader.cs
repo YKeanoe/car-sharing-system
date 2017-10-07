@@ -16,9 +16,9 @@ namespace car_sharing_system.Models
         static String sqlConnectionString = "Server=" + server + ";Database=" + db + ";Uid=" + id + ";Pwd=" + pass + ";";
 
         // userQuery returns a list of users from the query
-        public static List<user> userQuery(String where)
+        public static List<User> userQuery(String where)
         {
-            List<user> users = new List<user>();
+            List<User> users = new List<User>();
             String query;
             if (!String.IsNullOrEmpty(where))
             {
@@ -36,7 +36,7 @@ namespace car_sharing_system.Models
 
                 using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
                     while (dbread.Read()) {
-                        user currUser = new user(Int32.Parse(dbread[0].ToString()), //accountID
+                        User currUser = new User(Int32.Parse(dbread[0].ToString()), //accountID
                             dbread[1].ToString(),  //email
                             dbread[2].ToString(), //password
                             Int32.Parse(dbread[3].ToString()), //permission
@@ -93,7 +93,7 @@ namespace car_sharing_system.Models
         }
         // userQuerySingle return the first user found as an object.
         // return null if no user is found
-        public static user userQuerySingle(String where)
+        public static User userQuerySingle(String where)
         {
             String query;
             if (!String.IsNullOrEmpty(where)) {
@@ -108,7 +108,7 @@ namespace car_sharing_system.Models
 
 				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
 					if (dbread.Read()) {
-					return new user(Int32.Parse(dbread[0].ToString()), //accountID
+					return new User(Int32.Parse(dbread[0].ToString()), //accountID
 									dbread[1].ToString(),  //email
 									dbread[2].ToString(), //password
 									Int32.Parse(dbread[3].ToString()), //permission
@@ -170,7 +170,7 @@ namespace car_sharing_system.Models
         }
 
 		// Registeration function is used to register new user to the database.
-        public void Registeration(user newUser)
+        public void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
             query += " VALUES (@email, @password, 0, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
@@ -201,7 +201,7 @@ namespace car_sharing_system.Models
                 mySqlConnection.Close();
             }
         }
-        public static void updateProfile(user newUser)
+        public static void updateProfile(User newUser)
         {
             String query = "UPDATE User";
             query += " SET licenseNo = @license, firstName = @fName, lastName = @lName, gender = @gender,";

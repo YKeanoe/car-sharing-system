@@ -10,7 +10,7 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class profile : System.Web.UI.Page
     {
-        protected user newUser;
+        protected User newUser;
         protected String theID;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace car_sharing_system.Admin_Theme.pages
             }
         }
         protected string getID() {
-            user curr = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
+            User curr = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 
             theID = User.Identity.Name;
 
