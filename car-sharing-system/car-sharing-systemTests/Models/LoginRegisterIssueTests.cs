@@ -35,6 +35,7 @@ namespace car_sharing_system.Models.Tests
 
         Random rnd = new Random(DateTime.Now.Millisecond);
 
+        #region Login tests
         [Test()]
         public void loginAttemptTestWithAdmin() // Attempt login with admin credentials
         {
@@ -188,28 +189,6 @@ namespace car_sharing_system.Models.Tests
         }
 
         [Test()]
-        public void HashFunctionTest() // Checks to see if hashing function is working properly
-        {
-            // Plaintext password
-            String beforeHash = "ZyiXDnElJ";
-
-            // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-
-            // Expected Hash Result
-            if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
-            {
-                Assert.Pass("Password hash match");
-            }
-
-            // If Hash result does not match
-            else
-            {
-                Assert.Fail("Password hash mismatch, hashed value: " + password);
-            }
-        }
-
-        [Test()]
         public void loginAttemptWithHash() // This test should result with password mismatch
         {
             // Plaintext password
@@ -231,6 +210,33 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
+        #endregion
+
+        #region Hash Test
+        [Test()]
+        public void HashFunctionTest() // Checks to see if hashing function is working properly
+        {
+            // Plaintext password
+            String beforeHash = "ZyiXDnElJ";
+
+            // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+
+            // Expected Hash Result
+            if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
+            {
+                Assert.Pass("Password hash match");
+            }
+
+            // If Hash result does not match
+            else
+            {
+                Assert.Fail("Password hash mismatch, hashed value: " + password);
+            }
+        }
+        #endregion
+
+        #region Register Tests
         [Test()]
         public void registerUserTestValidDetails() // To register an user and add to database with valid details
         {
@@ -2025,7 +2031,9 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("Null for registration was not handled successfully.");
             }
         }
+        #endregion
 
+        #region Issue Tests
         //[Test()]
         public void issuesTestValidDetails() // Submit issue with valid details
         {
@@ -2112,12 +2120,11 @@ namespace car_sharing_system.Models.Tests
             {
                 Assert.Pass("Issue not submitted");
             }
-        // TODO: Create unit tests for singleQueries and ListQueries for databaseReader.
-        // - carQuery(
-        // - bookingQuery(
-        // - userQuery(
-        //
+            
         }
+        #endregion
+
+        #region Query Tests
         protected Car carList;
         protected List<Car> cars = new List<Car>();
         [Test()]
@@ -2202,5 +2209,6 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("User was not found in database.");
             }
         }
+        #endregion
     }
 }

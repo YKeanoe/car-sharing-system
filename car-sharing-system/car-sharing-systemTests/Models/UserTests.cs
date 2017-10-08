@@ -23,7 +23,8 @@ namespace car_sharing_system.Models.TestsRevised
                 "15B0C98F75D8FE808F201FA815F2984460A4DCDB6A35D7776AACC317F1F47E" +
                 "9FD6790D2CA07A5A9E9A793641");
         }
-   
+
+        #region Null Checker Tests
         [TestMethod()] 
         public void nullCheckerTestEmail() // Checks null for email address
         {
@@ -283,6 +284,7 @@ namespace car_sharing_system.Models.TestsRevised
             // Assert
             Assert.AreEqual(passTest, true);
         }
+        #endregion
 
         [TestMethod()]
         public void toStringTest() // Checks if user string output functrion works
