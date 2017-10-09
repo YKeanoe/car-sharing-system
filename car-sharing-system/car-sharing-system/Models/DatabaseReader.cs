@@ -375,6 +375,42 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// carQuery returns a list of cars from the query especially for admin.
+		public static List<Car> carQueryAdmin(String where) {
+			List<Car> cars = new List<Car>();
+			String query;
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Car WHERE " + where;
+			} else {
+				query = "SELECT * FROM Car";
+			}
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						Car newCar = new Car(dbread[0].ToString() /*ID / license plate*/,
+							dbread[4].ToString() /*Brand*/,
+							dbread[5].ToString() /*Model*/,
+							dbread[6].ToString() /*Vehicle Type*/,
+							Convert.ToDouble(dbread[14].ToString()) /*Hourly rate*/,
+							Convert.ToChar(dbread[15].ToString()) /* Status */
+							);
+						cars.Add(newCar);
+						//Debug.WriteLine(newCar.vehicleType);
+						//newCar.debug();
+					}
+				}
+			}
+			if (cars.Count() == 0) {
+				Debug.WriteLine("query returns null");
+				return null;
+			} else {
+				return cars;
+			}
+		}
+
 		// setCarBooked updates the car's status to B for Booked
 		public static int setCarBooked(String id) {
 			String query = "UPDATE Car SET status = 'B' WHERE numberPlate = '" + id + "'";
@@ -420,7 +456,7 @@ namespace car_sharing_system.Models
 			} else {
 				query = "SELECT * FROM Booking";
 			}
-
+			Debug.WriteLine(query);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
@@ -461,17 +497,17 @@ namespace car_sharing_system.Models
 			Location newLocation = new Location(
 				Convert.ToDecimal(dbread[7].ToString()) /*Latitude*/,
 				Convert.ToDecimal(dbread[8].ToString()) /*Longitude*/);
-			String actEndDate = dbread[6].ToString();
-			long endDate;
-			if (!String.IsNullOrEmpty(actEndDate)) {
-				endDate = Convert.ToInt64(DateTime.UtcNow.Subtract(DateTime.Parse(actEndDate)).TotalSeconds);
+			String tcost = dbread[10].ToString();
+			Double? totalCost;
+			if (!String.IsNullOrEmpty(tcost)) {
+				totalCost = Convert.ToDouble(tcost);
 			} else {
-				endDate = 0;
+				totalCost = null;
 			}
 			Booking currBook;
 			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
 			// If endDate is not set, means the car 
-			if (endDate == 0) {
+			if (totalCost == null) {
 				currBook = new Booking(
 						Int32.Parse(dbread[0].ToString()), // BookingID
 						Int32.Parse(dbread[1].ToString()), // AccountID
@@ -491,7 +527,8 @@ namespace car_sharing_system.Models
 						(long)DateTime.Parse(dbread[5].ToString()).Subtract(unixStart).TotalSeconds, // est end date
 						(long)DateTime.Parse(dbread[6].ToString()).Subtract(unixStart).TotalSeconds, // end date
 						newLocation, // location from above
-						Convert.ToDouble(dbread[7].ToString())
+						Convert.ToDouble(dbread[9].ToString()),
+						Convert.ToDouble(dbread[10].ToString())
 				);
 			}
 			return currBook;

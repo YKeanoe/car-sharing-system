@@ -64,6 +64,16 @@ namespace car_sharing_system.Models {
 			return cars.GetRange(0,5);
 		}
 
+		public List<Car> getAllCar() {
+			cars = DatabaseReader.carQueryAdmin(null);
+			return cars.GetRange(0, 50);
+		}
+
+		public List<Car> getPageAllCar(int page) {
+			int fpage = (page * 50) - 50;
+			return cars.GetRange(fpage, 50);
+		}
+
 		// sortCarList function is used to sort the list of cars depending on
 		// user to car range. It take user's lat and long as parameter and an
 		// Integer to represent sortby's type. 0 represent range ASC, 1 

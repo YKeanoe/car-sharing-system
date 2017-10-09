@@ -31,6 +31,8 @@ namespace car_sharing_system.Models
 
 		public Double rangeToUser { get; set; }
 
+		public char status { get; set; }
+
 		public Car(String numberPlate, 
 				Location latlong ,
 				String country ,
@@ -80,6 +82,16 @@ namespace car_sharing_system.Models
 			this.model = model;
 			this.rate = rate;
 			this.latlong = latlong;
+		}
+
+
+		public Car(String numberPlate, String brand, String model, String vehicleType, double rate, char status) {
+			this.numberPlate = numberPlate;
+			this.brand = brand;
+			this.model = model;
+			this.vehicleType = vehicleType;
+			this.rate = rate;
+			this.status = status;
 		}
 
 		public String getCarAsTitle() {

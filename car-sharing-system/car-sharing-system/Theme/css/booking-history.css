@@ -1,1 +1,28 @@
-﻿
+﻿.table-striped > tbody > tr.table-success{
+   background-color: #b6ff99 !important; 
+}
+
+.table-striped > tbody > tr.table-success:hover{
+   background-color: #a4e58a !important; 
+}
+
+.table-striped > tbody > tr:nth-child(odd).table-warning{
+   background-color: #ffbfbf !important; 
+}
+
+.table-striped > tbody > tr:nth-child(odd).table-warning:hover{
+   background-color: #f5b8b8 !important; 
+}
+
+.table-striped > tbody > tr:nth-child(even).table-warning{
+   background-color: #fabbbb !important; 
+}
+
+.table-striped > tbody > tr:nth-child(even).table-warning:hover{
+   background-color: #f0b4b4 !important; 
+}
+
+.align-right {
+	text-align:right;
+}
+

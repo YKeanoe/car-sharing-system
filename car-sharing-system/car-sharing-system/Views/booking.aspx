@@ -84,13 +84,14 @@
 			</div>
 			<div class="panel-body">
 				<div id="booking-list">
-					<table class="table">
+					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
 								<th>Car</th>
 								<th>Starting date</th>
 								<th>Return date</th>
-								<th>Total Cost</th>
+								<th class="align-right">Overdue time</th>
+								<th class="align-right">Total Cost</th>
 							</tr>
 						</thead>
 						<tbody>
