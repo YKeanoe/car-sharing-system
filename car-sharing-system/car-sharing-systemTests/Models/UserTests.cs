@@ -287,7 +287,7 @@ namespace car_sharing_system.Models.TestsRevised
         #endregion
 
         [TestMethod()]
-        public void toStringTest() // Checks if user string output functrion works
+        public void toStringTest() // Checks if user string output function works
         {
             // Arrange
             Boolean passTest = false;
