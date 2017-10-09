@@ -12,7 +12,7 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"></div>
                                     <br>
-                                    <div>Profile!</div>
+                                    <div class="p1">Profile!</div>
                                 </div>
                             </div>
                         </div>
@@ -92,15 +92,16 @@
                            <div class="panel-body">
                             <label>Subject</label> 
                             <br>
-                            <asp:TextBox ID="subjectIssue" runat="server" placeholder="Title"></asp:TextBox> 
+                            <asp:TextBox ID="subjectIssue" runat="server" placeholder="Title" class="title"></asp:TextBox> 
                            <br>
                             <br>
+                               
                             <asp:TextBox ID="description" runat="server" placeholder="Enter description"
-                                TextMode="Multiline" rows="10" columns="100"></asp:TextBox> 
+                                TextMode="Multiline" rows="10" columns="100" class="description"></asp:TextBox> 
                             <br>
                             <br>
                             
-                            <asp:Button Text="Submit" runat="server" class="btn btn-primary" OnClick="Button2_Click" href="/successIssue.aspx" > </asp:Button>
+                            <asp:Button Text="Submit" runat="server" class="btn btn-primary" OnClick="Button2_Click" href="/successIssue.aspx"> </asp:Button>
                             <span id="issueFail" runat="server"></span>
                         </div>
                             </div>

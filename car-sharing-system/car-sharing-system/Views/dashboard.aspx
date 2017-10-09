@@ -16,7 +16,7 @@
                     <div class="col-xs-9 text-right">
                         <div class="huge"></div> 
                         <br>
-                        <div>Profile!</div>
+                        <div class="p1">Profile!</div>
                     </div>
                 </div>
             </div>
