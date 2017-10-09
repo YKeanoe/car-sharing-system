@@ -38,6 +38,19 @@
         width: 100%;
     }
 
+    .maps {
+        display: none;
+    }
+
+    p{
+        font-size: 47%;
+    }
+
+    .col-lg-12{
+        margin-right:39%;
+
+    }
+
 }
 
 #newsImage1, #newsImage2, #newsImage3 {

@@ -211,8 +211,10 @@
 						</div>
 						<button class="btn btn-primary" id="list-collapse-btn" type="button">Filter</button>
 					</div>
+                    
 					<div class="collapse in" id="list-collapse">
 						<!--<asp:PlaceHolder ID="carlist"  runat="server"/>-->
+                        <div class="maps">
 						<div id="carlist">
 							<div id="carlist-accordion"></div>
 							<ul id="car-page" class="pagination">
@@ -230,9 +232,10 @@
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 	</div>
+    </div>
+        </div>
 </section>
   
 
