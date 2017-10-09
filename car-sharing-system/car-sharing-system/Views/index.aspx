@@ -229,13 +229,13 @@
 								<li><a href="javascript:void(0);">9</a></li>	
 								<li><a href="javascript:void(0);">10</a></li>
 							</ul>
-						</div>
 					</div>
 				</div>
 		</div>
 	</div>
     </div>
         </div>
+    </div>
 </section>
   
 
