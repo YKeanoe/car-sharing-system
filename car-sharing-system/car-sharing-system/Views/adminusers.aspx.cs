@@ -8,8 +8,8 @@ using car_sharing_system.Models;
 
 namespace car_sharing_system.Admin_Theme.pages {
 	public partial class adminusers : System.Web.UI.Page {
-		protected user admin;
-		protected List<user> users = new List<user>();
+		protected User admin;
+		protected List<User> users = new List<User>();
 		protected String fill;
 
 		protected void Page_Load(object sender, EventArgs e) {
@@ -40,13 +40,13 @@ namespace car_sharing_system.Admin_Theme.pages {
 			if (users == null) {
 				Response.Redirect("~/Views/adminusers.aspx");
 			}
-			foreach (user curr in users) {
+			foreach (User curr in users) {
 				Usertable.InnerHtml = Usertable.InnerHtml + theRows(curr);
 
 
 			}
 		}
-		protected String theRows(user curr) {
+		protected String theRows(User curr) {
 
 			return "<div class='userrow'>\n" +
 						"<div class='cell firstCol'>\n" +

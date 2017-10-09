@@ -17,13 +17,14 @@ namespace car_sharing_system.Models.TestsRevised
             // Arrange
             String Password = "Placeholder";
             // Act
-            Password = new user().hashMe(Password);
+            Password = new User().hashMe(Password);
             // Assert
             Assert.AreEqual(Password, "65950F6300E635CC97B92E515C1D17E5234072E9" +
                 "15B0C98F75D8FE808F201FA815F2984460A4DCDB6A35D7776AACC317F1F47E" +
                 "9FD6790D2CA07A5A9E9A793641");
         }
-   
+
+        #region Null Checker Tests
         [TestMethod()] 
         public void nullCheckerTestEmail() // Checks null for email address
         {
@@ -32,7 +33,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean a = new user(1, null, "test", 0, "test", "test", "test",
+                Boolean a = new User(1, null, "test", 0, "test", "test", "test",
                        "test", "test", "test", "test", "test", "test", "test",
                        "test", "test", "test").nullChecker();
             }
@@ -52,7 +53,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, null, "", "",
+                Boolean b = new User(1, "", "", 0, null, "", "",
                        "", "", "", "", "", "", "",
                        "", "", "").nullChecker();
             }
@@ -72,7 +73,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", null, "",
+                Boolean b = new User(1, "", "", 0, "", null, "",
                        "", "", "", "", "", "", "", "", "", "")
                        .nullChecker();
             }
@@ -92,7 +93,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", null, 
+                Boolean b = new User(1, "", "", 0, "", "", null, 
                     "", "", "", "", "", "", "", "", "", "")
                     .nullChecker();
             }
@@ -112,7 +113,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        null, "", "", "", "", "", "", "", "", 
                        "").nullChecker();
             }
@@ -132,7 +133,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", null, "", "", "", "", "", "", "", 
                        "").nullChecker();
             }
@@ -152,7 +153,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", null, "", "", "", "", "", "",
                        "").nullChecker();
             }
@@ -172,7 +173,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", "", null, "", "", "", "", "",
                        "").nullChecker();
             }
@@ -192,7 +193,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", "", "", null, "", "", "", "",
                        "").nullChecker();
             }
@@ -212,7 +213,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", "", "", "", null, "", "", "",
                        "").nullChecker();
             }
@@ -232,7 +233,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", "", "", "", "", null, "", "",
                        "").nullChecker();
             }
@@ -252,7 +253,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", "", "", "", "", "", null, "",
                        "").nullChecker();
             }
@@ -272,7 +273,7 @@ namespace car_sharing_system.Models.TestsRevised
             try
             {
                 // Act
-                Boolean b = new user(1, "", "", 0, "", "", "",
+                Boolean b = new User(1, "", "", 0, "", "", "",
                        "", "", "", "", "", "", "", "", null,
                        "").nullChecker();
             }
@@ -283,6 +284,7 @@ namespace car_sharing_system.Models.TestsRevised
             // Assert
             Assert.AreEqual(passTest, true);
         }
+        #endregion
 
         [TestMethod()]
         public void toStringTest() // Checks if user string output functrion works
@@ -290,7 +292,7 @@ namespace car_sharing_system.Models.TestsRevised
             // Arrange
             Boolean passTest = false;
             // Act
-            String output = new user(1, "example@hotmail.com", "test123", 0, 
+            String output = new User(1, "example@hotmail.com", "test123", 0, 
                 "123456789", "John", "Smith", "Male", "06/07/1969",
                 "0433 333 333", "5 Test Street", "Docklands", "3012", 
                 "North", "Melbourne", "Australia",

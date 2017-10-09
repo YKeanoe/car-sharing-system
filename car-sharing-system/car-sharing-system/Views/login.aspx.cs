@@ -39,8 +39,8 @@ namespace car_sharing_system.Admin_Theme.pages
 		}
         protected void ValidateUser(object sender, EventArgs e)
         {
-            String password = new user().hashMe(Login1.Password);
-            user myData = UserModel.loginAttempt(Login1.UserName, password);
+            String password = new User().hashMe(Login1.Password);
+            User myData = UserModel.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {
 				//FormsAuthentication.RedirectFromLoginPage(myData.id.ToString(), Login1.RememberMeSet);

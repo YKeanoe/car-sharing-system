@@ -5,7 +5,7 @@ namespace car_sharing_system.Models
 {
     public class UserModel
     {
-        public static user loginAttempt(String email, String password) {
+        public static User loginAttempt(String email, String password) {
             return DatabaseReader.userQuerySingle("email = '" + email + "' and password = '"+password+"';");
         }
 

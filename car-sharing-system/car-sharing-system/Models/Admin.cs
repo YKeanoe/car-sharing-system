@@ -5,7 +5,7 @@ using System.Web;
 
 namespace car_sharing_system.Models
 {
-    public class Admin : user
+    public class Admin : User
     {
         public Admin(int id,
             String email,

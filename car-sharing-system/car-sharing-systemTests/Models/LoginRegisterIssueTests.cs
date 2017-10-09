@@ -16,7 +16,7 @@ namespace car_sharing_system.Models.Tests
     {
         protected Issues newIssue;
 
-        protected user newUser;
+        protected User newUser;
 
         protected int bookingID = 1;
 
@@ -35,6 +35,7 @@ namespace car_sharing_system.Models.Tests
 
         Random rnd = new Random(DateTime.Now.Millisecond);
 
+        #region Login tests
         [Test()]
         public void loginAttemptTestWithAdmin() // Attempt login with admin credentials
         {
@@ -46,7 +47,7 @@ namespace car_sharing_system.Models.Tests
 
             // Admin email
             String UserName = "admin@gmail.com";
-            user myData = UserModel.loginAttempt(UserName, password);
+            User myData = UserModel.loginAttempt(UserName, password);
 
             // If database returns data from a matching entry
             if (myData != null)
@@ -68,7 +69,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "soNzIMHTX";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "Nulla@elitpharetra.ca";
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database, email: " + myData.email);
@@ -86,7 +87,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "Nulla@elitpharetra.ca";
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No password check failure"); ;
@@ -104,7 +105,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "soNzIMHTX";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "";
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No user check failure"); ;
@@ -122,7 +123,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "";
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -140,7 +141,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "test321";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "NotAnRegisteredUser@example.com";
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -158,7 +159,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "321test";
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = "NotAnRegisteredUser@example.com";
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -176,7 +177,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = null;
             String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
             String userName = null;
-            user myData = UserModel.loginAttempt(userName, password);
+            User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
             {
                 Assert.Fail("No Credentials check failure");
@@ -184,28 +185,6 @@ namespace car_sharing_system.Models.Tests
             else
             {
                 Assert.Pass("No match found in database");
-            }
-        }
-
-        [Test()]
-        public void HashFunctionTest() // Checks to see if hashing function is working properly
-        {
-            // Plaintext password
-            String beforeHash = "ZyiXDnElJ";
-
-            // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-
-            // Expected Hash Result
-            if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
-            {
-                Assert.Pass("Password hash match");
-            }
-
-            // If Hash result does not match
-            else
-            {
-                Assert.Fail("Password hash mismatch, hashed value: " + password);
             }
         }
 
@@ -231,6 +210,33 @@ namespace car_sharing_system.Models.Tests
             }
         }
 
+        #endregion
+
+        #region Hash Test
+        [Test()]
+        public void HashFunctionTest() // Checks to see if hashing function is working properly
+        {
+            // Plaintext password
+            String beforeHash = "ZyiXDnElJ";
+
+            // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
+            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+
+            // Expected Hash Result
+            if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
+            {
+                Assert.Pass("Password hash match");
+            }
+
+            // If Hash result does not match
+            else
+            {
+                Assert.Fail("Password hash mismatch, hashed value: " + password);
+            }
+        }
+        #endregion
+
+        #region Register Tests
         [Test()]
         public void registerUserTestValidDetails() // To register an user and add to database with valid details
         {
@@ -253,13 +259,13 @@ namespace car_sharing_system.Models.Tests
             String city = "Melbourne"; // City
             String country = "Australia"; // Country
             String profileURL = "null"; // Avatar image url?
-            newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
             dr.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            user myData = UserModel.loginAttempt(email, passwordTest);
+            User myData = UserModel.loginAttempt(email, passwordTest);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database" + "user info: \n"
@@ -309,13 +315,13 @@ namespace car_sharing_system.Models.Tests
             String city = "Melbourne"; // City
             String country = "Australia"; // Country
             String profileURL = "null"; // Avatar image url?
-            newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
             dr.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            user myData = UserModel.loginAttempt(email, password);
+            User myData = UserModel.loginAttempt(email, password);
             if (myData != null)
             {
                 Assert.Fail("Valid User in database" + "user info: \n"
@@ -367,7 +373,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -411,7 +417,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -454,7 +460,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -497,7 +503,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -540,7 +546,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -583,7 +589,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -627,7 +633,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -671,7 +677,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -715,7 +721,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -759,7 +765,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -803,7 +809,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -847,7 +853,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = null; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -891,7 +897,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -935,7 +941,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = null; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -979,7 +985,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1023,7 +1029,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1067,7 +1073,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1111,7 +1117,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1155,7 +1161,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1199,7 +1205,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1243,7 +1249,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1287,7 +1293,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1331,7 +1337,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1375,7 +1381,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1419,7 +1425,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1463,7 +1469,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new 
@@ -1507,7 +1513,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new 
@@ -1551,7 +1557,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "Melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1595,13 +1601,13 @@ namespace car_sharing_system.Models.Tests
                 String city = null; // City
                 String country = "Australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
-                user myData = UserModel.loginAttempt(email, passwordTest);
+                User myData = UserModel.loginAttempt(email, passwordTest);
             }
             catch (Exception)
             {
@@ -1642,13 +1648,13 @@ namespace car_sharing_system.Models.Tests
                 String city = null; // City
                 String country = null; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
-                user myData = UserModel.loginAttempt(email, passwordTest);
+                User myData = UserModel.loginAttempt(email, passwordTest);
             }
             catch (Exception)
             {
@@ -1689,7 +1695,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "melbourne"; // City
                 String country = "australia"; // Country
                 String profileURL = "www.test.com.au"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1733,7 +1739,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "melbourne"; // City
                 String country = "australia"; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1777,7 +1783,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "melbourne"; // City
                 String country = "Australia"; // Country
                 String profileURL = "www.imgur.com"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1821,7 +1827,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "melbourne"; // City
                 String country = "australia"; // Country
                 String profileURL = "www.test.com"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1865,7 +1871,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "melbourne"; // City
                 String country = null; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1909,7 +1915,7 @@ namespace car_sharing_system.Models.Tests
                 String city = "melbourne"; // City
                 String country = null; // Country
                 String profileURL = "null"; // Avatar image url?
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -1950,13 +1956,13 @@ namespace car_sharing_system.Models.Tests
             String city = "melbourne"; // City
             String country = "Australia"; // Country
             String profileURL = ""; // Avatar image url?
-            newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
             dr.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            user myData = UserModel.loginAttempt(email, passwordTest);
+            User myData = UserModel.loginAttempt(email, passwordTest);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database" + "user info: \n"
@@ -2007,7 +2013,7 @@ namespace car_sharing_system.Models.Tests
                 String city = null; // City
                 String country = null; // Country
                 String profileURL = null; // Avatar Image Url
-                newUser = new user(-1, email, password, 0, licenseNo, fname, lname,
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
                 dr.Registeration(newUser); // Register new user
@@ -2025,7 +2031,9 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("Null for registration was not handled successfully.");
             }
         }
+        #endregion
 
+        #region Issue Tests
         //[Test()]
         public void issuesTestValidDetails() // Submit issue with valid details
         {
@@ -2112,12 +2120,11 @@ namespace car_sharing_system.Models.Tests
             {
                 Assert.Pass("Issue not submitted");
             }
-        // TODO: Create unit tests for singleQueries and ListQueries for databaseReader.
-        // - carQuery(
-        // - bookingQuery(
-        // - userQuery(
-        //
+            
         }
+        #endregion
+
+        #region Query Tests
         protected Car carList;
         protected List<Car> cars = new List<Car>();
         [Test()]
@@ -2164,8 +2171,8 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("Car was not found from car query.");
             }
         }
-        protected user userListing;
-        protected List<user> users = new List<user>();
+        protected User userListing;
+        protected List<User> users = new List<User>();
         [Test()]
         public void userQuery() // Checks to see if it can find a matching user in the database with the query information.
         {
@@ -2202,5 +2209,6 @@ namespace car_sharing_system.Models.Tests
                 Assert.Fail("User was not found in database.");
             }
         }
+        #endregion
     }
 }

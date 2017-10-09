@@ -14,7 +14,7 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class register : System.Web.UI.Page
     {
-        protected user newUser;
+        protected User newUser;
        
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace car_sharing_system.Admin_Theme.pages
         {
             DatabaseReader dr = new DatabaseReader();
  
-            newUser = new user(-1 ,emailRego.Text, passwordRego.Text, 0, licenseRego.Text, firstRego.Text, lastNameRego.Text, 
+            newUser = new User(-1 ,emailRego.Text, passwordRego.Text, 0, licenseRego.Text, firstRego.Text, lastNameRego.Text, 
                 RadioButtonList1.Text, birthRego.Text, phoneNoRego.Text, streetRego.Text, suburbRego.Text, postRego.Text, terrRego.Text,
                 cityRego.Text, countryRego.Text, "");
 
@@ -38,7 +38,7 @@ namespace car_sharing_system.Admin_Theme.pages
             {
                 if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenseNo + "' = licenseNo LIMIT 1") == null) {
                     dr.Registeration(newUser);
-                    user curr = DatabaseReader.userQuerySingle("email = '" + newUser.email + "';");
+                    User curr = DatabaseReader.userQuerySingle("email = '" + newUser.email + "';");
                     FormsAuthentication.SetAuthCookie(curr.id.ToString(), false);
                     Response.Redirect("/dashboard/");
                 }else
