@@ -46,13 +46,13 @@ namespace car_sharing_system.Admin_Theme.pages {
 						status = "In Use";
 					}
 					html = String.Format("<tr>"
-									+ "<th>{0}</th>"
-									+ "<th>{1}</th>"
-									+ "<th>{2}</th>"
-									+ "<th>{3}</th>"
-									+ "<th>${4}</th>"
-									+ "<th>{5}</th>"
-									+ "<th><a class=\"btn btn-primary\" href=\"/dashboard/admin/\" role=\"button\">Car Detail</a></th>"
+									+ "<td>{0}</td>"
+									+ "<td>{1}</td>"
+									+ "<td>{2}</td>"
+									+ "<td>{3}</td>"
+									+ "<td>${4}</td>"
+									+ "<td>{5}</td>"
+									+ "<td><a class=\"btn btn-primary\" href=\"/dashboard/admin/\" role=\"button\">Car Detail</a></td>"
 									+ "</tr>", car.numberPlate, car.brand, car.model, car.vehicleType,
 									String.Format("{0:00.00}", car.rate),
 									status);
@@ -67,7 +67,7 @@ namespace car_sharing_system.Admin_Theme.pages {
 			for (int i = 2; i <= pages; i++) {
 				pagesb.Append("<li><a href=\"javascript:void(0);\"> " + i + "</a></li>");
 			}
-			pagination.Controls.Add(new LiteralControl(pagesb.ToString()));
+			//pagination.Controls.Add(new LiteralControl(pagesb.ToString()));
 		}
 
 		private static String generateCarData(List<Car> cars) {

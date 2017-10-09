@@ -110,7 +110,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 
 			DatabaseReader.finishBooking(id, distance, carid, carLocation);
 
-			Response.Redirect("/dashboard");
+			Response.Redirect("/dashboard/returnsuccess");
 		}
 
 		[System.Web.Services.WebMethod]

@@ -13,8 +13,7 @@ namespace car_sharing_system.Admin_Theme.pages
 {
     public partial class issue : System.Web.UI.Page
     {
-        protected Issues newIssue;
-        private int bookingID = 0;
+        protected Issue newIssue;
         protected void Page_Load(object sender, EventArgs e)
         {
         }
@@ -27,10 +26,10 @@ namespace car_sharing_system.Admin_Theme.pages
             }
             else
             {
-                bookingID++;
 
                 DatabaseReader dr = new DatabaseReader();
-                newIssue = new Issues(-1,Int32.Parse(User.Identity.Name), bookingID, DateTime.UtcNow, subjectIssue.Text, description.Text);
+
+                newIssue = new Issue(Int32.Parse(User.Identity.Name), subjectIssue.Text, description.Text);
 
                 dr.clientIssue(newIssue);
 

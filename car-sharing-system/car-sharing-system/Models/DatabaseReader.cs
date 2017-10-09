@@ -133,44 +133,83 @@ namespace car_sharing_system.Models
         }
 
 		// issueQuerySingle return the first issue found as an object.
-        public static Issues issueQuerySingle(String where)
-        {
+        public static Issue issueQuerySingle(String where) {
             String query;
-            if (!String.IsNullOrEmpty(where))
-            {
+            if (!String.IsNullOrEmpty(where)) {
                 query = "SELECT * FROM Issues WHERE " + where;
             }
-            else
-            {
+            else {
                 query = "SELECT * FROM Issues";
             }
 
-            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
-            {
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
-
-                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader())
-                {
-                    if (dbread.Read())
-                    {
-                        return new Issues(Int32.Parse(dbread[0].ToString()), //issueID
-                                        Int32.Parse(dbread[1].ToString()),  //accountID
-                                       Int32.Parse(dbread[2].ToString()), //bookingID
-                                        DateTime.Parse(dbread[3].ToString()), //submissionDate
-                                        dbread[4].ToString(), //subject
-                                        dbread[5].ToString()); //description
-                    }
-                    else
-                    {
+                using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+                    if (dbread.Read()) {
+						return convertToIssue(dbread);
+                    } else {
                         return null;
                     }
                 }
             }
         }
 
+		// issueQuerySingle return the first issue found as an object.
+		public static List<Issue> issueQuery(String where) {
+			String query;
+			List<Issue> issues = new List<Issue>();
+
+			if (!String.IsNullOrEmpty(where)) {
+				query = "SELECT * FROM Issues WHERE " + where;
+			} else {
+				query = "SELECT * FROM Issues";
+			}
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						issues.Add(convertToIssue(dbread));
+					}
+				}
+			}
+			if (issues.Any()) {
+				return issues;
+			} else {
+				return null;
+			}
+		}
+
+		private static Issue convertToIssue(MySqlDataReader dbread) {
+			// If responsedate is not set, means the issue isn't responded 
+			bool responded = !String.IsNullOrEmpty(dbread[3].ToString());
+
+			Issue currIssue;
+			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+			if (responded) {
+				currIssue = new Issue(
+						Int32.Parse(dbread[1].ToString()), // AccountID
+						(long)DateTime.Parse(dbread[2].ToString()).Subtract(unixStart).TotalSeconds, // Issue date
+						(long)DateTime.Parse(dbread[3].ToString()).Subtract(unixStart).TotalSeconds, // Response date
+						dbread[4].ToString(), // subject
+						dbread[5].ToString() // desc
+				);
+			} else {
+				currIssue = new Issue(
+						Int32.Parse(dbread[1].ToString()), // AccountID
+						(long)DateTime.Parse(dbread[2].ToString()).Subtract(unixStart).TotalSeconds, // Issue date
+						dbread[4].ToString(), // subject
+						dbread[5].ToString() // desc
+				);
+			}
+			return currIssue;
+		}
+
+
 		// Registeration function is used to register new user to the database.
-        public void Registeration(User newUser)
+		public void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
             query += " VALUES (@email, @password, 0, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
@@ -234,23 +273,21 @@ namespace car_sharing_system.Models
             }
         }
         // clientIssue function is used to add new issue to the database.
-        public void clientIssue(Issues newIssue)
+        public void clientIssue(Issue newIssue)
         {
-            String query = "INSERT INTO Issues (accountID, bookingID,submissionDate, subject, description) ";
-            query += " VALUES (@accountID, @bookingID, @submissionDate, @subject, @description) ";
+            String query = "INSERT INTO Issues (accountID,submissionDate, subject, description) ";
+            query += " VALUES (@accountID, @submissionDate, @subject, @description) ";
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
                     mySqlCommand.Parameters.AddWithValue("@accountID", newIssue.accountID);
-                    mySqlCommand.Parameters.AddWithValue("@bookingID", newIssue.bookingID);
-                    mySqlCommand.Parameters.AddWithValue("@submissionDate", DateTime.Now);
+                    mySqlCommand.Parameters.AddWithValue("@submissionDate", DateTime.UtcNow);
                     mySqlCommand.Parameters.AddWithValue("@subject", newIssue.subject);
                     mySqlCommand.Parameters.AddWithValue("@description", newIssue.description);
-
+					Debug.WriteLine(mySqlCommand.CommandText);
                     mySqlCommand.ExecuteNonQuery();
-
                 }
                 mySqlConnection.Close();
             }

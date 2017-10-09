@@ -152,6 +152,7 @@
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
     <Content Include="Theme\css\booking-history.css" />
+    <Content Include="Theme\css\issue.css" />
     <Content Include="Theme\css\mobileFriendly.css" />
     <Content Include="Theme\Images\caricon-glow.png" />
     <Content Include="Theme\Images\AN.jpg" />
@@ -198,6 +199,7 @@
     <Content Include="Views\logout.aspx" />
     <Content Include="Views\profile.aspx" />
     <Content Include="Views\register.aspx" />
+    <Content Include="Views\successBook.aspx" />
     <Content Include="Views\successregister.aspx" />
     <Content Include="Admin_Theme\vendor\Bootstrap-social\bootstrap-social.css" />
     <Content Include="Admin_Theme\dist\css\sb-admin-2.css" />
@@ -424,6 +426,13 @@
     </Compile>
     <Compile Include="Views\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\successBook.aspx.cs">
+      <DependentUpon>successBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\successBook.aspx.designer.cs">
+      <DependentUpon>successBook.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\successregister.aspx.cs">
       <DependentUpon>successregister.aspx</DependentUpon>

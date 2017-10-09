@@ -48,6 +48,7 @@ namespace car_sharing_system {
 								+	"<ul class=\"nav nav-second-level\">"
 								+		"<li><a href=\"/dashboard/admin/users\">View all Users</a></li>"
 								+		"<li><a href=\"/dashboard/admin/cars\">View all Cars</a></li>"
+								+		"<li><a href=\"/dashboard/admin/issues\">View all Issues</a></li>"
 								+		"<li><a href=\"/dashboard/admin/addcar\">Add new Car</a></li>"
 								+	"</ul>"
 								+ "</li>";

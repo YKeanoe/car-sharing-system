@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="col-lg-3 col-md-6">
-        <div class="panel panel-red">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
@@ -76,7 +76,7 @@
 	<div class="col-lg-8">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<i class="fa fa-tasks fa-fw"></i> Booking history
+				<i class="fa fa-tasks fa-fw"></i> List of Cars
 				<div class="pull-right">
 					<div class="btn-group">                
 					</div>
@@ -98,13 +98,11 @@
 						</thead>
 						<tbody>
 						
-							<asp:placeholder runat="server" ID="carlistph"></asp:placeholder>
 						</tbody>
 					</table>
 					<ul id="car-page" class="pagination">
-						<li class="active"><a href="javascript:void(0);">1</a></li>
-						<asp:PlaceHolder runat="server" ID="pagination"></asp:PlaceHolder>		
 					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

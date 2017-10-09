@@ -12,7 +12,7 @@ namespace car_sharing_system.Models
         {
 
         }
-        public Issues issueAttempt(String subjectIssueText, String descriptionText)
+        public Issue issueAttempt(String subjectIssueText, String descriptionText)
         {
             return DatabaseReader.issueQuerySingle("issue = '" + subjectIssueText + "' and description = '" + descriptionText + "';");
         }
