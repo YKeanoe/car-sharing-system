@@ -97,14 +97,21 @@
 							</tr>
 						</thead>
 						<tbody>
+						
 							<asp:placeholder runat="server" ID="carlistph"></asp:placeholder>
 						</tbody>
 					</table>
+					<ul id="car-page" class="pagination">
+						<li class="active"><a href="javascript:void(0);">1</a></li>
+						<asp:PlaceHolder runat="server" ID="pagination"></asp:PlaceHolder>		
+					</ul>
 			</div>
 		</div>
 	</div>
 </div>
 
 <link href="/Theme/css/booking-history.css" rel="stylesheet" />
+<script src="/Theme/js/jquery.twbsPagination.min.js"></script>
+<script src="/Theme/js/admin-cars-view.js"></script>
 
 </asp:Content>

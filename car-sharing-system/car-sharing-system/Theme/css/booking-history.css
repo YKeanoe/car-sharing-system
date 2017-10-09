@@ -26,3 +26,6 @@
 	text-align:right;
 }
 
+.table > tbody > tr > th {
+	vertical-align:middle;
+}

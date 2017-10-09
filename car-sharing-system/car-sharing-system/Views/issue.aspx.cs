@@ -30,7 +30,7 @@ namespace car_sharing_system.Admin_Theme.pages
                 bookingID++;
 
                 DatabaseReader dr = new DatabaseReader();
-                newIssue = new Issues(-1,Int32.Parse(User.Identity.Name), bookingID, DateTime.Now, subjectIssue.Text, description.Text);
+                newIssue = new Issues(-1,Int32.Parse(User.Identity.Name), bookingID, DateTime.UtcNow, subjectIssue.Text, description.Text);
 
                 dr.clientIssue(newIssue);
 

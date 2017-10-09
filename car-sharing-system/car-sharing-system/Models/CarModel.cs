@@ -69,6 +69,10 @@ namespace car_sharing_system.Models {
 			return cars.GetRange(0, 50);
 		}
 
+		public int countPages(int dataperpage) {
+			return cars.Count / dataperpage;
+		}
+
 		public List<Car> getPageAllCar(int page) {
 			int fpage = (page * 50) - 50;
 			return cars.GetRange(fpage, 50);

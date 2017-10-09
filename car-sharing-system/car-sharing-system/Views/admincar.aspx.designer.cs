@@ -20,5 +20,14 @@ namespace car_sharing_system.Admin_Theme.pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder carlistph;
+        
+        /// <summary>
+        /// pagination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder pagination;
     }
 }

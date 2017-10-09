@@ -164,6 +164,7 @@
     <Content Include="Theme\Images\middle.png" />
     <Content Include="Theme\Images\park-128.png" />
     <Content Include="Theme\Images\user42.png" />
+    <Content Include="Theme\js\admin-cars-view.js" />
     <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />
     <Content Include="Theme\js\booking-return-features.js" />
@@ -177,6 +178,8 @@
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
+    <Content Include="Theme\js\jquery.twbsPagination.js" />
+    <Content Include="Theme\js\jquery.twbsPagination.min.js" />
     <Content Include="Theme\js\timeout-features-return.js" />
     <Content Include="Theme\js\timeout-features.js" />
     <Content Include="Views\admincar.aspx" />
@@ -308,7 +311,7 @@
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\js\map-features.js" />
     <Content Include="Views\successIssue.aspx" />
-    <Content Include="Views\admincarview.aspx" />
+    <Content Include="Views\admincaradd.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\index.aspx" />
   </ItemGroup>
@@ -462,12 +465,12 @@
     <Compile Include="Views\successIssue.aspx.designer.cs">
       <DependentUpon>successIssue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\admincarview.aspx.cs">
-      <DependentUpon>admincarview.aspx</DependentUpon>
+    <Compile Include="Views\admincaradd.aspx.cs">
+      <DependentUpon>admincaradd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\admincarview.aspx.designer.cs">
-      <DependentUpon>admincarview.aspx</DependentUpon>
+    <Compile Include="Views\admincaradd.aspx.designer.cs">
+      <DependentUpon>admincaradd.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

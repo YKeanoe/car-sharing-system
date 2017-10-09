@@ -7,20 +7,37 @@ using System.Web.UI.WebControls;
 using car_sharing_system.Models;
 using System.Web.Script.Serialization;
 using System.Diagnostics;
+using System.Text;
 
 namespace car_sharing_system.Admin_Theme.pages {
 
 	public partial class admincar : System.Web.UI.Page {
 
 
-		protected void Page_Load(object sender, EventArgs e) {
-			List<Car> cars = getAllCar();
+		protected void Page_Load(object sender, EventArgs e) {}
 
+		[System.Web.Services.WebMethod]
+		public static int getCarPageCount() {
+			CarModel cm = CarModel.getInstance();
+			List<Car> cars = cm.getAllCar();
+			int carpages = cm.countPages(50);
+			return carpages;
+		}
+
+		[System.Web.Services.WebMethod]
+		public static string getCarPage(int page) {
+			JavaScriptSerializer oSerializer = new JavaScriptSerializer();
+			CarModel cm = CarModel.getInstance();
+			List<Car> cars = cm.getPageAllCar(page);
+			return oSerializer.Serialize(stringifyCars(cars));
+		}
+
+		private static List<String> stringifyCars(List<Car> cars) {
+			List<String> carhtml = new List<String>();
 			if (cars != null && cars.Any()) {
 				foreach (Car car in cars) {
-					String carrow;
 					String status;
-					Debug.WriteLine(car.vehicleType);
+					String html;
 					if (car.status == 'A') {
 						status = "Available";
 					} else if (car.status == 'B') {
@@ -28,28 +45,29 @@ namespace car_sharing_system.Admin_Theme.pages {
 					} else {
 						status = "In Use";
 					}
-
-					carrow = String.Format("<tr>"
+					html = String.Format("<tr>"
 									+ "<th>{0}</th>"
 									+ "<th>{1}</th>"
 									+ "<th>{2}</th>"
 									+ "<th>{3}</th>"
 									+ "<th>${4}</th>"
 									+ "<th>{5}</th>"
-									+ "<th></th>"
+									+ "<th><a class=\"btn btn-primary\" href=\"/dashboard/admin/\" role=\"button\">Car Detail</a></th>"
 									+ "</tr>", car.numberPlate, car.brand, car.model, car.vehicleType,
 									String.Format("{0:00.00}", car.rate),
 									status);
-						
-					carlistph.Controls.Add(new LiteralControl(carrow));
+					carhtml.Add(html);
 				}
 			}
+			return carhtml;
 		}
 
-		public List<Car> getAllCar() {
-			CarModel cm = CarModel.getInstance();
-			List<Car> closeCars = cm.getAllCar();
-			return closeCars;
+		private void setpages(int pages) {
+			StringBuilder pagesb = new StringBuilder();
+			for (int i = 2; i <= pages; i++) {
+				pagesb.Append("<li><a href=\"javascript:void(0);\"> " + i + "</a></li>");
+			}
+			pagination.Controls.Add(new LiteralControl(pagesb.ToString()));
 		}
 
 		private static String generateCarData(List<Car> cars) {
