@@ -18,11 +18,17 @@
 
     .col-xs-9 {
         width: 100%;
-        padding-right: 42%;
+        padding-right: 67%;
+    }
+
+    .col-xs-3{
+        margin-left: 8%;
+
+
     }
 
     .row  {
-        width: 200%;
+        width: 300%;
     }
 
     .fa-5x {
@@ -35,11 +41,12 @@
     }
 
     .car-panel-title {
-        
+        font-size: 38%;
         width: 100%;
+        padding-bottom: 32%;
     }
 
-    #maps {
+    #map {
         display: none;
     }
 
@@ -56,6 +63,21 @@
         display: table-caption;
     }
 
+   
+
+    .description {
+       width: 215%;
+   }
+
+    .title {
+        width: 215%
+
+    }
+
+    .p1 {
+        padding-right: 26.5%;
+
+    }
 }
 
 #newsImage1, #newsImage2, #newsImage3 {
@@ -68,7 +90,7 @@
 @media screen and (max-width: 500px) {
 
     .col-lg-8 {
-        width: 55%;
+        width: 38%;
     }
 
 
