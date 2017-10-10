@@ -19,6 +19,8 @@
     <link href="/Admin_Theme/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/Admin_Theme/dist/css/sb-admin-2.css" rel="stylesheet">
+	<link href="/Theme/css/index.css" rel="stylesheet" />
+
     <!-- Custom Fonts -->
     <link href="/Admin_Theme/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery -->

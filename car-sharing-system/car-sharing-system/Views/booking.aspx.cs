@@ -13,10 +13,8 @@ namespace car_sharing_system.Admin_Theme.pages
         protected void Page_Load(object sender, EventArgs e) {
 			
 			List<Booking> bookings = DatabaseReader.bookingQuery("accountID = '" + User.Identity.Name + "' ORDER BY startDate DESC ");
-			Debug.WriteLine("run");
 			if (bookings != null && bookings.Any()) {
 				foreach (Booking book in bookings) {
-					book.debug();
 					Car car = DatabaseReader.carQuerySingle("numberPlate = '" + book.numberPlate + "'");
 					String bookrow;
 					if (book.isFinish()) {
@@ -48,7 +46,6 @@ namespace car_sharing_system.Admin_Theme.pages
 									odString.AppendFormat("{0} minutes", od.Minutes);
 								}
 							}
-							Debug.WriteLine(odString.ToString());
 							bookrow = String.Format("<tr class=\"table-warning\">"
 								+ "<th>({0}) {1} {2}</th>"
 								+ "<th>{3}</th>"

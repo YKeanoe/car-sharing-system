@@ -80,7 +80,8 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			} else {
 				diff = estEnd.Subtract(startTime);
 			}
-			totalPrice = diff.TotalHours * currentCar.rate;
+
+			totalPrice = Math.Ceiling(diff.TotalHours) * currentCar.rate;
 			bookEstimatePrice.Text = "$" + totalPrice.ToString("00.00");
 
 			HttpContext.Current.Session["carlocation"] = currentCar.latlong;

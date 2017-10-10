@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
 
 <link href="/Datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-<link href="/Theme/css/index.css" rel="stylesheet" />
 
 <div class="row">
     <!-- Profile Panel -->
