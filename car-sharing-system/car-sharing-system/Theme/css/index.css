@@ -33,8 +33,14 @@
 	width: 50%;
 }
 
+.date-item {
+	width:50%;
+	margin-left:0;
+}
+
 .list {
   background: #fff;
+  text-align:center;
   font-size: 20px;
   float:right;
   margin-left:2%;

@@ -5,3 +5,28 @@
 .accordion-toggle {
 	cursor: pointer;
 }
+
+.accordian-body {
+	margin:1% 0;
+	padding:0 1%;
+}
+
+.table-striped > tbody > tr.table-success{
+   background-color: #e1fae2 !important; 
+}
+
+.table-striped > tbody > tr.table-success:hover{
+   background-color: #daf2db !important; 
+}
+
+.table-striped > tbody > tr:nth-child(odd).table-warning{
+   background-color: #fae1e1 !important; 
+}
+
+.table-striped > tbody > tr:nth-child(odd).table-warning:hover{
+   background-color: #f2dada !important; 
+}
+
+.btn-respond {
+	margin-top:6px;
+}

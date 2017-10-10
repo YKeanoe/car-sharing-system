@@ -182,6 +182,31 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// Used specially for admin view all issues. This query left join issue
+		// with user to be shown on table
+		public static List<Issue> issueQueryAdmin() {
+			List<Issue> issues = new List<Issue>();
+			String query = "SELECT Issues.*, User.firstName, User.lastName FROM Issues LEFT JOIN User ON Issues.accountID = User.accountID ORDER BY submissionDate DESC";
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						Issue currissue = convertToIssue(dbread);
+						String x = dbread[6].ToString() + " " + dbread[7].ToString();
+						currissue.username = dbread[6].ToString() + " " + dbread[7].ToString();
+						issues.Add(currissue);
+					}
+				}
+			}
+			if (issues.Any()) {
+				return issues;
+			} else {
+				return null;
+			}
+		}
+
 		private static Issue convertToIssue(MySqlDataReader dbread) {
 			// If responsedate is not set, means the issue isn't responded 
 			bool responded = !String.IsNullOrEmpty(dbread[3].ToString());
@@ -216,7 +241,6 @@ namespace car_sharing_system.Models
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
             {
                 mySqlConnection.Open();
-                Debug.WriteLine(newUser.toString());
                 using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
                 {
                     mySqlCommand.Parameters.AddWithValue("@email", newUser.email);
@@ -286,7 +310,6 @@ namespace car_sharing_system.Models
                     mySqlCommand.Parameters.AddWithValue("@submissionDate", DateTime.UtcNow);
                     mySqlCommand.Parameters.AddWithValue("@subject", newIssue.subject);
                     mySqlCommand.Parameters.AddWithValue("@description", newIssue.description);
-					Debug.WriteLine(mySqlCommand.CommandText);
                     mySqlCommand.ExecuteNonQuery();
                 }
                 mySqlConnection.Close();
@@ -493,7 +516,6 @@ namespace car_sharing_system.Models
 			} else {
 				query = "SELECT * FROM Booking";
 			}
-			Debug.WriteLine(query);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
@@ -611,21 +633,20 @@ namespace car_sharing_system.Models
 		}
 
 		// finishBooking updates the car's and booking's data.
-		public static void finishBooking(String uid, Double traveldist, String cid, Location cloc) {
-			updateBooking(uid, traveldist);
+		public static void finishBooking(String uid, Double traveldist, String cid, Location cloc, Double totalPrice) {
+			updateBooking(uid, traveldist, totalPrice);
 			updateCar(cid, cloc);
 		}
 
 		// updateBooking update the booking's database by filling the endDate
 		// and travel distance field, notifying that the booking is finish.
-		public static int updateBooking(String id, Double traveldist) {
-			String set = String.Format("endDate = '{0}', travelDistance = {1}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"), traveldist);
-			String where = String.Format("accountID = '{0}' AND endDate IS NULL", id);
+		public static int updateBooking(String id, Double traveldist, Double totalPrice) {
+			String set = String.Format("endDate = '{0}', travelDistance = {1}, totalCost = {2}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"), traveldist, totalPrice);
+			String where = String.Format("accountID = '{0}' AND totalCost IS NULL", id);
 			String query = String.Format("UPDATE Booking SET {0} WHERE {1}",
 									set, where);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
-				Debug.WriteLine(query);
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
 				Debug.WriteLine("rows affected = " + numRowsUpdated);
@@ -641,7 +662,6 @@ namespace car_sharing_system.Models
 									set, where);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
-				Debug.WriteLine(query);
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
 				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
 				Debug.WriteLine("rows affected = " + numRowsUpdated);
@@ -652,7 +672,7 @@ namespace car_sharing_system.Models
 		// changeCarStatusInterval change the car's status if the booking start time 
 		// has past and the car status is 'booked' or 'B'
 		public static int changeCarStatusInterval() {
-			String query = "UPDATE Car INNER JOIN Booking ON Car.numberPlate = Booking.numberPlate SET Car.status = 'U' WHERE Booking.startDate <= NOW() AND Booking.endDate IS NULL AND Car.Status = 'B'";
+			String query = "UPDATE Car INNER JOIN Booking ON Car.numberPlate = Booking.numberPlate SET Car.status = 'U' WHERE Booking.startDate <= NOW() AND Booking.totalCost IS NULL AND Car.Status = 'B'";
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);

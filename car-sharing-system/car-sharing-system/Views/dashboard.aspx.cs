@@ -35,7 +35,7 @@ namespace car_sharing_system.Admin_Theme.pages {
 
 		protected void Page_Load(object sender, EventArgs e) {
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
-			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND endDate IS NULL;");
+			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND totalCost IS NULL;");
 			if (currBooking != null) {
 				// If user have a running booking, then show the booking list
 				cardiv.Style.Add("display", "none");

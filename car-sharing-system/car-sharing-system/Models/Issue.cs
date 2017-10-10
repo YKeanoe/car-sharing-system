@@ -9,6 +9,7 @@ namespace car_sharing_system.Models
 		public long? responseDate { get; private set; }
 		public String subject { get; private set; }
         public String description { get; private set; }
+		public String username { get; set; }
 
 		// Constructor to be used in adding responded issue.
         public Issue(
