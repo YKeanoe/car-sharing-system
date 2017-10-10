@@ -149,6 +149,9 @@
         font-size: 18px;
     }
 
+    #newsImage1, #newsImage2, #newsImage3 {
+       width: 193%;
+    }
 
 }
 

@@ -62,7 +62,7 @@
 						<div class="filter">
 							<div id="date-group">
 								<div class="col-md-6">
-									<label>Start date</label>
+									<label class="start">Start date</label>
 									<div class='input-group date' id='start-date-picker'>
 										<input type='text' class="form-control" />
 										<span class="input-group-addon">
