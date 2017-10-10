@@ -24,9 +24,11 @@ namespace car_sharing_system.Models.TestsRevised
             decimal latitude = -37634528920;
             decimal longitude = 144808134700;
             Location latLong = new Location(latitude, longitude);
-            String start = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
-            String estend = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(estEndDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
-            Booking book = new Booking(1000, "RGYXXX", currentunix, startDate, estEndDate, latLong);
+            String start = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble
+                (startDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");  // Converts startDate to date and time format
+            String estend = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds
+                (Convert.ToDouble(estEndDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");  // Converts estEndDate to date and time format
+            Booking book = new Booking(1000, "8W69B0", currentunix, startDate, estEndDate, latLong);
             // Act
             Boolean a = book.isFinish();
             // Assert
@@ -53,9 +55,11 @@ namespace car_sharing_system.Models.TestsRevised
             decimal latitude = -37634528920;
             decimal longitude = 144808134700;
             Location latLong = new Location(latitude, longitude);
-            String start = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(startDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
-            String estend = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(estEndDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
-            Booking book = new Booking(1000, "RGYXXX", currentunix, startDate, estEndDate, latLong);
+            String start = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds
+                (Convert.ToDouble(startDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss"); // Converts startDate to date and time format
+            String estend = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds
+                (Convert.ToDouble(estEndDate)).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss"); // Converts estEndDate to date and time format
+            Booking book = new Booking(1000, "8W69B0", currentunix, startDate, estEndDate, latLong);
             // Act
             Boolean a = book.isOverdue();
             // Assert
