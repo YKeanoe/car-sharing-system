@@ -77,6 +77,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 				}
 				odString.Append("</label>");
 				bookOverdue.Controls.Add(new LiteralControl(odString.ToString()));
+				diff = DateTime.UtcNow.Subtract(startTime);
 			} else {
 				diff = estEnd.Subtract(startTime);
 			}
