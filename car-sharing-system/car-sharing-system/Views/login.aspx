@@ -28,7 +28,8 @@
                                 <br />
                                 <asp:button id="Button1" class="btn btn-primary" CommandName="Login" runat="server" Text="Login"></asp:button>
                                 <a href="/dashboard/register" class="btn btn-info">Register</a>
-                                <asp:Checkbox id="RememberMe" runat="server" Text="Remember my login"></asp:Checkbox>
+                                <asp:Checkbox id="RememberMe" runat="server"></asp:Checkbox>
+                                <label class="rr">Remember my login</label>
                                 <br />
                                 <asp:Literal id="FailureText" runat="server"></asp:Literal></td>
                             </div>

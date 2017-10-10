@@ -14,7 +14,7 @@ namespace car_sharing_system.Models.Tests
     [TestFixture()]
     public class LoginRegisterIssueTests
     {
-        protected Issues newIssue;
+        protected Issue newIssue;
 
         protected User newUser;
 
@@ -2034,93 +2034,116 @@ namespace car_sharing_system.Models.Tests
         #endregion
 
         #region Issue Tests
-        //[Test()]
+        [Test()]
         public void issuesTestValidDetails() // Submit issue with valid details
         {
-            String subjectIssueText = "Test";
-            String descriptionText = "The quick brown fox jumps over the fence";
-            DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1, -1, bookingID, DateTime.Now, subjectIssueText, descriptionText);
-
-            dr.clientIssue(newIssue); ; // May not appear to submit the issue yet,
-
-            IssueModel issue = new IssueModel();
-            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
-            if (myIssue != null)
+            String test = "Pass";
+            try
             {
-                Assert.Pass("Issue Submitted");
+                String subjectIssueText = "Test";
+                String descriptionText = "The quick brown fox jumps over the fence";
+                DatabaseReader dr = new DatabaseReader();
+                newIssue = new Issue(100, subjectIssueText, descriptionText);
+                IssueModel issue = new IssueModel();
+                dr.clientIssue(newIssue);
+                if (newIssue != null)
+                {
+                    Assert.Pass("Issue Submitted");
+                }
+                else
+                {
+                    Assert.Fail("Issue not submitted");
+                }
             }
-            else
+            catch (Exception)
             {
-                Assert.Fail("Issue not submitted");
+                test = "Fail";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("Issue was submitted successfully.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void issuesTestNoSubject() // Submit issue with no subject
         {
-            String subjectIssueText = "";
-            String descriptionText = "The quick brown fox jumps over the fence";
-            DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1, -1, bookingID, DateTime.Now, subjectIssueText, descriptionText);
-
-            dr.clientIssue(newIssue); // May not appear to submit the issue yet
-
-            IssueModel issue = new IssueModel();
-            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
-            if (myIssue != null)
+            String test = "Fail";
+            try
             {
-                Assert.Fail("Issue Submitted");
+                String subjectIssueText = null;
+                String descriptionText = "The quick brown fox jumps over the fence";
+                DatabaseReader dr = new DatabaseReader();
+                newIssue = new Issue(100, subjectIssueText, descriptionText);
+
+                dr.clientIssue(newIssue);
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("Issue has not been added to database.");
             }
             else
             {
-                Assert.Pass("Issue not submitted");
+                Assert.Fail("Issue was added into database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void issuesTestNoDescription() // Submit issue with no description
         {
-            String subjectIssueText = "Test";
-            String descriptionText = "";
-            DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1, -1, bookingID, DateTime.Now, subjectIssueText, descriptionText);
-
-            dr.clientIssue(newIssue); // May not appear to submit the issue yet
-
-            IssueModel issue = new IssueModel();
-            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
-            if (myIssue != null)
+            String test = "Fail";
+            try
             {
-                Assert.Fail("Issue Submitted");
+                String subjectIssueText = "Test";
+                String descriptionText = null;
+                DatabaseReader dr = new DatabaseReader();
+                newIssue = new Issue(100, subjectIssueText, descriptionText);
+
+                dr.clientIssue(newIssue);
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("Issue has not been added to database.");
             }
             else
             {
-                Assert.Pass("Issue not submitted");
+                Assert.Fail("Issue was added into database.");
             }
         }
 
-        //[Test()]
+        [Test()]
         public void issuesTestNoSubjectOrDescription() // Submit issue with no subject or description
         {
-            String subjectIssueText = "";
-            String descriptionText = "";
-            DatabaseReader dr = new DatabaseReader();
-            newIssue = new Issues(-1, -1, bookingID, DateTime.Now, subjectIssueText, descriptionText);
-
-            dr.clientIssue(newIssue); // May not appear to submit the issue yet
-
-            IssueModel issue = new IssueModel();
-            Issues myIssue = issue.issueAttempt(subjectIssueText, descriptionText);
-            if (myIssue != null)
+            String test = "Fail";
+            try
             {
-                Assert.Fail("Issue Submitted");
+                String subjectIssueText = null;
+                String descriptionText = null;
+                DatabaseReader dr = new DatabaseReader();
+                newIssue = new Issue(100, subjectIssueText, descriptionText);
+
+                dr.clientIssue(newIssue);
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("Issue has not been added to database.");
             }
             else
             {
-                Assert.Pass("Issue not submitted");
+                Assert.Fail("Issue was added into database.");
             }
-            
         }
         #endregion
 
