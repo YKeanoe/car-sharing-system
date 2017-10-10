@@ -13,20 +13,22 @@ using System.Device.Location;
 
 namespace car_sharing_system.Views.Admin_Theme.pages {
 	public partial class bookingreturn : System.Web.UI.Page {
+		/*
 		static Location userLocation;
 		static Location carLocation;
 		static String id;
 		static String carid;
+		*/
 
 		protected void Page_Load(object sender, EventArgs e) {
-			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND endDate IS NULL;");
+			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND totalCost IS NULL;");
 			if (currBooking == null) {
 				carinfo.Style.Add("display", "none");
 				errorinfo.Style.Add("display", "block");
 				errorlabel.Text = "You don't have active booking.";
 				return;
 			}
-			Car currentCar = DatabaseReader.carQuerySingleFull("numberPlate = '" + currBooking.numberPlate + "'");
+			Car currentCar = DatabaseReader.carQuerySingleFull("numberPlate = '" + currBooking.numberPlate + "' AND Status != 'A'");
 			if (currentCar == null) {
 				carinfo.Style.Add("display", "none");
 				errorinfo.Style.Add("display", "block");
@@ -81,9 +83,10 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			totalPrice = diff.TotalHours * currentCar.rate;
 			bookEstimatePrice.Text = "$" + totalPrice.ToString("00.00");
 
-			carLocation = currentCar.latlong;
-			id = User.Identity.Name;
-			carid = currentCar.numberPlate;
+			HttpContext.Current.Session["carlocation"] = currentCar.latlong;
+			HttpContext.Current.Session["carid"] = currentCar.numberPlate;
+			HttpContext.Current.Session["totalcost"] = totalPrice;
+
 
 			script.Controls.Add(new LiteralControl("<script type=\"text/javascript\" src=\"/Theme/js/booking-return-features.js\"></script>"));
 			script.Controls.Add(new LiteralControl("<script type=\"text/javascript\" src=\"/Theme/js/timeout-features-return.js\"></script>"));
@@ -97,25 +100,55 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			}
 			ph.Controls.Add(new LiteralControl("<br />"));
 		}
-
-
-
 	
 		protected void confirmReturn(object sender, EventArgs e) {
-			Debug.WriteLine("booking returned");
-
-			var locA = new GeoCoordinate(Convert.ToDouble(carLocation.lat), Convert.ToDouble(carLocation.lng));
-			var locB = new GeoCoordinate(Convert.ToDouble(userLocation.lat), Convert.ToDouble(userLocation.lng));
+			String carid = (String) HttpContext.Current.Session["carid"];
+			Double totalPrice = (Double) HttpContext.Current.Session["totalCost"];
+			Location uloc = (Location)HttpContext.Current.Session["userlocation"];
+			Location cloc = (Location)HttpContext.Current.Session["carlocation"];
+			var locA = new GeoCoordinate(Convert.ToDouble(cloc.lat), Convert.ToDouble(cloc.lng));
+			var locB = new GeoCoordinate(Convert.ToDouble(uloc.lat), Convert.ToDouble(uloc.lng));
 			double distance = locA.GetDistanceTo(locB); // metres
 
-			DatabaseReader.finishBooking(id, distance, carid, carLocation);
+			DatabaseReader.finishBooking(User.Identity.Name, distance, carid, uloc, totalPrice);
+			Response.Redirect("/dashboard/returnsuccess?lat=" + uloc.lat + "&lng=" + uloc.lng);
+		}
 
-			Response.Redirect("/dashboard/returnsuccess");
+		protected void confirmReturnAdmin(object sender, EventArgs e) {
+			String carid = (String)HttpContext.Current.Session["carid"];
+			Double totalPrice = (Double)HttpContext.Current.Session["totalCost"];
+			Location uloc = (Location)HttpContext.Current.Session["userlocation"];
+			Location cloc = (Location)HttpContext.Current.Session["carlocation"];
+
+			Random rand = new Random();
+			int y = rand.Next(-3, 2);
+			Double x = rand.NextDouble();
+			Double randlat = y + x;
+			decimal lat = uloc.lat + Convert.ToDecimal(randlat);
+			decimal lng = uloc.lng + Convert.ToDecimal(randlat);
+			uloc.lat = lat;
+			uloc.lng = lng;
+
+			var locA = new GeoCoordinate(Convert.ToDouble(cloc.lat), Convert.ToDouble(cloc.lng));
+			var locB = new GeoCoordinate(Convert.ToDouble(uloc.lat), Convert.ToDouble(uloc.lng));
+			double distance = locA.GetDistanceTo(locB); // metres
+
+			DatabaseReader.finishBooking(User.Identity.Name, distance, carid, uloc, totalPrice);
+			Response.Redirect("/dashboard/returnsuccess?lat="+lat+"&lng="+lng);
+		}
+
+		protected override void OnUnload(EventArgs e) {
+			base.OnUnload(e);
+			HttpContext.Current.Session.Remove("carid");
+			HttpContext.Current.Session.Remove("totalCost");
+			HttpContext.Current.Session.Remove("userlocation");
+			HttpContext.Current.Session.Remove("carlocation");
 		}
 
 		[System.Web.Services.WebMethod]
 		public static void setLoc(String lat, String lng) {
-			userLocation = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
+			//userLocation = new Models.Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
+			HttpContext.Current.Session["userlocation"] = new Location(Convert.ToDecimal(lat), Convert.ToDecimal(lng));
 			//userLoc.debug();
 		}
 	}

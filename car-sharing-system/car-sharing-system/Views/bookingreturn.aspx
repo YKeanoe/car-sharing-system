@@ -30,7 +30,8 @@
 							<label>Total price</label>
 							<label><asp:Label runat="server" ID="bookEstimatePrice">Estimated price</asp:Label></label>
 							<asp:PlaceHolder ID="featurelist"  runat="server"/>
-							<asp:Button ID="confirmbtn" runat="server" Text="Return car" CssClass="btn btn-primary" OnClick="confirmReturn"></asp:Button>
+							<asp:Button ID="confirmbtn" runat="server" Text="Return Car" CssClass="btn btn-primary" OnClick="confirmReturn"></asp:Button>
+							<asp:Button ID="confirmbtnadmin" runat="server" Text="Return Car Debug" CssClass="btn btn-primary" OnClick="confirmReturnAdmin"></asp:Button>
 						</form>
 					</div>
 				</div>

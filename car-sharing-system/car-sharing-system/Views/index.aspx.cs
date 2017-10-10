@@ -44,6 +44,10 @@ namespace car_sharing_system {
 			*/
 
 			//DBScheduler.schedule2();
+			Random rand = new Random();
+			int y = rand.Next(-3, 3);
+			Double x = rand.NextDouble();
+			Debug.WriteLine(y + "." + x);
 		}
 
 		[System.Web.Services.WebMethod]

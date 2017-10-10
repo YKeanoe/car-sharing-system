@@ -7,9 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace car_sharing_system.Admin_Theme.pages {
+namespace car_sharing_system.Views.pages {
     
     
-    public partial class successregister {
+    public partial class successBook {
+        
+        /// <summary>
+        /// latlonglabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label latlonglabel;
     }
 }

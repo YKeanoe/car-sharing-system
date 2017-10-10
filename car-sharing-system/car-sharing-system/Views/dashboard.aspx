@@ -94,9 +94,9 @@
 					<div class="panel filter-panel">
 						<label class="result-label">Refine Results</label>
 
-						<div class="filter">
+						<div class="filter col-md-12">
 							<div id="date-group">
-								<div class="col-md-6">
+								<div class="col-md-6 date-item">
 									<label>Start date</label>
 									<div class='input-group date' id='start-date-picker'>
 										<input type='text' class="form-control" />
@@ -105,7 +105,7 @@
 										</span>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 date-item">
 									<label>End date</label>
 									<div class='input-group date' id='end-date-picker'>
 										<input type='text' class="form-control" />

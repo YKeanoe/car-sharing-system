@@ -18,7 +18,7 @@ namespace car_sharing_system.Views.Admin_Theme.pages {
 			if (!IsPostBack) {
 				// If it is not a postback, fill the page
 				// Check if user have a booking
-				Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND endDate IS NULL;");
+				Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND totalCost IS NULL;");
 				if (currBooking != null) {
 					carinfo.Style.Add("display", "none");
 					returndiv.Style.Add("display", "block");
