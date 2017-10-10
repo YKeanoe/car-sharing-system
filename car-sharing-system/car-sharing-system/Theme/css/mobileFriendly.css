@@ -18,7 +18,7 @@
 
     .col-xs-9 {
         width: 100%;
-        padding-right: 67%;
+        padding-right: 70%;
     }
 
     .col-xs-3{
@@ -28,7 +28,7 @@
     }
 
     .row  {
-        width: 300%;
+        width: 500%;
     }
 
     .fa-5x {
@@ -91,6 +91,16 @@
 
     .col-lg-8 {
         width: 38%;
+    }
+
+
+
+}
+
+@media screen and (max-width: 300px) {
+
+   .row  {
+        width: 300%;
     }
 
 
