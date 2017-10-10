@@ -13,7 +13,7 @@
             </div>
             <div class="panel-body">
                   <h2>You have successfully return the car</h2>
-                  <p>You can now access the dash board.</p>
+                  You can now access the dash board.
                   <a href="/dashboard">Dashboard</a>
             </div>
         </div>
