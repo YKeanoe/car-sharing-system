@@ -9,7 +9,7 @@
 
 
 
-public partial class admincaradd {
+public partial class  {
     
     /// <summary>
     /// Label1 control.
@@ -45,7 +45,7 @@ public partial class admincaradd {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox brand;
+    protected global::System.Web.UI.WebControls.DropDownList brand;
     
     /// <summary>
     /// model control.
@@ -54,7 +54,7 @@ public partial class admincaradd {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox model;
+    protected global::System.Web.UI.WebControls.DropDownList model;
     
     /// <summary>
     /// Vt control.
