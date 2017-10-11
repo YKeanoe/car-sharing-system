@@ -5,7 +5,7 @@
 
 <div class="row">
     <!-- Profile Panel -->
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-3 col-md-6 menu">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -29,7 +29,7 @@
         </div>
     </div>
     <!-- Booking History Panel -->
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-3 col-md-6 menu">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -53,7 +53,7 @@
         </div>
     </div>
     <!-- Submit Concerns Panel -->
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-3 col-md-6 menu">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
