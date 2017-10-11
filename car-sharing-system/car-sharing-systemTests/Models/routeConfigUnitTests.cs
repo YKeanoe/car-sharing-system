@@ -91,12 +91,48 @@ namespace car_sharing_systemTests
             Assert.IsNotNull(routeData);
         }
         [TestMethod]
-        public void RegisterRoutingTest()
+        public void RegisterRoutingTest() // Tests if the register page is routed correctly to *.com/dashboard/register
         {
             // Arrange
             RouteCollection routes = new RouteCollection();
             car_sharing_system.RouteConfig.RegisterRoutes(routes);
             moqRequest.Setup(e => e.AppRelativeCurrentExecutionFilePath).Returns("~/dashboard/register");
+            // Act
+            RouteData routeData = routes.GetRouteData(moqContext.Object);
+            // Assert
+            Assert.IsNotNull(routeData);
+        }
+        [TestMethod]
+        public void AdminAddCarRoutingTest() // Tests if the admin add car page is routed correctly to *.com/dashboard/admin/addcar
+        {
+            // Arrange
+            RouteCollection routes = new RouteCollection();
+            car_sharing_system.RouteConfig.RegisterRoutes(routes);
+            moqRequest.Setup(e => e.AppRelativeCurrentExecutionFilePath).Returns("~/dashboard/admin/addcar");
+            // Act
+            RouteData routeData = routes.GetRouteData(moqContext.Object);
+            // Assert
+            Assert.IsNotNull(routeData);
+        }
+        [TestMethod]
+        public void AdminCarsRoutingTest() // Tests if the admin cars page is routed correctly to *.com/dashboard/admin/cars
+        {
+            // Arrange
+            RouteCollection routes = new RouteCollection();
+            car_sharing_system.RouteConfig.RegisterRoutes(routes);
+            moqRequest.Setup(e => e.AppRelativeCurrentExecutionFilePath).Returns("~/dashboard/admin/cars");
+            // Act
+            RouteData routeData = routes.GetRouteData(moqContext.Object);
+            // Assert
+            Assert.IsNotNull(routeData);
+        }
+        [TestMethod]
+        public void AdminIssuesRoutingTest() // Tests if the admin issues page is routed correctly to *.com/dashboard/admin/issues
+        {
+            // Arrange
+            RouteCollection routes = new RouteCollection();
+            car_sharing_system.RouteConfig.RegisterRoutes(routes);
+            moqRequest.Setup(e => e.AppRelativeCurrentExecutionFilePath).Returns("~/dashboard/admin/issues");
             // Act
             RouteData routeData = routes.GetRouteData(moqContext.Object);
             // Assert
