@@ -6,9 +6,9 @@
 	<div class="container-full-width">
       
 		<!-- Jumbotron Div -->
-		<div class=" float-jumbo">
+		<div class="float-jumbo">
 			<img id="mainPageLogo" src="/Theme/Images/logo2.png" />
-			<h2>Rent a car anywhere at a touch of a button</h2>          
+			<h2><span>Rent a car anywhere at a touch of a button</span></h2>          
 			<p>
 				<a class="btn btn-warning btn-front-page-sign-register" href="/dashboard/register" role="button">Register</a>
 				<a class="btn btn-primary btn-front-page-sign-register" href="/dashboard/login" role="button">Login</a>

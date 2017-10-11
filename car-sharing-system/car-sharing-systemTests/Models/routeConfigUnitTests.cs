@@ -15,7 +15,6 @@ namespace car_sharing_systemTests
         private HttpRequestBase rmRequest;
         private Mock<HttpContextBase> moqContext;
         private Mock<HttpRequestBase> moqRequest;
-        private NameValueCollection formValues;
 
         [TestInitialize]
         public void SetupTests() // Setup the mocks needed to simulate http request
