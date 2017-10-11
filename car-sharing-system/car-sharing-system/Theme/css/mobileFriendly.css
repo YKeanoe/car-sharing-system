@@ -16,19 +16,13 @@
         width: 100%;
     }
 
-    .col-xs-9 {
-        width: 100%;
-        padding-right: 70%;
-    }
 
-    .col-xs-3{
-        margin-left: 8%;
+    
 
+    .menu{
+        width:100%;
+        margin:0 0;
 
-    }
-
-    .row  {
-        width: 150%;
     }
 
     .fa-5x {
@@ -87,9 +81,7 @@
 
 @media screen and (max-width: 500px) {
 
-    .col-lg-8 {
-        width: 55%;
-    }
+    
 
     d{
         font-size: 18px;
@@ -120,25 +112,13 @@
 
 @media screen and (max-width: 400px) {
 
-   .row  {
-        width: 300%;
-    }
-
-   .col-xs-9{
-       margin-left: 0%;
-
-   }
-
+  
    .col-lg-12 {
        margin-right:62%;
 
    }
 
-   .col-lg-8{
-       width:38%;
-
-
-   }
+  
 
    #aa {
        font-size:25px;

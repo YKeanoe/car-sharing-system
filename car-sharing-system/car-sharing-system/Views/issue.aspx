@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
   
     <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 menu">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -25,7 +25,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 menu">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -48,7 +48,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 menu">
                     <div class="panel panel-red">
                         <div class="panel-heading">
                             <div class="row">
