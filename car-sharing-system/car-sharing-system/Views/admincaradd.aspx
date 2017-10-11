@@ -107,12 +107,34 @@
                                  
                                 <div class="formFormat">
                                     <label class="label2">Brand: </label>
-                                    <asp:TextBox  name="breand" id="brand" runat="server" ></asp:TextBox>
+                                    <asp:DropDownList id="brand" runat="server">
+                                        <asp:ListItem Selected="True" Value="Audi"> Audi </asp:ListItem>
+                                        <asp:ListItem Value="Ford"> Ford </asp:ListItem>
+                                        <asp:ListItem Value="Kia"> kia </asp:ListItem>
+                                        <asp:ListItem Value="Mazda"> Mazda </asp:ListItem>
+                                        <asp:ListItem Value="Mini"> Mini </asp:ListItem>
+                                        <asp:ListItem Value="Tesla"> Tesla </asp:ListItem>
+                                        <asp:ListItem Value="Toyota"> Toyota </asp:ListItem>
+                                        <asp:ListItem Value="Subaru"> Subaru </asp:ListItem>
+                                        <asp:ListItem Value="Suzuki"> Suzuki </asp:ListItem>
+                                   </asp:DropDownList>
                                 </div>
 
                                 <div class="formFormat">
                                     <label class="label2">Model: </label>
-                                    <asp:TextBox  name="model" id="model" runat="server" ></asp:TextBox>
+                                  
+                                    <asp:DropDownList id="model" runat="server">
+                                        <asp:ListItem Selected="True" Value="Convertible"> Convertible </asp:ListItem>
+                                        <asp:ListItem Value="Coupe"> Coupe </asp:ListItem>
+                                        <asp:ListItem Value="Electric"> Electric </asp:ListItem>
+                                        <asp:ListItem Value="Hatch"> Hatch </asp:ListItem>
+                                        <asp:ListItem Value="Hybrid"> Hybrid </asp:ListItem>
+                                        <asp:ListItem Value="Sedan"> Sedan </asp:ListItem>
+                                        <asp:ListItem Value="SUV"> SUV </asp:ListItem>
+                                        <asp:ListItem Value="Ute"> Ute </asp:ListItem>
+                                        <asp:ListItem Value="Van"> Van </asp:ListItem>
+                                        <asp:ListItem Value="Wagon"> Wagon </asp:ListItem>
+                                   </asp:DropDownList>
                                 </div>
 
                                 <div class="formFormat">
@@ -122,17 +144,29 @@
 
                                 <div class="formFormat">
                                     <label class="label2">Number Of Seats: </label>
-                                    <asp:TextBox  name="seats" id="seats" runat="server" ></asp:TextBox>
+                                    <asp:RadioButtonList id="seats" runat="server">
+                                        <asp:ListItem Selected="True" Text="2" Value="2" />
+                                        <asp:ListItem Text="3" Value="3" />
+                                        <asp:ListItem Text="5" Value="5" />
+                                        <asp:ListItem Text="7" Value="7" />
+                                    </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
                                     <label class="label2">Doors: </label>
-                                    <asp:TextBox  name="doors" id="doors" runat="server" ></asp:TextBox>
+                                    <asp:RadioButtonList id="doors" runat="server">
+                                        <asp:ListItem Selected="True" Text="2" Value="2" />
+                                        <asp:ListItem Text="3" Value="3" />
+                                        <asp:ListItem Text="5" Value="5" />
+                                    </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat"> 
                                     <label class="label2">Transmission: </label>
-                                    <asp:TextBox  name="transmission" id="transmission" runat="server" ></asp:TextBox>
+                                     <asp:RadioButtonList id="transmission" runat="server">
+                                        <asp:ListItem Selected="True" Text="Automatic" Value="Auto" />
+                                        <asp:ListItem Text="Manual" Value="Manual" />
+                                    </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
@@ -155,17 +189,53 @@
                                     <asp:TextBox  name="AverageRange" id="AverageRange" runat="server" ></asp:TextBox>
                                 </div>
 
+                               <div class="formFormat">
+                                     <label class="label2">Cd Player: </label>
+                                     <asp:RadioButtonList id="cdPlayer" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="1" />
+                                        <asp:ListItem Text="False" Value="0" />
+                                    </asp:RadioButtonList>
+                                </div>
+
                                 <div class="formFormat">
-                                     <label class="label2">Status: </label>
-                                     <asp:TextBox  name="status" id="status" runat="server"></asp:TextBox>
+                                     <label class="label2">Radio: </label>
+                                     <asp:RadioButtonList id="radio" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="1" />
+                                        <asp:ListItem Text="False" Value="0" />
+                                    </asp:RadioButtonList>
                                 </div>
 
-                                <div class="last">
-                                     <label  class="label2" >ProfileURL: </label>
-                                    <asp:TextBox id="edprofileURL" runat="server"></asp:TextBox>
-                                    <img src="" id="eprofileIMG" runat="server"/>
+                                <div class="formFormat">
+                                     <label class="label2">gps: </label>
+                                     <asp:RadioButtonList id="gps" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="1" />
+                                        <asp:ListItem Text="False" Value="0" />
+                                    </asp:RadioButtonList>
                                 </div>
 
+                                <div class="formFormat">
+                                     <label class="label2">Cd Player: </label>
+                                     <asp:RadioButtonList id="buetooth" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="1" />
+                                        <asp:ListItem Text="False" Value="0" />
+                                    </asp:RadioButtonList>
+                                </div>
+
+                                <div class="formFormat">
+                                     <label class="label2">Cruise Control: </label>
+                                     <asp:RadioButtonList id="cruiseControl" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="1" />
+                                        <asp:ListItem Text="False" Value="0" />
+                                    </asp:RadioButtonList>
+                                </div>
+
+                                <div class="formFormat">
+                                     <label class="label2">Reverse Camera: </label>
+                                     <asp:RadioButtonList id="reverseCamera" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="1" />
+                                        <asp:ListItem Text="False" Value="0" />
+                                    </asp:RadioButtonList>
+                                </div>
                                 <br>
 
                                 <div class="submit1">

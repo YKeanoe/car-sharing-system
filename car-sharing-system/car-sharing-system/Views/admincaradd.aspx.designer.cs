@@ -9,7 +9,7 @@
 
 
 
-public partial class admincaradd{
+public partial class admincaradd {
     
     /// <summary>
     /// Label1 control.
@@ -72,7 +72,7 @@ public partial class admincaradd{
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox seats;
+    protected global::System.Web.UI.WebControls.RadioButtonList seats;
     
     /// <summary>
     /// doors control.
@@ -81,7 +81,7 @@ public partial class admincaradd{
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox doors;
+    protected global::System.Web.UI.WebControls.RadioButtonList doors;
     
     /// <summary>
     /// transmission control.
@@ -90,7 +90,7 @@ public partial class admincaradd{
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox transmission;
+    protected global::System.Web.UI.WebControls.RadioButtonList transmission;
     
     /// <summary>
     /// fT control.
@@ -129,29 +129,56 @@ public partial class admincaradd{
     protected global::System.Web.UI.WebControls.TextBox AverageRange;
     
     /// <summary>
-    /// status control.
+    /// cdPlayer control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox status;
+    protected global::System.Web.UI.WebControls.RadioButtonList cdPlayer;
     
     /// <summary>
-    /// edprofileURL control.
+    /// radio control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox edprofileURL;
+    protected global::System.Web.UI.WebControls.RadioButtonList radio;
     
     /// <summary>
-    /// eprofileIMG control.
+    /// gps control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlImage eprofileIMG;
+    protected global::System.Web.UI.WebControls.RadioButtonList gps;
+    
+    /// <summary>
+    /// buetooth control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButtonList buetooth;
+    
+    /// <summary>
+    /// cruiseControl control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButtonList cruiseControl;
+    
+    /// <summary>
+    /// reverseCamera control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButtonList reverseCamera;
 }
