@@ -55,6 +55,18 @@ namespace car_sharing_systemTests
             Assert.IsNotNull(routeData);
         }
         [TestMethod]
+        public void LogoutRoutingTest() // Tests if the logout page is routed correctly to *.com/dashboard/logout
+        {
+            // Arrange
+            RouteCollection routes = new RouteCollection();
+            car_sharing_system.RouteConfig.RegisterRoutes(routes);
+            moqRequest.Setup(e => e.AppRelativeCurrentExecutionFilePath).Returns("~/dashboard/logout");
+            // Act
+            RouteData routeData = routes.GetRouteData(moqContext.Object);
+            // Assert
+            Assert.IsNotNull(routeData);
+        }
+        [TestMethod]
         public void ProfileRoutingTest() // Tests if the profile page is routed correctly to *.com/dashboard/profile
         {
             // Arrange
