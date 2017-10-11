@@ -43,8 +43,7 @@ namespace car_sharing_system.Models.Tests
 
             // Plaintext password
             String beforeHash = "admin";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
-
+            String password = new User().hashMe(beforeHash);
             // Admin email
             String UserName = "admin@gmail.com";
             User myData = UserModel.loginAttempt(UserName, password);
@@ -67,7 +66,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = "soNzIMHTX";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = "Nulla@elitpharetra.ca";
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -85,7 +84,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = "";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = "Nulla@elitpharetra.ca";
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -103,7 +102,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = "soNzIMHTX";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = "";
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -121,7 +120,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = "";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = "";
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -139,7 +138,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = "test321";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = "NotAnRegisteredUser@example.com";
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -157,7 +156,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = "321test";
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = "NotAnRegisteredUser@example.com";
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -175,7 +174,7 @@ namespace car_sharing_system.Models.Tests
         {
             UserModel data = new UserModel();
             String beforeHash = null;
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
             String userName = null;
             User myData = UserModel.loginAttempt(userName, password);
             if (myData != null)
@@ -195,7 +194,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553";
 
             // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
 
             // Expected Hash Result
             if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
@@ -220,7 +219,7 @@ namespace car_sharing_system.Models.Tests
             String beforeHash = "ZyiXDnElJ";
 
             // Hashes plaintext password with salt 'CarSharing2017' and SHA512 hash function.
-            String password = (beforeHash + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
+            String password = new User().hashMe(beforeHash);
 
             // Expected Hash Result
             if (password == "09E6DA93DF48FFF4A9E21C5788CD55862135BC0A4FD68907F0580320AB3083E8EBC8B8E1A923DCF9D1F910B2E9B208CB69C1C8C7C941E9F5B1CCD113FCC30553")
