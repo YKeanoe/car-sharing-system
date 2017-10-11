@@ -190,7 +190,6 @@
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
-    <Content Include="Views\detail.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
     <Content Include="Views\login.aspx">
@@ -319,7 +318,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
-    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\DBScheduler.cs" />
@@ -378,13 +376,6 @@
     </Compile>
     <Compile Include="Views\bookingconfirmation.aspx.designer.cs">
       <DependentUpon>bookingconfirmation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\detail.aspx.cs">
-      <DependentUpon>detail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\detail.aspx.designer.cs">
-      <DependentUpon>detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
