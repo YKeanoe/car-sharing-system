@@ -147,10 +147,11 @@
                                 <div class="formFormat">
                                      <label class="label2">Country: </label><span id="co" runat="server"></span>
                                 </div>
-                                    <a class="editb" id="edit" href="/dashboard/profile?edit=<%=theID %>">Edit</a>
-                                    <br />
+                                    
 
                                 <img id="pu" src="" runat="server"/>
+
+                               <a class="btn btn-info" id="edit" href="/dashboard/profile?edit=<%=theID %>">Edit</a>
 
                                 
                             </div>
