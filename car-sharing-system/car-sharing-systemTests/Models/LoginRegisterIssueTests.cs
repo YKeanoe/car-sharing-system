@@ -20,7 +20,7 @@ namespace car_sharing_system.Models.Tests
 
         protected int bookingID = 1;
 
-        //Function to get random number
+        // Function to get random number
         private static readonly Random getrandom = new Random();
 
         private static readonly object syncLock = new object();

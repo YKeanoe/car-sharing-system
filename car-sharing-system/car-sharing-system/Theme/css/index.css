@@ -9,6 +9,7 @@
 .btn-front-page-sign-register {
   font-size: 18px;
   width: 20%;
+  margin: 3px;
 }
 
 .float-jumbo {
@@ -21,8 +22,8 @@
   width:60%;
 }
 
-#mainPageLogo{
-    width: 90%;
+img#mainPageLogo{
+    width: 80%;
 }
 
 #map {
@@ -281,8 +282,12 @@ a.car-panel-title {
 	margin: 0px 5px 5px 5px;
 }
 
-
-
+h2 span{ 
+    opacity: 0.88;
+    background-color: rgba(0,0,0,0.25);
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 #sidebar {
 	width: 400px;
