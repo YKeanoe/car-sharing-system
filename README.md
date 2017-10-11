@@ -1,10 +1,6 @@
 # Car Sharing System
 
 
-[![Build Status](https://travis-ci.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.svg?token=Pd3KrB4t7KZiy7kHWPvj&branch=dev
-)](https://travis-ci.com/rmit-s3323595-yohanes-keanoe/car-sharing-system.svg)
-
-
 We are required to develop a web/mobile application for a company running a car share scheme. The company owns a number of cars which can be parked at a number of locations in the city. Users of the scheme will take a car for some period of time, use it and then return it to an empty location. The system needs to provide the necessary transactions and data management to support this kind of business.
 The system must: 
 * Register users
