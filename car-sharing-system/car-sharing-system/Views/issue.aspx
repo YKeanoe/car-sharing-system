@@ -97,7 +97,7 @@
                             <br>
                                
                             <asp:TextBox ID="description" runat="server" placeholder="Enter description"
-                                TextMode="Multiline" rows="10" columns="100" class="description"></asp:TextBox> 
+                                TextMode="Multiline"  class="description"></asp:TextBox> 
                             <br>
                             <br>
                             

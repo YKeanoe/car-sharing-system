@@ -49,6 +49,12 @@
     padding-right: 10px;
 }
 
+  .description{
+    width: 100%;
+    padding-bottom: 25%;
+}
+   
+
 .dropdown, .dropup, .dropdown filter-dropdown {
     display: inline-block;
 }
