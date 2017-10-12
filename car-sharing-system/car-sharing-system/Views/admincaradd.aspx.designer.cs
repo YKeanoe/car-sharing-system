@@ -9,7 +9,7 @@
 
 
 
-public partial class admincaradd{
+public partial class  {
     
     /// <summary>
     /// Label1 control.
