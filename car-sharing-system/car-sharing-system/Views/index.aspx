@@ -95,7 +95,7 @@
 								</ul>
 							</div>
 							<div class="dropdown filter-dropdown-big filter-dropdown-right">
-								<button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="transmission-filter" type="button" data-toggle="dropdown" style="float:right;">
+								<button class="btn btn-primary dropdown-toggle btn-filter-sortby" id="transmission-filter" type="button" data-toggle="dropdown">
 									Transmission
 									<span class="caret"></span>
 								</button>

@@ -26,6 +26,10 @@ img#mainPageLogo{
     width: 80%;
 }
 
+#transmission-filter {
+	float: right;
+}
+
 #map {
 	background: #fff;
 	font-size: 20px;

@@ -16,9 +16,6 @@
         width: 100%;
     }
 
-
-    
-
     .menu{
         width:100%;
         margin:0 0;
@@ -27,10 +24,8 @@
 
     .fa-5x {
     width: 50%
-}
+	}
     
-    
-
     .car-panel-title {
         font-size: 60%;
         width: 100%;
@@ -45,41 +40,67 @@
         font-size: 47%;
     }
 
-   
-   
-
     .p1 {
         padding-right: 26.5%;
-
     }
-
-   
 
     .rr {
         margin-left: 69%;
-        
-
     }
 
- 
     .list{
         width:100%;
     }
 
+	#newsImage1, #newsImage2, #newsImage3 {
+		padding-left:0;
+		padding-top:0;
+
+	}
+
+	.middle {
+		width:100%;
+	}
+
+	.filter-dropdown-left, .filter-dropdown-right {
+		float: left;
+		margin-bottom: 10px;
+	}
+
+	.dropdown-menu-right {
+		width:100%;
+		right:inherit;
+	}
+
+	#transmission-filter {
+		float:left;
+	}
+
+	.btn-filter-sortby {
+		width:100%;
+	}
+
+	.filter-dropdown-big {
+		width:100%;
+	}
+
+	.filter-dropdown {
+		width:100%;
+		margin-bottom:10px;
+	}
+
+	.date-item {
+		width:100%;
+	}
+	#brand-filter, #seat-filter, #type-filter, .filter-dropdown-menu {
+		width:100%;
+	}
 }
-
-#newsImage1, #newsImage2, #newsImage3 {
-        padding-left: 27%;
-        padding-top: 17%;
-        vertical-align: middle;
-    }
-
 
 @media screen and (max-width: 500px) {
 
     #pagewrap{
-        width:0%;
-        margin-left:12%;
+        width:100%;
     }
 
     d{
