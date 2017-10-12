@@ -59,11 +59,6 @@ namespace car_sharing_system
                "dashboard/register",
                new CustomRouteHandler("~/Views/register.aspx")
             ));
-            routes.Add("DashboardDetail", new Route
-            (
-               "dashboard/detail",
-               new CustomRouteHandler("~/Views/detail.aspx")
-            ));
             routes.Add("index", new Route
             (
                 "",
