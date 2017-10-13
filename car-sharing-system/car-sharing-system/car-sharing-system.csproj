@@ -347,6 +347,8 @@
     <Compile Include="App_Start\CustomRouteHandler.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\DBScheduler.cs" />
