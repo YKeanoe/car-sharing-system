@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Diagnostics;
 using FluentScheduler;
 using car_sharing_system.Models;
+using System.Web.Http;
 
 namespace car_sharing_system
 {
@@ -28,6 +29,10 @@ namespace car_sharing_system
                     CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
                 });
             }
+
+			GlobalConfiguration.Configure(WebApiConfig.Register);
+			GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+
 			// Run a scheduler to check db every x minute
 			DBScheduler.scheduleDatabaseCheck(5);
 		}
