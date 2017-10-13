@@ -8,26 +8,26 @@ using car_sharing_system.Models;
 
 namespace car_sharing_system.Controllers {
 	public class CarController : System.Web.Http.ApiController {
-		// GET api/values
+		// GET api/car
 		public IEnumerable<string> Get() {
 			return new string[] { "value1", "value2" };
 		}
 
-		// GET api/values/5
+		// GET api/car/{id}
 		public string Get(int id) {
 			Location loc = new Location(11111m, 22222m);
 			return loc.ToJson();
 		}
 
-		// POST api/values
+		// POST api/car
 		public void Post([FromBody]string value) {
 		}
 
-		// PUT api/values/5
+		// PUT api/car/{id}
 		public void Put(int id, [FromBody]string value) {
 		}
 
-		// DELETE api/values/5
+		// DELETE api/car/{id}
 		public void Delete(int id) {
 		}
 	}

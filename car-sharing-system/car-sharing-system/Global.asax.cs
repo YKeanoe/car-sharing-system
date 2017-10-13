@@ -30,8 +30,8 @@ namespace car_sharing_system
                 });
             }
 
+			// Register webapi config
 			GlobalConfiguration.Configure(WebApiConfig.Register);
-			GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
 
 			// Run a scheduler to check db every x minute
 			DBScheduler.scheduleDatabaseCheck(5);

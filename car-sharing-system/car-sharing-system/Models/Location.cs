@@ -26,6 +26,7 @@ namespace car_sharing_system.Models
 			return lat.ToString() + "," + lng.ToString();
 		}
 
+		// Use to serialize the object into json string
 		public String ToJson() {
 			return new JavaScriptSerializer().Serialize(this);
 		}
