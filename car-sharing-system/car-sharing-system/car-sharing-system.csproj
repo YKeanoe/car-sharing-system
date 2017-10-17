@@ -179,6 +179,7 @@
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
     <Content Include="Theme\css\booking-history.css" />
+    <Content Include="Theme\css\change-password.css" />
     <Content Include="Theme\css\issue.css" />
     <Content Include="Theme\css\mobileFriendly.css" />
     <Content Include="Theme\Images\caricon-glow.png" />
@@ -196,6 +197,7 @@
     <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />
     <Content Include="Theme\js\booking-return-features.js" />
+    <Content Include="Theme\js\change-password.js" />
     <Content Include="Theme\js\dropdown.js" />
     <Content Include="Bootstrap\js\moment.js" />
     <Content Include="Datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
@@ -217,6 +219,7 @@
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
+    <Content Include="Views\changePassword.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
     <Content Include="Views\login.aspx">
@@ -407,6 +410,13 @@
     </Compile>
     <Compile Include="Views\bookingconfirmation.aspx.designer.cs">
       <DependentUpon>bookingconfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>

@@ -39,7 +39,9 @@ namespace car_sharing_system.Admin_Theme.pages
 		}
         protected void ValidateUser(object sender, EventArgs e)
         {
+			Debug.WriteLine(Login1.Password);
             String password = new User().hashMe(Login1.Password);
+			Debug.WriteLine(password);
             User myData = UserModel.loginAttempt(Login1.UserName, password);
             if (myData != null)
             {

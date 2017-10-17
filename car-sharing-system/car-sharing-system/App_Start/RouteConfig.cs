@@ -109,6 +109,11 @@ namespace car_sharing_system
 				"dashboard/admin/issues",
 				new CustomRouteHandler("~/Views/adminissue.aspx")
 			));
+			routes.Add("ChangePassword", new Route
+			(
+				"dashboard/changepassword",
+				new CustomRouteHandler("~/Views/changePassword.aspx")
+			));
 		}
     }
 }
