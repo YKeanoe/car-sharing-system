@@ -28,19 +28,34 @@ namespace car_sharing_system.Admin_Theme.pages
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            DatabaseReader dr = new DatabaseReader();
- 
-            newUser = new User(-1 ,emailRego.Text, passwordRego.Text, 0, licenseRego.Text, firstRego.Text, lastNameRego.Text, 
+            newUser = new User(emailRego.Text, passwordRego.Text, 0, licenseRego.Text, firstRego.Text, lastNameRego.Text, 
                 RadioButtonList1.Text, birthRego.Text, phoneNoRego.Text, streetRego.Text, suburbRego.Text, postRego.Text, terrRego.Text,
                 cityRego.Text, countryRego.Text, "");
+			newUser.changePassword(newUser.hashMe(passwordRego.Text));
 
             if (newUser.nullChecker())
             {
                 if (DatabaseReader.userQuerySingle(" '"+ newUser.email+ "' = email OR '" + newUser.licenseNo + "' = licenseNo LIMIT 1") == null) {
-                    dr.Registeration(newUser);
+                    DatabaseReader.Registeration(newUser);
                     User curr = DatabaseReader.userQuerySingle("email = '" + newUser.email + "';");
-                    FormsAuthentication.SetAuthCookie(curr.id.ToString(), false);
-                    Response.Redirect("/dashboard/");
+
+					//FormsAuthentication.SetAuthCookie(curr.id.ToString(), false);
+
+					FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+						  curr.id.ToString(), // userID
+						  DateTime.Now,
+						  DateTime.Now.AddMinutes(30),
+						  false, // rememberme tick
+						  curr.permission.ToString(), // user permission 
+						  FormsAuthentication.FormsCookiePath);
+
+					// Encrypt the ticket.
+					string encTicket = FormsAuthentication.Encrypt(ticket);
+
+					// Create the cookie.
+					Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+					Response.Redirect("/dashboard/");
                 }else
                 {
                     regFail.InnerText = "Email or license Number already used";

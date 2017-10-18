@@ -23,6 +23,15 @@ namespace car_sharing_system.Controllers {
 			return new JavaScriptSerializer().Serialize(numberplates);
 		}
 
+		// GET api/car/id/{carID}
+		// Use car number plate to find the car and return the car's current location.
+		[HttpGet]
+		[Route("api/car/id/{carID}")]
+		public string GetCarLocation(String carID) {
+			Location loc = new Location(-37.833566m, 144.793017m);
+			return new JavaScriptSerializer().Serialize(loc);
+		}
+
 		// POST api/car
 		public void Post([FromBody]String value) {
 		}

@@ -234,7 +234,7 @@ namespace car_sharing_system.Models
 
 
 		// Registeration function is used to register new user to the database.
-		public void Registeration(User newUser)
+		public static void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
             query += " VALUES (@email, @password, 0, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
@@ -295,9 +295,25 @@ namespace car_sharing_system.Models
                 }
                 mySqlConnection.Close();
             }
-        }
-        // clientIssue function is used to add new issue to the database.
-        public void clientIssue(Issue newIssue)
+		}
+
+		public static void changePassword(User newUser) {
+			String query = "UPDATE User";
+			query += " SET password = @password";
+			query += " WHERE accountID = @accountID";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection)) {
+					mySqlCommand.Parameters.AddWithValue("@accountID", newUser.id);
+					mySqlCommand.Parameters.AddWithValue("@password", newUser.password);
+					mySqlCommand.ExecuteNonQuery();
+				}
+				mySqlConnection.Close();
+			}
+		}
+
+		// clientIssue function is used to add new issue to the database.
+		public void clientIssue(Issue newIssue)
         {
             String query = "INSERT INTO Issues (accountID,submissionDate, subject, description) ";
             query += " VALUES (@accountID, @submissionDate, @subject, @description) ";

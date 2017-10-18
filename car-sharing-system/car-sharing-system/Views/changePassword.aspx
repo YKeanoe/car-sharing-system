@@ -23,6 +23,7 @@
 						<label id="unmatch-error" style="color:red; display:none">Password did not match</label>
 					</div>
 					<asp:Button runat="server" Text="Confirm" OnClick="submit" class="btn btn-primary"></asp:Button>
+					<asp:Literal id="FailureText" runat="server"></asp:Literal>
 				</form>
 			</div>
 		</div>

@@ -26,6 +26,7 @@ namespace car_sharing_system.Models
 
         public User() {
         }
+
         public User(int id,
             String email,
             String password,
@@ -44,12 +45,9 @@ namespace car_sharing_system.Models
             String country,
             String profileURL)
         {
-
-
-
             this.id = id;
             this.email = email;
-            this.password = hashMe(password);
+            this.password = password;
             this.permission = permission;
             this.licenseNo = licenseNo;
             this.fname = fname;
@@ -65,7 +63,40 @@ namespace car_sharing_system.Models
             this.country = country;
             this.profileURL = profileURL;
         }
-        public String hashMe(String password)
+		public User(String email,
+		   String password,
+		   int permission,
+		   String licenseNo,
+		   String fname,
+		   String lname,
+		   String gender,
+		   String birth,
+		   String phone,
+		   String street,
+		   String suburb,
+		   String postcode,
+		   String territory,
+		   String city,
+		   String country,
+		   String profileURL) {
+			this.email = email;
+			this.password = password;
+			this.permission = permission;
+			this.licenseNo = licenseNo;
+			this.fname = fname;
+			this.lname = lname;
+			this.gender = gender;
+			this.birth = birth;
+			this.phone = phone;
+			this.street = street;
+			this.suburb = suburb;
+			this.postcode = postcode;
+			this.territory = territory;
+			this.city = city;
+			this.country = country;
+			this.profileURL = profileURL;
+		}
+		public String hashMe(String password)
         {
             return (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512);
         }
@@ -78,6 +109,11 @@ namespace car_sharing_system.Models
                 return false;
             return true;
         }
+
+		public void changePassword(String pass) {
+			this.password = pass;
+		}
+
         public String toString()
         {
             return "ID: " + id + "<br />" +

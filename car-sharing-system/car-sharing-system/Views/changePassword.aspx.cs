@@ -16,14 +16,19 @@ namespace car_sharing_system.Views {
 		protected void submit(object sender, EventArgs e) {
 			// Get user's email from database
 			User currUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "'");
-			String password = new User().hashMe(newPassword.Value);
-			// Have to re-access database due to different hash value stored
-			// in currUser (weird)
-			User myData = UserModel.loginAttempt(currUser.email, password);
-			if (myData != null) {
-				// change password
+			String nPass = new User().hashMe(newPassword.Value);
+			String cPass = new User().hashMe(currPassword.Value);
+
+			Debug.WriteLine(nPass);
+			Debug.WriteLine(cPass);
+			Debug.WriteLine(currUser.password);
+
+			if (cPass == currUser.password) {
+				currUser.changePassword(nPass);
+				DatabaseReader.changePassword(currUser);
+				Response.Redirect("/dashboard/profile");
 			} else {
-				// Return to page with error message
+				FailureText.Text = "Current password is wrong.";
 			}
 
 		}
