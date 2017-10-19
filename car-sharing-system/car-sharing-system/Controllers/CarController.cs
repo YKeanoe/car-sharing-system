@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Script.Serialization;
 using car_sharing_system.Models;
+using System.Diagnostics;
+
 
 namespace car_sharing_system.Controllers {
 	public class CarController : System.Web.Http.ApiController {
@@ -19,8 +21,21 @@ namespace car_sharing_system.Controllers {
 		// Return available cars number plate
 		[Route("api/car/{amount}")]
 		public string Get(int amount) {
-			List<String> numberplates = new List<String>(new String[] { "AA11", "BB22", "CC33", "DD44" });
-			return new JavaScriptSerializer().Serialize(numberplates);
+			//List<String> numberplates = new List<String>(new String[] { "AA11", "BB22", "CC33", "DD44" });
+			//List<String> aCars = DatabaseReader.getAvailableCarPlates(amount);
+			//return new JavaScriptSerializer().Serialize(aCars);
+			List<Car> closeCars = CarModel.getCloseCarAPI(-37.813600, 144.963100, amount);
+			List<String> aCars = new List<String>();
+			foreach (Car car in closeCars) {
+				aCars.Add(car.numberPlate);
+				car.debug();
+			}
+			foreach (String car in aCars) {
+				Debug.WriteLine(car);
+			}
+
+			return new JavaScriptSerializer().Serialize(aCars);
+
 		}
 
 		// GET api/car/id/{carID}

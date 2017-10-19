@@ -91,9 +91,36 @@ namespace car_sharing_system.Models
                 return 0;
             }
         }
-        // userQuerySingle return the first user found as an object.
-        // return null if no user is found
-        public static User userQuerySingle(String where)
+
+		public static List<int> getAvailableUserIds(int amount) {
+			String query = "SELECT u.accountID FROM User AS u "
+						+ "LEFT JOIN Booking AS b "
+						+ "ON b.accountID = u.accountID "
+						+ "WHERE "
+						+ "(b.accountID NOT IN (SELECT accountID FROM Booking WHERE totalCost IS NULL)) "
+						+ "OR b.bookingID IS NULL "
+						+ "ORDER BY u.accountID "
+						+ "LIMIT " + amount;
+			List<int> ids = new List<int>();
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						ids.Add(Convert.ToInt32(dbread[0].ToString()));
+					}
+				}
+			}
+			if (ids.Count() > 0) {
+				return ids;
+			} else {
+				return null;
+			}
+		}
+
+		// userQuerySingle return the first user found as an object.
+		// return null if no user is found
+		public static User userQuerySingle(String where)
         {
             String query;
             if (!String.IsNullOrEmpty(where)) {
@@ -309,6 +336,27 @@ namespace car_sharing_system.Models
 					mySqlCommand.ExecuteNonQuery();
 				}
 				mySqlConnection.Close();
+			}
+		}
+
+		public static List<String> getAvailableCarPlates(int amount) {
+			List<String> carplates = new List<String>();
+			String query = "SELECT numberPlate FROM Car WHERE status='A' LIMIT " + amount;
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						carplates.Add(dbread[0].ToString());
+					}
+				}
+			}
+			if (carplates.Count() == 0) {
+				Debug.WriteLine("query returns null");
+				return null;
+			} else {
+				return carplates;
 			}
 		}
 

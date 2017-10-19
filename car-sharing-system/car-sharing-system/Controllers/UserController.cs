@@ -19,7 +19,8 @@ namespace car_sharing_system.Controllers {
 		// Return user ids without booking as a list.
 		[Route("api/user/{amount}")]
 		public string Get(int amount) {
-			List<int> ids = new List<int>(new int[] { 1, 2, 3, 4 });
+			//List<int> ids = new List<int>(new int[] { 1, 2, 3, 4 });
+			List<int> ids = DatabaseReader.getAvailableUserIds(amount);
 			return new JavaScriptSerializer().Serialize(ids);
 		}
 

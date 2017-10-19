@@ -59,9 +59,18 @@ namespace car_sharing_system.Models {
 
 		public List<Car> getCloseCar(Double lat, Double lng) {
 			List<Car> dbcars = DatabaseReader.carQuery("Status = 'A'");
-			cars = new Search(dbcars).find(lat,lng);
+			cars = new Search(dbcars).find(lat,lng, 50);
 			sortCarList(lat,lng,0);
 			return cars.GetRange(0,5);
+		}
+
+		public static List<Car> getCloseCarAPI(Double lat, Double lng, int amt) {
+			List<Car> dbcars = DatabaseReader.carQuery("Status = 'A'");
+			List<Car> fcars = new List<Car>();
+			fcars = new Search(dbcars).find(lat, lng, amt);
+			Debug.WriteLine("fuuuuuuuck");
+			sortCarListAPI(fcars, lat, lng, 0);
+			return fcars;
 		}
 
 		public List<Car> getAllCar() {
@@ -98,6 +107,25 @@ namespace car_sharing_system.Models {
 			} else {
 				cars = cars.OrderByDescending(x => x.rate).ToList<Car>();
 			}
+		}
+
+		public static List<Car> sortCarListAPI(List<Car> cars, Double lat, Double lng, int sortby) {
+			foreach (Car car in cars) {
+				var locA = new GeoCoordinate(lat, lng);
+				var locB = new GeoCoordinate(Convert.ToDouble(car.latlong.lat), Convert.ToDouble(car.latlong.lng));
+				double distance = locA.GetDistanceTo(locB); // metres
+				car.rangeToUser = distance;
+			}
+			if (sortby == 0) {
+				cars = cars.OrderBy(x => x.rangeToUser).ToList<Car>();
+			} else if (sortby == 1) {
+				cars = cars.OrderByDescending(x => x.rangeToUser).ToList<Car>();
+			} else if (sortby == 1) {
+				cars = cars.OrderBy(x => x.rate).ToList<Car>();
+			} else {
+				cars = cars.OrderByDescending(x => x.rate).ToList<Car>();
+			}
+			return cars;
 		}
 
 		public List<Car> getPageCar(int page) {
@@ -148,7 +176,7 @@ namespace car_sharing_system.Models {
 
 			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
 			if (dbcars != null) {
-				cars = new Search(dbcars).find(lat, lng);
+				cars = new Search(dbcars).find(lat, lng, 50);
 				sortCarList(lat, lng, sortby);
 				return cars.GetRange(0,5);
 			} else {
