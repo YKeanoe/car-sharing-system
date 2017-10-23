@@ -1,3 +1,18 @@
+# AceRentalBooking
+# ------------------
+# Run the python script using all packages included.
+# DO NOT EXIT THE PROGRAM MANUALLY.
+# Use 'x' (lowercase) key to stop the program beautifully.
+# DO NOT ALT-TAB while the program is running because it
+# interfere with the pynput (Dunno why)
+# ----------------------------------------------------------
+# HOW TO USE
+# Just input the amount of bookings you want, the program will
+# automatically pick a random spot around melbourne to book from
+# and pick the couple first available car and user ids available to
+# book with and just watch the car move.
+
+
 import requests
 import json
 import ast
