@@ -40,9 +40,34 @@ namespace car_sharing_system.Controllers {
 				Convert.ToInt64(newBookJson["estEndDate"].ToString()),
 				loc);
 			// Debugging
-			newBook.debug();
+			//newBook.debug();
+			
+			DatabaseReader.addBooking(newBook);
+			
+		}
 
-			// TO DO
+		[HttpPost]
+		[Route("api/booking/finish")]
+		public void PostCarLocation([FromBody] JObject value) {
+			String userId = value["user_id"].ToString();
+			Double distance = Convert.ToDouble(value["distance"].ToString());
+			Location uloc = new Location(
+				Convert.ToDecimal(value["lat"].ToString()), 
+				Convert.ToDecimal(value["lng"].ToString()));
+
+			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + userId + "' AND totalCost IS NULL;");
+			long endDate = currBooking.startDate + Convert.ToInt64(value["timeToEnd"].ToString());
+			currBooking.endDate = endDate;
+			currBooking.totalCost = currBooking.calCost(endDate);
+			Double cost = (currBooking.totalCost != null) ? Convert.ToDouble(currBooking.totalCost) : 0;
+
+			// Debugging
+			//String debugging = String.Format("Finished with {0}m distance, at ({1}, {2}), for a total cost of ${3}",
+			//	distance, uloc.lat, uloc.lng, cost);
+			//Debug.WriteLine(debugging);
+			
+			DatabaseReader.finishBooking(userId, distance, currBooking.numberPlate, uloc, cost);
+
 		}
 
 		// PUT api/<controller>/5
@@ -51,20 +76,6 @@ namespace car_sharing_system.Controllers {
 
 		// DELETE api/<controller>/5
 		public void Delete(int id) {
-		}
-	}
-
-
-	public class test {
-		String title;
-		String value;
-		public test(String title, String value) {
-			this.title = title;
-			this.value = value;
-		}
-		public void debug() {
-			Debug.WriteLine("title: " + title);
-			Debug.WriteLine("value: " + value);
 		}
 	}
 }

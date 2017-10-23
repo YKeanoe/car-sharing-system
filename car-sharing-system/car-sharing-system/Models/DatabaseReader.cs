@@ -733,6 +733,21 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// updateCar update the car's location.
+		public static int updateCarLocation(String id, Location carLoc) {
+			String set = String.Format("locationLat = {0}, locationLong = {1}", carLoc.lat, carLoc.lng);
+			String where = String.Format("numberPlate = '{0}' AND status != 'A'", id);
+			String query = String.Format("UPDATE Car SET {0} WHERE {1}",
+									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
 		// changeCarStatusInterval change the car's status if the booking start time 
 		// has past and the car status is 'booked' or 'B'
 		public static int changeCarStatusInterval() {
