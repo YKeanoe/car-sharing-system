@@ -19,16 +19,28 @@ namespace car_sharing_system.Admin_Theme.pages
 					String bookrow;
 					if (book.isFinish()) {
 						if (!book.isOverdue()) {
-							bookrow = String.Format("<tr>"
-											+ "<th>({0}) {1} {2}</th>"
-											+ "<th>{3}</th>"
-											+ "<th>{4}</th>"
-											+ "<th class=\"align-right\">-</th>"
-											+ "<th class=\"align-right\">${5}</th>"
-											+ "</tr>", car.numberPlate, car.brand, car.model,
-											new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.startDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"),
-											new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.endDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"),
-											book.totalCost);
+							if (book.totalCost >= 0) {
+								bookrow = String.Format("<tr>"
+												+ "<th>({0}) {1} {2}</th>"
+												+ "<th>{3}</th>"
+												+ "<th>{4}</th>"
+												+ "<th class=\"align-right\">-</th>"
+												+ "<th class=\"align-right\">${5}</th>"
+												+ "</tr>", car.numberPlate, car.brand, car.model,
+												new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.startDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"),
+												new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.endDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"),
+												book.totalCost);
+							} else {
+								bookrow = String.Format("<tr>"
+												+ "<th>({0}) {1} {2}</th>"
+												+ "<th>{3}</th>"
+												+ "<th>{4}</th>"
+												+ "<th class=\"align-right\">-</th>"
+												+ "<th class=\"align-right\">Canceled</th>"
+												+ "</tr>", car.numberPlate, car.brand, car.model,
+												new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.startDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"),
+												new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(book.endDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"));
+							}
 						} else {
 							StringBuilder odString = new StringBuilder();
 							TimeSpan od = book.overdueTime();

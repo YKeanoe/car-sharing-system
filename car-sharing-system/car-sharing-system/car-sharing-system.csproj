@@ -207,6 +207,7 @@
     <Content Include="Datetimepicker\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
+    <Content Include="Theme\js\extend-feature.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
     <Content Include="Theme\js\jquery.twbsPagination.js" />
     <Content Include="Theme\js\jquery.twbsPagination.min.js" />
@@ -217,6 +218,8 @@
     <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
+    <Content Include="Views\bookingextend.aspx" />
+    <Content Include="Views\bookingcancel.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\changePassword.aspx" />
@@ -396,6 +399,20 @@
     </Compile>
     <Compile Include="Views\booking.aspx.designer.cs">
       <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\bookingextend.aspx.cs">
+      <DependentUpon>bookingextend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookingextend.aspx.designer.cs">
+      <DependentUpon>bookingextend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\bookingcancel.aspx.cs">
+      <DependentUpon>bookingcancel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookingcancel.aspx.designer.cs">
+      <DependentUpon>bookingcancel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\bookingreturn.aspx.cs">
       <DependentUpon>bookingreturn.aspx</DependentUpon>

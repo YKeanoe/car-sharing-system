@@ -7,37 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace car_sharing_system.Admin_Theme.pages {
+namespace car_sharing_system.Views.Admin_Theme.pages {
     
     
-    public partial class dashboard {
+    public partial class bookingextend {
         
         /// <summary>
-        /// cardiv control.
+        /// carinfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl carinfo;
         
         /// <summary>
-        /// carlist control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder carlist;
-        
-        /// <summary>
-        /// booklistdiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl booklistdiv;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// carNumberPlate control.
@@ -67,49 +58,76 @@ namespace car_sharing_system.Admin_Theme.pages {
         protected global::System.Web.UI.WebControls.Label carModelLabel;
         
         /// <summary>
-        /// bookStart control.
+        /// carRateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label bookStart;
+        protected global::System.Web.UI.WebControls.Label carRateLabel;
         
         /// <summary>
-        /// bookEstEnd control.
+        /// bookStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label bookEstEnd;
+        protected global::System.Web.UI.WebControls.Label bookStartTime;
         
         /// <summary>
-        /// bookOverdue control.
+        /// bookEndTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder bookOverdue;
+        protected global::System.Web.UI.WebControls.Label bookEndTime;
         
         /// <summary>
-        /// extendBtn control.
+        /// bookEstimatePrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor extendBtn;
+        protected global::System.Web.UI.WebControls.Label bookEstimatePrice;
         
         /// <summary>
-        /// cancelBtn control.
+        /// errormsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor cancelBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errormsg;
+        
+        /// <summary>
+        /// confirmbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirmbtn;
+        
+        /// <summary>
+        /// returndiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl returndiv;
+        
+        /// <summary>
+        /// errorlabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorlabel;
         
         /// <summary>
         /// script control.

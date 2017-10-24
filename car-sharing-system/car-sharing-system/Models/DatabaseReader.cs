@@ -764,5 +764,20 @@ namespace car_sharing_system.Models
 				return numRowsUpdated;
 			}
 		}
+
+		// extendBooking update the booking's estEndDate in database
+		public static int extendBooking(long newEndDate, String accountId) {
+			String set = String.Format("estimatedEndDate = '{0}'", new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(newEndDate)).ToString("yyyy-MM-dd HH:mm:ss"));
+			String where = String.Format("accountID = '{0}' AND totalCost IS NULL", accountId);
+			String query = String.Format("UPDATE Booking SET {0} WHERE {1}",
+									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
 	}
 }
