@@ -20,12 +20,9 @@ namespace car_sharing_system.Models
         {
             List<User> users = new List<User>();
             String query;
-            if (!String.IsNullOrEmpty(where))
-            {
+            if (!String.IsNullOrEmpty(where)) {
                 query = "SELECT * FROM User WHERE " + where;
-            }
-            else
-            {
+            } else {
                 query = "SELECT * FROM User";
             }
 
@@ -36,25 +33,8 @@ namespace car_sharing_system.Models
 
                 using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
                     while (dbread.Read()) {
-                        User currUser = new User(Int32.Parse(dbread[0].ToString()), //accountID
-                            dbread[1].ToString(),  //email
-                            dbread[2].ToString(), //password
-                            Int32.Parse(dbread[3].ToString()), //permission
-                            dbread[4].ToString(), //licenseNo
-                            dbread[5].ToString(), //firstName
-                            dbread[6].ToString(), //lastName
-                            dbread[7].ToString(), //gender
-                            dbread[8].ToString(), //birth
-                            dbread[9].ToString(), //phone
-                            dbread[10].ToString(), //street
-                            dbread[11].ToString(), //suburb
-                            dbread[12].ToString(), //postcode
-                            dbread[13].ToString(), //territory
-                            dbread[14].ToString(), //city
-                            dbread[15].ToString(), //country
-                            dbread[16].ToString()); //profileurl
-                        users.Add(currUser);
-                    }
+						users.Add(convertToUser(dbread));
+					}
                 }
             }
             if (users.Count() == 0) {
@@ -132,10 +112,19 @@ namespace car_sharing_system.Models
             using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
-
 				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
 					if (dbread.Read()) {
-					return new User(Int32.Parse(dbread[0].ToString()), //accountID
+						return convertToUser(dbread);
+					} else {
+						return null;
+					}
+				}
+			}
+        }
+
+		// convertToUser convert MySQL data reader into a user object
+		private static User convertToUser(MySqlDataReader dbread) {
+			return new User(Int32.Parse(dbread[0].ToString()), //accountID
 									dbread[1].ToString(),  //email
 									dbread[2].ToString(), //password
 									Int32.Parse(dbread[3].ToString()), //permission
@@ -152,15 +141,11 @@ namespace car_sharing_system.Models
 									dbread[14].ToString(), //city
 									dbread[15].ToString(), //country
 									dbread[16].ToString()); //profileurl
-					} else {
-						return null;
-					}
-				}
-			}
-        }
+		}
+
 
 		// issueQuerySingle return the first issue found as an object.
-        public static Issue issueQuerySingle(String where) {
+		public static Issue issueQuerySingle(String where) {
             String query;
             if (!String.IsNullOrEmpty(where)) {
                 query = "SELECT * FROM Issues WHERE " + where;
@@ -236,7 +221,6 @@ namespace car_sharing_system.Models
 
 		private static Issue convertToIssue(MySqlDataReader dbread) {
 			// If responsedate is not set, means the issue isn't responded 
-			Debug.WriteLine(dbread[3].ToString());
 			bool responded = !String.IsNullOrEmpty(dbread[3].ToString());
 
 			Issue currIssue;

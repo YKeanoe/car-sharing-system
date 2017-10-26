@@ -174,7 +174,8 @@
 									<div class="col-sm-12 advance-margin">
 										<div class="col-sm-4">
 											<button type="button" id="cd-btn" class="flat-butt flat-danger-butt">
-												CD Player
+												<span class="pull-left"><i class="fa fa-check-square-o" aria-hidden="true"></i></span>
+												<span class="pull-right">CD Player</span>
 											</button>			
 										</div>
 										<div class="col-sm-4">
