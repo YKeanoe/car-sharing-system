@@ -81,8 +81,6 @@ namespace car_sharing_system.Models
 		}
 
 		public bool isOverdue() {
-			Debug.WriteLine("este " + estEndDate);
-			Debug.WriteLine("ete  " + endDate);
 			if (estEndDate < endDate)
 				return true;
 			else

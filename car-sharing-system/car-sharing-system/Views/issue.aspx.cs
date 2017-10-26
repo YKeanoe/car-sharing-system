@@ -26,12 +26,9 @@ namespace car_sharing_system.Admin_Theme.pages
             }
             else
             {
-
-                DatabaseReader dr = new DatabaseReader();
-
                 newIssue = new Issue(Int32.Parse(User.Identity.Name), subjectIssue.Text, description.Text);
 
-                dr.clientIssue(newIssue);
+                DatabaseReader.clientIssue(newIssue);
 
                 Response.Redirect("~/dashboard/issuereported");
             }

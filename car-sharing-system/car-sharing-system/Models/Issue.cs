@@ -4,6 +4,7 @@ namespace car_sharing_system.Models
 {
     public class Issue
     {
+		public int issueID { get; set; }
         public int accountID { get; private set; }
 		public long submissionDate { get; private set; }
 		public long? responseDate { get; private set; }
@@ -13,6 +14,7 @@ namespace car_sharing_system.Models
 
 		// Constructor to be used in adding responded issue.
         public Issue(
+			int issueID,
             int accountID,
 			long submissionDate,
 			long responseDate,
@@ -20,6 +22,7 @@ namespace car_sharing_system.Models
             String description
             )
         {
+			this.issueID = issueID;
             this.accountID = accountID;
 			this.submissionDate = submissionDate;
 			this.responseDate = responseDate;
@@ -29,11 +32,13 @@ namespace car_sharing_system.Models
 
 		// Constructor to be used in adding unresponded issue.
 		public Issue(
+			int issueID,
 			int accountID,
 			long submissionDate,
 			String subject,
 			String description
 			) {
+			this.issueID = issueID;
 			this.accountID = accountID;
 			this.submissionDate = submissionDate;
 			this.subject = subject;

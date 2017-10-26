@@ -35,8 +35,6 @@ namespace car_sharing_system.Admin_Theme.pages
 											+ "<td colspan=\"6\" class=\"hiddenRow\">"
 											+ "<div class=\"accordian-body collapse\" id=\"issue{0}\">"
 											+ "{5}"
-											+ "<br/>"
-											+ "<a class=\"btn btn-primary btn-respond\" href=\"/dashboard/admin/\" role=\"button\">Respond</a>"
 											+ "</div> "
 											+ "</td>"
 											+ "</tr>",
@@ -59,14 +57,14 @@ namespace car_sharing_system.Admin_Theme.pages
 										+ "<div class=\"accordian-body collapse\" id=\"issue{0}\">"
 										+ "{4}"
 										+ "<br/>"
-										+ "<a class=\"btn btn-primary btn-respond\" href=\"/dashboard/admin/\" role=\"button\">Respond</a>"
+										+ "<a class=\"btn btn-primary btn-respond\" href=\"/dashboard/admin/respond?id={5}\" role=\"button\">Respond</a>"
 										+ "</div> "
 										+ "</td>"
 										+ "</tr>",
 										i,
 										new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(issue.submissionDate)).ToLocalTime().ToString("ddddd, dd MMMM yyyy 'at' hh:mm"),
 										issue.username, issue.subject,
-										issue.description);
+										issue.description, issue.issueID);
 					}
 					i++;
 					issuehtml.Append(html);

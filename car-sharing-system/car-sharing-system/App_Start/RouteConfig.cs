@@ -124,6 +124,16 @@ namespace car_sharing_system
 				"dashboard/extendbooking",
 				new CustomRouteHandler("~/Views/bookingextend.aspx")
 			));
+			routes.Add("AdminBooking", new Route
+			(
+				"dashboard/admin/userbooking",
+				new CustomRouteHandler("~/Views/bookingadmin.aspx")
+			));
+			routes.Add("AdminIssueRespond", new Route
+			(
+				"dashboard/admin/respond",
+				new CustomRouteHandler("~/Views/issuerespond.aspx")
+			));
 		}
     }
 }

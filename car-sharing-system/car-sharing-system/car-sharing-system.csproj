@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
+    <Content Include="Theme\css\admin-users.css" />
     <Content Include="Theme\css\booking-history.css" />
     <Content Include="Theme\css\change-password.css" />
     <Content Include="Theme\css\issue.css" />
@@ -217,6 +218,7 @@
     <Content Include="Views\adminissue.aspx" />
     <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\adminusersview.aspx" />
+    <Content Include="Views\bookingadmin.aspx" />
     <Content Include="Views\booking.aspx" />
     <Content Include="Views\bookingextend.aspx" />
     <Content Include="Views\bookingcancel.aspx" />
@@ -224,6 +226,7 @@
     <Content Include="Views\bookingconfirmation.aspx" />
     <Content Include="Views\changePassword.aspx" />
     <Content Include="Views\dashboard.aspx" />
+    <Content Include="Views\issuerespond.aspx" />
     <Content Include="Views\issue.aspx" />
     <Content Include="Views\login.aspx">
       <BrowseToURL>~/login</BrowseToURL>
@@ -393,6 +396,13 @@
     <Compile Include="Views\adminusersview.aspx.designer.cs">
       <DependentUpon>adminusersview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\bookingadmin.aspx.cs">
+      <DependentUpon>bookingadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookingadmin.aspx.designer.cs">
+      <DependentUpon>bookingadmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\booking.aspx.cs">
       <DependentUpon>booking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -440,6 +450,13 @@
     </Compile>
     <Compile Include="Views\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\issuerespond.aspx.cs">
+      <DependentUpon>issuerespond.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\issuerespond.aspx.designer.cs">
+      <DependentUpon>issuerespond.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\issue.aspx.cs">
       <DependentUpon>issue.aspx</DependentUpon>

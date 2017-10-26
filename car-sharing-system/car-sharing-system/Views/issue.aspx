@@ -78,7 +78,7 @@
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-tasks fa-fw"></i> Booking history
+                <i class="fa fa-tasks fa-fw"></i> Submit Concern
                 <div class="pull-right">
                     <div class="btn-group">                
                     </div>

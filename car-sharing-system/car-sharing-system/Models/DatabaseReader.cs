@@ -236,12 +236,14 @@ namespace car_sharing_system.Models
 
 		private static Issue convertToIssue(MySqlDataReader dbread) {
 			// If responsedate is not set, means the issue isn't responded 
+			Debug.WriteLine(dbread[3].ToString());
 			bool responded = !String.IsNullOrEmpty(dbread[3].ToString());
 
 			Issue currIssue;
 			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
 			if (responded) {
 				currIssue = new Issue(
+						Int32.Parse(dbread[0].ToString()), // IssueID
 						Int32.Parse(dbread[1].ToString()), // AccountID
 						(long)DateTime.Parse(dbread[2].ToString()).Subtract(unixStart).TotalSeconds, // Issue date
 						(long)DateTime.Parse(dbread[3].ToString()).Subtract(unixStart).TotalSeconds, // Response date
@@ -250,6 +252,7 @@ namespace car_sharing_system.Models
 				);
 			} else {
 				currIssue = new Issue(
+						Int32.Parse(dbread[0].ToString()), // IssueID
 						Int32.Parse(dbread[1].ToString()), // AccountID
 						(long)DateTime.Parse(dbread[2].ToString()).Subtract(unixStart).TotalSeconds, // Issue date
 						dbread[4].ToString(), // subject
@@ -361,7 +364,7 @@ namespace car_sharing_system.Models
 		}
 
 		// clientIssue function is used to add new issue to the database.
-		public void clientIssue(Issue newIssue)
+		public static void clientIssue(Issue newIssue)
         {
             String query = "INSERT INTO Issues (accountID,submissionDate, subject, description) ";
             query += " VALUES (@accountID, @submissionDate, @subject, @description) ";
@@ -771,6 +774,18 @@ namespace car_sharing_system.Models
 			String where = String.Format("accountID = '{0}' AND totalCost IS NULL", accountId);
 			String query = String.Format("UPDATE Booking SET {0} WHERE {1}",
 									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
+		// setIssueResponded add a respond date to the issue database to mark it as responded
+		public static int setIssueResponded(long rdate, String id) {
+			String query = String.Format("UPDATE Issues SET responseDate = '{0}' WHERE issueID = '{1}'", new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(rdate)).ToString("yyyy-MM-dd HH:mm:ss"), id);
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
 				mySqlConnection.Open();
 				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
