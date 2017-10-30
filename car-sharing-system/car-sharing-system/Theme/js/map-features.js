@@ -234,7 +234,6 @@ function filterClickfunctions() {
 	$('#list-collapse-btn').click(function () {
 		var promise = sendFilterRequest();
 		promise.then(setMapWithFilters).done(function () {
-			console.log("filter done");
 			$('#list-collapse').collapse('toggle');
 			$('#list-collapse-btn').prop("disabled", false);
 		})
@@ -248,6 +247,8 @@ function filterClickfunctions() {
 	// Set advance filter's swap color function
 	$(".flat-butt").click(function () {
 		$(this).toggleClass('flat-danger-butt flat-primary-butt');
+		console.log($(this).children().html());
+		$(this).children(":first").children().toggleClass('fa-check-square-o fa-window-close-o');
 	});
 }
 

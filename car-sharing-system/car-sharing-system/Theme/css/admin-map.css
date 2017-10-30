@@ -1,0 +1,12 @@
+﻿#map {
+	background: rgba(200, 200, 200, 0.9);
+	font-size: 20px;
+	float: left;
+	height: -webkit-fill-available;
+	width: 100%;
+}
+
+#map-container {
+	width:100%;
+	padding:15px 30px;
+}

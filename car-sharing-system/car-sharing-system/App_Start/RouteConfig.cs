@@ -134,6 +134,11 @@ namespace car_sharing_system
 				"dashboard/admin/respond",
 				new CustomRouteHandler("~/Views/issuerespond.aspx")
 			));
+			routes.Add("AdminMap", new Route
+			(
+				"dashboard/admin/map",
+				new CustomRouteHandler("~/Views/adminmap.aspx")
+			));
 		}
     }
 }

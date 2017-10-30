@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
+    <Content Include="Theme\css\admin-map.css" />
     <Content Include="Theme\css\admin-users.css" />
     <Content Include="Theme\css\booking-history.css" />
     <Content Include="Theme\css\change-password.css" />
@@ -212,10 +213,12 @@
     <Content Include="Theme\js\idle-timer.min.js" />
     <Content Include="Theme\js\jquery.twbsPagination.js" />
     <Content Include="Theme\js\jquery.twbsPagination.min.js" />
+    <Content Include="Theme\js\admin-map-features.js" />
     <Content Include="Theme\js\timeout-features-return.js" />
     <Content Include="Theme\js\timeout-features.js" />
     <Content Include="Views\admincar.aspx" />
     <Content Include="Views\adminissue.aspx" />
+    <Content Include="Views\adminmap.aspx" />
     <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\bookingadmin.aspx" />
@@ -381,6 +384,12 @@
     </Compile>
     <Compile Include="Views\adminissue.aspx.designer.cs">
       <DependentUpon>adminissue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminmap.aspx.cs">
+      <DependentUpon>adminmap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\adminmap.aspx.designer.cs">
+      <DependentUpon>adminmap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\adminusers.aspx.cs">
       <DependentUpon>adminusers.aspx</DependentUpon>

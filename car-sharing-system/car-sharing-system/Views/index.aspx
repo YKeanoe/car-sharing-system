@@ -54,7 +54,12 @@
 				</h2>
 			</div>
 			<div class="panel-body">
-				<div id="map"></div>
+				<div id="map">
+					<p>
+						Please wait while we load the map.
+						If it's taking too long, try reloading the page.
+					</p>
+				</div>
 				<div class="list" >
 					<div class="panel filter-panel">
 						<label class="result-label">Refine Results</label>
@@ -174,18 +179,20 @@
 									<div class="col-sm-12 advance-margin">
 										<div class="col-sm-4">
 											<button type="button" id="cd-btn" class="flat-butt flat-danger-butt">
-												<span class="pull-left"><i class="fa fa-check-square-o" aria-hidden="true"></i></span>
+												<span class="pull-left"><i class="fa fa-window-close-o" aria-hidden="true"></i></span>
 												<span class="pull-right">CD Player</span>
 											</button>			
 										</div>
 										<div class="col-sm-4">
 											<button type="button" id="bt-btn" class="flat-butt flat-danger-butt">
-												Bluetooth
+												<span class="pull-left"><i class="fa fa-window-close-o" aria-hidden="true"></i></span>
+												<span class="pull-right">Bluetooth</span>
 											</button>			
 										</div>
 										<div class="col-sm-4">
 											<button type="button" id="gps-btn" class="flat-butt flat-danger-butt">
-												GPS
+												<span class="pull-left"><i class="fa fa-window-close-o" aria-hidden="true"></i></span>
+												<span class="pull-right">GPS</span>
 											</button>			
 										</div>
 									</div>
@@ -193,17 +200,20 @@
 									<div class="col-sm-12 advance-margin">
 										<div class="col-sm-4">
 											<button type="button" id="cc-btn" class="flat-butt flat-danger-butt">
-												Cruise Control
+												<span class="pull-left"><i class="fa fa-window-close-o" aria-hidden="true"></i></span>
+												<span class="pull-right">Cruise Control</span>
 											</button>
 										</div>
 										<div class="col-sm-4">
 											<button type="button" id="rad-btn" class="flat-butt flat-danger-butt">
-												Radio
+												<span class="pull-left"><i class="fa fa-window-close-o" aria-hidden="true"></i></span>
+												<span class="pull-right">Radio</span>
 											</button>
 										</div>
 										<div class="col-sm-4"> 
 											<button type="button" id="rev-btn" class="flat-butt flat-danger-butt">
-												Reverse Camera
+												<span class="pull-left"><i class="fa fa-window-close-o" aria-hidden="true"></i></span>
+												<span class="pull-right">Reverse Camera</span>
 											</button>			
 										</div>
 									</div>
@@ -267,11 +277,11 @@
     <div class="container">
 
       <div class="row">
-         
+     
         <div class="col-lg-12">
           <h1>Contact Us</h1>
-            <h2><p>Need Help? Want to send us feedback?</p></h2>
-                <h2><p>Call us, Email us or submit a support ticket.</p></h2>
+            <h2>Need Help? Want to send us feedback?</h2>
+                <h2>Call us, Email us or submit a support ticket.</h2>
             <div class="dropdown">
                 <select id="mySelect" onchange="dropdown()">
                     <option value="English">English

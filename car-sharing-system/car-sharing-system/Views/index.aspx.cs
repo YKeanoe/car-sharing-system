@@ -28,28 +28,6 @@ namespace car_sharing_system {
 
 	public partial class FrontPage : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-			/*
-			DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-			String dt1 = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-			long x = (long)DateTime.Now.Subtract(unixStart).TotalSeconds; // start time
-			String dt2 = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(x)).ToString("yyyy-MM-dd HH:mm:ss");
-			
-			DatabaseReader.bookingQuery(null);
-			*/
-			/*
-			script.Controls.Add(new LiteralControl("<script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCVtkFkAt7qjm3egiu1VL8sHI-IJKtE5x8&libraries=geometry\"></script>"));
-			script.Controls.Add(new LiteralControl("<script src=\"/Datetimepicker/js/bootstrap-datetimepicker.min.js\"></script>"));
-			script.Controls.Add(new LiteralControl("<script src=\"/Theme/js/map-features.js\"></script>"));
-			script.Controls.Add(new LiteralControl("<script src=\"/Theme/js/dropdown.js\"></script>"));
-			*/
-
-			//DBScheduler.schedule2();
-			/*
-			Random rand = new Random();
-			int y = rand.Next(-3, 3);
-			Double x = rand.NextDouble();
-			Debug.WriteLine(y + "." + x);
-			*/
 		}
 
 		[System.Web.Services.WebMethod]

@@ -50,6 +50,7 @@ namespace car_sharing_system {
 								+		"<li><a href=\"/dashboard/admin/cars\">View all Cars</a></li>"
 								+		"<li><a href=\"/dashboard/admin/issues\">View all Issues</a></li>"
 								+		"<li><a href=\"/dashboard/admin/addcar\">Add new Car</a></li>"
+								+		"<li><a href=\"/dashboard/admin/map\">View Car Map</a></li>"
 								+	"</ul>"
 								+ "</li>";
 					adminList.Controls.Add(new LiteralControl(list));

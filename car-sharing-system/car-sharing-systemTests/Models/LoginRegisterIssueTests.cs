@@ -241,7 +241,6 @@ namespace car_sharing_system.Models.Tests
         {
             string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
             string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-            DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
             String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -261,7 +260,7 @@ namespace car_sharing_system.Models.Tests
             newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
-            dr.Registeration(newUser); // Register new user
+            DatabaseReader.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
             User myData = UserModel.loginAttempt(email, passwordTest);
@@ -297,7 +296,6 @@ namespace car_sharing_system.Models.Tests
         {
             string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
             string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-            DatabaseReader dr = new DatabaseReader();
             String password = null; // No password
             String email = "example3@email.com" + randInt; // Valid email 
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -317,7 +315,7 @@ namespace car_sharing_system.Models.Tests
             newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
-            dr.Registeration(newUser); // Register new user
+            DatabaseReader.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
             User myData = UserModel.loginAttempt(email, password);
@@ -355,7 +353,6 @@ namespace car_sharing_system.Models.Tests
             try
             {
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com"; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -375,7 +372,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -399,7 +396,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = null; // No email entered
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -419,7 +415,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -442,7 +438,6 @@ namespace car_sharing_system.Models.Tests
             try
             {
                 string randInt = GetRandomNumber(0, 1000).ToString();
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -462,7 +457,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -485,7 +480,6 @@ namespace car_sharing_system.Models.Tests
             try
             {
                 string randInt = GetRandomNumber(0, 1000).ToString();
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -505,7 +499,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -528,7 +522,6 @@ namespace car_sharing_system.Models.Tests
             try
             {
                 string randInt = GetRandomNumber(0, 1000).ToString();
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -548,7 +541,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -571,7 +564,6 @@ namespace car_sharing_system.Models.Tests
             try
             {
                 string randInt = GetRandomNumber(0, 1000).ToString();
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -591,7 +583,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -615,7 +607,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 string randInt = GetRandomNumber(0, 1000).ToString();
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -635,7 +626,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -659,7 +650,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -679,7 +669,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -703,7 +693,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -723,7 +712,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -747,7 +736,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -767,7 +755,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -791,7 +779,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -811,7 +798,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -835,7 +822,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -855,7 +841,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -879,7 +865,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -899,7 +884,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -923,7 +908,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -943,7 +927,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -967,7 +951,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -987,7 +970,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1011,7 +994,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1031,7 +1013,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1055,7 +1037,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1075,7 +1056,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1099,7 +1080,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1119,7 +1099,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1143,7 +1123,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1163,7 +1142,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1187,7 +1166,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1207,7 +1185,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1231,7 +1209,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1251,7 +1228,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1275,7 +1252,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1295,7 +1271,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1319,7 +1295,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1339,7 +1314,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1363,7 +1338,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1383,7 +1357,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1407,7 +1381,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1427,7 +1400,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1451,7 +1424,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1471,7 +1443,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new 
+                DatabaseReader.Registeration(newUser); // Register new 
             }
             catch (Exception)
             {
@@ -1495,7 +1467,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1515,7 +1486,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new 
+                DatabaseReader.Registeration(newUser); // Register new 
             }
             catch (Exception)
             {
@@ -1539,7 +1510,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1559,7 +1529,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1583,7 +1553,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1603,7 +1572,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
                 User myData = UserModel.loginAttempt(email, passwordTest);
@@ -1630,7 +1599,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1650,7 +1618,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
                 User myData = UserModel.loginAttempt(email, passwordTest);
@@ -1677,7 +1645,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1697,7 +1664,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1721,7 +1688,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1741,7 +1707,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1765,7 +1731,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1785,7 +1750,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1809,7 +1774,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1829,7 +1793,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1853,7 +1817,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1873,7 +1836,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1897,7 +1860,6 @@ namespace car_sharing_system.Models.Tests
             {
                 string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-                DatabaseReader dr = new DatabaseReader();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1917,7 +1879,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -1938,7 +1900,6 @@ namespace car_sharing_system.Models.Tests
         {
             string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
             string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-            DatabaseReader dr = new DatabaseReader();
             String password = "Testing1"; // Plaintext Password
             String email = "example3@email.com" + randInt; // Valid email
             String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -1958,7 +1919,7 @@ namespace car_sharing_system.Models.Tests
             newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
-            dr.Registeration(newUser); // Register new user
+            DatabaseReader.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
             User myData = UserModel.loginAttempt(email, passwordTest);
@@ -1995,7 +1956,6 @@ namespace car_sharing_system.Models.Tests
             String test = "";
             try
             {
-                DatabaseReader dr = new DatabaseReader();
                 String password = null; // Plaintext Password
                 String email = null; // Valid email
                 String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
@@ -2015,7 +1975,7 @@ namespace car_sharing_system.Models.Tests
                 newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
                     gender, birth, phone, street, suburb, postcode, territory,
                     city, country, profileURL);
-                dr.Registeration(newUser); // Register new user
+                DatabaseReader.Registeration(newUser); // Register new user
             }
             catch (Exception)
             {
@@ -2041,10 +2001,9 @@ namespace car_sharing_system.Models.Tests
             {
                 String subjectIssueText = "Test";
                 String descriptionText = "The quick brown fox jumps over the fence";
-                DatabaseReader dr = new DatabaseReader();
                 newIssue = new Issue(100, subjectIssueText, descriptionText);
                 IssueModel issue = new IssueModel();
-                dr.clientIssue(newIssue);
+                DatabaseReader.clientIssue(newIssue);
                 if (newIssue != null)
                 {
                     Assert.Pass("Issue Submitted");
@@ -2072,10 +2031,9 @@ namespace car_sharing_system.Models.Tests
             {
                 String subjectIssueText = null;
                 String descriptionText = "The quick brown fox jumps over the fence";
-                DatabaseReader dr = new DatabaseReader();
                 newIssue = new Issue(100, subjectIssueText, descriptionText);
 
-                dr.clientIssue(newIssue);
+                DatabaseReader.clientIssue(newIssue);
             }
             catch (Exception)
             {
@@ -2099,10 +2057,9 @@ namespace car_sharing_system.Models.Tests
             {
                 String subjectIssueText = "Test";
                 String descriptionText = null;
-                DatabaseReader dr = new DatabaseReader();
                 newIssue = new Issue(100, subjectIssueText, descriptionText);
 
-                dr.clientIssue(newIssue);
+                DatabaseReader.clientIssue(newIssue);
             }
             catch (Exception)
             {
@@ -2126,10 +2083,9 @@ namespace car_sharing_system.Models.Tests
             {
                 String subjectIssueText = null;
                 String descriptionText = null;
-                DatabaseReader dr = new DatabaseReader();
                 newIssue = new Issue(100, subjectIssueText, descriptionText);
 
-                dr.clientIssue(newIssue);
+                DatabaseReader.clientIssue(newIssue);
             }
             catch (Exception)
             {
@@ -2156,7 +2112,6 @@ namespace car_sharing_system.Models.Tests
             try
             {
                 String numberPlate = "8W69B0";
-                DatabaseReader dr = new DatabaseReader();
                 String query = "status = 'A' AND numberPlate = '" + numberPlate + "'";
                 carList = DatabaseReader.carQuerySingleFull(query);
             }

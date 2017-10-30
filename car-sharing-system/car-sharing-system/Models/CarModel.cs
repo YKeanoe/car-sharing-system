@@ -169,11 +169,51 @@ namespace car_sharing_system.Models {
 				}
 				query.AppendFormat("transmission = '{0}' ", transmission);
 			}
+			
+			if (adv) {
+				if (query.Length > 0) {
+					query.Append("AND ");
+				}
+				if (cd) {
+					query.AppendFormat("cdPlayer IS TRUE ");
+				} else {
+					query.AppendFormat("cdPlayer IS FALSE ");
+				}
+
+				if (bt) {
+					query.AppendFormat("AND bluetooth IS TRUE ");
+				} else {
+					query.AppendFormat("AND bluetooth IS FALSE ");
+				}
+
+				if (gps) {
+					query.AppendFormat("AND gps IS TRUE ");
+				} else {
+					query.AppendFormat("AND gps IS FALSE ");
+				}
+
+				if (c) {
+					query.AppendFormat("AND cruiseControl IS TRUE ");
+				} else {
+					query.AppendFormat("AND cruiseControl IS FALSE ");
+				}
+
+				if (rad) {
+					query.AppendFormat("AND radio IS TRUE ");
+				} else {
+					query.AppendFormat("AND radio IS FALSE ");
+				}
+
+				if (revcam) {
+					query.AppendFormat("AND reverseCamera IS TRUE ");
+				} else {
+					query.AppendFormat("AND reverseCamera IS FALSE ");
+				}
+			}
 
 			if (query.Length > 0) {
 				query.Append("AND Status = 'A'");
 			}
-
 			List<Car> dbcars = DatabaseReader.carQuery(query.ToString());
 			if (dbcars != null) {
 				cars = new Search(dbcars).find(lat, lng, 50);
