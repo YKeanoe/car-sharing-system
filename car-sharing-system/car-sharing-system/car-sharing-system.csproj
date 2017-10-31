@@ -91,6 +91,10 @@
       <HintPath>..\packages\MySql.Web.6.9.9\lib\net45\MySql.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.engine.api, Version=3.0.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.Engine.Tool.3.6.0\lib\nunit.engine.api.dll</HintPath>
       <Private>True</Private>
@@ -108,6 +112,21 @@
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,6 +136,14 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -152,6 +179,7 @@
   <ItemGroup>
     <Content Include="Microsoft.Web.Iis.Rewrite.dll" />
     <Content Include="Theme\css\booking-history.css" />
+    <Content Include="Theme\css\change-password.css" />
     <Content Include="Theme\css\issue.css" />
     <Content Include="Theme\css\mobileFriendly.css" />
     <Content Include="Theme\Images\caricon-glow.png" />
@@ -170,6 +198,7 @@
     <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />
     <Content Include="Theme\js\booking-return-features.js" />
+    <Content Include="Theme\js\change-password.js" />
     <Content Include="Theme\js\dropdown.js" />
     <Content Include="Bootstrap\js\moment.js" />
     <Content Include="Datetimepicker\css\bootstrap-datetimepicker-standalone.css" />
@@ -179,6 +208,7 @@
     <Content Include="Datetimepicker\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Theme\css\bookingconfirmation.css" />
     <Content Include="Theme\js\booking-confirmation-map.js" />
+    <Content Include="Theme\js\extend-feature.js" />
     <Content Include="Theme\js\idle-timer.min.js" />
     <Content Include="Theme\js\jquery.twbsPagination.js" />
     <Content Include="Theme\js\jquery.twbsPagination.min.js" />
@@ -189,8 +219,11 @@
     <Content Include="Views\adminusers.aspx" />
     <Content Include="Views\adminusersview.aspx" />
     <Content Include="Views\booking.aspx" />
+    <Content Include="Views\bookingextend.aspx" />
+    <Content Include="Views\bookingcancel.aspx" />
     <Content Include="Views\bookingreturn.aspx" />
     <Content Include="Views\bookingconfirmation.aspx" />
+    <Content Include="Views\changePassword.aspx" />
     <Content Include="Views\dashboard.aspx" />
     <Content Include="Views\issue.aspx" />
     <Content Include="Views\login.aspx">
@@ -319,6 +352,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomRouteHandler.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\DBScheduler.cs" />
@@ -364,6 +401,20 @@
     <Compile Include="Views\booking.aspx.designer.cs">
       <DependentUpon>booking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\bookingextend.aspx.cs">
+      <DependentUpon>bookingextend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookingextend.aspx.designer.cs">
+      <DependentUpon>bookingextend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\bookingcancel.aspx.cs">
+      <DependentUpon>bookingcancel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\bookingcancel.aspx.designer.cs">
+      <DependentUpon>bookingcancel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\bookingreturn.aspx.cs">
       <DependentUpon>bookingreturn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,6 +428,13 @@
     </Compile>
     <Compile Include="Views\bookingconfirmation.aspx.designer.cs">
       <DependentUpon>bookingconfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -549,7 +607,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -586,6 +644,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

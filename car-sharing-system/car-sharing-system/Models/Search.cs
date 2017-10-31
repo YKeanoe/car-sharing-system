@@ -37,10 +37,10 @@ namespace car_sharing_system.Models
                     throw new Exception(" adding in data ");
         }
 
-        public List<Car> find(double lng, double lat) {
+        public List<Car> find(double lng, double lat, int amt) {
 			List<Car> finalCars = new List<Car>();
 			Setup();
-            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lng, lat }, 50);
+            KdTreeNode<double, string>[] finalNodes = tree.GetNearestNeighbours(new double[] { lng, lat }, amt);
             foreach (KdTreeNode<double, string> noplate in finalNodes) 
                 foreach (Car car in cars)
                     if (car.numberPlate.Equals(noplate.Value)) 

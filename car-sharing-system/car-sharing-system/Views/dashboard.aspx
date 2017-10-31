@@ -294,6 +294,12 @@
                 <a href="/dashboard/return" class="btn btn-primary">
                     Return car
                 </a>
+				<a class="btn btn-primary" href="/dashboard/extendbooking" role="button" runat="server" id="extendBtn">
+					Extend Booking
+				</a>
+				<a class="btn btn-primary" href="/dashboard/cancelbooking" role="button" runat="server" id="cancelBtn">
+					Cancel Booking
+				</a>
             </div>
         </div>
         <div class="col-lg-8">

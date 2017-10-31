@@ -6,6 +6,7 @@ using System.Web.Script.Serialization;
 using System.Text;
 using System.Web;
 using System.Web.Security;
+using System.Diagnostics;
 
 namespace car_sharing_system.Admin_Theme.pages {
 	public class GoogleCarLocation {
@@ -21,18 +22,6 @@ namespace car_sharing_system.Admin_Theme.pages {
 
 	public partial class dashboard : System.Web.UI.Page {
         protected User newUser;
-
-		/*
-		protected override void OnPreInit(EventArgs e) {
-			HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-			if (UserModel.isAdmin(authCookie)) {
-				this.MasterPageFile = "~/DashboardAdmin.master";
-			} else {
-				this.MasterPageFile = "~/Dashboard.master";
-			}
-			base.OnPreInit(e);
-		}*/
-
 		protected void Page_Load(object sender, EventArgs e) {
             newUser = DatabaseReader.userQuerySingle("accountID = '" + User.Identity.Name + "';");
 			Booking currBooking = DatabaseReader.bookingQuerySingle("accountID = '" + User.Identity.Name + "' AND totalCost IS NULL;");
@@ -69,6 +58,21 @@ namespace car_sharing_system.Admin_Theme.pages {
 					}
 					odString.Append("</label>");
 					bookOverdue.Controls.Add(new LiteralControl(odString.ToString()));
+				}
+
+				// Show cancel book button if the booking hasn't start
+				// Show extend book button if the booking isn't overdue
+				// Show no button if booking is overdue
+				long currentUnixTime = (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+				if (currentUnixTime <= currBooking.startDate ) {
+					extendBtn.Style.Add("display", "none");
+					cancelBtn.Style.Add("display", "inline-block");
+				} else if (currentUnixTime <= currBooking.estEndDate) {
+					extendBtn.Style.Add("display", "inline-block");
+					cancelBtn.Style.Add("display", "none");
+				} else {
+					extendBtn.Style.Add("display", "none");
+					cancelBtn.Style.Add("display", "none");
 				}
 			} else {
 				// If user don't have a running booking, then show the car list

@@ -147,11 +147,13 @@
                                 <div class="formFormat">
                                      <label class="label2">Country: </label><span id="co" runat="server"></span>
                                 </div>
-                                    
 
                                 <img id="pu" src="" runat="server"/>
+									                                    <br />
 
                                <a class="btn btn-info" id="edit" href="/dashboard/profile?edit=<%=theID %>">Edit</a>
+
+                               <a class="btn btn-info" id="edit-pass" href="/dashboard/changepassword">Change Password</a>
 
                                 
                             </div>

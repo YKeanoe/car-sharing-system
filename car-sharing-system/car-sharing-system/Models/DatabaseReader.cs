@@ -91,9 +91,36 @@ namespace car_sharing_system.Models
                 return 0;
             }
         }
-        // userQuerySingle return the first user found as an object.
-        // return null if no user is found
-        public static User userQuerySingle(String where)
+
+		public static List<int> getAvailableUserIds(int amount) {
+			String query = "SELECT u.accountID FROM User AS u "
+						+ "LEFT JOIN Booking AS b "
+						+ "ON b.accountID = u.accountID "
+						+ "WHERE "
+						+ "(b.accountID NOT IN (SELECT accountID FROM Booking WHERE totalCost IS NULL)) "
+						+ "OR b.bookingID IS NULL "
+						+ "ORDER BY u.accountID "
+						+ "LIMIT " + amount;
+			List<int> ids = new List<int>();
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						ids.Add(Convert.ToInt32(dbread[0].ToString()));
+					}
+				}
+			}
+			if (ids.Count() > 0) {
+				return ids;
+			} else {
+				return null;
+			}
+		}
+
+		// userQuerySingle return the first user found as an object.
+		// return null if no user is found
+		public static User userQuerySingle(String where)
         {
             String query;
             if (!String.IsNullOrEmpty(where)) {
@@ -234,7 +261,7 @@ namespace car_sharing_system.Models
 
 
 		// Registeration function is used to register new user to the database.
-		public void Registeration(User newUser)
+		public static void Registeration(User newUser)
         {
             String query = "INSERT INTO User (email, password, permission, licenseNo, firstName, lastName, gender, birth, phone, street, suburb, postcode, territory, city, country, profileurl) ";
             query += " VALUES (@email, @password, 0, @license, @fName, @lName, @gender, @birth, @phoneNo, @street, @suburb, @postcode, @territory, @city, @country, @profileurl);";
@@ -295,9 +322,46 @@ namespace car_sharing_system.Models
                 }
                 mySqlConnection.Close();
             }
-        }
-        // clientIssue function is used to add new issue to the database.
-        public void clientIssue(Issue newIssue)
+		}
+
+		public static void changePassword(User newUser) {
+			String query = "UPDATE User";
+			query += " SET password = @password";
+			query += " WHERE accountID = @accountID";
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection)) {
+					mySqlCommand.Parameters.AddWithValue("@accountID", newUser.id);
+					mySqlCommand.Parameters.AddWithValue("@password", newUser.password);
+					mySqlCommand.ExecuteNonQuery();
+				}
+				mySqlConnection.Close();
+			}
+		}
+
+		public static List<String> getAvailableCarPlates(int amount) {
+			List<String> carplates = new List<String>();
+			String query = "SELECT numberPlate FROM Car WHERE status='A' LIMIT " + amount;
+
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
+					while (dbread.Read()) {
+						carplates.Add(dbread[0].ToString());
+					}
+				}
+			}
+			if (carplates.Count() == 0) {
+				Debug.WriteLine("query returns null");
+				return null;
+			} else {
+				return carplates;
+			}
+		}
+
+		// clientIssue function is used to add new issue to the database.
+		public void clientIssue(Issue newIssue)
         {
             String query = "INSERT INTO Issues (accountID,submissionDate, subject, description) ";
             query += " VALUES (@accountID, @submissionDate, @subject, @description) ";
@@ -715,6 +779,21 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// updateCar update the car's location.
+		public static int updateCarLocation(String id, Location carLoc) {
+			String set = String.Format("locationLat = {0}, locationLong = {1}", carLoc.lat, carLoc.lng);
+			String where = String.Format("numberPlate = '{0}' AND status != 'A'", id);
+			String query = String.Format("UPDATE Car SET {0} WHERE {1}",
+									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
+				return numRowsUpdated;
+			}
+		}
+
 		// changeCarStatusInterval change the car's status if the booking start time 
 		// has past and the car status is 'booked' or 'B'
 		public static int changeCarStatusInterval() {
@@ -728,6 +807,21 @@ namespace car_sharing_system.Models
 				} else {
 					Debug.WriteLine("No car need to be updated.");
 				}
+				return numRowsUpdated;
+			}
+		}
+
+		// extendBooking update the booking's estEndDate in database
+		public static int extendBooking(long newEndDate, String accountId) {
+			String set = String.Format("estimatedEndDate = '{0}'", new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(newEndDate)).ToString("yyyy-MM-dd HH:mm:ss"));
+			String where = String.Format("accountID = '{0}' AND totalCost IS NULL", accountId);
+			String query = String.Format("UPDATE Booking SET {0} WHERE {1}",
+									set, where);
+			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
+				mySqlConnection.Open();
+				MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+				int numRowsUpdated = mySqlCommand.ExecuteNonQuery();
+				Debug.WriteLine("rows affected = " + numRowsUpdated);
 				return numRowsUpdated;
 			}
 		}

@@ -16,14 +16,23 @@ namespace car_sharing_system.Models
 		public Double? totalCost { get; set;}
 
 		// Used to add new booking
-        public Booking(int accountID, String numberPlate, long bookingDate, long startDate, long estEndDate, Location latlong) {
-            this.accountID = accountID;
-            this.numberPlate = numberPlate;
+		public Booking(int accountID, String numberPlate, long bookingDate, long startDate, long estEndDate, Location latlong) {
+			this.accountID = accountID;
+			this.numberPlate = numberPlate;
 			this.bookingDate = bookingDate;
-            this.startDate = startDate;
-            this.estEndDate = estEndDate;
-            this.latlong = latlong;
-        }
+			this.startDate = startDate;
+			this.estEndDate = estEndDate;
+			this.latlong = latlong;
+		}
+
+		// Used to add new booking from web api
+		public Booking(int accountID, String numberPlate, long bookingDate, long startDate, long estEndDate) {
+			this.accountID = accountID;
+			this.numberPlate = numberPlate;
+			this.bookingDate = bookingDate;
+			this.startDate = startDate;
+			this.estEndDate = estEndDate;
+		}
 
 		// Used to get full new booking
 		public Booking(int bookingID, int accountID, String numberPlate, long bookingDate, long startDate,
