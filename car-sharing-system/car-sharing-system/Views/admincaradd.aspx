@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="admincaradd.aspx.cs" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dashboard.Master" AutoEventWireup="true" CodeBehind="admincaradd.aspx.cs" Inherits="car_sharing_system.Admin_Theme.pages.admincaradd" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="DashboardPageHolder" runat="server">
 
  <!-- /.row -->
@@ -164,8 +164,8 @@
                                 <div class="formFormat"> 
                                     <label class="label2">Transmission: </label>
                                      <asp:RadioButtonList id="transmission" runat="server">
-                                        <asp:ListItem Selected="True" Text="Automatic" Value="Auto" />
-                                        <asp:ListItem Text="Manual" Value="Manual" />
+                                        <asp:ListItem Selected="True" Text="Automatic" Value="A" />
+                                        <asp:ListItem Text="Manual" Value="M" />
                                     </asp:RadioButtonList>
                                 </div>
 
@@ -192,54 +192,56 @@
                                <div class="formFormat">
                                      <label class="label2">Cd Player: </label>
                                      <asp:RadioButtonList id="cdPlayer" runat="server">
-                                        <asp:ListItem Selected="True" Text="True" Value="1" />
-                                        <asp:ListItem Text="False" Value="0" />
+                                        <asp:ListItem Selected="True" Text="True" Value="true" />
+                                        <asp:ListItem Text="False" Value="false" />
                                     </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
                                      <label class="label2">Radio: </label>
                                      <asp:RadioButtonList id="radio" runat="server">
-                                        <asp:ListItem Selected="True" Text="True" Value="1" />
-                                        <asp:ListItem Text="False" Value="0" />
+                                        <asp:ListItem Selected="True" Text="True" Value="true" />
+                                        <asp:ListItem Text="False" Value="false" />
                                     </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
                                      <label class="label2">gps: </label>
                                      <asp:RadioButtonList id="gps" runat="server">
-                                        <asp:ListItem Selected="True" Text="True" Value="1" />
-                                        <asp:ListItem Text="False" Value="0" />
+                                        <asp:ListItem Selected="True" Text="True" Value="true" />
+                                        <asp:ListItem Text="False" Value="false" />
                                     </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
-                                     <label class="label2">Cd Player: </label>
-                                     <asp:RadioButtonList id="buetooth" runat="server">
-                                        <asp:ListItem Selected="True" Text="True" Value="1" />
-                                        <asp:ListItem Text="False" Value="0" />
+                                     <label class="label2">Bluetooth: </label>
+                                     <asp:RadioButtonList id="bluetooth" runat="server">
+                                        <asp:ListItem Selected="True" Text="True" Value="true" />
+                                        <asp:ListItem Text="False" Value="false" />
                                     </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
                                      <label class="label2">Cruise Control: </label>
                                      <asp:RadioButtonList id="cruiseControl" runat="server">
-                                        <asp:ListItem Selected="True" Text="True" Value="1" />
-                                        <asp:ListItem Text="False" Value="0" />
+                                        <asp:ListItem Selected="True" Text="True" Value="true" />
+                                        <asp:ListItem Text="False" Value="false" />
                                     </asp:RadioButtonList>
                                 </div>
 
                                 <div class="formFormat">
                                      <label class="label2">Reverse Camera: </label>
                                      <asp:RadioButtonList id="reverseCamera" runat="server">
-                                        <asp:ListItem Selected="True" Text="True" Value="1" />
-                                        <asp:ListItem Text="False" Value="0" />
+                                        <asp:ListItem Selected="True" Text="True" Value="true" />
+                                        <asp:ListItem Text="False" Value="false" />
                                     </asp:RadioButtonList>
                                 </div>a
                                 <br>
 
                                 <div class="submit1">
-                                    <asp:Button runat="server" Text="Submit"  class="btn btn-primary"></asp:Button>
+                                    <div id="tests" runat="server"></div>
+                                    
+                                    <asp:Button runat="server" Text="Submit" OnClick="submit" class="btn btn-primary"></asp:Button>
                                 </div>
                              </form>
 
@@ -266,5 +268,5 @@
         </div>
         <!-- /.panel-body -->
    
-
+    <asp:PlaceHolder runat="server" ID="script"></asp:PlaceHolder>
 </asp:Content>

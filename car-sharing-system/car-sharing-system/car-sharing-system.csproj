@@ -165,6 +165,7 @@
     <Content Include="Theme\Images\middle.png" />
     <Content Include="Theme\Images\park-128.png" />
     <Content Include="Theme\Images\user42.png" />
+    <Content Include="Theme\js\addCar.js" />
     <Content Include="Theme\js\admin-cars-view.js" />
     <Content Include="Theme\js\booking-confirmation-error.js" />
     <Content Include="Theme\js\booking-confirmation-features.js" />

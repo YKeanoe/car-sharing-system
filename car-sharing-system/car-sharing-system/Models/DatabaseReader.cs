@@ -354,6 +354,7 @@ namespace car_sharing_system.Models
 		
 		// carQuerySingle return the first car found as an object
         public static Car carQuerySingle(String where) {
+
             String query;
 			if (!String.IsNullOrEmpty(where)) {
 				query = "SELECT * FROM Car WHERE " + where;
@@ -364,7 +365,6 @@ namespace car_sharing_system.Models
 			using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString)) {
                 mySqlConnection.Open();
                 MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
-
 				using (MySqlDataReader dbread = mySqlCommand.ExecuteReader()) {
 					if (dbread.Read()) {
 						Location newLocation = new Location(
@@ -470,6 +470,52 @@ namespace car_sharing_system.Models
 				return cars;
 			}
 		}
+        public static void addCar(Car newCar) {
+
+            String query = "INSERT INTO Car (numberPlate,locationLat,locationLong,country,brand,model,vehicleType,seats,doors,transmission,fuelType,tankSize,fuelConsumption,averageRange,hourlyRate,status,cdPlayer,radio,gps,bluetooth,cruiseControl,reverseCamera) ";
+            query += " VALUES (@numberPlate,@locationLat,@locationLong,@country,@brand,@model,@vehicleType,@seats,@doors,@transmission,@fuelType,@tankSize,@fuelConsumption,@averageRange,@hourlyRate,@status,@cdPlayer,@radio,@gps,@bluetooth,@cruiseControl,@reverseCamera);";
+            using (MySqlConnection mySqlConnection = new MySqlConnection(sqlConnectionString))
+            {
+                mySqlConnection.Open();
+                String transmission;
+                if (newCar.transmission == 'A')
+                {
+                    transmission = "Auto";
+                }
+                else {
+                    transmission = "Manual";
+                }
+                using (MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection))
+                {
+                    Debug.WriteLine(newCar.ToString());
+                    mySqlCommand.Parameters.AddWithValue("@numberPlate", newCar.numberPlate);
+                    mySqlCommand.Parameters.AddWithValue("@locationLat", newCar.latlong.lat);
+                    mySqlCommand.Parameters.AddWithValue("@locationLong", newCar.latlong.lng);
+                    mySqlCommand.Parameters.AddWithValue("@country", newCar.country);
+                    mySqlCommand.Parameters.AddWithValue("@brand", newCar.brand);
+                    mySqlCommand.Parameters.AddWithValue("@model", newCar.model);
+                    mySqlCommand.Parameters.AddWithValue("@vehicleType", newCar.vehicleType);
+                    mySqlCommand.Parameters.AddWithValue("@seats", newCar.seats);
+                    mySqlCommand.Parameters.AddWithValue("@doors", newCar.doors);
+                    mySqlCommand.Parameters.AddWithValue("@transmission", transmission);
+                    mySqlCommand.Parameters.AddWithValue("@fuelType", newCar.fuelType);
+                    mySqlCommand.Parameters.AddWithValue("@tankSize", newCar.tankSize);
+                    mySqlCommand.Parameters.AddWithValue("@fuelConsumption", newCar.fuelConsumption);
+                    mySqlCommand.Parameters.AddWithValue("@averageRange", newCar.avgRange);
+                    mySqlCommand.Parameters.AddWithValue("@hourlyRate", newCar.rate);
+                    mySqlCommand.Parameters.AddWithValue("@status", newCar.status);
+                    mySqlCommand.Parameters.AddWithValue("@cdPlayer", newCar.cdPlayer);
+                    mySqlCommand.Parameters.AddWithValue("@radio", newCar.radio);
+                    mySqlCommand.Parameters.AddWithValue("@gps", newCar.gps);
+                    mySqlCommand.Parameters.AddWithValue("@bluetooth", newCar.bluetooth);
+                    mySqlCommand.Parameters.AddWithValue("@cruiseControl", newCar.cruiseControl);
+                    mySqlCommand.Parameters.AddWithValue("@reverseCamera", newCar.reverseCam);
+
+                    mySqlCommand.ExecuteNonQuery();
+                }
+                mySqlConnection.Close();
+            }
+        }
 
 		// setCarBooked updates the car's status to B for Booked
 		public static int setCarBooked(String id) {
