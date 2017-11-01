@@ -47,7 +47,6 @@ def make_booking():
     data = response.json()
     # Convert retrieved unicode user ids to list
     user_ids = ast.literal_eval(data)
-
     response = requests.get(url + car_param + user_amount)
     data = response.json()
     # print data

@@ -79,6 +79,7 @@ namespace car_sharing_system.Models
 						+ "WHERE "
 						+ "(b.accountID NOT IN (SELECT accountID FROM Booking WHERE totalCost IS NULL)) "
 						+ "OR b.bookingID IS NULL "
+						+ "GROUP BY u.accountID "
 						+ "ORDER BY u.accountID "
 						+ "LIMIT " + amount;
 			List<int> ids = new List<int>();
@@ -705,8 +706,37 @@ namespace car_sharing_system.Models
 			}
 		}
 
+		// To avoid duplicate location, checkduplicatelocation method is used to
+		// find a new location within range when trying to finish a booking.
+		public static Location checkDuplicateLocation(String id, Location loc) {
+			Random rand = new Random();
+			int decider = rand.Next();
+			bool positive = (decider % 2 == 0);
+			Car car = carQuerySingle("locationLat = " + loc.lat + " AND locationLong = " + loc.lng);
+			while (car != null) {
+				Double x = rand.NextDouble() * (0.003 - 0.002) + 0.002;
+				decider = rand.Next();
+				if (decider % 2 == 0) {
+					if (positive) {
+						loc.lat = loc.lat + ((Decimal)x);
+					} else {
+						loc.lat = loc.lat - ((Decimal)x);
+					}
+				} else {
+					if (positive) {
+						loc.lng = loc.lng + ((Decimal)x);
+					} else {
+						loc.lng = loc.lng - ((Decimal)x);
+					}
+				}
+				car = carQuerySingle("locationLat = " + loc.lat + " AND locationLong = " + loc.lng);
+			}
+			return loc;
+		}
+
 		// updateCar update the car's location.
 		public static int updateCar(String id, Location carLoc) {
+			carLoc = checkDuplicateLocation(id, carLoc);
 			String set = String.Format("locationLat = {0}, locationLong = {1}, status = 'A'", carLoc.lat, carLoc.lng);
 			String where = String.Format("numberPlate = '{0}' AND status != 'A'", id);
 			String query = String.Format("UPDATE Car SET {0} WHERE {1}",

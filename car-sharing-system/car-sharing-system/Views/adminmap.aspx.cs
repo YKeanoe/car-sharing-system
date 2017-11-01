@@ -31,11 +31,7 @@ namespace car_sharing_system.Views {
 
 		[System.Web.Services.WebMethod]
 		public static string getCarsData() {
-			// Dummy data. Change query to "status = 'U'" when done
-			Random rand = new Random();
-			int i = rand.Next(0,15);
-			int off = 500 * i;
-			List<Car> cars = DatabaseReader.carQuery("status = 'A' LIMIT 5 OFFSET " + off);
+			List<Car> cars = DatabaseReader.carQuery("status = 'U'");
 			return generateGoogleCarLocation(cars);
 		}
 

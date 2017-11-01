@@ -43,7 +43,7 @@ namespace car_sharing_system.Controllers {
 			//newBook.debug();
 			
 			DatabaseReader.addBooking(newBook);
-			
+			DatabaseReader.setCarUsed(newBook.numberPlate);
 		}
 
 		[HttpPost]
@@ -65,6 +65,7 @@ namespace car_sharing_system.Controllers {
 			//String debugging = String.Format("Finished with {0}m distance, at ({1}, {2}), for a total cost of ${3}",
 			//	distance, uloc.lat, uloc.lng, cost);
 			//Debug.WriteLine(debugging);
+			//currBooking.debug();
 			
 			DatabaseReader.finishBooking(userId, distance, currBooking.numberPlate, uloc, cost);
 

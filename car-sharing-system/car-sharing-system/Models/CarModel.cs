@@ -68,7 +68,6 @@ namespace car_sharing_system.Models {
 			List<Car> dbcars = DatabaseReader.carQuery("Status = 'A'");
 			List<Car> fcars = new List<Car>();
 			fcars = new Search(dbcars).find(lat, lng, amt);
-			Debug.WriteLine("fuuuuuuuck");
 			sortCarListAPI(fcars, lat, lng, 0);
 			return fcars;
 		}

@@ -49,7 +49,6 @@ function initializeMap(data) {
 		icon: usericon,
 		carid: "User"
 	});
-	markers.push(markerUser);
 	markerUser.setMap(map);
 
 	// Set markers for cars
@@ -87,12 +86,6 @@ function initializeMap(data) {
 
 
 // Function to refresh the map's marker
-// APPROACH 1:
-// Check if marker exists
-// If a marker reappear, update the location and remove the markers data
-// If a marker didn't reappear, remove from map and markers array
-// When all markers in markers array is checked, if there's more in markers data,
-// add them to the markers array.
 function refreshMap(data) {
 	// Parse data into json object
 	var carLocs = JSON.parse(data.d);
@@ -100,15 +93,12 @@ function refreshMap(data) {
 	// Set markers for cars
 	// If carlocs exits (not null), then set markers for all car's locations
 	if (carLocs) {
-
-		console.log(carLocs);
-
 		// Check if the marker reappear
 		var found = false;
 		for (var i = 0; i < markers.length; i++) {
 			found = false;
 			// For each marker, traverse new car data
-			for (var j = 0; i < carLocs.length; i++) {
+			for (var j = 0; j < carLocs.length; j++) {
 				var carid = carLocs[j].carName.match(/\(([^)]+)\)/)[1];
 				// If found, set the marker new position, delete the new car data and break from loop.
 				if (markers[i].get('carid') == carid) {
@@ -180,7 +170,6 @@ function getLocation() {
 // asynchronously, type is to detect if it is a refresh or initialization.
 // Call initializeMap function or refreshMap when successful.
 function sendRequestForCars(data, type) {
-	console.log(type);
 	var dfd = $.Deferred();
 	$.ajax({
 		type: "POST",
@@ -228,8 +217,8 @@ $(window).on('load', function () {
 	// Initialize map
 	setMap();
 	
-	// Set map to refresh every 5 seconds
+	// Set map to refresh every 3 seconds
 	setInterval(function () {
 		sendRequestForCars(2);
-	}, 5000);
+	}, 3000);
 });
