@@ -44,9 +44,7 @@
         padding-right: 26.5%;
     }
 
-    .rr {
-        margin-left: 69%;
-    }
+  
 
     .list{
         width:100%;
@@ -131,6 +129,11 @@
 
 
 
+@media screen and (max-width: 700px) {
+    .RadioButtonList1 {
+        margin-left: 2%;
+    }
+}
 
 
 
