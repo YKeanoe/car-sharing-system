@@ -1,18 +1,14 @@
 # AceRentalBooking
 # ------------------
 # Run the python script using all packages included.
-# DO NOT EXIT THE PROGRAM MANUALLY.
-# Use 'x' (lowercase) key to stop the program beautifully.
-# DO NOT ALT-TAB while the program is running because it
-# interfere with the pynput (Dunno why)
+# Click the stop button before closing the window, ensuring all bookings is finished before closed
 # ----------------------------------------------------------
 # HOW TO USE
 # Just input the amount of bookings you want, the program will
 # automatically pick a random spot around melbourne to book from
 # and pick the couple first available car and user ids available to
 # book with and just watch the car move.
-
-
+import sys
 import requests
 import json
 import ast
@@ -22,8 +18,11 @@ from mpl_toolkits.basemap import Basemap
 import urllib
 import threading
 import thread
-from pynput import keyboard
+import Tkinter
+from Tkinter import *
 
+
+# Initialize urls and thread list.
 url = "http://localhost:13433/"
 car_param = "api/car/"
 car_param_loc = "api/car/id/"
@@ -32,35 +31,27 @@ booking_param = "api/booking/"
 booking_param_finish = "finish"
 threads = []
 
+# Recursion limit for py2exe
+sys.setrecursionlimit(5000)
 
-# Keyboard listener. Press x to stop properly (finishing the booking)
-def on_release(key):
-    if key.char == "x":
-        for t in threads:
-            t.thread_stopper()
-
-
-def make_booking():
-    # Use to enter the amount of bookings to be added.
-    user_amount = raw_input("Please enter the amount of bookings to be made: ")
+# make_booking method is used to make booking. Method take user_amount as for choosing how many bookings to be made.
+def make_booking(user_amount):
+    # Request available user ids
     response = requests.get(url + user_param + user_amount)
     data = response.json()
     # Convert retrieved unicode user ids to list
     user_ids = ast.literal_eval(data)
+
+    # Request available nearby cars
     response = requests.get(url + car_param + user_amount)
     data = response.json()
-    # print data
     # Convert retrieved unicode car number plates to list
     number_plates = ast.literal_eval(data)
-
-    # print(user_ids)
-    # print(user_ids[2])
-    # print(number_plates)
-    # print(number_plates[2])
 
     # Store user ids and car ids to be returned
     uid_and_cid = []
 
+    # Create booking for each user and car id.
     for id in range(0, len(user_ids)):
         loc = get_lat_long_near_melbourne()
         now = round(time.time()) + 1
@@ -79,6 +70,7 @@ def make_booking():
                    }
         requests.post(url + booking_param, json=booking)
         uid_and_cid.append({'uid': user_ids[id], 'cid': number_plates[id]})
+    # Return user and car ids for threads.
     return uid_and_cid
 
 
@@ -101,11 +93,10 @@ def get_lat_long_near_melbourne():
     return {'lat':x, 'lng':y}
 
 
+# Inner class for threads.
 class CarThread(threading.Thread):
     # Return a list of intermediate points with nb_points as length
     def intermediates(self, p1, p2, nb_points):
-        # If we have 8 intermediate points, we have 8+1=9 spaces
-        # between p1 and p2
         x_spacing = (p2[0] - p1[0]) / (nb_points + 1)
         y_spacing = (p2[1] - p1[1]) / (nb_points + 1)
 
@@ -145,9 +136,6 @@ class CarThread(threading.Thread):
         # Open url and grab json
         ur = urllib.urlopen(google_url)
         result = json.load(ur)
-        start_loc = result['routes'][0]['legs'][0]['start_location']
-        end_loc = result['routes'][0]['legs'][0]['end_location']
-        print "{} Start at : ({}, {}); End at : ({},{})".format(self.car_id, start_loc['lat'], start_loc['lng'], end_loc['lat'], end_loc['lng'])
         # Set final distance and endtimes.
         self.distance = result['routes'][0]['legs'][0]['distance']['value']
         self.endTime = result['routes'][0]['legs'][0]['duration']['value']
@@ -173,7 +161,8 @@ class CarThread(threading.Thread):
         loc = {}
         for i in range(0, len(steps)):
             if self.running:
-                print "Move car {} to {},{}".format(self.thread_name, steps[i][0], steps[i][1])
+                output = "Move car {} to {},{}".format(self.thread_name, steps[i][0], steps[i][1])
+                self.print_output(output)
                 loc = {'lat': steps[i][0], 'lng': steps[i][1]}
                 requests.post(url + car_param_loc + self.car_id, json=loc)
                 time.sleep(3)
@@ -188,7 +177,8 @@ class CarThread(threading.Thread):
             self.stop()
 
     def run(self):
-        print "%s start" % self.thread_name
+        output = "%s thread start" % self.thread_name
+        self.print_output(output)
         # Get car's location
         response = requests.get(url + car_param_loc + self.car_id)
         data = response.json()
@@ -198,15 +188,18 @@ class CarThread(threading.Thread):
         # Run method
         steps = self.google_travel(latlong, dest_latlong)
         self.send_post_car_location(steps)
-        print "%s end" % self.thread_name
+        output = "Thread %s is ending" % self.thread_name
+        self.print_output(output)
 
     def thread_stopper(self):
-        print "thread stopper called"
         self.running = False
 
     def stop(self):
-        print "%s stopping" % self.thread_name
+        output = "%s stopping" % self.thread_name
+        self.print_output(output)
         self.stop_booking()
+        output = "%s stopped" % self.thread_name
+        self.print_output(output)
         thread.exit()
 
     def stop_booking(self):
@@ -219,7 +212,12 @@ class CarThread(threading.Thread):
         }
         requests.post(url + booking_param + booking_param_finish, json=data)
 
-    def __init__(self, thread_name, car_id, user_id):
+    def print_output(self, output):
+        self.debugText.config(state=NORMAL)
+        self.debugText.insert(END, output + "\n")
+        self.debugText.config(state=DISABLED)
+
+    def __init__(self, thread_name, car_id, user_id, debugText):
         threading.Thread.__init__(self)
         self.thread_name = thread_name
         self.car_id = car_id
@@ -228,27 +226,67 @@ class CarThread(threading.Thread):
         self.endTime = None
         self.distance = None
         self.last_loc = None
+        self.debugText = debugText
 
 
-# Main function
-def main():
-    # Create booking and store user and car ids
-    users_and_cars = make_booking()
-    print users_and_cars
+# Confirm Button method
+def confirm(amount, btn, input, debugText):
+    btn.config(state="disable")
+    input.config(state="disabled")
+    users_and_cars = make_booking(amount)
     # Run a thread for each booking
     for id in users_and_cars:
         thread_name = "thread-" + id['cid']
         try:
-            cthread = CarThread(thread_name, id['cid'], id['uid'])
+            cthread = CarThread(thread_name, id['cid'], id['uid'], debugText)
             cthread.start()
             # Store threads for early stop
             threads.append(cthread)
         except:
             print "Error trying to start %s" % thread_name
 
-    # Added listener for proper stop
-    listener = keyboard.Listener(on_release=on_release)
-    listener.start()
+# # listener. Press x to stop properly (finishing the booking)
+def cancel(cancelBtn, window):
+    cancelBtn.config(state="disable")
+    for t in threads:
+        t.thread_stopper()
+
+
+# Main function
+def main():
+    # Create booking and store user and car ids
+    users_and_cars = []
+
+    # Create window
+    window = Tkinter.Tk()
+    window.geometry("600x800")
+    window.title("Ace Rentals GPS API")
+
+    # Set top label
+    inputLabel = StringVar()
+    inputLabel.set("Input Booking amount")
+    label = Label(window, textvariable=inputLabel, height=2)
+    label.pack()
+
+    # Set booking amount entry
+    inputAmount = Entry()
+    inputAmount.pack(pady=20)
+
+    # Set button frame for 1 line buttons
+    buttonFrame = Frame(window)
+    buttonFrame.grid(row=2, column=0, columnspan=2)
+    # Set buttons
+    inputButton = Button(buttonFrame, text="Confirm", command=lambda: confirm(inputAmount.get(), buttonFrame.winfo_children()[0], inputAmount, debugText)).grid(row=0, column=0)
+    cancelButton = Button(buttonFrame, text="Stop", command=lambda: cancel(buttonFrame.winfo_children()[1], window)).grid(row=0, column=1)
+    buttonFrame.pack(pady=20)
+
+    # Set debug text box
+    debugText = Text(window, height=1, width=5)
+    debugText.config(state=DISABLED)
+    debugText.pack(fill=BOTH, expand=1)
+
+    # Run window
+    window.mainloop()
 
 
 if __name__ == "__main__":
