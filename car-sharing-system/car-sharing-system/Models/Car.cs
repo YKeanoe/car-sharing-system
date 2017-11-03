@@ -84,8 +84,32 @@ namespace car_sharing_system.Models
 			this.latlong = latlong;
 		}
 
+        public Car() {
+            this.numberPlate = null;
+            this.latlong = null;
+            this.country = null;
+            this.brand = null;
+            this.model = null;
+            this.vehicleType = null;
+            this.seats = 0;
+            this.doors = 0;
+            this.transmission = 'A';
+            this.status = 'A';
+            this.fuelType = null;
+            this.tankSize = 0;
+            this.fuelConsumption = 0;
+            this.avgRange = 0;
+            this.rate = 0;
+            this.cdPlayer = false;
+            this.gps = false;
+            this.bluetooth = false;
+            this.cruiseControl = false;
+            this.reverseCam = false;
+            this.radio = false;
+        }
 
-		public Car(String numberPlate, String brand, String model, String vehicleType, double rate, char status) {
+
+        public Car(String numberPlate, String brand, String model, String vehicleType, double rate, char status) {
 			this.numberPlate = numberPlate;
 			this.brand = brand;
 			this.model = model;
