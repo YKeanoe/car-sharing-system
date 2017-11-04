@@ -242,8 +242,8 @@ namespace car_sharing_system.Models.Tests
             string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
             string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
             String password = "Testing1"; // Plaintext Password
+            String newPassword = new User().hashMe(password);
             String email = "example3@email.com" + randInt; // Valid email
-            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = randLicense; // 9 digit license number
             String fname = "John"; // First Name
             String lname = "Smith"; // Last Name
@@ -257,13 +257,13 @@ namespace car_sharing_system.Models.Tests
             String city = "Melbourne"; // City
             String country = "Australia"; // Country
             String profileURL = "null"; // Avatar image url?
-            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+            newUser = new User(-1, email, newPassword, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
             DatabaseReader.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            User myData = UserModel.loginAttempt(email, passwordTest);
+            User myData = UserModel.loginAttempt(email, newPassword);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database" + "user info: \n"
@@ -294,55 +294,44 @@ namespace car_sharing_system.Models.Tests
         [Test()]
         public void registerUserTestNopassword() // To attempt to register a user with no password
         {
-            string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
-            string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
-            String password = null; // No password
-            String email = "example3@email.com" + randInt; // Valid email 
-            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
-            String licenseNo = randLicense; // 9 digit license number
-            String fname = "John"; // First Name
-            String lname = "Smith"; // Last Name
-            String gender = "Male"; // Gender (Male / Female)
-            String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
-            String phone = "9300 1212"; // Phone number
-            String street = "1 Example Street"; // Street Address
-            String suburb = "Docklands"; // Suburb
-            String postcode = "1234"; // Postcode
-            String territory = "Territory"; // Territory
-            String city = "Melbourne"; // City
-            String country = "Australia"; // Country
-            String profileURL = "null"; // Avatar image url?
-            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
-                gender, birth, phone, street, suburb, postcode, territory,
-                city, country, profileURL);
-            DatabaseReader.Registeration(newUser); // Register new user
-
-            UserModel data = new UserModel();
-            User myData = UserModel.loginAttempt(email, password);
-            if (myData != null)
+            String test = "";
+            try
             {
-                Assert.Fail("Valid User in database" + "user info: \n"
-                            + "\nID: " + myData.id
-                            + "\nEmail: " + myData.email
-                            + "\nPassword: " + myData.password
-                            + "\nPermission: " + myData.permission
-                            + "\nLicense Number: " + myData.licenseNo
-                            + "\nFirst Name: " + myData.fname
-                            + "\nLast Name: " + myData.lname
-                            + "\nGender: " + myData.gender
-                            + "\nDate of Birth: " + myData.birth
-                            + "\nPhone Number: " + myData.phone
-                            + "\nStreet Address: " + myData.street
-                            + "\nSuburb: " + myData.suburb
-                            + "\nPostcode: " + myData.postcode
-                            + "\nTerritory: " + myData.territory
-                            + "\nCity: " + myData.city
-                            + "\nCountry: " + myData.country
-                            + "\nImage URL: " + myData.profileURL);
+                string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
+                string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
+                String password = null; // No password
+                String email = "example3@email.com" + randInt; // Valid email 
+                String licenseNo = randLicense; // 9 digit license number
+                String fname = "John"; // First Name
+                String lname = "Smith"; // Last Name
+                String gender = "Male"; // Gender (Male / Female)
+                String birth = "01/12/1990"; // Date of birth 'dd/mm/yyyy'
+                String phone = "9300 1212"; // Phone number
+                String street = "1 Example Street"; // Street Address
+                String suburb = "Docklands"; // Suburb
+                String postcode = "1234"; // Postcode
+                String territory = "Territory"; // Territory
+                String city = "Melbourne"; // City
+                String country = "Australia"; // Country
+                String profileURL = "null"; // Avatar image url?
+                newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+                    gender, birth, phone, street, suburb, postcode, territory,
+                    city, country, profileURL);
+                DatabaseReader.Registeration(newUser); // Register new user
+
+                UserModel data = new UserModel();
+            }
+            catch (Exception)
+            {
+                test = "Pass";
+            }
+            if (test == "Pass")
+            {
+                Assert.Pass("Null for password was handled successfully.");
             }
             else
             {
-                Assert.Pass("Email and/or Password does not match in database.");
+                Assert.Fail("Null for password was not handled successfully.");
             }
         }
 
@@ -355,7 +344,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com"; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -398,7 +387,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = null; // No email entered
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -440,7 +429,7 @@ namespace car_sharing_system.Models.Tests
                 string randInt = GetRandomNumber(0, 1000).ToString();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = "123456789"; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -482,7 +471,7 @@ namespace car_sharing_system.Models.Tests
                 string randInt = GetRandomNumber(0, 1000).ToString();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = null; // 9 digit license number, nothing entered
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -524,7 +513,7 @@ namespace car_sharing_system.Models.Tests
                 string randInt = GetRandomNumber(0, 1000).ToString();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = null; // 9 digit license number, nothing entered
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -566,7 +555,7 @@ namespace car_sharing_system.Models.Tests
                 string randInt = GetRandomNumber(0, 1000).ToString();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = null; // 9 digit license number, nothing entered
                 String fname = null; // First Name
                 String lname = "Smith"; // Last Name
@@ -609,7 +598,7 @@ namespace car_sharing_system.Models.Tests
                 string randInt = GetRandomNumber(0, 1000).ToString();
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number, nothing entered
                 String fname = null; // First Name
                 String lname = "Smith"; // Last Name
@@ -652,7 +641,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = null; // First Name
                 String lname = "Smith"; // Last Name
@@ -695,7 +684,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = null; // Last Name
@@ -738,7 +727,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = null; // Last Name
@@ -781,7 +770,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = null; // Last Name
@@ -824,7 +813,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -867,7 +856,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -910,7 +899,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -953,7 +942,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -996,7 +985,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1039,7 +1028,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = null; // First Name
                 String lname = "Smith"; // Last Name
@@ -1082,7 +1071,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1125,7 +1114,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1168,7 +1157,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1211,7 +1200,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1254,7 +1243,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1297,7 +1286,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1340,7 +1329,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1383,7 +1372,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1426,7 +1415,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1469,7 +1458,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1512,7 +1501,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1555,7 +1544,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1575,7 +1564,7 @@ namespace car_sharing_system.Models.Tests
                 DatabaseReader.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
-                User myData = UserModel.loginAttempt(email, passwordTest);
+                User myData = UserModel.loginAttempt(email, password);
             }
             catch (Exception)
             {
@@ -1601,7 +1590,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1621,7 +1610,7 @@ namespace car_sharing_system.Models.Tests
                 DatabaseReader.Registeration(newUser); // Register new user
 
                 UserModel data = new UserModel();
-                User myData = UserModel.loginAttempt(email, passwordTest);
+                User myData = UserModel.loginAttempt(email, password);
             }
             catch (Exception)
             {
@@ -1647,7 +1636,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = null; // First Name
                 String lname = "Smith"; // Last Name
@@ -1690,7 +1679,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = null; // First Name
                 String lname = "Smith"; // Last Name
@@ -1733,7 +1722,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = null; // First Name
                 String lname = null; // Last Name
@@ -1776,7 +1765,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1819,7 +1808,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1862,7 +1851,7 @@ namespace car_sharing_system.Models.Tests
                 string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
                 String password = "Testing1"; // Plaintext Password
                 String email = "example3@email.com" + randInt; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = randLicense; // 9 digit license number
                 String fname = "John"; // First Name
                 String lname = "Smith"; // Last Name
@@ -1901,8 +1890,8 @@ namespace car_sharing_system.Models.Tests
             string randInt = GetRandomNumber(0, 1000).ToString(); // Randomly generated number
             string randLicense = GetRandomNumber(100000000, 999999999).ToString(); // Randomly generated license number
             String password = "Testing1"; // Plaintext Password
+            String newPassword = new User().hashMe(password);
             String email = "example3@email.com" + randInt; // Valid email
-            String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
             String licenseNo = randLicense; // 9 digit license number
             String fname = "John"; // First Name
             String lname = "Smith"; // Last Name
@@ -1916,13 +1905,13 @@ namespace car_sharing_system.Models.Tests
             String city = "melbourne"; // City
             String country = "Australia"; // Country
             String profileURL = ""; // Avatar image url?
-            newUser = new User(-1, email, password, 0, licenseNo, fname, lname,
+            newUser = new User(-1, email, newPassword, 0, licenseNo, fname, lname,
                 gender, birth, phone, street, suburb, postcode, territory,
                 city, country, profileURL);
             DatabaseReader.Registeration(newUser); // Register new user
 
             UserModel data = new UserModel();
-            User myData = UserModel.loginAttempt(email, passwordTest);
+            User myData = UserModel.loginAttempt(email, newPassword);
             if (myData != null)
             {
                 Assert.Pass("Valid User in database" + "user info: \n"
@@ -1958,7 +1947,7 @@ namespace car_sharing_system.Models.Tests
             {
                 String password = null; // Plaintext Password
                 String email = null; // Valid email
-                String passwordTest = (password + "CarSharing2017").ToSHA(Crypto.SHA_Type.SHA512); // Hashing function for password
+                password = new User().hashMe(password); // Hashing function for password
                 String licenseNo = null; // 9 digit license number
                 String fname = null; // First Name
                 String lname = null; // Last Name
