@@ -19,14 +19,18 @@ The system must:
 * Documentation
 
 ### Built With
-The application is built using [Visual Studio](https://www.visualstudio.com/) using [.NET](https://www.microsoft.com/net/) Framework. It is written mostly in C# & Javascript for the system functionality and HTML & CSS for the web page.
+* [Visual Studio](https://www.visualstudio.com/) - Framework
+* [.NET](https://www.microsoft.com/net/) - Framework
+* C# - Language
+* Javascript - Language
+* HTML - Language
 
 Third party libraries is used for the system such as [JQuery](https://jquery.com), [Bootstrap](https://getbootstrap.com), and [startbootstrap-sb-admin](https://github.com/BlackrockDigital/startbootstrap-sb-admin), 
 
 
 ### Members:
-- Yohanes Keanoe
-- Jay Males
-- Benjamin Mai
-- Kevin Mai
-- Tony Cn
+* Jay Males - Project Leader / Back-end Developer
+* Kevin Mai - Product Owner / Database Developer
+* Benjamin Mai - Tester / Front-end Developer
+* Tony Cn - Front-end Developer
+* Yohanes Keanoe - Back-end Developer / Front-end Developer
