@@ -18,6 +18,18 @@ The system must:
 * Pyhton executable for car's GPS
 * Documentation
 
+### Showcase
+***Front Page***  
+![front-page](https://github.com/ZankiMaru/car-sharing-system/blob/master/showcases/front-page.gif)
+
+***Dashboard Page***  
+![dashboard](https://github.com/ZankiMaru/car-sharing-system/blob/master/showcases/dashboard-seq.gif)
+
+***Normal Maze***  
+![filter](https://github.com/ZankiMaru/car-sharing-system/blob/master/showcases/filter-seq.gif)
+
+
+
 ### Built With
 * [Visual Studio](https://www.visualstudio.com/) - Framework
 * [.NET](https://www.microsoft.com/net/) - Framework
