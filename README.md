@@ -25,7 +25,7 @@ The system must:
 ***Dashboard Page***  
 ![dashboard](https://github.com/ZankiMaru/car-sharing-system/blob/master/showcases/dashboard-seq.gif)
 
-***Normal Maze***  
+***Filter Features***  
 ![filter](https://github.com/ZankiMaru/car-sharing-system/blob/master/showcases/filter-seq.gif)
 
 
